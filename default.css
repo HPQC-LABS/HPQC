@@ -191,7 +191,6 @@
 		letter-spacing: 0.20em;
 		line-height: 4em;
 		text-decoration: none;
-		text-transform: uppercase;
 		font-weight: 400;
 		font-size: 1em;
 		color: #FFF;
@@ -221,7 +220,6 @@
 	
 	.title h2
 	{
-		text-transform: uppercase;
 		font-size: 2.7em;
 	}
 	
@@ -333,7 +331,6 @@
 	#logo a
 	{
 		text-decoration: none;
-		text-transform: uppercase;
 		color: #79C255;
 	}
 
@@ -365,7 +362,6 @@
 		padding: 1em 1.5em;
 		letter-spacing: 1px;
 		text-decoration: none;
-		text-transform: uppercase;
 		font-size: 0.8em;
 		color: #2B3F48;
 	}
@@ -404,7 +400,6 @@
 	#banner .title
 	{
 		margin-bottom: 1em;
-		text-transform: uppercase !important;
 	}
 
 	#banner .title h2
