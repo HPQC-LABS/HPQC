@@ -526,7 +526,6 @@
 /*********************************************************************************/
 /* Featured                                                                      */
 /*********************************************************************************/
-/*
 .box
 {
 	padding: 3em 2em 2em 2em;
@@ -534,7 +533,7 @@
 	border-radius: 8px;
 		text-align: center;
 }
-*/
+/*
 .box
 {
 	padding: -1em -1em -1em -1em;
@@ -543,8 +542,7 @@
 		text-align: center;
 		margin-bottom: 20px;
 }
-
-
+*/
 	#extra
 	{
 		overflow: hidden;
