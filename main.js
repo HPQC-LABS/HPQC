@@ -5,33 +5,29 @@ $(document).ready(function(){
     $('.peopleList').show();
    
     let faculty = [
-        {id: 11, firstName: 'Nike',  lastName: 'Dattani',   imgName: 'NikeDattani.png',     title: 'PhD Oxford'},
-        {id: 12, firstName: 'Erin',  lastName: 'Zuo',       imgName: 'ErinZuo.jpg',         title: 'PhD WIT'},
-        {id: 13, firstName: 'Deyan', lastName: 'Mihaylov',  imgName: 'DeyanMihaylov.png',   title: 'PhD Cambridge'}
+        {id: 101, firstName: 'Nike',  lastName: 'Dattani',   imgName: 'NikeDattani.png',     title: 'PhD Oxford'},
+        {id: 102, firstName: 'Erin',  lastName: 'Zuo',       imgName: 'ErinZuo.jpg',         title: 'PhD WIT'},
+        {id: 103, firstName: 'Deyan', lastName: 'Mihaylov',  imgName: 'DeyanMihaylov.png',   title: 'PhD Cambridge'}
     ]
-    facultyCards = "";
-    faculty.forEach(p => {
-        $('#peopleFlexList').append(createCard(p)).on("click", showBio);
-    })
-    // $('#peopleFlexList').html(createCard(faculty[0])) ; //.on("click", showBio);
-    document.getElementById('backToPeopleList').addEventListener('click', backToPeopleList);
 
-    function addEventListener(elementId){
-        document.getElementById(id).addEventListener('click', showBio);
-    };
-
-
-    function createCard(person) {
-        let card = `
-            <div class="person" id=${person.id}" > 
+    faculty.forEach(person => {
+        let newCard = `
+            <div class="person" id=${person.id}" >
                 <p class="personName"> ${person.firstName} ${person.lastName} </p>
                 <img src="images/${person.imgName}">
                 <p class="personTitle">${person.title}</p>
                 <span style="display:block; margin-top:-27px;"></span>
-            </div>
-        `;        
-        return card;
-    }
+            </div>`      
+        $('#peopleFlexList').append(newCard); 
+    });
+    
+    // Need to attach event listener synchronously!!
+    faculty.forEach(p => {
+        console.log(p.firstName);
+        $(`#${p.id}`).on("click", showBio);
+    });
+
+    document.getElementById('backToPeopleList').addEventListener('click', backToPeopleList);
 
     function showBio(){
         console.log("This is element", this.id);
