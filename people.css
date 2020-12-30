@@ -4,8 +4,15 @@
 }
 
 .peopleList{
+    padding: 8%;
     height: 600px;
     background-color: rgb(224, 196, 250);
+}
+
+.peopleListTitle{
+    width: 100%;
+    text-align: center;
+    font-size: 1.8em;
 }
 
 .peopleBio{
