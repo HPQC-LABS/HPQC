@@ -10,24 +10,33 @@ $(document).ready(function(){
         {id: 103, firstName: 'Deyan', lastName: 'Mihaylov',  imgName: 'DeyanMihaylov.png',   title: 'PhD Cambridge'}
     ]
 
-    faculty.forEach(person => {
-        let newCard = `
-            <div class="person" id=${person.id}" >
-                <p class="personName"> ${person.firstName} ${person.lastName} </p>
-                <img src="images/${person.imgName}">
-                <p class="personTitle">${person.title}</p>
-                <span style="display:block; margin-top:-27px;"></span>
-            </div>`      
-        $('#peopleFlexList').append(newCard); 
-    });
-    
-    // Need to attach event listener synchronously!!
-    faculty.forEach(p => {
-        console.log(p.firstName);
-        $(`#${p.id}`).on("click", showBio);
-    });
+    createCards(faculty, appendPerson);
+
+    function createCards(people, callback){
+        people.forEach(person => {
+            let card = `
+                <div class="person" id=${person.id}" >
+                    <p class="personName"> ${person.firstName} ${person.lastName} </p>
+                    <img src="images/${person.imgName}">
+                    <p class="personTitle">${person.title}</p>
+                    <span style="display:block; margin-top:-27px;"></span>
+                </div>`                
+            callback(card, person.id, addEventListener);
+        });
+    };
 
     document.getElementById('backToPeopleList').addEventListener('click', backToPeopleList);
+
+    function appendPerson(card, id, callback){
+        console.log("Appending person for: ", id);
+        $('#peopleFlexList').append(card);
+        callback(id);
+    }
+
+    function addEventListener(elementId){
+        console.log("Adding event listener for: ", elementId);
+        $(`#${elementId}`).on("click", showBio);
+    };
 
     function showBio(){
         console.log("This is element", this.id);
