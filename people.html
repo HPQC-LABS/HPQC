@@ -7,6 +7,7 @@
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="people.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -15,6 +16,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" href="images/favicon.ico" />
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
@@ -45,11 +47,23 @@
 		</div>
 		<ul class="actions">
 		</ul>
-	</div>
+    </div>
+    <div id="peoplePage" class="peoplePage">
+        <div id="peopleList" class="peopleContainer peopleList">
+            <div id="peopleFlexList">
+
+            </div>
+        </div>
+        <div id="peopleBio" class="peopleContainer peopleBio">
+            <div id="backToPeopleList">Back to People List</div>
+            
+        </div>
+    </div>
 	<div id="extra" class="container">
 		<div class="title">
 			<h2>Faculty</h2><br>
-			<span class="byline"></span> </div>
+            <span class="byline"></span> 
+        </div> 
 		<div id="three-column">
 			<div class="boxA">
 				<div class="box"> </span>
@@ -331,5 +345,6 @@
 <div id="copyright" class="container", style = "background:#79C255";>
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
