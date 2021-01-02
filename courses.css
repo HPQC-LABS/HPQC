@@ -1,0 +1,22 @@
+.coursesTable{
+    width: 70%;
+    margin: 1% 0% 5% 15%;
+    background-color: rgb(219, 173, 247);
+};
+
+.coursesTable1{
+    background-color: rgb(219, 173, 247);
+};
+
+.coursesTable2{
+    background-color: rgb(124, 154, 236);
+};
+  
+.check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 24px;
+    width: 12px;
+    border-bottom: 7px solid #78b13f;
+    border-right: 7px solid #78b13f;
+  }
