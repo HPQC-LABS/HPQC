@@ -3,11 +3,9 @@
 }
 
 table {
-    /* table-layout: fixed; */
     width: 80%;
     margin: 1% 0% 5% 10%;
     padding-bottom: 2%;
-    /* background-color: rgb(199, 224, 216); */
 }
 
 th {
@@ -29,13 +27,6 @@ td:first-child {
     padding: 1% 2% 1% 2%; 
 }
 
-/* 
-td:nth-child(3){
-    padding-bottom: 2%;
-} 
-*/
-
-/* td:nth-child(2), td:nth-child(3){ */
 td {
     padding-bottom: 2%;
     border-color: rgb(141, 136, 136);
