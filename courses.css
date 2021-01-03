@@ -28,7 +28,7 @@ td:first-child {
 }
 
 td {
-    padding-bottom: 2%;
+    /* padding-bottom: 2%; */
     border-color: rgb(141, 136, 136);
     border-bottom-style: dotted;
     border-bottom-width: 2px;
