@@ -22,10 +22,13 @@
 }
 
 .longName{
-    padding-top: 20px;
-    padding-bottom: 0px;
+    padding-top: 22px;
+    padding-bottom: 26px;
 }
 
+.longNameP{
+    line-height: 39px;
+}
 
 
 /* 
