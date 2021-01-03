@@ -1,17 +1,30 @@
-.coursesTable{
-    width: 70%;
-    margin: 1% 0% 5% 15%;
-    background-color: rgb(219, 173, 247);
-};
+#wrapper{
+    padding-bottom: 5%;
+}
 
-.coursesTable1{
-    background-color: rgb(219, 173, 247);
-};
+table {
+    /* table-layout: fixed; */
+    width: 80%;
+    margin: 1% 0% 5% 10%;
+    background-color: rgb(199, 224, 216);
+}
 
-.coursesTable2{
-    background-color: rgb(124, 154, 236);
-};
-  
+th:first-child {
+    width: 45%;
+    text-align: justify;
+}
+
+th:nth-child(2), th:nth-child(3){
+    text-align: center;
+    color: blueviolet;
+    padding: 2%;
+}
+
+
+td {
+    padding: 1% 2% 1% 2%; 
+}
+
 .check {
     display: inline-block;
     transform: rotate(45deg);
@@ -19,4 +32,8 @@
     width: 12px;
     border-bottom: 7px solid #78b13f;
     border-right: 7px solid #78b13f;
-  }
+    margin-left: 45%;
+}
+
+
+
