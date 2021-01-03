@@ -6,34 +6,57 @@ table {
     /* table-layout: fixed; */
     width: 80%;
     margin: 1% 0% 5% 10%;
-    background-color: rgb(199, 224, 216);
+    padding-bottom: 2%;
+    /* background-color: rgb(199, 224, 216); */
+}
+
+th {
+    font-size: 1.5em;
 }
 
 th:first-child {
-    width: 45%;
-    text-align: justify;
+    width: 50%;
 }
 
 th:nth-child(2), th:nth-child(3){
     text-align: center;
-    color: blueviolet;
-    padding: 2%;
+    color: #79C255;
+    padding-top: 2%;
 }
 
-
-td {
+td:first-child {
+    text-align: justify;
     padding: 1% 2% 1% 2%; 
 }
 
-.check {
+/* 
+td:nth-child(3){
+    padding-bottom: 2%;
+} 
+*/
+
+/* td:nth-child(2), td:nth-child(3){ */
+td {
+    padding-bottom: 2%;
+    border-color: rgb(141, 136, 136);
+    border-bottom-style: dotted;
+    border-bottom-width: 2px;
+}
+
+.check1 {
     display: inline-block;
     transform: rotate(45deg);
     height: 24px;
     width: 12px;
-    border-bottom: 7px solid #78b13f;
-    border-right: 7px solid #78b13f;
+    border-bottom: 7px solid #79C255;
+    border-right: 7px solid #79C255;
     margin-left: 45%;
 }
 
-
+.check2{
+    font-size: 2.5em;
+    text-align: center;
+    color: rgb(141, 136, 136);
+    margin-left: 40%;
+}
 
