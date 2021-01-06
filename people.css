@@ -3,15 +3,15 @@
 }
 
 .peopleBio{
-    width: 70%;
-    margin-left: 15%;
-    background-color: red;
+    width: 68%;
+    margin-left: 26%;
+    background-color: white;
 }
 
 .personBio{
-    width: 100%;
-    height: 900px;
-    background-color: rgb(248, 227, 220);
+    width: 70%;
+    height: 600px;
+    background-color: rgb(248, 248, 248);
 }
 
 .boxA a, 
