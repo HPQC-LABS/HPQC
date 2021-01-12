@@ -25,7 +25,13 @@
     padding-top: 15px;
 }
 
+.clearfix{
+    overflow: auto;
+}
 
+.left {
+    float: left;
+}
 
 /* 
 
@@ -71,3 +77,4 @@
 .personTitle {
     font-size: 25px;
 } */
+
