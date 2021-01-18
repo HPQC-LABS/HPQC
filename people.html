@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>HPQC Labs: High Performance & Quantum Computing</title>
 <meta name="keywords" content="" />
@@ -23,11 +24,10 @@
 <body>
 <div id="wrapper">
 	<div id="header" class="container">
-		<div id="logo">
-			<h1><a href="index.html">HPQC Labs</a></h1>
-		</div>
 		<div id="menu">
-			<ul>
+            <span class="navbar-toggle" id="navbar-toggle" >&#9776;</span>
+			<a href="index.html" class="logo"> HPQC Labs</a>
+			<ul class="main-nav" id="main-nav">
 				<li><a href="index.html" accesskey="1" title="">Homepage</a></li>
 				<li class="current_page_item"><a href="people.html" accesskey="2" title="">People</a></li>
 				<li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
@@ -48,350 +48,418 @@
 		<ul class="actions">
 		</ul>
     </div>
+
     <div id="peopleList" class="peopleList">
-
-        <div id="extra" class="container">
-            <div class="title">
+    <div id="Faculty">
+            <div class="peopleTitle">
                 <h2>Faculty</h2><br>
-                <span class="byline"></span> 
-            </div> 
-            <div id="three-column">
-                <div class="boxA">
-                    <a href="#101bio">
-                        <div class="box" id="101"> </span>
-                            <p style="font-size:30px">Nike <br>Dattani </p>
-                            <img src="images/NikeDattani.png", Width="270", Height="285">
-                            <p style="font-size:25px">PhD Oxford</p>
-                            <span style="display:block; margin-top:-27px;"></span>
-                        </div>
+            </div>
+            <div class="band">
+                <div class="item-1">
+                    <a href="#101bio" class="card" id="101">
+                        <div class="personPic" style="background-image: url('images/NikeDattani.png')"></div>
+                        <article>
+                        <h1>Nike Dattani</h1>
+                        <span>PhD Oxford</span>
+                        </article>
                     </a>
                 </div>
-                <div class="boxB">
-                    <a href="#102bio">
-                        <div class="box" id="102"></span>
-                            <p style="font-size:30px">Roselyn <br> Lemus-Martin</p>
-                            <img src="images/RoselynLemus.png", Width="270", Height="285">
-                            <p style="font-size:25px">PhD Oxford</p>
-                            <span style="display:block; margin-top:-27px;"> </span>
-                        </div>
+                <div class="item-2">
+                    <a href="#102bio" class="card" id="102">
+                        <div class="personPic" style="background-image: url('images/RoselynLemus.png');"></div>
+                        <article>
+                        <h1>Roselyn Lemus-Martin</h1>
+                        <span>PhD Oxford</span>
+                        </article>
                     </a>
                 </div>
-                <div class="boxC">
-                    <a href="#103bio">
-                        <div class="box" id="103"> </span>
-                            <p style="font-size:30px">Deyan <br>Mihaylov</p>
-                            <img src="images/DeyanMihaylov.png", Width="270", Height="285">
-                            <p style="font-size:25px">PhD Cambridge</p>
-                            <span style="display:block; margin-top:-27px;"></span>
-                        </div>
+                <div class="item-3">
+                <a href="#103bio" class="card" id="103">
+                    <div class="personPic" style="background-image: url('images/DeyanMihaylov.png');"></div>
+                    <article>
+                    <h1>Deyan Mihaylov</h1>
+                    <span>PhD Cambridge</span>
+                    </article>
+                </a>
+                </div>
+            </div>
+        </div>
+        <div id="Students">
+            <div class="peopleTitle">
+                <h2>Students</h2><br>
+            </div>
+            <div class="band">
+                <div class="item-1">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('https://avatars1.githubusercontent.com/u/33160873?s=460&u=bb4f8d4f11c2a78050e4f2d45fdeabbdd5852b90&v=4"></div>
+                        <article>
+                        <h1>Edwin Camilo</h1>
+                        <span>PhD Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-2">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/AndreasSoteriou.png');"></div>
+                        <article>
+                        <h1>Andreas Soteriou</h1>
+                        <span>MSc Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-3">
+                <a class="card">
+                    <div class="personPic" style="background-image: url('images/EtiennePalos.png');"></div>
+                    <article>
+                    <h1>Etienne Palos</h1>
+                    <span>PhD Student</span>
+                    </article>
+                </a>
+                </div>
+                <div class="item-4">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/SiddhantSingh.png')"></div>
+                        <article>
+                        <h1>Siddhant Singh</h1>
+                        <span>Pre-Doctoral Fellow</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-5">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/SaiSmaran.png');"></div>
+                        <article>
+                        <h1>Sai Smaran</h1>
+                        <span>Undergrad Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-6">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/BhavikMehta.png');"></div>
+                        <article>
+                        <h1>Bhavik Mehta</h1>
+                        <span>PhD Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-7">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/ErikaBruulsema.png')"></div>
+                        <article>
+                        <h1>Erika Bruulsema</h1>
+                        <span>Undergrad Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-8">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/RachelleFontanilla.png');"></div>
+                        <article>
+                        <h1>Rachelle Fontanilla</h1>
+                        <span>Undergrad Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-9">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/TinaYu.png');"></div>
+                        <article>
+                        <h1>Tina Yu</h1>
+                        <span>Undergrad Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-10">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/MatthewCharbonneau.png')"></div>
+                        <article>
+                        <h1>Matthew Charbonneau</h1>
+                        <span>Undergrad Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-11">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/RubyKong.png');"></div>
+                        <article>
+                        <h1>Ruby Kong</h1>
+                        <span>Undergrad Student</span>
+                        </article>
+                    </a>
+                </div>
+                <div class="item-12">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/TimLi.png');"></div>
+                        <article>
+                        <h1>Tim Li</h1>
+                        <span>Undergrad Student</span>
+                        </article>
                     </a>
                 </div>
             </div>
         </div>
-        <div id="extra" class="container">
-            <div class="title">
-                <span style="display:block; margin-top:-77px;"> <h2>Students</h2> </span><br><br>
-                <span class="byline"></span> 
+        <div id="ProjectMembers">
+            <div class="peopleTitle">
+                <h2>Project Members</h2><br>
             </div>
-            <div id="three-column">
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Edwin Camilo</p>
-                        <img src="https://avatars1.githubusercontent.com/u/33160873?s=460&u=bb4f8d4f11c2a78050e4f2d45fdeabbdd5852b90&v=4", Width="270", Height="285">
-                        <p style="font-size:25px">PhD Student</p>
-                    </div>
+            <div class="band">
+                <div class="item-1">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('https://scholar.googleusercontent.com/citations?view_op=view_photo&user=pECG7MoAAAAJ&citpid=2')"></div>
+                        <article>
+                        <h1>Elisabeth Rodríguez-Heck</h1>
+                        <span>Classical Quadratization</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Andreas Soteriou</p>
-                        <img src="images/AndreasSoteriou.png", Width="270", Height="285">
-                        <p style="font-size:25px">MSc Student</p>
-                    </div>
+                <div class="item-2">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/CorinneDupperouzel.png')"></div>
+                        <article>
+                        <h1>Corinne Dupperouzel</h1>
+                        <span>Quantum Chemistry</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Etienne Palos</p>
-                        <img src="images/EtiennePalos.png", Width="270", Height="285">
-                        <p style="font-size:25px">PhD Student</p>
-                    </div>
+                <div class="item-3">
+                <a class="card">
+                    <div class="personPic" style="background-image: url('https://stats.ioinformatics.org/img/photos/2017/5654.jpg');"></div>
+                    <article>
+                    <h1>Hou Tin Chau</h1>
+                    <span>Classical Quadratization</span>
+                    </article>
+                </a>
                 </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Siddhant Singh</p>
-                        <img src="images/SiddhantSingh.png", Width="270", Height="285">
-                        <p style="font-size:25px">Pre-Doctoral Fellow</p>
-                    </div>
+                <div class="item-4">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/SzilardSzalay.png')"></div>
+                        <article>
+                        <h1>Szilárd Szalay</h1>
+                        <span>Graph Theory</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Sai Smaran</p>
-                        <img src="images/SaiSmaran.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
+                <div class="item-5">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/NicholasChancellor.png');"></div>
+                        <article>
+                        <h1>Nicholas Chancellor</h1>
+                        <span>Quantum Quadratization</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Bhavik Mehta</p>
-                        <img src="images/BhavikMehta.png", Width="270", Height="285">
-                        <p style="font-size:25px">PhD Student</p>
-                    </div>
+                <div class="item-6">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/YuZhai.png');"></div>
+                        <article>
+                        <h1>Yu Zhai</h1>
+                        <span>Quantum Chemistry</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Erika Bruulsema</p>
-                        <img src="images/ErikaBruulsema.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
+                <div class="item-7">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/JoshuaTylerCantin.png')"></div>
+                        <article>
+                        <h1>Joshua Cantin</h1>
+                        <span>Hamiltonian Zoo</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Rachelle<br>Fontanilla</p>
-                        <img src="images/RachelleFontanilla.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
+                <div class="item-8">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/YudongCao.png');"></div>
+                        <article>
+                        <h1>Yudong Cao</h1>
+                        <span>Quantum Quadratization</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Tina Yu</p>
-                        <img src="images/TinaYu.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
-                </div>
-                <div class="boxA">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Matthew <br> Charbonneau</p>
-                        <img src="images/MatthewCharbonneau.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
-                </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px"> Ruby Kong</p>
-                        <img src="images/RubyKong.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
-                </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Tim Li</p>
-                        <img src="images/TimLi.png", Width="270", Height="285">
-                        <p style="font-size:25px">Undergrad Student</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div id="extra" class="container">
-            <br><br>
-            <div class="title">
-                <span style="display:block; margin-top:-47px;"> <h2>Project Members</h2> </span><br><br>
-                <span class="byline"></span> 
-            </div>
-            <div id="three-column">
-                <div class="boxA">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Elisabeth <br> Rodríguez-Heck</p>
-                        <img src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=pECG7MoAAAAJ&citpid=2", Width="270", Height="285">
-                        <p style="font-size:25px">Classical Quadratization</p>
-                    </div>
-                </div>
-                <div class="boxB">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Corinne<br>Dupperouzel</p>
-                        <img src="images/CorinneDupperouzel.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quantum<br> Chemistry</p>
-                    </div>
-                </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Hou Tin Chau</p>
-                        <img src="https://stats.ioinformatics.org/img/photos/2017/5654.jpg", Width="270", Height="285">
-                        <p style="font-size:25px">Classical Quadratization</p>
-                    </div>
-                </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Szilárd Szalay</p>
-                        <img src="images/SzilardSzalay.png", Width="270", Height="285">
-                        <p style="font-size:25px">Graph<br>Theory</p>
-                    </div>
-                </div>
-                <div class="boxB">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Nicholas <br>Chancellor</p>
-                        <img src="images/NicholasChancellor.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quantum Quadratization</p>
-                    </div>
-                </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Yu Zhai</p>
-                        <img src="images/YuZhai.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quantum<br> Chemistry</p>
-                    </div>
-                </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Joshua Cantin</p>
-                        <img src="images/JoshuaTylerCantin.png", Width="270", Height="285">
-                        <p style="font-size:25px">Hamiltonian <br> Zoo</p>
-                    </div>
-                </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Yudong Cao</p>
-                        <img src="images/YudongCao.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quantum Quadratization</p>
-                    </div>
-                </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Ka Wa Yip</p>
-                        <img src="images/KaWaYip.png", Width="270", Height="285">
-                        <p style="font-size:25px">Classical Quadratization</p>
-                    </div>
+                <div class="item-9">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/KaWaYip.png');"></div>
+                        <article>
+                        <h1>Ka Wa Yip</h1>
+                        <span>Classical Quadratization</span>
+                        </article>
+                    </a>
                 </div>
             </div>
         </div>
-        <div id="extra" class="container">
-            <div class="title"><br><br>
-                <span style="display:block; margin-top:-37px;"> <h2>Former Students</h2> </span><br><br>
-                <span class="byline"></span> 
+        <div id="FormerStudents">
+            <div class="peopleTitle">
+                <h2>Former Students</h2><br>
             </div>
-            <div id="three-column">
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Richard Tanburn</p>
-                        <img src="images/RichardTanburn.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quadratization</p>
-                    </div>
+            <div class="band">
+                <div class="item-1">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/RichardTanburn.png')"></div>
+                        <article>
+                        <h1>Richard Tanburn</h1>
+                        <span>Quadratization</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Emile Okada</p>
-                        <img src="images/EmileOkada.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quadratization</p>
-                    </div>
+                <div class="item-2">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/EmileOkada.png')"></div>
+                        <article>
+                        <h1>Emile Okada</h1>
+                        <span>Quadratization</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Pankaj Gupta</p>
-                        <img src="images/PankajGupta.png", Width="270", Height="285">
-                        <p style="font-size:25px">Computer Vision</p>
-                    </div>
+                <div class="item-3">
+                <a class="card">
+                    <div class="personPic" style="background-image: url('images/PankajGupta.png');"></div>
+                    <article>
+                    <h1>Pankaj Gupta</h1>
+                    <span>Computer Vision</span>
+                    </article>
+                </a>
                 </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Nathan Bryans</p>
-                        <img src="images/NathanBryans.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quantum Compilers</p>
-                    </div>
+                <div class="item-4">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/NathanBryans.png')"></div>
+                        <article>
+                        <h1>Nathan Bryans</h1>
+                        <span>Quantum Compilers</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Toby <br> Cathcart-Burn</p>
-                        <img src="images/TobyCathcartBurn.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quadratization</p>
-                    </div>
+                <div class="item-5">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/TobyCathcartBurn.png');"></div>
+                        <article>
+                        <h1>Toby Cathcart-Burn</h1>
+                        <span>Quadratization</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Faith Kimongo</p>
-                        <img src="images/FaithKimongo.png", Width="270", Height="285">
-                        <p style="font-size:25px">Graph Theory</p>
-                    </div>
+                <div class="item-6">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/FaithKimongo.png');"></div>
+                        <article>
+                        <h1>Faith Kimongo</h1>
+                        <span>Graph Theory</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Hari Jackson</p>
-                        <img src="images/HariJackson.png", Width="270", Height="285">
-                        <p style="font-size:25px">Computational Genomics</p>
-                    </div>
+                <div class="item-7">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/HariJackson.png')"></div>
+                        <article>
+                        <h1>Hari Jackson</h1>
+                        <span>Computational Genomics</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Staszek Welsh</p>
-                        <img src="images/StaszekWelsh.png", Width="270", Height="285">
-                        <p style="font-size:25px">Computational Chemistry</p>
-                    </div>
+                <div class="item-8">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/StaszekWelsh.png');"></div>
+                        <article>
+                        <h1>Staszek Welsh</h1>
+                        <span>Computational Chemistry</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Kai Slaughter</p>
-                        <img src="images/KaiSlaughter.png", Width="270", Height="285">
-                        <p style="font-size:25px">Computational Chemistry</p>
-                    </div>
+                <div class="item-9">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/KaiSlaughter.png');"></div>
+                        <article>
+                        <h1>Kai Slaughter</h1>
+                        <span>Computational Chemistry</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxA">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Young-Sang <br> Cho</p>
-                        <img src="images/YoungSangCho.png", Width="270", Height="285">
-                        <p style="font-size:25px">Computational Chemistry</p>
-                    </div>
+                <div class="item-10">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/YoungSangCho.png');"></div>
+                        <article>
+                        <h1>Young-Sang Cho</h1>
+                        <span>Computational Chemistry</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Oliver Lunt</p>
-                        <img src="images/OliverLunt.png", Width="270", Height="285">
-                        <p style="font-size:25px">Adiabatic Quantum Computing</p>
-                    </div>
+                <div class="item-11">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/OliverLunt.png');"></div>
+                        <article>
+                        <h1>Oliver Lunt</h1>
+                        <span>Adiabatic Quantum Computing</span>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Richard Ngo</p>
-                        <img src="images/RichardNgo.png", Width="270", Height="285">
-                        <p style="font-size:25px">Quantum <br>Compilers</p>
-                    </div>
+                <div class="item-12">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/RichardNgo.png');"></div>
+                        <article>
+                        <h1>Richard Ngo</h1>
+                        <span>Quantum Compilers</span>
+                        </article>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <div id="extra" class="container">
-            <div class="title">
-                <br><br>			
-                <span style="display:block; margin-top:-37px;"> <h2>Interim Board of Directors</h2> </span><br><br>
-                <span class="byline"></span> 
+        <div id="Directors">
+            <div class="peopleTitle">
+                <h2>Interim Board of Directors</h2><br>
             </div>
-            <div id="three-column">
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Azam Husain</p>
-                        <img src="images/AzamHusain2.png", Width="270", Height="285">
-                    </div>
+            <div class="band">
+                <div class="item-1">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/AzamHusain2.png')"></div>
+                        <article>
+                        <h1>Azam Husain</h1>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Luisa Pegoraro</p>
-                        <img src="images/LuisaPegoraro.png", Width="270", Height="285">
-                    </div>
+                <div class="item-2">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/LuisaPegoraro.png');"></div>
+                        <article>
+                        <h1>Luisa Pegoraro</h1>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">John Amari</p>
-                        <img src="images/JohnAmari.jpeg", Width="270", Height="285">
-                    </div>
+                <div class="item-3">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/JohnAmari.jpeg');"></div>
+                        <article>
+                        <h1>John Amari</h1>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxA">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Erin Zuo</p>
-                        <img src="images/ErinZuo.jpg", Width="270", Height="285">
-                    </div>
+                <div class="item-4">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/ErinZuo.jpg')"></div>
+                        <article>
+                        <h1>Erin Zuo</h1>
+                        </article>
+                    </a>
                 </div>
-                    <div class="boxB">
-                    <div class="box"> </span>
-                        <p style="font-size:30px">Vineeth Patil</p>
-                        <img src="images/VineethPatil2.png", Width="270", Height="285">
-                    </div>
+                <div class="item-5">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/VineethPatil.jpeg');"></div>
+                        <article>
+                        <h1>Vineeth Patil</h1>
+                        </article>
+                    </a>
                 </div>
-                <div class="boxC">
-                    <div class="box longName"> </span>
-                        <p style="font-size:25px">Vithu <br> Ramachandran</p>
-                        <img src="images/VithuRamachandran.jpeg", Width="270", Height="285">
-                    </div>
+                <div class="item-6">
+                    <a class="card">
+                        <div class="personPic" style="background-image: url('images/VithuRamachandran.jpeg');"></div>
+                        <article>
+                        <h1>Vithu Ramachandran</h1>
+                        </article>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+
     <div id="peopleBio" class="peopleBio">
         <br>
         <div id="backToPeopleList" class="backToPeopleList">
@@ -400,23 +468,27 @@
         <br>
         <div id="101bio" class="personBio">
         <br>
-        <h1>&nbsp  Dr. Nike Dattani</h1><br>&nbsp&nbsp&nbsp 
-        <img class="left" src="images/NikeDattani.png", Width="270", Height="285">
+        <h1>Dr. Nike Dattani</h1><br>&nbsp&nbsp&nbsp 
+        <img src="images/NikeDattani.png", Width="270", Height="285">
         </div>
+        <br>
         
         <div id="102bio" class="personBio">
-        <h1>&nbsp  Dr. Roselyn Lemus-Martin    </h1><br>&nbsp&nbsp&nbsp
-        <img class="left" src="images/RoselynLemus.png", Width="270", Height="285" >
-        Dr. Lemus-Martin graduated <i>summa cum laude</i> with a Bachelor's Degree in Chemistry at  Universidad Nacional Autónoma de México (UNAM), during which she also studied Chemistry and Medicine at Universidad Autónoma de Madrid. This was followed by a PhD in Molecular Cell Biology at Oxford University. She has further academic credentials in Molecular Oncology from Universidad Rey Juan Carlos, in Clinial Research Monitoring from UNAM, in Project Management from UNAM, and in Design Thinking from Stanford University. <br><br> Dr. Lemus-Martin has a plethora of post-PhD experience in clinical research, consulting, and as a corporate executive. She was the Head of Drug Development and Research at Landsteiner Scientific, and a consultant for Templeton World Charity Foundation. She has also served on the Board of Advisors for the Association of Medical Doctors in the Pharmaceutical Industry, and as Vice President of the Oxford University Alumni Association. <br><br> Dr. Lemus-Martin was slected by McKinsey &amp Company for the Next Generation Women Leader Award in 2019, as one of the most influential young female leaders in the world, and she has been a member of Women in AI since 2020.
+            <h1>Dr. Roselyn Lemus-Martin</h1><br>
+
+            <p><img src="images/RoselynLemus.png">Dr. Lemus-Martin graduated <i>summa cum laude</i> with a Bachelor's Degree in Chemistry at  Universidad Nacional Autónoma de México (UNAM), during which she also studied Chemistry and Medicine at Universidad Autónoma de Madrid. This was followed by a PhD in Molecular Cell Biology at Oxford University. She has further academic credentials in Molecular Oncology from Universidad Rey Juan Carlos, in Clinial Research Monitoring from UNAM, in Project Management from UNAM, and in Design Thinking from Stanford University. <br><br> Dr. Lemus-Martin has a plethora of post-PhD experience in clinical research, consulting, and as a corporate executive. She was the Head of Drug Development and Research at Landsteiner Scientific, and a consultant for Templeton World Charity Foundation. She has also served on the Board of Advisors for the Association of Medical Doctors in the Pharmaceutical Industry, and as Vice President of the Oxford University Alumni Association. <br><br> Dr. Lemus-Martin was slected by McKinsey &amp Company for the Next Generation Women Leader Award in 2019, as one of the most influential young female leaders in the world, and she has been a member of Women in AI since 2020.</p>
         </div>
+        <br>
 
         <div id="103bio" class="personBio">
-        <h1>&nbsp Dr. Deyan Mihaylov</h1><br>&nbsp&nbsp&nbsp
-        <img class="left" src="images/DeyanMihaylov.png", Width="270", Height="285">
-        Dr. Mihaylov completed his undergraduate degree in Physics at Oxford University (UK), then went on to do his PhD at Cambridge University (UK) where he studied general relativity and gravitational waves. Upon completion of his PhD, he began his post-doctoral career at the Max Planck Institute for Gravitational Physics in Berlin, Germany.
+            <h1>Dr. Deyan Mihaylov</h1><br>
+            
+            <p><img src="images/DeyanMihaylov.png">Dr. Mihaylov completed his undergraduate degree in Physics at Oxford University (UK), then went on to do his PhD at Cambridge University (UK) where he studied general relativity and gravitational waves. Upon completion of his PhD, he began his post-doctoral career at the Max Planck Institute for Gravitational Physics in Berlin, Germany.</p>
         </div>
+        <br>
+        
     </div>
-
+    <br>
 	<!-- <span style="display:block; margin-top:-37px;"> <h2><p style="color:white">a<br>a<br>a</p></h2></span> -->
 <div id="copyright" class="container", style = "background:#79C255";>
 	<p>&copy; HPQC Labs. All rights reserved. </p>
