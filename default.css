@@ -65,8 +65,6 @@
 	.container
 	{
 		overflow: hidden;
-		margin: 0em auto;
-		width: 1000px;
 	}
 	
 /*********************************************************************************/
@@ -257,7 +255,7 @@
 /*********************************************************************************/
 /* 3-column                                                                      */
 /*********************************************************************************/
-
+	/*
 	.boxA,
 	.boxB,
 	.boxC
@@ -276,6 +274,7 @@
 	{
 		float: right;
 	}
+	*/
 
 /*********************************************************************************/
 /* 2-column                                                                      */
@@ -309,13 +308,13 @@
 	#header
 	{
 		position: relative;
-		padding: 5em 0em;
+		padding: 2em;
 	}
 
 /*********************************************************************************/
 /* Logo                                                                          */
 /*********************************************************************************/
-
+	/*
 	#logo
 	{
 		position: absolute;
@@ -333,54 +332,117 @@
 		text-decoration: none;
 		color: #79C255;
 	}
+	*/
 
 /*********************************************************************************/
 /* Menu                                                                          */
 /*********************************************************************************/
 
-	#menu
-	{
-		position: absolute;
-		top: 4.5em;
-		right: 0;
-	}
-	
-	#menu ul
+	#menu .logo
 	{
 		display: inline-block;
-	}
-	
-	#menu li
-	{
-		display: block;
-		float: left;
-		text-align: center;
-	}
-	
-	#menu li a, #menu li span
-	{
-		padding: 1em 1.5em;
-		letter-spacing: 1px;
+		font-size: 35px;
+		font-weight: 700;
 		text-decoration: none;
-		font-size: 0.8em;
+		color: #79C255;
+	}
+
+	#menu .navbar-toggle
+	{
+		display: inline-block;
+		position: absolute;
+		top: 28px;
+		right: 20px;
+		cursor: pointer;
+		color: #79C255;
+		font-size: 30px;
+	}
+
+	#menu .main-nav
+	{
+		padding-top: 10px;
+		text-align: center;
+		display: none;
+	}
+
+	#menu .main-nav li
+	{
+		margin: 10px auto;
+	}
+
+	#menu .main-nav li a
+	{
+		text-decoration: none;
+		font-size: 15px;
 		color: #2B3F48;
 	}
-	
-	#menu li:hover a, #menu li.active a, #menu li.active span
+
+	#menu .main-nav .current_page_item a:hover
 	{
 		color: #2B3F48;
 	}
-	
-	#menu .current_page_item a
+
+	#menu .main-nav .current_page_item a
 	{
-		border: 2px solid #79C255;
+		border: 8px solid #79C255;
 		background: #79C255;
 		border-radius: 6px;
 		color: #FFF;
 	}
-	
-	#menu .icon
+
+	#menu .active 
 	{
+		display: block;
+	}
+
+	/*********************************************************************************/
+	/* Media Queries: Menu                                                           */
+	/*********************************************************************************/
+
+	/* Desktop */
+	@media screen and (min-width: 850px) {
+
+	#menu
+	{
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 0;
+		height: 70px;
+		align-items: center;
+	}
+
+	#menu .main-nav
+	{
+		display: flex;
+		justify-content: flex-end;
+		text-align: left;
+	}
+
+	#menu .navbar-toggle 
+	{
+		display: none;
+	}
+
+	#menu .main-nav li a
+	{	
+		text-decoration: none;
+		font-size: 15px;
+		margin-left: 25px;
+		color: #2B3F48;
+	}
+
+	#menu .main-nav .current_page_item a:hover
+	{
+		color: #2B3F48;
+	}
+
+	#menu .main-nav .current_page_item a
+	{
+		border: 8px solid #79C255;
+		background: #79C255;
+		border-radius: 6px;
+		color: #FFF;
+	}
 	}
 
 /*********************************************************************************/
