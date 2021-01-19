@@ -12,6 +12,7 @@ Released   : 20140216
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>HPQC College</title>
 <meta name="keywords" content="" />
@@ -26,18 +27,18 @@ Released   : 20140216
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" href="images/favicon.ico" />
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
 <body>
 <div id="wrapper">
 	<div id="header" class="container">
-		<div id="logo">
-			<h1><a href="college.html">HPQC College</a></h1>
-		</div>
 		<div id="menu">
-			<ul>
-				<li><a href="index.html" accesskey="1"title="">HPQC Labs</a></li>
+			<span class="navbar-toggle" id="navbar-toggle" >&#9776;</span>
+			<a href="index.html" class="logo"> HPQC Labs</a>
+			<ul class="main-nav" id="main-nav">
+				<li><a href="index.html" accesskey="1"title="">Homepage</a></li>
 				<li><a href="people.html" accesskey="2" title="">People</a></li>
 				<li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
 				<li><a href="by-laws.pdf" accesskey="4" title="">By-laws</a></li>
@@ -69,4 +70,6 @@ Released   : 20140216
 	<p>&copy; HPQC Labs. All rights reserved.  </p>
 </div>
 </body>
+
+<script type="text/javascript" src="main.js"></script>
 </html>
