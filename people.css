@@ -55,7 +55,7 @@
 
     display: grid;
 
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 20px;
     padding: 10px;
@@ -64,7 +64,7 @@
 
 h1 
 {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .card 
@@ -89,7 +89,7 @@ h1
 
 .card article 
 {
-    padding: 20px;
+    padding: 10px;
     display: flex;
 
     flex: 1;
@@ -107,7 +107,7 @@ h1
 
 .card span 
 {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     color: #999;
     text-transform: capitalize; /*uppercase;*/
@@ -116,14 +116,11 @@ h1
 }
 
 /*********************************************************************************/
-/* 2 Column                                                                      */
+/* Media Queries                                                                 */
 /*********************************************************************************/
 
 @media screen and (min-width: 370px) 
 {
-    .band {
-        grid-template-columns: 1fr 1fr;
-    }
     .personBio img {
         padding-right: 20px;
         padding-bottom: 20px;
@@ -132,14 +129,20 @@ h1
         max-width: 200px;
         float: left;
     }
-    .personBio h1 {
-        font-size: 20px;
+    h1 {
+        font-size: 16px;
+    }
+
+    .card span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin: 2em 0 0 0;
     }
 }
 
-/*********************************************************************************/
-/* 3 Column                                                                      */
-/*********************************************************************************/
 @media screen and (min-width: 560px) 
 {
     .band {
@@ -153,8 +156,17 @@ h1
         max-width: 200px;
         float: left;
     }
-    .personBio h1 {
-        font-size: 20px;
+    h1 {
+        font-size: 18px;
+    }
+
+    .card span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin: 2em 0 0 0;
     }
 }
 
