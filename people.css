@@ -27,6 +27,11 @@
     float: left;
 }
 
+.personBio h1
+{
+    font-size: 20px;
+}
+
 /*
 .boxA a, 
 .boxB a, 
@@ -55,16 +60,16 @@
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-gap: 20px;
+    grid-gap: 10px;
     padding: 10px;
 
 }
 
-h1 
+.peopleList h1 
 {
-    font-size: 14px;
+    font-size: 9px;
 }
 
 .card 
@@ -89,7 +94,7 @@ h1
 
 .card article 
 {
-    padding: 10px;
+    padding: 8px;
     display: flex;
 
     flex: 1;
@@ -107,7 +112,7 @@ h1
 
 .card span 
 {
-    font-size: 10px;
+    font-size: 8px;
     font-weight: bold;
     color: #999;
     text-transform: capitalize; /*uppercase;*/
@@ -115,40 +120,57 @@ h1
     margin: 2em 0 0 0;
 }
 
+.peopleTitle h2
+{
+    font-size: 25px;
+}
+
 /*********************************************************************************/
 /* Media Queries                                                                 */
 /*********************************************************************************/
 
-@media screen and (min-width: 370px) 
+@media screen and (min-width: 430px) 
 {
-    .personBio img {
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 100%;
-        height: auto;
-        max-width: 200px;
-        float: left;
-    }
-    h1 {
-        font-size: 16px;
+    .band 
+    {
+        grid-gap: 20px;
     }
 
-    .card span {
+    .peopleList h1 
+    {
         font-size: 12px;
+    }
+
+    .personBio h1
+    {
+        font-size: 25px;
+    }
+
+    .card span 
+    {
+        font-size: 9px;
         font-weight: bold;
         color: #999;
         text-transform: uppercase;
         letter-spacing: .05em;
         margin: 2em 0 0 0;
+    }
+
+    .card article
+    {
+        padding: 10px;
+    }
+
+    .peopleTitle h2
+    {
+        font-size: 30px;
     }
 }
 
 @media screen and (min-width: 560px) 
 {
-    .band {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-    .personBio img {
+    .personBio img 
+    {
         padding-right: 20px;
         padding-bottom: 20px;
         width: 100%;
@@ -156,17 +178,30 @@ h1
         max-width: 200px;
         float: left;
     }
-    h1 {
+
+    .personBio h1
+    {
+        font-size: 30px;
+    }
+
+    .peopleList h1 
+    {
         font-size: 18px;
     }
 
-    .card span {
+    .card span 
+    {
         font-size: 12px;
         font-weight: bold;
         color: #999;
         text-transform: uppercase;
         letter-spacing: .05em;
         margin: 2em 0 0 0;
+    }
+    
+    .peopleTitle h2
+    {
+        font-size: 35px;
     }
 }
 
