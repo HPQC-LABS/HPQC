@@ -36,6 +36,23 @@ $(document).ready(function(){
 let mainNav = document.getElementById('main-nav');
 let navBarToggle = document.getElementById('navbar-toggle');
 
-navBarToggle.addEventListener('click', function () {
-    mainNav.classList.toggle('active');
+$(navBarToggle).click(function(){
+    if($(mainNav).height() != 0)
+        $(mainNav).animate({height: 0}, 1000);
+    else    
+        $(mainNav).animate({height: 205}, 1000);
+
 });
+
+
+/*
+navBarToggle.addEventListener('click', function(){
+    if(mainNav.style.display === 'none'){
+        mainNav.style.display = 'block';
+    }
+    else{
+        mainNav.style.display = 'none'
+    }
+
+});
+*/
