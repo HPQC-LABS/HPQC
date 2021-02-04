@@ -1,0 +1,31 @@
+.latexContainer{
+    width: 60%;
+    height: auto;
+    position: relative;   
+    margin: auto;
+    margin-bottom: 15px; 
+    transform: translateY(20px);
+    background-color: rgba(255, 255, 255, 0.925);
+    border-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.latexContainer h1{
+    text-align: center;
+    padding: 15px;
+    padding-top: 30px;
+}
+
+.latexContainer p{
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: left;
+}
+
+.latexContainer ul{
+    list-style-type: circle;
+    align-content: center;
+    transform: translateX(30%);
+
+}

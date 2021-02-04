@@ -43,16 +43,3 @@ $(navBarToggle).click(function(){
         $(mainNav).animate({height: 205}, 1000);
 
 });
-
-
-/*
-navBarToggle.addEventListener('click', function(){
-    if(mainNav.style.display === 'none'){
-        mainNav.style.display = 'block';
-    }
-    else{
-        mainNav.style.display = 'none'
-    }
-
-});
-*/

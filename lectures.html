@@ -8,6 +8,7 @@
 <meta name="description" content="" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="http://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="lectures.css" rel="stylesheet" type="text/css" media="all" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <!--<link href="lectures.html" rel="stylesheet" type="text/css" media="all" />-->
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
@@ -19,30 +20,28 @@
 <link rel="shortcut icon" href="images/favicon.ico" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
 <body>
-<div id="wrapper">
-	<div id="header" class="container">
-		<div id="menu">
-            <span class="navbar-toggle" id="navbar-toggle" >&#9776;</span>
-			<a href="index.html" class="logo"> HPQC Labs</a>
-			<ul class="main-nav" id="main-nav">
-				<li><a href="index.html" accesskey="1" title="">Homepage</a></li>
-				<li><a href="people.html" accesskey="2" title="">People</a></li>
-				<li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
-				<li><a href="by-laws.pdf" accesskey="4" title="">By-laws</a></li>
-				<li class="dropmenu">
-					<a class="dropbtn" accesskey="6" id="selection" title="">Resources</a>
-					<div class = "content">
-						<a href="lectures.html" title="">Lectures</a>
-						<a href="LaTeXGitBashSetUp.pdf">LaTeX Setup</a>
-					</div>			
-				</li>
-				<li><a href="college.html" accesskey="5" title="">HPQC College</a></li>
-			</ul>
-		</div>
+	<div id="menu">
+        <span class="navbar-toggle" id="navbar-toggle" >&#9776;</span>
+		<a href="index.html" class="logo"> HPQC Labs</a>
+		<ul class="main-nav" id="main-nav">
+			<li><a href="index.html" accesskey="1" title="">Homepage</a></li>
+			<li><a href="people.html" accesskey="2" title="">People</a></li>
+			<li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
+			<li><a href="by-laws.pdf" accesskey="4" title="">By-laws</a></li>
+			<li class="dropmenu" class="current_page_item">
+				<a class="dropbtn" accesskey="6" id="selection" title="">Resources</a>
+				<div class = "content">
+					<a href="lectures.html" title="">Lectures</a>
+					<a href="LaTeX.html">LaTeX Setup</a>
+				</div>			
+			</li>
+			<li><a href="college.html" accesskey="5" title="">HPQC College</a></li>
+		</ul>
 	</div>
 
     <div id="banner">&nbsp;</div>
@@ -51,7 +50,8 @@
 			<div class="title">
 				<h2>2021 Lecture Series</h2><br>
                 <a href="lectures/LectureFlyer.pdf"> View/Download Schedule</a>
-                <h3>
+				<!--
+				<h3>
                     <br>
                     <li>10 Feb - Thomas Dimson </li> <br>
                     <li>24 Feb - Evan Browning</li> <br>
@@ -61,6 +61,93 @@
                     <li>16 Jun - Genevieve Laurier</li> <br>
                 
                 </h3>
+				-->
+				
+				<div class="lecColumn">
+					<div class="lecRow">
+						<img src="images/ThomasDimson.png" class="lecImg">
+						<div class = lecTxt>
+							<h3>Thomas Dimson</h3>
+							<p >
+								<b>Lecture Date:</b> 10 Feb <br>
+								<small>
+									MSc Stanford University (USA) <br>
+									Director of Engineering at Instagram
+								</small>
+							</p>
+							<div class="moreInfo">
+
+								<p>Lorem ipsum dorem - ADDITIONAL TEXT AND INFORMATION WILL GO HERE</p>
+							</div>
+						</div>
+						<div class="arrow"></div>
+					</div>
+					<div class="lecRow">
+						<img src="images/EvanBrowning.png" class="lecImg">						
+						<div class = lecTxt>
+							<h3>Evan Browning</h3>
+							<p>
+								<b>Lecture Date:</b> 24 Feb <br> 
+								<small>
+									BSc University of Toronto <br>
+									Senior Software Engineer at Netflix
+								</small>
+							</p>
+						</div>
+					</div>
+					<div class="lecRow">
+						<img src="images/BrianneKent.png" class="lecImg">
+						<div class = lecTxt>
+							<h3>Brianne Kent</h3>
+							<p>
+								<b>Lecture Date:</b> 10 Mar <br>
+								<small>
+									PhD Cambridge University (UK) <br>
+									Professor at Simon Fraser University
+								</small>
+							</p> 
+						</div>
+					</div>
+					<div class="lecRow">
+						<img src="images/LeonardZgrablic.png" class="lecImg">
+						<div class = lecTxt>
+							<h3>Leonard Zgrablic</h3>
+							<p>
+								<b>Lecture Date:</b> 14 Apr <br>
+								<small>
+									BSc, BCS University of Waterloo <br>
+									Software Developer at Google
+								</small>
+							</p> 
+						</div>
+					</div>
+					<div class="lecRow">
+						<img src="images/AhmedOmran.png" class="lecImg">
+						<div class = lecTxt>
+							<h3>Ahmed Omran</h3>
+							<p>
+								<b>Lecture Date:</b> 12 May <br>
+								<small>
+									PhD LMU Munich (Germany) <br>
+									Artificial Intelligence Researcher at Google
+								</small>
+							</p> 
+						</div>	
+					</div>
+					<div class="lecRow">
+						<img src="images/GenevieveLaurier.png" class="lecImg">
+						<div class = lecTxt>
+							<h3>Genevieve Laurier</h3>
+							<p>
+								<b>Lecture Date:</b> 16 Jun <br>
+								<small>
+									MSc Oxford University (UK) <br>
+									Managing Director at The Social Innovation Partnership
+								</small>
+							</p>
+						</div>	
+					</div>
+				</div>
                 
                 <br>
                 
@@ -72,5 +159,7 @@
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="lectures.js"></script>
+
 </body>
 </html>

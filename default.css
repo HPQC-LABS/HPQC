@@ -360,6 +360,9 @@
 /* Menu                                                                          */
 /*********************************************************************************/
 
+/* Mobile / Smaller Screen Devices */
+@media screen and (max-width: 890px) {
+
 	#menu
 	{
 		background-color: #FFF;
@@ -474,22 +477,13 @@
 		z-index: 100;
 	}
 
-	#menu .main-nav #selection
-	{
-		border: 4px solid #79C255;
-		background: #79C255;
-		border-radius: 10px;
-		color: #FFF;
-		z-index: 100;
-	}
-
 	#menu .active 
 	{
 		display: block;
 	}
 
 
-	
+	}	
 
 	/*********************************************************************************/
 	/* Media Queries: Menu                                                           */
@@ -515,10 +509,16 @@
 		display: flex;
 		justify-content: flex-end;
 		text-align: center;
+		margin: 0;
 	}
 
 	#menu .logo
 	{
+		display: inline-block;
+		font-size: 35px;
+		font-weight: 700;
+		text-decoration: none;
+		color: #79C255;
 		text-align: center;
 	}
 
@@ -527,12 +527,63 @@
 		display: none;
 	}
 
-	#menu .main-nav li a
-	{	
+	#menu .main-nav li
+	{
+		margin: 10px auto;
+	}
+
+	#menu .main-nav li a, .dropbtn
+	{
+		text-align: center;
+		text-decoration: none;
 		text-decoration: none;
 		font-size: 15px;
-		padding: 10px;
 		color: #2B3F48;
+		padding: 10px;
+
+	}
+	
+	#menu .main-nav li a:hover, .dropmenu:hover .dropbtn
+	{
+		color:rgb(0, 0, 0);
+		transition: 0.25s ease-in-out;
+		background-color: rgb(221, 221, 221);
+	}
+
+	#menu .main-nav li.dropmenu
+	{
+		display: inline-block;
+		
+	}
+
+	#menu .main-nav .content
+	{
+		transform: translateY(10px);
+		display: none;
+		position: absolute;
+		background-color: rgb(255, 255, 255);
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+	
+	#menu .main-nav .content a
+	{
+		color: #2B3F48;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		text-align: center;
+	}
+
+	#menu .main-nav .content a:hover
+	{
+		background-color: rgb(221, 221, 221);
+	}
+
+	#menu .main-nav .dropmenu:hover .content
+	{
+		display: block;
 	}
 
 	#menu .main-nav .current_page_item a:hover
@@ -540,11 +591,18 @@
 		color: #2B3F48;
 	}
 
+
+	#menu .main-nav .current_page_item a:hover
+	{
+		background: #79C255;
+		color: #2B3F48;
+		z-index: 100;
+	}
+
 	#menu .main-nav .current_page_item a
 	{
-		border: 8px solid #79C255;
 		background: #79C255;
-		border-radius: 15px;
+		border-radius: 10px;
 		color: #FFF;
 	}
 	}
