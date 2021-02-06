@@ -151,7 +151,7 @@
         font-size: 9px;
         font-weight: bold;
         color: #999;
-        text-transform: uppercase;
+        text-transform: capitalize; /*uppercase;*/
         letter-spacing: .05em;
         margin: 2em 0 0 0;
     }
@@ -194,7 +194,7 @@
         font-size: 12px;
         font-weight: bold;
         color: #999;
-        text-transform: uppercase;
+        text-transform: capitalize; /*uppercase;*/
         letter-spacing: .05em;
         margin: 2em 0 0 0;
     }
