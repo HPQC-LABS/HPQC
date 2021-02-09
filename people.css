@@ -206,7 +206,7 @@
         font-size: 9px;
         font-weight: bold;
         color: #999;
-        text-transform: capitalize;
+        text-transform: capitalize; /*uppercase;*/
         letter-spacing: .05em;
         margin: 2em 0 0 0;
     }
@@ -249,7 +249,7 @@
         font-size: 12px;
         font-weight: bold;
         color: #999;
-        text-transform: capitalize;
+        text-transform: capitalize; /*uppercase;*/
         letter-spacing: .05em;
         margin: 2em 0 0 0;
     }
@@ -322,6 +322,259 @@
         margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+}
+
+
+
+/* 
+
+.peopleContainer{
+    height: 600px;
+    display: flex;
+}
+
+.peopleList{
+    padding: 8%;
+    height: 600px;
+    background-color: rgb(224, 196, 250);
+}
+
+.peopleListTitle{
+    width: 100%;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.peopleBio{
+    background-color: rgb(202, 235, 202);
+}
+
+.person{
+    width: 300px;
+    float: left;
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 8px;
+}
+
+.personName{
+    font-size: 30px;
+}
+
+.person img{
+    width: 270px;
+    height: 285px;
+}
+
+.personTitle {
+    font-size: 25px;
+} */
+.peopleList
+{
+    width: 100%;
+}
+
+.peopleBio
+{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+.personBio
+{
+    min-height: 400px;
+    background-color: rgb(248, 248, 248);
+    padding: 20px;
+}
+
+.personBio img 
+{
+    padding-right: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    float: left;
+}
+
+.personBio h1
+{
+    font-size: 20px;
+}
+
+/*
+.boxA a, 
+.boxB a, 
+.boxC a{
+    color: currentColor;
+    text-decoration: none;
+}
+
+.longName{
+    padding-top: 15px;
+}
+*/
+
+.peopleTitle 
+{
+    font-size: 26px;
+    text-align: center;
+    padding-top: 60px;
+}
+ 
+.band 
+{
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+    padding: 10px;
+
+}
+
+.peopleList h1 
+{
+    font-size: 9px;
+}
+
+.card 
+{
+    min-height: 100%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #444;
+    position: relative;
+    top: 0;
+    transition: all .1s ease-in;
+}
+
+.card:hover 
+{
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+}
+
+.card article 
+{
+    padding: 8px;
+    display: flex;
+
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.card .personPic 
+{
+    padding-bottom: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.card span 
+{
+    font-size: 8px;
+    font-weight: bold;
+    color: #999;
+    text-transform: capitalize; /*uppercase;*/
+    letter-spacing: .05em;
+    margin: 2em 0 0 0;
+}
+
+.peopleTitle h2
+{
+    font-size: 25px;
+}
+
+/*********************************************************************************/
+/* Media Queries                                                                 */
+/*********************************************************************************/
+
+@media screen and (min-width: 430px) 
+{
+    .band 
+    {
+        grid-gap: 20px;
+    }
+
+    .peopleList h1 
+    {
+        font-size: 12px;
+    }
+
+    .personBio h1
+    {
+        font-size: 25px;
+    }
+
+    .card span 
+    {
+        font-size: 9px;
+        font-weight: bold;
+        color: #999;
+        text-transform: capitalize; /*uppercase;*/
+        letter-spacing: .05em;
+        margin: 2em 0 0 0;
+    }
+
+    .card article
+    {
+        padding: 10px;
+    }
+
+    .peopleTitle h2
+    {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 560px) 
+{
+    .personBio img 
+    {
+        padding-right: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        float: left;
+    }
+
+    .personBio h1
+    {
+        font-size: 30px;
+    }
+
+    .peopleList h1 
+    {
+        font-size: 18px;
+    }
+
+    .card span 
+    {
+        font-size: 12px;
+        font-weight: bold;
+        color: #999;
+        text-transform: capitalize; /*uppercase;*/
+        letter-spacing: .05em;
+        margin: 2em 0 0 0;
+    }
+    
+    .peopleTitle h2
+    {
+        font-size: 35px;
     }
 }
 
