@@ -65,3 +65,18 @@ $(navBarToggle).click(function(){
 function sleep (time){
     return new Promise((resolve) => setTimeout(resolve,time));
 }
+
+/*Checking window size so that nav bar doesn't mess up*/
+var size = window.matchMedia("(min-width: 890px)")
+
+function sizeToggle(x){
+    if (size.matches) {
+        $(mainNav).css("display", "flex");
+    }
+    else 
+        $(mainNav).css("display", "block");
+
+}
+
+sizeToggle(size)
+size.addListener(sizeToggle)

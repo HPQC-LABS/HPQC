@@ -424,7 +424,6 @@
 	{
 		text-align: center;
 		text-decoration: none;
-		text-decoration: none;
 		font-size: 15px;
 		color: #2B3F48;
 		padding: 5px;
@@ -496,10 +495,7 @@
 		z-index: 100;
 	}
 
-	#menu .active 
-	{
-		display: block;
-	}
+	
 
 	#navbar-toggle{
 		
@@ -647,15 +643,16 @@
 			align-items: center;
 			background-color: #FFF;
 			padding: 1.5em;
-			box-shadow: rgba(255, 255, 255, 0.363);
 		}
 
 		#menu .main-nav
 		{
-			display: flex;
-			justify-content: flex-end;
+			display: inline-flex;
 			text-align: center;
 			margin: 0;
+			padding-top: 0px;
+			float: left;
+			position:relative;
 		
 		}
 		#menu .logoTxt
@@ -690,6 +687,7 @@
 		#menu .main-nav li
 		{
 			margin: 10px auto;
+			display: inline-block;
 		}
 
 		#menu .main-nav li a, .dropbtn

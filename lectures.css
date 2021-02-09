@@ -60,11 +60,24 @@
     }
 
     .description{
+        width: 100%;
         display: none;
         padding-top: 10px; 
         padding-left: 25px;
         color: black; 
+        text-align: left;
     }
+    .contactLogo{
+        align-content: center;
+        margin-right: 15px;
+        width: 20px;
+    }
+
+    #scholar{
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
     .arrow{
         width: 0;
         height: 0;
@@ -148,6 +161,17 @@
         padding-left: 25px;
         text-align: left;
         color: black; 
+    }
+
+    .contactLogo{
+        align-content: center;
+        margin-right: 15px;
+        width: 20px;
+    }
+
+    #scholar{
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
     }
 
     .arrow{
