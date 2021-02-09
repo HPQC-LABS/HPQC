@@ -1,0 +1,180 @@
+/*Desktop view*/
+@media screen and (min-width: 650px) {
+    .lecColumn{
+        width: 65%;
+        height: 50%;
+        position: relative;   
+        margin: auto;
+        transform: translateY(20px);
+        background-color: rgba(255, 255, 255, 0.925);
+        padding: 40px;
+        padding-left: 80px;
+        padding-right: 80px;
+        border-radius: 10px;
+    }
+
+    .lecRow{
+        background-color: #FFF;
+        text-align: center;
+        color: black;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        height: 120px;
+        margin-top: 20px;
+        transition: 0.5s ease-in-out;
+        border-radius: 5px;
+        position: relative;
+        display: table;
+        width: 100%;
+		cursor: pointer;
+    }
+
+    .lecRow:hover{
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .lecImg{
+        padding: 10px;
+        width: 95px;
+        border-radius: 100%;
+        float:left;
+    }
+
+
+    .lecTxt{
+        text-align: left;
+        float: left;
+    }
+
+    .lecTxt h3{
+        padding-top: 10px;
+    }
+
+    .moreInfo{
+        background-color: rgb(221, 221, 221, 0.5);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        width: 100%;
+        position: relative;
+        display: inline-flex;
+        margin: auto;
+        border-radius: 5px;
+    }
+
+    .description{
+        display: none;
+        padding-top: 10px; 
+        padding-left: 25px;
+        color: black; 
+    }
+    .arrow{
+        width: 0;
+        height: 0;
+        margin-right: 10px;
+        margin-top: 10px;
+        transform: scale(1-50%);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid black;
+        float: right;
+        -webkit-transition : all 0.5s ease-in-out;
+        -moz-transition : all 0.5s ease-in-out;  
+        -ms-transition : all 0.5s ease-in-out;
+        -o-transition : all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        
+    }
+
+}
+/*Mobile view / small screen*/
+@media screen and (max-width: 650px) {
+
+    .lecColumn{
+        width: auto;
+        height: 50%;
+        position: relative;   
+        margin: auto;
+        transform: translateY(20px);
+        background-color: rgba(255, 255, 255, 0.925);
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .lecRow{
+        background-color: #FFF;
+        text-align: center;
+        color: black;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        height: 140px;
+        margin-top: 20px;
+        transition: 0.5s ease-in-out;
+        border-radius: 5px;
+        cursor: pointer;
+
+    }
+
+    .lecRow:hover{
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .lecImg{
+        padding: 10px;
+        width: 95px;
+        border-radius: 100%;
+        float:left;
+    }
+
+    .lecTxt{
+        text-align: left;
+        word-wrap: break-word;
+
+    }
+
+    .lecTxt h3{
+        padding-top: 10px;
+    }
+
+    .moreInfo{
+        background-color: rgb(221, 221, 221, 0.5);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        width: 100%;
+        position: relative;
+        display: inline-flex;
+        margin: auto;
+        border-radius: 5px;
+    }
+
+    .description{
+        display: none;
+        padding-top: 10px; 
+        padding-left: 25px;
+        text-align: left;
+        color: black; 
+    }
+
+    .arrow{
+        width: 0;
+        height: 0;
+        margin-right: 10px;
+        margin-top: -115px;
+        transform: scale(1-50%);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid black;
+        float: right;
+        -webkit-transition : all 0.5s ease-in-out;
+        -moz-transition : all 0.5s ease-in-out;  
+        -ms-transition : all 0.5s ease-in-out;
+        -o-transition : all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        
+    }
+
+}
+
+
+.arrow.rotated{
+   -webkit-transform : rotate(180deg);
+   -moz-transform : rotate(180deg);  
+   -ms-transform : rotate(180deg);
+   -o-transform : rotate(180deg);
+   transform : rotate(180deg);
+}
