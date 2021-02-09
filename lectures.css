@@ -25,6 +25,7 @@
         position: relative;
         display: table;
         width: 100%;
+		cursor: pointer;
     }
 
     .lecRow:hover{
@@ -57,11 +58,29 @@
         margin: auto;
         border-radius: 5px;
     }
+
     .description{
         display: none;
         padding-top: 10px; 
         padding-left: 25px;
         color: black; 
+    }
+    .arrow{
+        width: 0;
+        height: 0;
+        margin-right: 10px;
+        margin-top: 10px;
+        transform: scale(1-50%);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid black;
+        float: right;
+        -webkit-transition : all 0.5s ease-in-out;
+        -moz-transition : all 0.5s ease-in-out;  
+        -ms-transition : all 0.5s ease-in-out;
+        -o-transition : all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        
     }
 
 }
@@ -88,6 +107,7 @@
         margin-top: 20px;
         transition: 0.5s ease-in-out;
         border-radius: 5px;
+        cursor: pointer;
 
     }
 
@@ -121,6 +141,7 @@
         margin: auto;
         border-radius: 5px;
     }
+
     .description{
         display: none;
         padding-top: 10px; 
@@ -129,16 +150,31 @@
         color: black; 
     }
 
+    .arrow{
+        width: 0;
+        height: 0;
+        margin-right: 10px;
+        margin-top: -115px;
+        transform: scale(1-50%);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid black;
+        float: right;
+        -webkit-transition : all 0.5s ease-in-out;
+        -moz-transition : all 0.5s ease-in-out;  
+        -ms-transition : all 0.5s ease-in-out;
+        -o-transition : all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        
+    }
+
 }
 
 
-.arrow{
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid black;
-    transform: translate(-10px, 10px);
-    float: right;
-    
+.arrow.rotated{
+   -webkit-transform : rotate(180deg);
+   -moz-transform : rotate(180deg);  
+   -ms-transform : rotate(180deg);
+   -o-transform : rotate(180deg);
+   transform : rotate(180deg);
 }

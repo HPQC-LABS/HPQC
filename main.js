@@ -37,9 +37,31 @@ let mainNav = document.getElementById('main-nav');
 let navBarToggle = document.getElementById('navbar-toggle');
 
 $(navBarToggle).click(function(){
-    if($(mainNav).height() != 0)
+    if($(mainNav).height() != 0){
         $(mainNav).animate({height: 0}, 1000);
-    else    
-        $(mainNav).animate({height: 205}, 1000);
+        $(this).toggleClass('openAfter');
+        sleep(100).then(() => {
+            $(this).toggleClass('openDuring');
+        });
+        sleep(100).then(() => {
+            $(this).toggleClass('open');
+        });
+    }
+        
+    else {
+        $(mainNav).animate({height: 250}, 1000);
+        $(mainNav).css("display", "block");
+        $(this).toggleClass('open');
+        sleep(100).then(() => {
+            $(this).toggleClass('openDuring');
+        });
+        sleep(150).then(() => {
+            $(this).toggleClass('openAfter');
+        });
+    }   
 
 });
+
+function sleep (time){
+    return new Promise((resolve) => setTimeout(resolve,time));
+}

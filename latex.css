@@ -1,14 +1,32 @@
-.latexContainer{
-    width: 60%;
-    height: auto;
-    position: relative;   
-    margin: auto;
-    margin-bottom: 15px; 
-    transform: translateY(20px);
-    background-color: rgba(255, 255, 255, 0.925);
-    border-radius: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+/*Desktop view*/
+@media screen and (min-width: 700px) {
+    .latexContainer{
+        width: 70%;
+        height: auto;
+        position: relative;   
+        margin: auto;
+        margin-bottom: 15px; 
+        transform: translateY(20px);
+        background-color: rgba(255, 255, 255, 0.925);
+        border-radius: 10px;
+        padding-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }    
+}
+
+@media screen and (max-width: 700px) {
+    .latexContainer{
+        width: 95%;
+        height: auto;
+        position: relative;   
+        margin: auto;
+        margin-bottom: 15px; 
+        transform: translateY(20px);
+        background-color: rgba(255, 255, 255, 0.925);
+        border-radius: 10px;
+        padding-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
 }
 
 .latexContainer h1{
@@ -26,6 +44,7 @@
 .latexContainer ul{
     list-style-type: circle;
     align-content: center;
-    transform: translateX(30%);
-
+    text-align: left;
+    list-style-position: inside;
+    padding-left: 60px;
 }

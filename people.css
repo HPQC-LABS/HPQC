@@ -129,6 +129,61 @@
 /* Media Queries                                                                 */
 /*********************************************************************************/
 
+@media screen and (max-width: 560px){
+    #Faculty
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #Students
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #ProjectMembers
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #GuestLecturers
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #FormerStudents
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #Directors
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+}
+
 @media screen and (min-width: 430px) 
 {
     .band 
@@ -151,7 +206,7 @@
         font-size: 9px;
         font-weight: bold;
         color: #999;
-        text-transform: uppercase;
+        text-transform: capitalize;
         letter-spacing: .05em;
         margin: 2em 0 0 0;
     }
@@ -194,7 +249,7 @@
         font-size: 12px;
         font-weight: bold;
         color: #999;
-        text-transform: uppercase;
+        text-transform: capitalize;
         letter-spacing: .05em;
         margin: 2em 0 0 0;
     }
@@ -202,6 +257,71 @@
     .peopleTitle h2
     {
         font-size: 35px;
+    }
+
+    #Faculty
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #Students
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #ProjectMembers
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #GuestLecturers
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #FormerStudents
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #Directors
+    {
+        background-color: #FFF;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-left: 40px;
+        margin-right: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 }
 

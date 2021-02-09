@@ -1,9 +1,3 @@
-let more = document.getElementsByClassName('moreInfo');
-let moreTxt = document.getElementsByClassName('description');
-let moreToggle = document.getElementsByClassName('lecRow');
-
-
-
 /*For 1st Lecture box*/
 let TD = document.getElementById('TDInfo');
 let TDTxt = document.getElementById('TDDesc');
@@ -20,6 +14,7 @@ $(TDToggle).click(function(){
         $(TDTxt).slideDown(1000);
         $(TDTxt).css("display", "block");
     }
+    document.getElementById('TDArrow').classList.toggle('rotated');
 });
 
 /*For 2nd Lecture box*/
@@ -38,6 +33,7 @@ $(EBToggle).click(function(){
         $(EBTxt).slideDown(1000);
         $(EBTxt).css("display", "block");
     }
+    document.getElementById('EBArrow').classList.toggle('rotated');
 }); 
 
 /*For 3rd Lecture box*/
@@ -56,6 +52,7 @@ $(BKToggle).click(function(){
         $(BKTxt).slideDown(1000);
         $(BKTxt).css("display", "block");
     }
+    document.getElementById('BKArrow').classList.toggle('rotated');
 }); 
 
 /*For 4th Lecture box*/
@@ -74,6 +71,7 @@ $(LZToggle).click(function () {
         $(LZTxt).slideDown(1000);
         $(LZTxt).css("display", "block");
     }
+    document.getElementById('LZArrow').classList.toggle('rotated');
 }); 
 
 /*For 5th Lecture box*/
@@ -92,6 +90,7 @@ $(AOToggle).click(function () {
         $(AOTxt).slideDown(1000);
         $(AOTxt).css("display", "block");
     }
+    document.getElementById('AOArrow').classList.toggle('rotated');
 }); 
 
 /*For 6th Lecture box*/
@@ -110,5 +109,6 @@ $(GLToggle).click(function () {
         $(GLTxt).slideDown(1000);
         $(GLTxt).css("display", "block");
     }
+    document.getElementById('GLArrow').classList.toggle('rotated');
 }); 
 
