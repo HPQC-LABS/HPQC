@@ -68,6 +68,11 @@
         color: black; 
         text-align: left;
     }
+
+    .description p {
+        line-height: 1.25;
+    }
+
     .contactLogo{
         align-content: center;
         margin-right: 15px;
@@ -168,6 +173,11 @@
         text-align: left;
         color: black; 
     }
+    
+    .description p {
+        line-height: 1.25;
+    }
+
 
     .contactLogo{
         align-content: center;
