@@ -32,19 +32,6 @@
     font-size: 20px;
 }
 
-/*
-.boxA a, 
-.boxB a, 
-.boxC a{
-    color: currentColor;
-    text-decoration: none;
-}
-
-.longName{
-    padding-top: 15px;
-}
-*/
-
 .peopleTitle 
 {
     font-size: 26px;
@@ -261,65 +248,67 @@
 
     #Faculty
     {
+        max-width: 1000px;
         background-color: #FFF;
         padding-bottom: 60px;
-        margin-left: 40px;
-        margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        margin: auto;
+
     }
 
     #Students
     {
+        max-width: 1000px;
+        margin: auto;
         background-color: #FFF;
         padding-bottom: 60px;
         margin-top: 60px;
-        margin-left: 40px;
-        margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        
     }
 
     #ProjectMembers
     {
+        max-width: 1000px;
+        margin: auto;
         background-color: #FFF;
         padding-bottom: 60px;
         margin-top: 60px;
-        margin-left: 40px;
-        margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     #GuestLecturers
     {
+        max-width: 1000px;
+        margin: auto;
         background-color: #FFF;
         padding-bottom: 60px;
         margin-top: 60px;
-        margin-left: 40px;
-        margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     #FormerStudents
     {
+        max-width: 1000px;
+        margin: auto;
         background-color: #FFF;
         padding-bottom: 60px;
         margin-top: 60px;
-        margin-left: 40px;
-        margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     #Directors
     {
+        max-width: 1000px;
+        margin: auto;
         background-color: #FFF;
         padding-bottom: 60px;
         margin-top: 60px;
-        margin-left: 40px;
-        margin-right: 40px;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }

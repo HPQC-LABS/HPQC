@@ -80,3 +80,11 @@ function sizeToggle(x){
 
 sizeToggle(size)
 size.addListener(sizeToggle)
+
+
+let test = document.getElementById('Faculty');
+
+$(test).click(function(){
+    alert(window.innerWidth);
+
+});
