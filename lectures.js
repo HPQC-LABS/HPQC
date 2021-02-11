@@ -9,8 +9,7 @@ $(TDToggle).click(function(){
     }
         
     else{
-        $(TD).animate({height: 205}, 1000);
-        $(TDTxt).animate({height: 205}, 1000);
+        $(TD).animate({height: "100%"}, 1000);
         $(TDTxt).slideDown(1000);
         $(TDTxt).css("display", "block");
     }
@@ -28,8 +27,7 @@ $(EBToggle).click(function(){
     }
         
     else{
-        $(EB).animate({height: 205}, 1000);
-        $(EBTxt).animate({height: 205}, 1000);
+        $(EB).animate({height: "100%"}, 1000);
         $(EBTxt).slideDown(1000);
         $(EBTxt).css("display", "block");
     }
@@ -47,8 +45,7 @@ $(BKToggle).click(function(){
     }
         
     else{
-        $(BK).animate({height: 205}, 1000);
-        $(BKTxt).animate({height: 205}, 1000);
+        $(BK).animate({height: "100%"}, 1000);
         $(BKTxt).slideDown(1000);
         $(BKTxt).css("display", "block");
     }
@@ -66,8 +63,7 @@ $(LZToggle).click(function () {
     }
 
     else {
-        $(LZ).animate({ height: 205 }, 1000);
-        $(LZTxt).animate({ height: 205 }, 1000);
+        $(LZ).animate({ height: "100%" }, 1000);
         $(LZTxt).slideDown(1000);
         $(LZTxt).css("display", "block");
     }
@@ -85,8 +81,7 @@ $(AOToggle).click(function () {
     }
 
     else {
-        $(AO).animate({ height: 205 }, 1000);
-        $(AOTxt).animate({ height: 205 }, 1000);
+        $(AO).animate({ height: "100%" }, 1000);
         $(AOTxt).slideDown(1000);
         $(AOTxt).css("display", "block");
     }
@@ -104,8 +99,7 @@ $(GLToggle).click(function () {
     }
 
     else {
-        $(GL).animate({ height: 205 }, 1000);
-        $(GLTxt).animate({ height: 205 }, 1000);
+        $(GL).animate({ height: "100%" }, 1000);
         $(GLTxt).slideDown(1000);
         $(GLTxt).css("display", "block");
     }

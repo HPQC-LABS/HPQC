@@ -642,7 +642,7 @@
 			height: 70px;
 			align-items: center;
 			background-color: #FFF;
-			padding: 1.5em;
+			padding: 35px;
 		}
 
 		#menu .main-nav
@@ -959,4 +959,12 @@
 	}
 
 
+
+@font-face{
+
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 11pt;
+	font-weight: 200;
+	src: local('Source Sans Pro'), local()
+}
 
