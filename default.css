@@ -365,6 +365,7 @@
 
 	#menu
 	{
+		display: block;
 		background-color: #FFF;
 		text-align: center;
 		padding-top: 25px;

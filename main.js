@@ -11,7 +11,7 @@ $(document).ready(function(){
         {id: 103, firstName: 'Deyan', lastName: 'Mihaylov',  imgName: 'DeyanMihaylov.png',   title: 'PhD Cambridge'}
     ];
 
-    let ids = [101, 102, 103];
+    let ids = [101, 102, 103, 104, 105, 106, 107, 108, 109];
 
     ids.forEach(id => {
         $(`#${id}`).on("click", showBio);
@@ -35,8 +35,11 @@ $(document).ready(function(){
 
 let mainNav = document.getElementById('main-nav');
 let navBarToggle = document.getElementById('navbar-toggle');
+var pressed = 0;
+var hidden = 1;
 
 $(navBarToggle).click(function(){
+    pressed = 1;
     if($(mainNav).height() != 0){
         $(mainNav).animate({height: 0}, 1000);
         $(this).toggleClass('openAfter');
@@ -46,6 +49,7 @@ $(navBarToggle).click(function(){
         sleep(100).then(() => {
             $(this).toggleClass('open');
         });
+        hidden = 1;
     }
         
     else {
@@ -58,6 +62,7 @@ $(navBarToggle).click(function(){
         sleep(150).then(() => {
             $(this).toggleClass('openAfter');
         });
+        hidden = 0;
     }   
 
 });
@@ -72,19 +77,31 @@ var size = window.matchMedia("(min-width: 890px)")
 function sizeToggle(x){
     if (size.matches) {
         $(mainNav).css("display", "flex");
+        if(pressed === 1){
+            $(mainNav).css("transform", "translateY(-20px)");
+        }
+        if(hidden === 0){
+            $(mainNav).css("transform", "translateY(105px)");
+        }
     }
     else 
         $(mainNav).css("display", "block");
+        /*
+        if(hidden === 1 & pressed === 0){
+            $(mainNav).css("transform", "translateY(-105px)");
+        }
+        */
 
 }
 
 sizeToggle(size)
 size.addListener(sizeToggle)
 
-
+/*
 let test = document.getElementById('Faculty');
 
 $(test).click(function(){
     alert(window.innerWidth);
 
 });
+*/
