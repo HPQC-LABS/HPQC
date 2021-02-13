@@ -374,8 +374,8 @@
 	#menu .logoTxt
 	{
 		position: relative;
-		display: inline-block;
-		transform: translateY(-20px);
+		display: flex;
+		transform: translateY(20px);
 	}
 	#menu .logoImg
 	{
@@ -387,7 +387,8 @@
 
 	#menu .logo
 	{
-		display: inline-block;
+		display: flex;
+		margin-left: 15px;
 		font-size: 35px;
 		font-weight: 700;
 		text-decoration: none;
@@ -523,26 +524,30 @@
 	#menu .logoTxt
 	{
 		margin-top: 50px;
-		transform: translateY(-50px);
-		position: absolute;
+		margin-right: 500px;
+		margin-left: -5px;
+		transform: translateY(-30px);
+		position: relative;
 	}
 	#menu .logoImg
 	{
+		margin-left: 5px;
 		transform: translateY(0.25vw); 
-		width: 80px;
+		width: 100px;
 		position: relative;
 	}
 
 	#menu .logo
 	{
 		margin-top: 20px;
-		transform: translateX(-30px);
+		transform: translateY(-20px);
 		position: relative; 
-		font-size: 20px;
+		font-size: 25px;
 		font-weight: 700;
 		text-decoration: none;
 		color: #79C255;
 		text-align: left;
+		margin-bottom: -20px;	
 	}
 
 	#navbar-toggle{
@@ -557,6 +562,7 @@
 		-o-transition: 0.5s ease-in-out;
 		transition: 0.5s ease-in-out;
 		cursor: pointer;
+		z-index: 100;
 	}
 	
 }

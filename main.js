@@ -37,6 +37,7 @@ let mainNav = document.getElementById('main-nav');
 let navBarToggle = document.getElementById('navbar-toggle');
 var pressed = 0;
 var hidden = 1;
+var expand = 0;
 
 $(navBarToggle).click(function(){
     pressed = 1;
@@ -79,6 +80,7 @@ function sizeToggle(x){
         $(mainNav).css("display", "flex");
         if(pressed === 1){
             $(mainNav).css("transform", "translateY(-20px)");
+            expand = 1;
         }
         if(hidden === 0){
             $(mainNav).css("transform", "translateY(105px)");
@@ -86,11 +88,9 @@ function sizeToggle(x){
     }
     else 
         $(mainNav).css("display", "block");
-        /*
-        if(hidden === 1 & pressed === 0){
-            $(mainNav).css("transform", "translateY(-105px)");
+        if(hidden === 0 & pressed === 1 & expand === 1 & size.matches === false){
+            $(mainNav).css("transform", "translateY(-10px)");
         }
-        */
 
 }
 

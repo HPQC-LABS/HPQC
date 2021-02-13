@@ -11,7 +11,9 @@
         padding-left: 80px;
         padding-right: 80px;
         border-radius: 10px;
+        margin-bottom: 30px;
     }
+    
 
     .lecRow{
         background-color: #FFF;
@@ -173,7 +175,7 @@
         text-align: left;
         color: black; 
     }
-    
+
     .description p {
         line-height: 1.25;
     }
@@ -218,4 +220,10 @@
    -ms-transform : rotate(180deg);
    -o-transform : rotate(180deg);
    transform : rotate(180deg);
+}
+
+
+#lecHeader {
+    color: black;
+    font-size: 30px;
 }
