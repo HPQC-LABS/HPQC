@@ -1,4 +1,4 @@
-#pdfContainer{
+#contentsContainer{
     background-color: #FFF;
     width: 80%;
     display: inline-block;
@@ -6,18 +6,25 @@
     padding-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #79C255;
+    text-decoration: none;
+    
 
 }
 
-.pdfFrame{
-    display: block;
-    margin: 0 auto;
-    width: 80%;
-    height: 600px;
+#pdf li{
+    margin: 5px;
+}
+
+#pdfLink{
+    text-decoration: none;
+    color: #79C255 !Important;
+
+
 }
 
 @media screen and (max-width: 750px) {
-    #pdfContainer{
+    #contentsContainer{
         background-color: #FFF;
         width: 100%;
         display: inline-block;
