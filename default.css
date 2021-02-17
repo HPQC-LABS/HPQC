@@ -512,9 +512,11 @@
 		-o-transition: 0.5s ease-in-out;
 		transition: 0.5s ease-in-out;
 		cursor: pointer;
+		padding: 20px;
+		transform: translateY(-20px);
 		
 	}
-	
+
 
 }	
 
@@ -524,8 +526,7 @@
 	#menu .logoTxt
 	{
 		margin-top: 50px;
-		margin-right: 500px;
-		margin-left: -5px;
+		margin-left: -10px;
 		transform: translateY(-30px);
 		position: relative;
 	}
@@ -540,9 +541,9 @@
 	#menu .logo
 	{
 		margin-top: 20px;
-		transform: translateY(-20px);
+		transform: translateY(-10px);
 		position: relative; 
-		font-size: 25px;
+		font-size: 22px;
 		font-weight: 700;
 		text-decoration: none;
 		color: #79C255;
@@ -563,6 +564,8 @@
 		transition: 0.5s ease-in-out;
 		cursor: pointer;
 		z-index: 100;
+		padding: 20px;
+		transform: translateY(-20px);
 	}
 	
 }
@@ -576,7 +579,7 @@
 		display: block;
 		position: absolute;
 		height: 3px;
-		width: 100%;
+		width: 50%;
 		background: #79C255;
 		border-radius: 9px;
 		opacity: 1;
@@ -589,6 +592,9 @@
 		-moz-transition: 0.25s ease-in-out;
 		-o-transition: 0.25s ease-in-out;
 		transition: 0.25s ease-in-out;
+		margin-top: 20px;
+		margin-left: 17px;
+
 	}
 
 	#navbar-toggle span:nth-child(1){

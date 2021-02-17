@@ -227,3 +227,51 @@
     color: black;
     font-size: 30px;
 }
+
+
+
+/* CSS For List Scroll*/
+#scrollContainer{
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+}
+
+.wrapContainer{
+    position: relative; 
+    margin: auto;
+    overflow: auto;
+    mask: url(#masking);
+    /* 
+    -webkit-mask-image: -webkit-
+    gradient(linear, left bottom, left top, color-stop(0.5, rgba(0,0,0,1)), color-stop(1, rgba(0,0,0,0)));
+
+    */ 
+}
+
+#ulScroll{
+    list-style: none;
+    position: relative;
+    transition: transform .3s;
+}
+
+#ulScroll, #ulScroll li{
+    margin:0;
+    padding:0;
+}
+
+#ulScroll li{
+    transition: transform .3s;
+    overflow: hidden;
+}
+
+.active{
+
+    transform: scale(1.1);
+}
+
+ul li .lecRow{
+    transition: transform 200ms;
+    display: inline-block;
+}
+
