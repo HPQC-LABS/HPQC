@@ -630,51 +630,9 @@
     {
         font-size: 35px;
     }
+
+    #header{
+        text-align: center;
+        font-size: 40px;
+    }
 }
-
-
-
-/* 
-
-.peopleContainer{
-    height: 600px;
-    display: flex;
-}
-
-.peopleList{
-    padding: 8%;
-    height: 600px;
-    background-color: rgb(224, 196, 250);
-}
-
-.peopleListTitle{
-    width: 100%;
-    text-align: center;
-    font-size: 1.8em;
-}
-
-.peopleBio{
-    background-color: rgb(202, 235, 202);
-}
-
-.person{
-    width: 300px;
-    float: left;
-    margin: 10px 10px 0px 10px;
-    text-align: center;
-	border: 1px solid rgba(0,0,0,0.1);
-	border-radius: 8px;
-}
-
-.personName{
-    font-size: 30px;
-}
-
-.person img{
-    width: 270px;
-    height: 285px;
-}
-
-.personTitle {
-    font-size: 25px;
-} */
