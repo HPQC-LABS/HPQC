@@ -11,6 +11,8 @@
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="people.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -63,7 +65,7 @@
     </div>
 
     <div id="peopleList" class="peopleList">
-    <div id="Faculty">
+    <div id="Faculty" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Faculty</h2><br>
             </div>
@@ -97,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <div id="Students">
+        <div id="Students" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Students</h2><br>
             </div>
@@ -239,7 +241,7 @@
                 </div>
             </div>
         </div>
-        <div id="ProjectMembers">
+        <div id="ProjectMembers" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Project Members</h2><br>
             </div>
@@ -327,7 +329,7 @@
                 </div>
             </div>
         </div>
-        <div id="GuestLecturers">
+        <div id="GuestLecturers" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Guest Lecturers</h2><br>
             </div>
@@ -388,7 +390,7 @@
                 </div>
             </div>
         </div>
-        <div id="FormerStudents">
+        <div id="FormerStudents" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Former Students</h2><br>
             </div>
@@ -503,7 +505,7 @@
                 </div>
             </div>
         </div>
-        <div id="Directors">
+        <div id="Directors" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Interim Board of Directors</h2><br>
             </div>
@@ -651,5 +653,9 @@
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
 <script type="text/javascript" src="main.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>

@@ -214,16 +214,21 @@
 
 	.title
 	{
+		
 		margin-bottom: 3em;
 	}
 	
 	.title h2
 	{
+		padding: 30px;
+
 		font-size: 2.1em;
 	}
 	
 	.title .byline
 	{
+		padding: 30px;
+
 		font-size: 1.1em;
 		color: #6F6F6F;
 	}

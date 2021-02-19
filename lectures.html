@@ -14,6 +14,8 @@
 	<link href="lectures.css" rel="stylesheet" type="text/css" media="all" />
 	<!--<link href="lectures.html" rel="stylesheet" type="text/css" media="all" />-->
 	<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -63,7 +65,7 @@
 				<h2>2021 Lecture Series</h2><br>
 				<a href="lectures/LectureFlyer.pdf"> View/Download Schedule</a>
 
-				<div class="lecColumn">
+				<div class="lecColumn" data-aos="fade-up">
 					<p id="lecHeader"><b>Upcoming Lectures</b></p>
 
 					<div class="lecRow" id="EBRow">
@@ -249,7 +251,7 @@
 					</div>
 				</div>
 
-				<div class="lecColumn">
+				<div class="lecColumn" data-aos="fade-up">
 					<p id="lecHeader"><b>Past Lectures</b></p>
 					<div class="lecRow" id="TDRow">
 						<img src="images/ThomasDimson.png" class="lecImg">
@@ -312,7 +314,13 @@
 	</div>
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="lectures.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
 
 </html>
