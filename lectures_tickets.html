@@ -12,6 +12,7 @@
         rel="stylesheet" />
     <link href="default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="lectures.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="lectures_tickets.css" rel="stylesheet" type="text/css" media="all" />
     <!--<link href="lectures.html" rel="stylesheet" type="text/css" media="all" />-->
     <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
     <link href="AOS\aos.css" rel="stylesheet">
@@ -62,26 +63,27 @@
     <div id="featured">
         <div class="container">
             <div class="title">
-                <h3>Very limited spots for students not registered at HPQC College</h3><br>
+            <div id="form">
+                <h3>Very limited spots for students not registered at HPQC College</h3>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfKlkhsk89Cj3o7TBjvPW1QTI7dqs1wegDfyAZgtdFzds0LEQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
-            <div id="smart-button-container">
-                <div style="text-align: center;">
-                    <div style="margin-bottom: 1.25rem;">
-                        <p>For students not registered at HPQC College, please make a small donation to register.</p>
-                        <p>Limited space is available for students from outside the college.</p>
+            <div id="donation">
+                <h3>For students not registered at HPQC College, please make a small donation to register.</h3>
+                <h3>Limited space is available for students from outside the college.</h3>
+                <div id="smart-button-container">
+                    <div id="options">
                         <select id="item-options">
                             <option value="Early Bird Special" price="20">One lecture: <strike>$35</strike> (after 23 Feb) $20 (until 23 Feb)</option>
                             <option value="Whole Series" price="80">Whole series: $115 (after 23 Feb) $80 (until 23 Feb)</option>
                         </select>
-                        <select style="visibility: hidden" id="quantitySelect"></select>
                     </div>
                     <div id="paypal-button-container"></div>
                 </div>
+                <script src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
+                    data-sdk-integration-source="button-factory"></script>
+                <script src="lectures_tickets.js"></script>
             </div>
-            <script src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
-                data-sdk-integration-source="button-factory"></script>
-            <script src="lectures_tickets.js"></script>
-        </div>
+
     </div>
 </body>
 
