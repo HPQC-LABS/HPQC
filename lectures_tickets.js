@@ -63,7 +63,15 @@ function initPayPalButton() {
                         },
                         quantity: quantity
                     }]
-                }]
+                }],
+                application_context: {
+                    shipping_preference: 'NO_SHIPPING'
+                },
+                payer: {
+                    address: {
+                        country_code: 'CA'
+                    }
+                }
             });
         },
         onApprove: function (data, actions) {
