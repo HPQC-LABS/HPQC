@@ -6,10 +6,13 @@
 <title>HPQC Labs: High Performance & Quantum Computing</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="people.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="AOS\aos.css" rel="stylesheet">
+
 
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -22,27 +25,32 @@
 
 </head>
 <body>
-<div id="wrapper">
-	<div id="header" class="container">
 		<div id="menu">
-            <span class="navbar-toggle" id="navbar-toggle" >&#9776;</span>
-			<a href="index.html" class="logo"> HPQC Labs</a>
+            <div class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+			<a href="index.html" class="logo"> 
+                <img src="images/HPQC_Labs.svg" class="logoImg">
+                <span class="logoTxt">HPQC Labs</span>
+            </a>
 			<ul class="main-nav" id="main-nav">
                 <li><a href="index.html" accesskey="1" title="">Homepage</a></li>
                 <li class="current_page_item"><a href="people.html" accesskey="2" title="">People</a></li>
                 <li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
-                <li><a href="by-laws.pdf" accesskey="4" title="">By-laws</a></li>
+                <li><a href="by-laws.html" accesskey="4" title="">By-laws</a></li>
                 <li class="dropmenu">
                     <a class="dropbtn" accesskey="6" title="">Resources</a>
                     <div class = "content">
                         <a href="lectures.html" title="">Lectures</a>
-                        <a href="LaTeXGitBashSetUp.pdf">LaTeX Setup</a>
+                        <a href="LaTeX.html">LaTeX Setup</a>
                     </div>			
                 </li>
                 <li><a href="college.html" accesskey="5" title="">HPQC College</a></li>
 			</ul>
 		</div>
-	</div>
 	<div id="banner">&nbsp;</div>
 
 	<div id="featured">
@@ -57,7 +65,7 @@
     </div>
 
     <div id="peopleList" class="peopleList">
-    <div id="Faculty">
+    <div id="Faculty" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Faculty</h2><br>
             </div>
@@ -91,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <div id="Students">
+        <div id="Students" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Students</h2><br>
             </div>
@@ -233,7 +241,7 @@
                 </div>
             </div>
         </div>
-        <div id="ProjectMembers">
+        <div id="ProjectMembers" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Project Members</h2><br>
             </div>
@@ -321,13 +329,13 @@
                 </div>
             </div>
         </div>
-        <div id="GuestLecturers">
+        <div id="GuestLecturers" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Guest Lecturers</h2><br>
             </div>
             <div class="band">
                 <div class="item-1">
-                    <a class="card">
+                    <a href="#104bio" class="card" id="104">
                         <div class="personPic" style="background-image: url('images/ThomasDimson.png')"></div>
                         <article>
                         <h1>Thomas Dimson</h1>
@@ -336,7 +344,7 @@
                     </a>
                 </div>
                 <div class="item-2">
-                    <a class="card">
+                    <a  href="#105bio" class="card" id="105">
                         <div class="personPic" style="background-image: url('images/EvanBrowning.png')"></div>
                         <article>
                         <h1>Evan Browning</h1>
@@ -345,7 +353,7 @@
                     </a>
                 </div>
                 <div class="item-3">
-                    <a class="card">
+                    <a  href="#106bio" class="card" id="106">
                         <div class="personPic" style="background-image: url('images/BrianneKent.png');"></div>
                         <article>
                         <h1>Brianne Kent</h1>
@@ -354,7 +362,7 @@
                     </a>
                 </div>
                 <div class="item-4">
-                    <a class="card">
+                    <a  href="#107bio" class="card" id="107">
                         <div class="personPic" style="background-image: url('images/LeonardZgrablic.png')"></div>
                         <article>
                         <h1>Leonard Zgrablic</h1>
@@ -363,7 +371,7 @@
                     </a>
                 </div>
                 <div class="item-5">
-                    <a class="card">
+                    <a  href="#108bio" class="card" id="108">
                         <div class="personPic" style="background-image: url('images/AhmedOmran.png');"></div>
                         <article>
                         <h1>Ahmed Omran</h1>
@@ -372,7 +380,7 @@
                     </a>
                 </div>
                 <div class="item-6">
-                    <a class="card">
+                    <a  href="#109bio" class="card" id="109">
                         <div class="personPic" style="background-image: url('images/GenevieveLaurier.png');"></div>
                         <article>
                         <h1>Genevieve Laurier</h1>
@@ -382,7 +390,7 @@
                 </div>
             </div>
         </div>
-        <div id="FormerStudents">
+        <div id="FormerStudents" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Former Students</h2><br>
             </div>
@@ -497,7 +505,7 @@
                 </div>
             </div>
         </div>
-        <div id="Directors">
+        <div id="Directors" data-aos="fade-up">
             <div class="peopleTitle">
                 <h2>Interim Board of Directors</h2><br>
             </div>
@@ -557,9 +565,11 @@
 
     <div id="peopleBio" class="peopleBio">
         <br>
-        <div id="backToPeopleList" class="backToPeopleList">
-          &nbsp &nbsp &nbsp  Back To People
-        </div>
+        <h1 id="header">Faculty</h1>
+        <br>
+        <button id="backToPeopleList" class="backToPeopleList">
+          Back To People
+        </button>
         <br>
         <div id="101bio" class="personBio">
         <br>
@@ -581,13 +591,71 @@
             <p><img src="images/DeyanMihaylov.png">Dr. Mihaylov completed his undergraduate degree in Physics at Oxford University (UK), then went on to do his PhD at Cambridge University (UK) where he studied general relativity and gravitational waves. Upon completion of his PhD, he began his post-doctoral career at the Max Planck Institute for Gravitational Physics in Berlin, Germany.</p>
         </div>
         <br>
+        <h1 id="header">Guest Lecturers</h1>
+        <br>
+        <div id="104bio" class="personBio">
+            <h1>Thomas Dimson</h1><br>
+            
+            <p><img src="images/ThomasDimson.png">Thomas Dimson was one of the first 40 employees at Instagram, back in 2013 when the app was still new. He is the original author of "the algorithm" at Instagram, and was the brain behind how feeds and stories work. He invented Hyperlapse, which is the app that was used for the filming of the music video for "Centuries" by Fall Out Boy. He also invented Instagram products such as stories polling sticker, and emogineering. In 2015 he was named one of the top 10 most creative people in business worldwide, and in 2018 he was promoted from Principal Engineer to Director of Engineering at Instagram.<br><br>					
+                Dimson earned his MSc in CS from Stanford University, where he specialized in Artificial Intelligence, Natural Language Processing, and Data Mining. Prior to that he earned a triple-degree in Applied Math, Computer Science, and Pure Math at University of Waterloo, and worked at Amazon, Bloomberg L.P. and the Perimeter Institute for Theoretical Physics.<br><br>						
+                Dimson has over 30 US patents listed on Google Scholar as of January 2021, and several of his publications and patents have acquired an unusually high number of citations.</p>
+        </div>
+        <br>
+
+        <div id="105bio" class="personBio">
+            <h1>Evan Browning</h1><br>
+            
+            <p><img src="images/EvanBrowning.png">Evan Browning joined the virtual reality team at Facebook in July 2020, after 5 years as a Senior Software Engineer at Netflix.<br><br>
+                Browning completed his computer science degree at University of Toronto, where he also worked as a researcher, and held a job as a GIS Analyst at Ontario's Ministry of Natural Resources.</p>
+        </div>
+        <br>
         
+        <div id="106bio" class="personBio">
+            <h1>Dr. Brianne Kent</h1><br>
+            
+            <p><img src="images/BrianneKent.png">Dr. Brianne Kent is a professor at Simon Fraser University, where she runs the Translational Neuroscience Lab and studies how disprupted sleep can contribute to memory loss in people with Alzheimer's patients. She currently sits on the Governing Council of the Canadian Institutes of Health Research.<br><br>
+                Dr. Kent was previously a research fellow at Harvard Medical School, and held a postdoctoral position at UBC funded by three simultaneous fellowships including the extremely prestigious Banting Fellowship. She  completed her PhD in neuroscience from Cambridge University where she was a Gates Scholar, and also holds degrees from Yale University and Simone Fraser University.<br><br>
+                Dr. Kent has published many papers in scientific journals, and as of January 2021 has a Google Scholar h-index of 20. </p>
+        </div>
+        <br>
+
+        <div id="107bio" class="personBio">
+            <h1>Leonard Zgrablic</h1><br>
+            
+            <p><img src="images/LeonardZgrablic.png">Leonard Zgrablic is a Software Engineer at Google, working on the Stadia Controller firmware. Previously he held Software Engineering positions at Arista Networks, Clearpath, and Blackberry.<br><br>
+                Zgrablic also had a successful career as an actor, director, and writer, having won multiple awards. He was in the cast of Stiffs on the Green (2011), The Cult (2012), and was listed as one of the lead stars in Catalyst (2015)</p>
+        </div>
+        <br>
+
+        <div id="108bio" class="personBio">
+            <h1>Dr. Ahmed Omran</h1><br>
+            
+            <p><img src="images/AhmedOmran.png">Dr. Ahmed Omran is an Artificial Intelligence resident at Google.<br>
+                Dr. Omran previously worked at Harvard University in the Physics Department, and as a Research Consultant for QuEra Computing in Boston. His PhD is from LMU Munich where he also worked at the Max Planck Institute of Quanum Optics. He also holds Bachelor's and Master's degrees from TU Munich.<br><br>
+            Dr. Omran has 3 publications in Nature, 3 publications in Science, and 5 publications in Physical Review Letters as of January 2021 and 100% all of his publications prior to 2020 have over 100 citations. His paper with Mikhail Lukin involving an in-house 51-qubit programmable quantum computer reached 1000 citations on Google Scholar after 3 years.</p>
+        </div>
+        <br>
+
+        <div id="109bio" class="personBio">
+            <h1>Genevieve Laurier</h1><br>
+            
+            <p><img src="images/GenevieveLaurier.png">Genevieve Laurier is the Managing Director at The Social Innovation Partnership, having previously been Director of Delivery and Impact, Head of Delivery and Impact, and Acting Head of Impact and Evaluation. <br><br>
+                Laurier was also previously the President of Oxford Hub, which had over 5000 individual members and 80 institutional members.<br><br>
+                Laurier holds an MSc from Oxford University where she wrote a thesis about sexual minority topics in the sex education at schools, and a bachelor's degree in PPE, also at Oxford University.</p>
+        </div>
+        <br>
+
+
     </div>
     <br>
-	<!-- <span style="display:block; margin-top:-37px;"> <h2><p style="color:white">a<br>a<br>a</p></h2></span> -->
+    <!-- <span style="display:block; margin-top:-37px;"> <h2><p style="color:white">a<br>a<br>a</p></h2></span> -->
 <div id="copyright" class="container", style = "background:#79C255";>
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
 <script type="text/javascript" src="main.js"></script>
+<script src="AOS\aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>

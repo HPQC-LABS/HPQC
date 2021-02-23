@@ -17,9 +17,11 @@ Released   : 20140216
 <title>HPQC Labs: High Performance & Quantum Computing</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&displa y=swap" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="AOS\aos.css" rel="stylesheet">
+
 
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -27,24 +29,33 @@ Released   : 20140216
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" href="images/favicon.ico" />
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
 <body>
 <div id="menu">
-	<span class="navbar-toggle" id="navbar-toggle">&#9776;</span>
-	<a href="index.html" class="logo"> HPQC Labs</a>
+	<div class="navbar-toggle" id="navbar-toggle">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<a href="index.html" class="logo"> 
+		<img src="images/HPQC_Labs.svg" class="logoImg">
+		<span class="logoTxt">HPQC Labs</span>
+	</a>
 	<ul class="main-nav" id="main-nav">
 		<li class="current_page_item"><a href="index.html" accesskey="1" title="">Homepage</a></li>
 		<li><a href="people.html" accesskey="2" title="">People</a></li>
 			<li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
-		<li><a href="by-laws.pdf" accesskey="4" title="">By-laws</a></li>
+		<li><a href="by-laws.html" accesskey="4" title="">By-laws</a></li>
 		<li class="dropmenu">
 			<a class="dropbtn" accesskey="5" title="">Resources</a>
 			<div class = "content">
 				<a href="lectures.html" title="">Lectures</a>
-				<a href="LaTeXGitBashSetUp.pdf">LaTeX Setup</a>
+				<a href="LaTeX.html">LaTeX Setup</a>
 			</div>			
 		</li>
 		<li><a href="college.html" accesskey="6" title="">HPQC College</a></li>
@@ -101,4 +112,8 @@ Released   : 20140216
 </body>
 
 <script type="text/javascript" src="main.js"></script>
+<script src="AOS\aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </html>
