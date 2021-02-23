@@ -113,7 +113,237 @@
  
     }
 
+    /* CSS For Slider*/
+
+        
+    .container2{
+        border-radius: 8px;
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+        height: auto;
+        background-color: #FFF;
+        
+    }
+
+    #upcoming{
+        color: black !important;
+        margin: auto;
+    }
     
+    .lecImg2{
+        margin: 0 auto;
+        max-width: 120px;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        margin-bottom: -25px;
+    }
+    
+    .card{
+        height: 600px;
+
+    }
+    
+    .item{
+        padding: 15px;
+        outline: none;
+        min-width: 200px;
+        margin: 100px auto 0;
+        margin-top: -60px;
+        height: auto;
+        perspective: 1000px;
+        
+    }
+    
+    .itemInner{
+        /*background: linear-gradient(220deg, #82d35a, rgba(75, 221, 3, 0.5));*/
+        border-radius: 18px;
+        text-align: center;
+        padding: 25px;
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        
+    }
+    
+    .itemInner.is-flipped {
+        transform: rotateY(180deg);
+    }
+    
+    .cardFace{
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+        
+    
+    }
+    
+    .cardFaceFront{
+    
+        height: 400px;
+        background-image: linear-gradient(to bottom right, #82d35a, rgba(75, 221, 3, 0.5));
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-50px);
+    }
+    
+    .cardFaceFront h2{
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .cardFaceFront p{
+        font-size: 12px;
+        font-weight: 700;
+
+    }
+    
+    .frontContent{
+        padding-top: 20px;
+        text-shadow: 0 0 1px black;
+
+    }
+    
+    .cardFaceBack{
+        background-color: #fff;
+        transform:rotateY(180deg);
+    }
+    
+    .cardContent{
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    
+    }
+    
+    .cardHeader{
+        position: relative;
+        padding: 40px 15px 15px;
+    }
+    
+    .cardHeader:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 0 0 25% 0;
+        background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
+    }
+    
+    .cardHeader h2{
+        color: #fff;
+        font-size: 32px;
+        font-weight: 900;
+        text-align: center;
+    }
+    
+    .cardBody{
+        padding: 30px;
+        color: black !important;
+        display: block;
+    }
+    
+    .cardBody h3{
+        color: black !important;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    .cardBody p {
+        color: black !important;
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    
+    .cardBody a {
+        margin-top: 10px;
+        display: inline-block;
+    }
+    
+    .itemInner h4{
+        font-size: 30px;
+        color: #fff;
+        text-transform: capitalize;
+    }
+    
+    .itemInner p{
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+    
+    .slick-slide{
+        transform: scale(0.8);
+        opacity: 0.3;
+        transition: all ease 0.5s;
+        
+    }
+    
+    .slick-slide.slick-current{
+        transform: scale(1);
+        opacity: 1;
+    
+    }
+    
+    .slick-arrow{
+        
+        transform: translateY(-300px);
+        position: absolute;
+        bottom: 0;
+        z-index: 99;
+        background:#fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 50px;
+        width: 100px;
+        outline: none;
+        box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
+        transition: ease-in-out 0.5s;
+        margin: 10px;
+    }
+    
+    .slick-arrow:hover{
+        box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.4);
+    }
+    
+    .slick-next{
+        left: 50vw;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .slick-prev{
+        right: 50vw;
+        margin: 10px;
+        padding: 10px;
+
+    }
+    
+    .slick-list{
+        height: 750px;
+        display: flex;
+        padding-top: 55px !important;
+        padding-bottom: 55px !important;
+    }
+    
+
+
+
 }
 /*Mobile view / small screen*/
 
@@ -226,8 +456,239 @@
         -ms-transition : all 0.5s ease-in-out;
         -o-transition : all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
+    }
+
+        /* CSS For Slider*/
+
+        
+    .container2{
+        border-radius: 8px;
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+        height: auto;
+        background-color: #FFF;
         
     }
+
+    #upcoming{
+        color: black !important;
+        margin: auto;
+    }
+    
+    .lecImg2{
+        margin: 0 auto;
+        max-width: 120px;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        margin-bottom: -25px;
+    }
+    
+    .card{
+        height: 600px;
+
+    }
+    
+    .item{
+        padding: 15px;
+        outline: none;
+        min-width: 200px;
+        margin: 100px auto 0;
+        margin-top: -60px;
+        height: auto;
+        perspective: 1000px;
+        
+    }
+    
+    .itemInner{
+        /*background: linear-gradient(220deg, #82d35a, rgba(75, 221, 3, 0.5));*/
+        border-radius: 18px;
+        text-align: center;
+        padding: 25px;
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        position: relative;
+        
+    }
+    
+    .itemInner.is-flipped {
+        transform: rotateY(180deg);
+    }
+    
+    .cardFace{
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+        
+    
+    }
+    
+    .cardFaceFront{
+    
+        height: 400px;
+        background-image: linear-gradient(to bottom right, #82d35a, rgba(75, 221, 3, 0.5));
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-50px);
+    }
+    
+    .cardFaceFront h2{
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .cardFaceFront p{
+        font-size: 12px;
+        font-weight: 700;
+
+    }
+    
+    .frontContent{
+        padding-top: 20px;
+        text-shadow: 0 0 1px black;
+
+    }
+    
+    .cardFaceBack{
+        background-color: #fff;
+        transform:rotateY(180deg);
+    }
+    
+    .cardContent{
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    
+    }
+    
+    .cardHeader{
+        position: relative;
+        padding: 40px 15px 15px;
+    }
+    
+    .cardHeader:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 0 0 25% 0;
+        background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
+    }
+    
+    .cardHeader h2{
+        color: #fff;
+        font-size: 32px;
+        font-weight: 900;
+        text-align: center;
+    }
+    
+    .cardBody{
+        padding: 30px;
+        color: black !important;
+        display: block;
+    }
+    
+    .cardBody h3{
+        color: black !important;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    .cardBody p {
+        color: black !important;
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    
+    .cardBody a {
+        margin-top: 10px;
+        display: inline-block;
+    }
+    
+    .itemInner h4{
+        font-size: 30px;
+        color: #fff;
+        text-transform: capitalize;
+    }
+    
+    .itemInner p{
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+    
+    .slick-slide{
+        transform: scale(0.8);
+        opacity: 0.3;
+        transition: all ease 0.5s;
+        
+    }
+    
+    .slick-slide.slick-current{
+        transform: scale(1);
+        opacity: 1;
+    
+    }
+    
+    .slick-arrow{
+        
+        transform: translateY(-300px);
+        position: absolute;
+        bottom: 0;
+        z-index: 99;
+        background:#fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 50px;
+        width: 100px;
+        outline: none;
+        box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
+        transition: ease-in-out 0.5s;
+        margin: 10px;
+    }
+    
+    .slick-arrow:hover{
+        box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.4);
+    }
+    
+    .slick-next{
+        left: 50vw;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .slick-prev{
+        right: 50vw;
+        margin: 10px;
+        padding: 10px;
+
+    }
+    
+    .slick-list{
+        height: 750px;
+        display: flex;
+        padding-top: 55px !important;
+        padding-bottom: 55px !important;
+    }
+    
+
+
+
 
 }
 
@@ -248,6 +709,36 @@
 
 
 
-/* CSS For List Scroll*/
+/* CSS For Slider*/
+
+
+  
+  .contactLogo{
+    display: inline;
+    margin-right: 15px;
+    width: 20px;
+    margin-bottom: 15px;
+  }
+  
+  #scholar{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  
+  /*
+  .lecImg{
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 120px;
+    border: 3px; 
+    border-radius: 100%;
+    float:left;
+  }*/
+  
+  ::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  
 
  

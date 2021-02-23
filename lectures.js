@@ -1,3 +1,16 @@
+
+
+
+const card = document.querySelectorAll('.itemInner');
+
+card.forEach((card) => {
+     card.addEventListener("click", () => {
+          card.classList.toggle("is-flipped");
+     });
+});
+
+
+
 /*For 1st Lecture box*/
 let TD = document.getElementById('TDInfo');
 let TDTxt = document.getElementById('TDDesc');
