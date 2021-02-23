@@ -66,6 +66,11 @@ function initPayPalButton() {
                 }],
                 application_context: {
                     shipping_preference: 'NO_SHIPPING'
+                },
+                payer: {
+                    address: {
+                        country_code: 'CA'
+                    }
                 }
             });
         },
