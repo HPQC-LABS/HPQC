@@ -113,12 +113,102 @@
 		
 		<ul>
 			<li>git push</li>
-		</ul>		
-			
-			
-				
+		</ul>
 
 	</div>
+
+		<div class="sphinxContainer" data-aos="fade-up">
+		<h1>Running Sphinx</h1>
+		<p>
+			1. Follow the instructions <a href="https://www.sphinx-doc.org/en/master/usage/installation.html" target="_blank">here</a> to install Sphinx. Use the directions that match the operating system you use.
+		</p>
+
+		<br>
+
+		<p>2. In the command line, change your current directory to your project’s directory using the ‘cd’ command.</p>
+
+		<ul>
+			<li>cd Desktop</li>
+			<li>cd yourProject</li>
+		</ul>
+
+		<br>
+
+		<p>3. Run ‘sphinx-quickstart’ in your project’s directory and fill in the project’s information. For ‘Project name’ and ‘Author name(s)’, fill in the appropriate information you want to put. Otherwise, use the default settings (which are in the [] of each setting that has a default) by clicking Enter.</p>
+
+		<ul>
+			<li>Separate source and build directories (y/n) [n]:</li>
+			<li>Project name: (insert your project name)</li>
+			<li>Author name(s): (insert your name/author’s name)</li>
+			<li>Project release[]:</li>
+			<li>Project language[en]:</li>
+		</ul>
+
+		<br>
+
+		<p>4. Open the conf.py file that was created in the previous step. It should be located in your project’s directory. Uncomment the lines (which should be lines 13-15):</p>
+
+		<ul>
+			<li>import os</li>
+			<li>import sys</li>
+			<li>sys.path.insert(0, os.path.abspath('.'))</li>
+		</ul>
+
+		<br>
+
+		<p>5. Change the line “sys.path.insert(0, os.path.abspath('.'))” so that the pathway leads to where your project’s modules are located. Remember that the pathway is relative to your current project directory.</p>
+
+		<p>For example, if your modules are in a folder called, “yourModules”, which is located in your project directory, “yourProject”, then change the line to be:</p>
+
+		<ul>
+			<li>sys.path.insert(0, os.path.abspath('./yourModules'))</li>
+		</ul>
+
+		<br>
+
+		<p>6. In line 30 of conf.py, add ‘sphinx.ext.autodoc’ (include the ‘’) to “extensions”.</p>
+
+		<ul>
+			<li>extensions = [‘sphinx.ext.autodoc’</li>
+			<li>]</li>
+		</ul>
+
+		<br>
+
+		<p>7. In the command line (the current directory as the project’s directory), run the ‘sphinx-apidoc’ command using the format:</p>
+
+		<ul>
+			<li>sphinx-apidoc -o OUTPUT_PATH MODULE_PATH </li>
+		</ul>
+
+		<p>For example, if the output directory is called “yourSource” and the module directory is called, “yourModules”, run:</p>
+
+		<ul>
+			<li>sphinx-apidoc -o yourSource yourModules</li>
+		</ul>
+
+		<p>The output directory will be where your .rst files will appear, and these .rst files will contain the autodoc directives that will generate your documentation.</p>
+
+		<br>
+
+		<p>8. Run ‘make html’. The HTML files can be found in the folder ‘_build’. If you get “WARNING: document isn't included in any toctree”, you can fix this by going into index.rst (located in your project directory) and adding modules.rst:</p>
+
+		<ul>
+			<li>	.. toctree::</li>
+			<li>		:maxdepth: 2</li>
+			<li>		:caption: Contents:</li>
+			<li> </li>
+			<li>		yourSource/modules</li>
+		</ul>
+
+		<br>
+
+		<p>Optional: Update your theme by going into the conf.py file and changing the variable “html_theme”. The default theme will be “alabaster”.</p>
+
+		</div>
+
+
+
 	<!-- <span style="display:block; margin-top:-37px;"> <h2><p style="color:white">a<br>a<br>a</p></h2></span> -->
 <div id="copyright" class="container", style = "background:#79C255";>
 	<p>&copy; HPQC Labs. All rights reserved. </p>
