@@ -1,5 +1,5 @@
 function initPayPalButton() {
-    /*getIp();*/
+    getIp();
     var shipping = 0;
     var itemOptions = document.querySelector("#smart-button-container #item-options");
     var quantity = parseInt();
@@ -88,21 +88,41 @@ function initPayPalButton() {
 initPayPalButton();
 
 
-/*
+var code = 'CA';
+
 function getIp() {
 
+    
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(position){
-            console.log(position);
-            $.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&key=AIzaSyB3KsmqVmUnKY5GSgPp9NvkVDpz-dyo7ec", function(data){
-                console.log(data);
-            })
-        })
-    }
-    else
-        console.log("geolocation is not supported");
- 
+            const { latitude, longitude } = position.coords;
+            $.getJSON('https://ipapi.co/json/', function(data) {
+            /*console.log(JSON.stringify(data, null, 2));*/
+            code = 'NA';
+            console.log(code);
+            return code
+          });
+          
+        });
 
+    }   
+    else {
+
+        console.log("geolocation is not supported");
+
+    }
+    
 }
 
-*/
+console.log(code);
+code = getIp();
+console.log(code);
+
+    
+        
+    /*
+    If the following api stops working below is a stack overflow page containing a list of possible other apis and pros/cons
+    https://stackoverflow.com/questions/391979/how-to-get-clients-ip-address-using-javascript
+
+    */
+  
