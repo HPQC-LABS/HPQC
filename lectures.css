@@ -332,8 +332,8 @@
         margin: 10px;
         padding: 10px;
 
+        
     }
-    
     .slick-list{
         height: 750px;
         display: flex;
@@ -689,6 +689,16 @@
 
 
 
+
+}
+
+@media screen and (max-width: 390px) {
+
+    .container2{
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
 
 }
 
