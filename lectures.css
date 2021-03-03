@@ -617,7 +617,34 @@
     
     .cardBody a {
         margin-top: 10px;
+        padding: 5px;
+        align-content: center;
         display: inline-block;
+        line-height: 45px;
+        border-radius: 50%;
+        transition: all ease 0.5s; 
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.1);
+
+    }
+
+    .cardBody a img {
+
+        align-content: center;
+        transform: translate(7px, 7px);
+
+    }
+
+    #email{
+
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .cardBody a:hover {
+
+        transform: translateY(-5px);
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+
     }
     
     .itemInner h4{
@@ -700,6 +727,8 @@
         margin-top: 20px;
     }
 
+    
+
 }
 
 
@@ -750,5 +779,36 @@
     background: transparent;  /* Optional: just make scrollbar invisible */
   }
   
+  .cardBody a {
+    margin-top: 10px;
+    padding: 5px;
+    align-content: center;
+    display: inline-block;
+    line-height: 45px;
+    border-radius: 50%;
+    transition: all ease 0.5s; 
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.1);
+
+}
+
+.cardBody a img {
+
+    align-content: center;
+    transform: translate(7px, 7px);
+
+}
+
+#email{
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.cardBody a:hover {
+
+    transform: translateY(-5px);
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+
+}
 
  
