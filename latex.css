@@ -25,6 +25,20 @@
         padding-bottom: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }    
+
+
+    .sphinxContainer{
+        width: 70%;
+        height: auto;
+        position: relative;   
+        margin: auto;
+        margin-top: 50px; 
+        transform: translateY(20px);
+        background-color: rgba(255, 255, 255, 0.925);
+        border-radius: 10px;
+        padding-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }    
 }
 
 @media screen and (max-width: 700px) {
@@ -55,19 +69,19 @@
     }
 }
 
-.latexContainer h1, .gitContainer h1{
+.latexContainer h1, .gitContainer h1, .sphinxContainer h1{
     text-align: center;
     padding: 15px;
     padding-top: 30px;
 }
 
-.latexContainer p, .gitContainer p{
+.latexContainer p, .gitContainer p, .sphinxContainer p{
     padding-left: 60px;
     padding-right: 60px;
     text-align: left;
 }
 
-.latexContainer ul, .gitContainer ul{
+.latexContainer ul, .gitContainer ul, .sphinxContainer ul{
     list-style-type: circle;
     align-content: center;
     text-align: left;
