@@ -41,7 +41,31 @@
 }
 
 
+.pdfContainer{
+    width: 100%;
+    height: 100%;
+}
+
+.pdfFrame{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    border: none;
+    height: 65vw;
+
+}
+
+#limited{
+    font-size: 20px;
+}
+
+
 @media screen and (max-width: 550px) {
+
+
+    .pdfFrame{
+        height: 120vw;
+    }
 
     #form{
         width: 100%;

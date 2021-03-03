@@ -64,28 +64,33 @@
         <div class="container">
             <div class="title">
             <div id="form">
-		<!-- <img src="lectures/LectureFlyer.png"> <br><br><br> -->
-                <h3>Very limited spots for people not currently paying tuition at HPQC College</h3> <br>
+		<div class="pdfContainer"><iframe class="pdfFrame" src="lectures/LectureFlyer.pdf#view=fitH&toolbar=0&navpanes=0"></iframe></div> <br><br><br>
+                <h3 id="limited">Very limited spots for people not currently paying tuition at HPQC College</h3> <br>
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfKlkhsk89Cj3o7TBjvPW1QTI7dqs1wegDfyAZgtdFzds0LEQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
             <div id="donation">
                 <h3>For people not currently paying tuition at HPQC College, please make a small donation to register.</h3>
                 <h3>Limited space is available for people from outside the college.</h3>
+                <h3 id="test">Test1</h3>
 		    <br>
 		    <br>
-		    <p style="color:black">Donation amount for individual lectures: <del>$35</del> $20 until 24 February 2021.<br>
-		For the whole series: <del>$115</del> $75 until 24 February 2021.<br>
+		    <p style="color:black">Donation amount for individual lectures: <var id="currency1txt">$35</var>.<br>
+		For the whole series: <var id="currency5txt">$115</var> .<br>
 		Donations can be made directly by e-transfer to info@hpqc.org, or by the methods available below.<br>
 		A small processing fee may be added if using one of the methods below.</p>   
                 <div id="smart-button-container">
                     <div id="options">
                         <select id="item-options">
 			    <!-- <option value="Test" price="1">Test</option> -->
-                            <option value="Early Bird Special x 1" price="20">One lecture: <strike>$35</strike> (after 24 Feb) $20 (until 24 Feb)</option>
-			    <option value="Early Bird Special x 2" price="40">Two lectures: <strike>$70</strike> (after 24 Feb) $40 (until 24 Feb)</option>
-		            <option value="Early Bird Special x 3" price="60">Three lectures: <strike>$105</strike> (after 24 Feb) $60 (until 24 Feb)</option>
-			    <option value="Early Bird Special x 4" price="80">Four lectures: <strike>$140</strike> (after 24 Feb) $80 (until 24 Feb)</option>
-                            <option value="Whole Series" price="75">Five lectures (whole series): $115 (after 24 Feb) $75 (until 24 Feb)</option>
+                 <!--
+
+                    
+                 -->           
+                            <option value="Early Bird Special x 1" price="20">One lecture: <p id="currency">$35</p></option>
+			    <option value="Early Bird Special x 2" price="40">Two lectures: <p id="currency">$70</p></option>
+		            <option value="Early Bird Special x 3" price="60">Three lectures: <p id="currency">$105</p></option>
+			    <option value="Early Bird Special x 4" price="80">Four lectures: <p id="currency">$140</p></option>
+                            <option value="Whole Series" price="75">Five lectures (whole series): <p id="currency = ">$115</p></option>
                         </select>
                         <select style="visibility: hidden" id="quantitySelect"></select>
                     </div>
@@ -93,7 +98,7 @@
                 </div>
                 <script src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
                     data-sdk-integration-source="button-factory"></script>
-                <script src="lectures_tickets.js"></script>
+                
             </div>
         </div>
     </div>
@@ -110,5 +115,8 @@
 	</script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
+
+<script src="lectures_tickets.js"></script>
+
 
 </html>
