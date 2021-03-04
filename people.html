@@ -185,13 +185,37 @@
                     </a>
                 </div>
                 <div class="item-10">
-                    <a class="card">
-                        <div class="personPic" style="background-image: url('images/MatthewCharbonneau.png')"></div>
-                        <article>
-                        <h1>Matthew Charbonneau</h1>
-                        <span>Undergrad Student</span>
-                        </article>
-                    </a>
+                    <div class="itemInner" id="itemId">
+                        <div class="cardFace cardFaceFront"  >
+                            <div class="frontContent">
+                                <div class="card" id="cardFace">
+                                    <div class="personPic" style="background-image: url('images/MatthewCharbonneau.png');"></div>
+                                    <article>
+                                        <h1>Matthew Charbonneau</h1>
+                                        <span>Undergrad Student</span>
+                                    </article>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="cardFace cardFaceBack"  >
+                            <div class="cardContent" id="cardFace">
+                                <h1 id="titleName">Matthew Charbonneau</h1>
+                                <div class="cardBody">
+                                    <p>
+                                        Employee Description Goes Here
+                                        <br> <br>
+                                        <b>Contact:</b>
+                                    </p>
+                                    <a href="https://www.linkedin.com"
+                                        target="_blank"><img src="images/linkedin-square.svg"
+                                            class="contactLogo"></a>
+                                    <a href="mailto:browning.evan@gmail.com" target="_blank"><img
+                                            src="images/envelope-line.svg" class="contactLogo" id="email"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="item-11">
                     <a class="card">
@@ -652,6 +676,7 @@
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="people.js"></script>
 <script src="Plugins/AOS/aos.js"></script>
 <script>
     AOS.init();

@@ -17,6 +17,12 @@
     padding: 20px;
 }
 
+.personBio p
+{
+    padding: 20px;
+    color: black;
+    text-align: center;
+}
 .personBio img 
 {
     padding-right: 20px;
@@ -61,6 +67,7 @@
 
 .card 
 {
+    
     min-height: 100%;
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -511,6 +518,7 @@
     position: relative;
     top: 0;
     transition: all .1s ease-in;
+
 }
 
 .card:hover 
@@ -635,4 +643,145 @@
         text-align: center;
         font-size: 40px;
     }
+}
+
+    
+.itemInner{
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.itemInner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.cardFace{
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+    
+
+}
+
+.cardFaceFront{
+
+    align-items: center;
+    justify-content: center;
+}
+
+.cardFaceFront h2{
+    color: #fff;
+    font-size: 12px;
+}
+
+.cardFaceFront p{
+    font-size: 12px;
+    font-weight: 700;
+
+}
+
+.frontContent span{
+    /*text-shadow: 0 0 1px black;*/
+    color: #999;
+}
+
+.cardFaceBack{
+    background-color: #fff;
+    transform:rotateY(180deg);
+    
+}
+
+.cardContent{
+    width: 100%;
+    position: relative;
+    
+
+}
+
+.cardHeader{
+    position: relative;
+    padding: 40px 15px 15px;
+}
+
+.cardHeader:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0 0 25% 0;
+}
+
+.cardHeader h2{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+}
+
+#titleName{
+
+    font-size: 26px;
+    margin: 15px;
+}
+.cardBody{
+    padding: 30px;
+    color: black !important;
+    display: block;
+    padding-top: 0px;
+    
+    overflow: hidden;
+
+}
+
+.cardBody h3{
+    color: black !important;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.cardBody p {
+    color: black !important;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.cardBody a {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.itemInner h4{
+    font-size: 30px;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.itemInner p{
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.contactLogo{
+    align-content: center;
+    margin-right: 15px;
+    width: 20px;
+    margin-bottom: 15px;
+
+}
+
+#scholar{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
