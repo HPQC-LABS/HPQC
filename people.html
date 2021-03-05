@@ -11,7 +11,7 @@
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="people.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-<link href="AOS\aos.css" rel="stylesheet">
+<link href="Plugins/AOS/aos.css" rel="stylesheet">
 
 
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -57,8 +57,7 @@
 		<div class="container">
 			<div class="title">
 				<h2>High Performance &amp; Quantum Computing Labs</h2>
-				<span class="byline">HPC on classical & quantum computers.</span><br> 
-				<span class="byline">Physics, Chemistry, Health Science, Medicine, Computation</span> </div>
+                <span class="byline">HPC on classical & quantum computers.<br>Physics, Chemistry, Health Science, Medicine, Computation</span>
 		</div>
 		<ul class="actions">
 		</ul>
@@ -186,13 +185,37 @@
                     </a>
                 </div>
                 <div class="item-10">
-                    <a class="card">
-                        <div class="personPic" style="background-image: url('images/MatthewCharbonneau.png')"></div>
-                        <article>
-                        <h1>Matthew Charbonneau</h1>
-                        <span>Undergrad Student</span>
-                        </article>
-                    </a>
+                    <div class="itemInner" id="itemId">
+                        <div class="cardFace cardFaceFront"  >
+                            <div class="frontContent">
+                                <div class="card" id="cardFace">
+                                    <div class="personPic" style="background-image: url('images/MatthewCharbonneau.png');"></div>
+                                    <article>
+                                        <h1>Matthew Charbonneau</h1>
+                                        <span>Undergrad Student</span>
+                                    </article>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="cardFace cardFaceBack"  >
+                            <div class="cardContent" id="cardFace">
+                                <h1 id="titleName">Matthew Charbonneau</h1>
+                                <div class="cardBody">
+                                    <p>
+                                        Employee Description Goes Here
+                                        <br> <br>
+                                        <b>Contact:</b>
+                                    </p>
+                                    <a href="https://www.linkedin.com"
+                                        target="_blank"><img src="images/linkedin-square.svg"
+                                            class="contactLogo"></a>
+                                    <a href="mailto:browning.evan@gmail.com" target="_blank"><img
+                                            src="images/envelope-line.svg" class="contactLogo" id="email"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="item-11">
                     <a class="card">
@@ -653,7 +676,8 @@
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
 <script type="text/javascript" src="main.js"></script>
-<script src="AOS\aos.js"></script>
+<script type="text/javascript" src="people.js"></script>
+<script src="Plugins/AOS/aos.js"></script>
 <script>
     AOS.init();
 </script>

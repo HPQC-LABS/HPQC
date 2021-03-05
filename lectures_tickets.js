@@ -100,27 +100,14 @@ let currencyName = 'Dollars';
 
 function getIp() {
 
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(function(position){
-            const { latitude, longitude } = position.coords;
-            $.getJSON('https://ipapi.co/json/', function(data) {
-            alert("test4");
-            console.log(JSON.stringify(data, null, 2));
-            code = data.country;
-            currency = data.currency;
-            currencyName = data.currency_name;
+    $.getJSON('https://ipapi.co/json/', function(data) {
+                console.log(JSON.stringify(data, null, 2));
+                code = data.country;
+                currency = data.currency;
+                currencyName = data.currency_name;
             
             
-          });
-          
-        });
-        
-    }   
-    else {
-
-        console.log("geolocation is not supported");
-
-    }
+            });
     
 }
 
@@ -169,7 +156,6 @@ window.onload = function() {
         /*Exchange rate is based on EUR so prices will look off here*/
         var lecPrice = [23, 46, 68, 75, 91]; /*Original prices in CAD: 35, 70, 105, 140, 115*/
         var lecPriceDiscount = [20, 40, 60, 75, 80]; /*Original discount prices in CAD: 20, 40, 60, 80, 75*/
-        document.getElementById('test').innerHTML = "Test2"; 
         for(i=0; i < lecPrice.length; i++){
             
             lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
@@ -181,21 +167,14 @@ window.onload = function() {
             }
         }
         console.log(lecPrice);
-        document.getElementById('currency1txt').innerHTML = lecPrice[0] + " " + currencyName;
-        document.getElementById('currency5txt').innerHTML = lecPrice[4] + " " + currencyName;
-
-    
-        /*lecPrice *= list.getAttribute('rate');
-        console.log(lecPrice);*/
     }
 
-
+    getIp();
     setTimeout(function() { 
-        getIp();
-        setTimeout(function() { 
-            initPayPalButton(); 
-            readXML();
-        }, 500);
+
+        initPayPalButton(); 
+        readXML();
+       
 
     }, 700);
 
