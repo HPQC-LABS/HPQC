@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HPQC Labs: High Performance & Quantum Computing</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="lectures.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="lectures_tickets.css" rel="stylesheet" type="text/css" media="all" />
+    <!--<link href="lectures.html" rel="stylesheet" type="text/css" media="all" />-->
+    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="AOS\aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+
+<body>
+    <div id="menu">
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo">
+            <img src="images/HPQC_Labs.svg" class="logoImg">
+            <span class="logoTxt">HPQC Labs</span>
+        </a>
+        <ul class="main-nav" id="main-nav">
+            <li><a href="index.html" accesskey="1" title="">Homepage</a></li>
+            <li><a href="people.html" accesskey="2" title="">People</a></li>
+            <li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
+            <li><a href="by-laws.html" accesskey="4" title="">By-laws</a></li>
+            <li class="dropmenu">
+                <div class="current_page_item"><a class="dropbtn" accesskey="6" id="selection" title="">Lectures</a>
+                </div>
+                <div class="content">
+                    <a href="lectures.html" title="">Lectures</a>
+                    <a href="LaTeX.html">LaTeX Setup</a>
+                </div>
+            </li>
+            <li><a href="college.html" accesskey="5" title="">HPQC College</a></li>
+        </ul>
+    </div>
+
+    <div id="banner">&nbsp;</div>
+    <div id="featured">
+        <div class="container">
+            <div class="title">
+            <div id="form">
+		        <img class="imgFrame" src="lectures/LectureFlyer.png"></img>
+                <h3 id="limited">Very limited spots for people not currently paying tuition at HPQC College</h3> <br>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfKlkhsk89Cj3o7TBjvPW1QTI7dqs1wegDfyAZgtdFzds0LEQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+            <div id="donation">
+                <h3>For people not currently paying tuition at HPQC College, please make a small donation to register.</h3>
+                <h3>Limited space is available for people from outside the college.</h3>
+		    <br>
+		    <br>
+		    <p style="color:black">Donation amount for individual lectures: <var id="currency1txt">$35</var>.<br>
+		For the whole series: <var id="currency5txt">$115</var> .<br>
+		Donations can be made directly by e-transfer to info@hpqc.org, or by the methods available below.<br>
+		A small processing fee may be added if using one of the methods below.</p>   
+                <div id="smart-button-container">
+                    <div id="options">
+                        <select id="item-options">
+			    <!-- <option value="Test" price="1">Test</option> -->
+                 <!--
+
+                    
+                 -->           
+                            <option value="Early Bird Special x 1" price="35">One lecture: <p id="currency">$35</p></option>
+			    <option value="Early Bird Special x 2" price="70">Two lectures: <p id="currency">$70</p></option>
+		            <option value="Early Bird Special x 3" price="105">Three lectures: <p id="currency">$105</p></option>
+			    <option value="Early Bird Special x 4" price="140">Four lectures: <p id="currency">$140</p></option>
+                            <option value="Whole Series" price="115">Five lectures (whole series): <p id="currency = ">$115</p></option>
+                        </select>
+                        <select style="visibility: hidden" id="quantitySelect"></select>
+                    </div>
+                    <div id="paypal-button-container"></div>
+                </div>
+                <script src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
+                    data-sdk-integration-source="button-factory"></script>
+                
+            </div>
+        </div>
+    </div>
+    <div id="copyright" class="container" , style="background:#79C255" ;>
+		<p>&copy; HPQC Labs. All rights reserved. </p>
+	</div>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="lectures.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script src="AOS\aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</body>
+
+<script src="lectures_tickets.js"></script>
+
+
+</html>

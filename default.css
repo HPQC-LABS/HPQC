@@ -8,11 +8,12 @@
 		margin: 0px;
 		padding: 0px;
 		background: #79C255;
-		font-family: 'Montserrat', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 11pt;
 		font-weight: 200;
 		color: #656565;
 	}
+
 	
 	
 	h1, h2, h3
@@ -65,8 +66,6 @@
 	.container
 	{
 		overflow: hidden;
-		margin: 0em auto;
-		width: 1000px;
 	}
 	
 /*********************************************************************************/
@@ -215,18 +214,49 @@
 
 	.title
 	{
+		
 		margin-bottom: 3em;
 	}
 	
 	.title h2
 	{
-		font-size: 2.7em;
+		padding: 30px;
+
+		font-size: 2.1em;
 	}
 	
 	.title .byline
 	{
-		font-size: 1.7em;
+		padding: 30px;
+		display: inline;
+		font-size: 1.1em;
 		color: #6F6F6F;
+		text-align: center;
+
+	}
+
+	/*********************************************************************************/
+	/* Media Queries                                                                 */
+	/*********************************************************************************/
+
+
+
+	@media screen and (min-width: 560px) 
+	{
+
+		.title h2
+		{
+			font-size: 2.7em;
+		}
+
+		.title .byline
+		{
+			text-align: center;
+			font-size: 1.7em;
+			color: #6F6F6F;
+			display: inline;
+
+		}
 	}
 		
 /*********************************************************************************/
@@ -257,7 +287,7 @@
 /*********************************************************************************/
 /* 3-column                                                                      */
 /*********************************************************************************/
-
+	/*
 	.boxA,
 	.boxB,
 	.boxC
@@ -276,6 +306,7 @@
 	{
 		float: right;
 	}
+	*/
 
 /*********************************************************************************/
 /* 2-column                                                                      */
@@ -296,26 +327,26 @@
 	{
 		float: right;
 	}
-	
+/*	
 	#wrapper
 	{
 		background: #FFF;
 	}
-
+*/
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
-
+/*
 	#header
 	{
 		position: relative;
-		padding: 5em 0em;
+		padding: 2em;
 	}
-
+*/
 /*********************************************************************************/
 /* Logo                                                                          */
 /*********************************************************************************/
-
+	/*
 	#logo
 	{
 		position: absolute;
@@ -333,55 +364,432 @@
 		text-decoration: none;
 		color: #79C255;
 	}
+	*/
 
 /*********************************************************************************/
 /* Menu                                                                          */
 /*********************************************************************************/
 
+/* Mobile / Smaller Screen Devices */
+@media screen and (max-width: 890px) {
+
 	#menu
 	{
-		position: absolute;
-		top: 4.5em;
-		right: 0;
+		display: block;
+		background-color: #FFF;
+		text-align: center;
+		padding-top: 25px;
+	}	
+
+	#menu .logoTxt
+	{
+		position: relative;
+		display: flex;
+		transform: translateY(20px);
 	}
-	
-	#menu ul
+	#menu .logoImg
+	{
+		width: 100px;
+		position: relative;
+		display: inline-block;
+		transform: translateY(10px);
+	}
+
+	#menu .logo
+	{
+		display: flex;
+		margin-left: 15px;
+		font-size: 35px;
+		font-weight: 700;
+		text-decoration: none;
+		color: #79C255;
+		padding-bottom: 25px;
+	}
+
+	#menu .navbar-toggle
 	{
 		display: inline-block;
+		position: absolute;
+		margin-top: 35px;
+		right: 20px;
+		cursor: pointer;
+		color: #79C255;
+		font-size: 30px;
+	}
+
+	#menu .main-nav
+	{
+		padding: 0;
+		overflow: hidden;
+		text-align: center;
+		margin: 0;
+		display:none;
+		height: 0;
+	}
+
+	#menu .main-nav li
+	{
+		padding: 10px;
+	}
+
+	#menu .main-nav li a, .dropbtn
+	{
+		text-align: center;
+		text-decoration: none;
+		font-size: 15px;
+		color: #2B3F48;
+		padding: 5px;
+
 	}
 	
-	#menu li
+	#menu .main-nav li a:hover, .dropmenu:hover .dropbtn
+	{
+		color:rgb(0, 0, 0);
+		transition: 0.25s ease-in-out;
+		background-color: rgb(221, 221, 221);
+		/*padding: 5px;*/
+	}
+
+	#menu .main-nav li.dropmenu
+	{
+		display: inline-block;
+		
+	}
+
+	#menu .main-nav .content
+	{
+		transform: translateY(10px);
+		display: none;
+		position: absolute;
+		background-color: rgb(255, 255, 255);
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+	
+	#menu .main-nav .content a
+	{
+		color: #2B3F48;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		text-align: center;
+		padding: 10px;
+	}
+
+	#menu .main-nav .content a:hover
+	{
+		background-color: rgb(221, 221, 221);
+	}
+
+	#menu .main-nav .dropmenu:hover .content
 	{
 		display: block;
-		float: left;
-		text-align: center;
 	}
-	
-	#menu li a, #menu li span
-	{
-		padding: 1em 1.5em;
-		letter-spacing: 1px;
-		text-decoration: none;
-		font-size: 0.8em;
-		color: #2B3F48;
-	}
-	
-	#menu li:hover a, #menu li.active a, #menu li.active span
+
+	#menu .main-nav .current_page_item a:hover
 	{
 		color: #2B3F48;
 	}
-	
-	#menu .current_page_item a
+
+	#menu .main-nav .current_page_item a
 	{
-		border: 2px solid #79C255;
+		border: 4px solid #79C255;
 		background: #79C255;
 		border-radius: 6px;
 		color: #FFF;
+		z-index: 100;
+	}
+	#menu .main-nav .current_page_item a:hover
+	{
+		background: #79C255;
+		color: #FFF;
+		z-index: 100;
+	}
+
+	
+
+	#navbar-toggle{
+		
+		width: 30px;
+		height: 20px;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transition: 0.5s ease-in-out;
+		-moz-transition: 0.5s ease-in-out;
+		-o-transition: 0.5s ease-in-out;
+		transition: 0.5s ease-in-out;
+		cursor: pointer;
+		padding: 20px;
+		transform: translateY(-20px);
+		
+	}
+
+
+}	
+
+/*Additional formatting for small screen size */
+@media screen and (max-width: 530px) {
+		
+	#menu .logoTxt
+	{
+		margin-top: 50px;
+		margin-left: -10px;
+		transform: translateY(-30px);
+		position: relative;
+	}
+	#menu .logoImg
+	{
+		margin-left: 5px;
+		transform: translateY(0.25vw); 
+		width: 100px;
+		position: relative;
+	}
+
+	#menu .logo
+	{
+		margin-top: 20px;
+		transform: translateY(-10px);
+		position: relative; 
+		font-size: 22px;
+		font-weight: 700;
+		text-decoration: none;
+		color: #79C255;
+		text-align: left;
+		margin-bottom: -20px;	
+	}
+
+	#navbar-toggle{
+		display: inline-block;
+		margin-bottom: 10px;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transition: 0.5s ease-in-out;
+		-moz-transition: 0.5s ease-in-out;
+		-o-transition: 0.5s ease-in-out;
+		transition: 0.5s ease-in-out;
+		cursor: pointer;
+		z-index: 100;
+		padding: 20px;
+		transform: translateY(-20px);
 	}
 	
-	#menu .icon
-	{
+}
+
+	/*********************************************************************************/
+	/* Navbar button toggle                                                         */
+	/*********************************************************************************/
+
+	#navbar-toggle span{
+
+		display: block;
+		position: absolute;
+		height: 3px;
+		width: 50%;
+		background: #79C255;
+		border-radius: 9px;
+		opacity: 1;
+		left: 0;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transition: 0.25s ease-in-out;
+		-moz-transition: 0.25s ease-in-out;
+		-o-transition: 0.25s ease-in-out;
+		transition: 0.25s ease-in-out;
+		margin-top: 20px;
+		margin-left: 17px;
+
 	}
+
+	#navbar-toggle span:nth-child(1){
+		top: 0px;
+	}
+
+	#navbar-toggle span:nth-child(2), span:nth-child(3){
+		top: 10px;
+	}
+	
+	#navbar-toggle span:nth-child(4){
+		top: 20px;
+	}
+
+	#navbar-toggle.open span:nth-child(1){
+		top: 10px;
+	}
+	#navbar-toggle.open span:nth-child(4){
+		top: 10px;
+	}
+
+	#navbar-toggle.openDuring span:nth-child(1){
+		opacity: 0;
+	}
+
+	#navbar-toggle.openDuring span:nth-child(4){
+		opacity: 0;
+	}
+
+	#navbar-toggle.openAfter span:nth-child(2){
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	#navbar-toggle.openAfter span:nth-child(3){
+		-webkit-transform: rotate(-45deg);
+		-moz-transform: rotate(-45deg);
+		-o-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+
+	
+
+	/*********************************************************************************/
+	/* Media Queries: Menu                                                           */
+	/*********************************************************************************/
+
+	/* Desktop */
+	@media screen and (min-width: 890px) {
+
+		#menu
+		{
+			display: flex;
+			justify-content: space-between;
+			padding-bottom: 0;
+			height: 70px;
+			align-items: center;
+			background-color: #FFF;
+			padding: 35px;
+		}
+
+		#menu .main-nav
+		{
+			display: inline-flex;
+			text-align: center;
+			margin: 0;
+			padding-top: 0px;
+			float: left;
+			position:relative;
+		
+		}
+		#menu .logoTxt
+		{
+			position: relative;
+			display: inline-block;
+			transform: translateY(-20px);
+		}
+		#menu .logoImg
+		{
+			width: 100px;
+			position: relative;
+			display: inline-block;
+			transform: translateY(10px);
+		}
+
+		#menu .logo
+		{
+			display: inline-block;
+			font-size: 35px;
+			font-weight: 700;
+			text-decoration: none;
+			color: #79C255;
+			text-align: left;
+		}
+
+		#menu .navbar-toggle 
+		{
+			display: none;
+		}
+
+		#menu .main-nav li
+		{
+			margin: 10px auto;
+			display: inline-block;
+		}
+
+		#menu .main-nav li a, .dropbtn
+		{
+			text-align: center;
+			text-decoration: none;
+			text-decoration: none;
+			font-size: 17px;
+			color: #2B3F48;
+			padding: 10px;
+
+		}
+		
+		#menu .main-nav li a:hover, .dropmenu:hover .dropbtn
+		{
+			color:rgb(0, 0, 0);
+			transition: 0.25s ease-in-out;
+			background-color: rgb(221, 221, 221);
+		}
+
+		#menu .main-nav li.dropmenu
+		{
+			display: inline-block;
+			
+		}
+
+		#menu .main-nav .content
+		{
+			transform: translateY(10px);
+			display: none;
+			position: absolute;
+			background-color: rgb(255, 255, 255);
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		
+		#menu .main-nav .content a
+		{
+			color: #2B3F48;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: center;
+		}
+
+		#menu .main-nav .content a:hover
+		{
+			background-color: rgb(221, 221, 221);
+		}
+
+		#menu .main-nav .dropmenu:hover .content
+		{
+			display: block;
+		}
+
+		#menu .main-nav .current_page_item a:hover
+		{
+			color: #2B3F48;
+		}
+
+
+		#menu .main-nav .current_page_item a:hover
+		{
+			background: #79C255;
+			color: #2B3F48;
+			z-index: 100;
+		}
+
+		#menu .main-nav .current_page_item a
+		{
+			background: #79C255;
+			border-radius: 10px;
+			color: #FFF;
+		}
+	}
+
+
+
 
 /*********************************************************************************/
 /* Banner                                                                        */
@@ -410,6 +818,10 @@
 	#banner .title .byline
 	{
 		color: rgba(255,255,255,.6);
+		text-align: center;
+		display: inline;
+
+
 	}
 	
 	#banner .button
@@ -521,12 +933,15 @@
 	#featured .title .byline
 	{
 		color: rgba(255,255,255,.6);
+		text-align: center;
+		display: block;
+
+
 	}
 
 /*********************************************************************************/
 /* Featured                                                                      */
 /*********************************************************************************/
-/*
 .box
 {
 	padding: 3em 2em 2em 2em;
@@ -534,7 +949,7 @@
 	border-radius: 8px;
 		text-align: center;
 }
-*/
+/*
 .box
 {
 	padding: -1em -1em -1em -1em;
@@ -543,8 +958,7 @@
 		text-align: center;
 		margin-bottom: 20px;
 }
-
-
+*/
 	#extra
 	{
 		overflow: hidden;
@@ -576,4 +990,12 @@
 	}
 
 
+
+@font-face{
+
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 11pt;
+	font-weight: 200;
+	src: local('Source Sans Pro'), local()
+}
 

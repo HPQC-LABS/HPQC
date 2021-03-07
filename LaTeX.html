@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HPQC Labs: High Performance & Quantum Computing</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="latex.css" rel="stylesheet" type="text/css" media="all" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="lectures.html" rel="stylesheet" type="text/css" media="all" />-->
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="Plugins/AOS/aos.css" rel="stylesheet">
+
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" href="images/favicon.ico" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+	<div id="menu">
+        <div class="navbar-toggle" id="navbar-toggle">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<a href="index.html" class="logo"> 
+			<img src="images/HPQC_Labs.svg" class="logoImg">
+			<span class="logoTxt">HPQC Labs</span>
+		</a>
+		<ul class="main-nav" id="main-nav">
+			<li><a href="index.html" accesskey="1" title="">Homepage</a></li>
+			<li><a href="people.html" accesskey="2" title="">People</a></li>
+			<li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
+			<li><a href="by-laws.html" accesskey="4" title="">By-laws</a></li>
+			<li class="dropmenu">
+				<div class="current_page_item"><a class="dropbtn" accesskey="6" id="selection" title="">Resources</a></div>
+				<div class = "content">
+					<a href="lectures.html" title="">Lectures</a>
+					<a href="LaTeX.html">LaTeX Setup</a>
+				</div>			
+			</li>
+			<li><a href="college.html" accesskey="5" title="">HPQC College</a></li>
+		</ul>
+	</div>
+
+    <div id="banner">&nbsp;</div>
+	<div class="latexContainer">
+		<h1>LaTeX Setup</h1>
+
+		<p>1. Install TeX Live and go through the installation process, making sure that the <b>install TeXworks front end box</b> is checked when you get to the page where you choose the installation root.</p>
+		<br>
+		<p>2. Next, install Git Bash so that you can download the repository easily onto your computer. After this, launch the program and run the following lines to set up your account's default identity:
+		<ul>
+			<li>git config --global user.email “you@example.com”</li>
+			<li>git config --global user.name “Your Name”</li>
+		</ul>
+		<p>After this you’ll want to set up the directory which you will clone the Book about 
+			Quadratization to using:
+		</p>
+		<ul>
+			<li>cd “Folder Name” </li>
+		</ul>
+		<p>For example, in order to set your directory to a folder named “test” on your desktop you would type the following:</p>
+		<ul>
+			<li>cd Desktop</li>
+			<li>cd test</li>
+		</ul>		 
+		<p>Once this is done all you need to do is clone the repository using the following line:</p>
+		<ul>
+			<li>git clone https://github.com/HPQC-LABS/Book_About_Quadratization.git</li>
+		</ul>
+		
+		<p><br>3. With the repository now downloaded to your computer, open TeXworks and open up the Book_about_Quadratization.tex file from the repository, and build it by pressing the green play button in the top left. </p>
+		<p>Now that this has been done, you should notice that the pdf is working besides the missing bibliography and references. To fix this, open up the BookAboutQuadratizationNotes file (you’ll only see it listed by changing the file type to  all files when opening) and build it. Once the console outputs some text press the stop sign in the top left and close out of the file. Go back to the main .tex file and by building the file once more you should see that everything is now working and ready for you to make your edits.</p>	
+	
+	</div>
+
+	<div class="latexContainer" data-aos="fade-up">
+		<h1>Uploading with GitBash</h1>
+		<p>
+			1. Once you have made changes to a file and you wish to commit the change, begin by opening Git Bash and navigating to the directory in which you cloned the Book_about_Quadratization repository. 
+			<br> <br>
+			For example, if I cloned the repository to a folder called “Test” on my desktop I would enter the following (using tab will autofill to make things easy):
+		</p>	
+		<ul>
+			<li>cd Desktop</li>
+			<li>cd Test</li>
+			<li>cd Book_about_Quadratization</li>
+		</ul>
+		
+		<p>2. Next you’ll want to add the files you’ve updated (In most cases this will just be the book .tex and .pdf files). You can do this by entering the following lines:</p>
+
+		<ul>
+			<li>git add “File Name.fileType”</li>
+		</ul>	
+		
+		<p>Then to make a commit enter the following line:</p>
+
+		<ul>
+			<li>git commit -am “Message you want to have with the commit”</li>
+		</ul>	
+		 
+		<p>Finally, to push your commit, enter the following and everything should be updated:</p>
+		
+		<ul>
+			<li>git push</li>
+		</ul>
+
+	</div>
+
+	<div class="latexContainer" data-aos="fade-up">
+		<h1>Running Sphinx</h1>
+		<p>
+			1. Follow the instructions <a href="https://www.sphinx-doc.org/en/master/usage/installation.html" target="_blank">here</a> to install Sphinx. Use the directions that match the operating system you use.
+		</p>
+
+		<br>
+
+		<p>2. In the command line, change your current directory to your project’s directory using the ‘cd’ command.</p>
+
+		<ul>
+			<li>cd Desktop</li>
+			<li>cd yourProject</li>
+		</ul>
+
+		<br>
+
+		<p>3. Run ‘sphinx-quickstart’ in your project’s directory and fill in the project’s information. For ‘Project name’ and ‘Author name(s)’, fill in the appropriate information you want to put. Otherwise, use the default settings (which are in the [] of each setting that has a default) by clicking Enter.</p>
+
+		<ul>
+			<li>Separate source and build directories (y/n) [n]:</li>
+			<li>Project name: (insert your project name)</li>
+			<li>Author name(s): (insert your name/author’s name)</li>
+			<li>Project release[]:</li>
+			<li>Project language[en]:</li>
+		</ul>
+
+		<br>
+
+		<p>4. Open the conf.py file that was created in the previous step. It should be located in your project’s directory. Uncomment the lines (which should be lines 13-15):</p>
+
+		<ul>
+			<li>import os</li>
+			<li>import sys</li>
+			<li>sys.path.insert(0, os.path.abspath('.'))</li>
+		</ul>
+
+		<br>
+
+		<p>5. Change the line “sys.path.insert(0, os.path.abspath('.'))” so that the pathway leads to where your project’s modules are located. Remember that the pathway is relative to your current project directory.</p>
+
+		<p>For example, if your modules are in a folder called, “yourModules”, which is located in your project directory, “yourProject”, then change the line to be:</p>
+
+		<ul>
+			<li>sys.path.insert(0, os.path.abspath('./yourModules'))</li>
+		</ul>
+
+		<br>
+
+		<p>6. In line 30 of conf.py, add ‘sphinx.ext.autodoc’ (include the ‘’) to “extensions”.</p>
+
+		<ul>
+			<li>extensions = [‘sphinx.ext.autodoc’</li>
+			<li>]</li>
+		</ul>
+
+		<br>
+
+		<p>7. In the command line (the current directory as the project’s directory), run the ‘sphinx-apidoc’ command using the format:</p>
+
+		<ul>
+			<li>sphinx-apidoc -o OUTPUT_PATH MODULE_PATH </li>
+		</ul>
+
+		<p>For example, if the output directory is called “yourSource” and the module directory is called, “yourModules”, run:</p>
+
+		<ul>
+			<li>sphinx-apidoc -o yourSource yourModules</li>
+		</ul>
+
+		<p>The output directory will be where your .rst files will appear, and these .rst files will contain the autodoc directives that will generate your documentation.</p>
+
+		<br>
+
+		<p>8. Run ‘make html’. The HTML files can be found in the folder ‘_build’. If you get “WARNING: document isn't included in any toctree”, you can fix this by going into index.rst (located in your project directory) and adding modules.rst:</p>
+
+		<ul>
+			<li>	.. toctree::</li>
+			<li>		:maxdepth: 2</li>
+			<li>		:caption: Contents:</li>
+			<li> </li>
+			<li>		yourSource/modules</li>
+		</ul>
+
+		<br>
+
+		<p>Optional: Update your theme by going into the conf.py file and changing the variable “html_theme”. The default theme will be “alabaster”.</p>
+
+	</div>
+
+	<div class="latexContainer" data-aos="fade-up">
+		<h1>Running doxygen</h1>
+		<p>
+			1. Install doxygen. On Linux you can run <code>sudo apt-get install doxygen</code>, Windows and MacOS users can <b>download the binaries></b> from <a href="https://www.doxygen.nl/download.html" target="_blank">here</a>.
+		<ul>
+			<li>If downloading the binary distribution, under the “Select Components” option, make sure that doxywizard GUI box is checked.</li>
+		</ul>
+		</p>
+
+		<br>
+
+	        <p>2. On Linux just run the command <code>doxygen -g</code> (in the folder where the code is) to create a configuration file called Doxyfile, then run <code>doxygen Doxyfile</code> to generate the documentation. Open doxywizard. At the top of the doxywizard page, under “Specify the working directory from which doxygen will run”, select the pathway to the project you want to document.</p>
+
+		<br>
+
+		<p>3. Under the “Wizard” tab, set the Project name, the source code directory, and the destination directory. The source code directory is where your modules will be located, and the destination directory is where the generated documentation will be created.</p>
+
+		<br>
+
+		<p>4. Under “Topics” in the “Wizard” tab, select Mode. Under “Select the desired extraction mode”, select “All Entities”. Under “Select programming language to optimize the results for”, pick the coding language that fits the code you are documenting.</p>
+
+		<br>
+
+		<p>Optional: If your documentation includes any LaTeX equations, under the “Expert” tab and in the Topic “HTML”, check the “USE_MATHJAX” box.</p>
+
+		<br>
+
+		<p>6. Under the “Run” tab, click “Run doxygen”. Then, click “Show HTML output” to view the generated documentation.</p>
+
+	</div>
+
+
+
+	<!-- <span style="display:block; margin-top:-37px;"> <h2><p style="color:white">a<br>a<br>a</p></h2></span> -->
+<div id="copyright" class="container", style = "background:#79C255";>
+	<p>&copy; HPQC Labs. All rights reserved. </p>
+</div>
+<script type="text/javascript" src="main.js"></script>
+<script src="Plugins/AOS/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
