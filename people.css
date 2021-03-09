@@ -15,6 +15,7 @@
     min-height: 400px;
     background-color: rgb(248, 248, 248);
     padding: 20px;
+    
 }
 
 .personBio p
@@ -99,7 +100,6 @@
 
 .card .personPic 
 {
-    padding-bottom: 100%;
     background-size: cover;
     background-position: center center;
 }
@@ -540,7 +540,6 @@
 
 .card .personPic 
 {
-    padding-bottom: 100%;
     background-size: cover;
     background-position: center center;
 }
@@ -651,7 +650,9 @@
     transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
+    perspective: 1000;
     position: relative;
+    
     
 }
 
@@ -784,4 +785,9 @@
 #scholar{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+#entry{
+    margin-right: 50px;
+    margin-bottom: 400px;
 }

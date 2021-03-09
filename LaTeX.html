@@ -115,6 +115,35 @@
 			<li>git push</li>
 		</ul>
 
+		<h3>Updating Local Repositories</h3>
+
+		<p>
+			In some cases, the main page will be updated prior to your commit. With files that have been altered locally, you want to avoid pushing your commit as you may overwrite someones work, and you want to avoid merging the main file with your local repository, so you don't overwrite the work you have done.
+			<br>
+			To get around this, you will want to use the stash feature in git bash. 
+			
+			1. First you will want to use the following code to save your local changes to the stash and revert whatever files were modified to their original state.
+		</p>
+
+		<ul>
+			<li>git stash</li>
+		</ul>	
+
+		<p>
+			2. Next you will use the pull function to get your local repository back up to date with the main repository.
+		</p>
+
+		<ul>
+			<li>git pull</li>
+		</ul>
+
+		<p>
+			3. Finally to merge the additions you have made back into the newly update repository, use the following command:
+		</p>
+
+		<ul>
+			<li>git stash pop</li>
+		</ul>
 	</div>
 
 	<div class="latexContainer" data-aos="fade-up">
