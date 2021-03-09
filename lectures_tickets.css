@@ -42,6 +42,7 @@
 }
 
 .imgFrame{
+    width: 100%;
     display: block;
     height: auto;
     transform: scale(0.8);
