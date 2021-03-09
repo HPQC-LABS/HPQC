@@ -1,6 +1,20 @@
 
+/*
+let hover = document.getElementById("face1");
+let element = document.getElementById("BKRow");
 
 
+
+hover.addEventListener("mouseover", function(event){
+    $(element).css("transform", "rotateY(10deg)");
+
+});
+
+hover.addEventListener("mouseout", function(event){
+    $(element).css("transform", "rotateY(0deg)");
+
+});
+*/
 const card = document.querySelectorAll('.itemInner');
 
 card.forEach((card) => {
@@ -8,7 +22,6 @@ card.forEach((card) => {
           card.classList.toggle("is-flipped");
      });
 });
-
 
 
 /*For 1st Lecture box*/
