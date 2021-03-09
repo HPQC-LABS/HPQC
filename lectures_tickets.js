@@ -104,7 +104,6 @@ function getIp() {
                 console.log(JSON.stringify(data, null, 2));
                 code = data.country;
                 currency = data.currency;
-                currencyName = data.currency_name;
             
             
             });
@@ -135,6 +134,7 @@ window.onload = function() {
                         list = CubeXmlNode.children[i];
                         listExchangeRate =  list.getAttribute('rate');
                         listCurrency = list.getAttribute('currency');
+                        listSymbol = list.getAttribute('symbol');
                         if(listCurrency == currency){
                             getPrice(list);
                             break;
@@ -159,12 +159,10 @@ window.onload = function() {
         for(i=0; i < lecPrice.length; i++){
             
             lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
-            if(i == 0){
-                select[0].options[i] = new Option((i + 1) + " Lecture: " + lecPrice[i] + " " + currencyName);
-            }
-            else{
-                select[0].options[i] = new Option((i + 1) + " Lectures: " + lecPrice[i] + " " + currencyName);
-            }
+            lecSymbol = list.getAttribute('symbol');
+            
+            select[0].options[i] = new Option((i + 1) + " Lecture: "  + lecSymbol  + " "  + lecPrice[i] );
+        
         }
         console.log(lecPrice);
     }
