@@ -69,9 +69,9 @@
                 <h2>Faculty</h2><br>
             </div>
             <div class="band">
-                <div class="item-1">
+                <div class="item-1" id="item-main">
                     <a href="#101bio" class="card" id="101">
-                        <div class="personPic" style="background-image: url('images/NikeDattani.png')"></div>
+                        <img class="personPic" src="images/NikeDattani.png"></img>
                         <article>
                         <h1>Nike Dattani</h1>
                         <span>PhD Oxford</span>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="item-2">
                     <a href="#102bio" class="card" id="102">
-                        <div class="personPic" style="background-image: url('images/RoselynLemus.png');"></div>
+                        <!--<img class="personPic" src="images/RoselynLemus.png"></img>-->
                         <article>
                         <h1>Roselyn Lemus-Martin</h1>
                         <span>PhD Oxford</span>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="item-3">
                 <a href="#103bio" class="card" id="103">
-                    <div class="personPic" style="background-image: url('images/DeyanMihaylov.png');"></div>
+                    <!--<img class="personPic" src="images/DeyanMihaylov.png"></img>-->
                     <article>
                     <h1>Deyan Mihaylov</h1>
                     <span>PhD Cambridge</span>
@@ -105,7 +105,7 @@
             <div class="band">
                 <div class="item-1">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('https://avatars1.githubusercontent.com/u/33160873?s=460&u=bb4f8d4f11c2a78050e4f2d45fdeabbdd5852b90&v=4"></div>
+                        <!--<img class="personPic" src="https://avatars1.githubusercontent.com/u/33160873?s=460&u=bb4f8d4f11c2a78050e4f2d45fdeabbdd5852b90&v=4"></img>-->
                         <article>
                         <h1>Edwin Camilo</h1>
                         <span>PhD Student</span>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="item-2">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('images/AndreasSoteriou.png');"></div>
+                        <!--<img class="personPic" src="images/AndreasSoteriou.png"></img>-->
                         <article>
                         <h1>Andreas Soteriou</h1>
                         <span>MSc Student</span>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="item-3">
                 <a class="card">
-                    <div class="personPic" style="background-image: url('images/EtiennePalos.png');"></div>
+                    <img class="personPic" src="images/EtiennePalos.png"></img>
                     <article>
                     <h1>Etienne Palos</h1>
                     <span>PhD Student</span>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="item-4">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('images/SiddhantSingh.png')"></div>
+                        <!--<img class="personPic" src="images/SiddhantSingh.png"></img>-->
                         <article>
                         <h1>Siddhant Singh</h1>
                         <span>Pre-Doctoral Fellow</span>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="item-5">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('images/SaiSmaran.png');"></div>
+                        <img class="personPic" src="images/SaiSmaran.png"></img>
                         <article>
                         <h1>Sai Smaran</h1>
                         <span>Undergrad Student</span>
@@ -150,7 +150,7 @@
                 </div>
                 <div class="item-6">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('images/BhavikMehta.png');"></div>
+                       <!--<img class="personPic" src="images/BhavikMehta.png"></img>-->
                         <article>
                         <h1>Bhavik Mehta</h1>
                         <span>PhD Student</span>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="item-7">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('images/ErikaBruulsema.png')"></div>
+                        <!--<img class="personPic" src="images/ErikaBruulsema.png"></img>-->
                         <article>
                         <h1>Erika Bruulsema</h1>
                         <span>Undergrad Student</span>
@@ -168,7 +168,7 @@
                 </div>
                 <div class="item-8">
                     <a class="card">
-                        <div class="personPic" style="background-image: url('images/RachelleFontanilla.png');"></div>
+                        <!--<img class="personPic" src="images/RachelleFontanilla.png"></img>-->
                         <article>
                         <h1>Rachelle Fontanilla</h1>
                         <span>Undergrad Student</span>
@@ -199,7 +199,8 @@
                             </div>
                         </div>
                         <div class="cardFace cardFaceBack"  >
-                            <div class="cardContent" id="cardFace">
+                            <div class="cardContent">
+                                <div class="card" id="cardFace">
                                     <h1 id="titleName">Matthew Charbonneau</h1>
                                     <div class="cardBody">
                                         <p>
@@ -213,17 +214,18 @@
                                         <a href="mailto:browning.evan@gmail.com" target="_blank"><img
                                                 src="images/envelope-line.svg" class="contactLogo" id="email"></a>
                                     </div>
-
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item-11" id="entry">
-                    <div class="itemInner" id="cardFace">
-                        <div class="cardFace cardFaceFront"  >
+                <div class="item-11" id="entry" class="showBio">
+                    <div class="itemInner" id="itemId">
+                        <div class="cardFace cardFaceFront">
                             <div class="frontContent">
-                                <a class="card" >
+                                <a class="card" id="cardFace">
                                     <img class="personPic" src="images/RubyKong.png"></img>
+                                    <div class="cardBio"></div>
                                     <article>
                                         <h1>Ruby Kong</h1>
                                         <span>Undergrad Student</span>
@@ -268,10 +270,11 @@
                                 
                             </div>
                         </div>
+                        
                         <div class="cardFace cardFaceBack"  >
                             <div class="cardContent">
                                 <div class="card" id="cardFace">
-                                    <h1 id="titleName">Ruby Kong</h1>
+                                    <h1 id="titleName">Tim Li</h1>
                                     <div class="cardBody">
                                         <p>
                                             Employee Description Goes Here
@@ -288,6 +291,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="item-13" id="entry">
@@ -301,7 +305,6 @@
                                         <span>Undergrad Student</span>
                                     </article>
                                 </a>
-                                
                             </div>
                         </div>
                         <div class="cardFace cardFaceBack"  >
