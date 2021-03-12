@@ -740,8 +740,28 @@
     display: block;
     padding-top: 0px;
     
-    overflow: hidden;
+    overflow-y: scroll;
 
+}
+
+.cardBody::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.cardBody::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+.cardBody::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+	background-color: #555;
 }
 
 .cardBody h3{
@@ -785,8 +805,4 @@
 #scholar{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-}
-
-#entry{
-    margin-right: 50px;
 }
