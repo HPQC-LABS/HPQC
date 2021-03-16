@@ -1,8 +1,13 @@
+
+
+/* 
+Js for Card Flip Template
+
+
 const card = document.querySelectorAll('.itemInner');
 
 card.forEach((card) => {
      card.addEventListener("click", () => {
-          /*console.log(card.classList);*/
           if(card.classList.contains('hideBio') == false){
                card.classList.toggle("is-flipped");
           }
@@ -18,11 +23,7 @@ window.addEventListener('load', function(){
      var clientWidth = document.getElementById('item-main').clientWidth;
      var imgClientHeight = document.getElementById('mainImg').clientHeight;
      console.log(imgClientHeight);
-     /*
-     console.log(clientHeight);
-     console.log(clientWidth);
-     console.log(document.querySelectorAll("#cardFace"));
-     */
+
      
 
      var elements = document.querySelectorAll("#cardFace");
@@ -65,3 +66,4 @@ $(document).ready(function () {
                
      });
 });
+*/

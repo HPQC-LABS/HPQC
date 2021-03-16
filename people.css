@@ -3,20 +3,30 @@
     width: 100%;
 }
 
+.peopleList h1 
+{
+    font-size: 9px;
+}
+
 .peopleBio
 {
+    border-radius: 8px;
     width: 80%;
     margin: auto;
     background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
 }
 
 .personBio
 {
     min-height: 400px;
-    background-color: rgb(248, 248, 248);
-    padding: 20px;
-    
+    background-color: rgb(253, 252, 252);
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
 
 .personBio p
 {
@@ -24,6 +34,14 @@
     color: black;
     text-align: left;
 }
+/*  Beginning of redisign for bios page
+.head{
+    width: 100%;
+    border-radius: 0 0 10% 0;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
+}
+*/
 .personBio img 
 {
     padding-right: 20px;
@@ -61,11 +79,6 @@
 
 }
 
-.peopleList h1 
-{
-    font-size: 9px;
-}
-
 .card 
 {
     
@@ -100,10 +113,9 @@
 
 .card .personPic 
 {
-    height: auto;
+    padding-bottom: 100%;
     background-size: cover;
     background-position: center center;
-    display: block;
 }
 
 .card span 
@@ -121,66 +133,81 @@
     font-size: 25px;
 }
 
-/*********************************************************************************/
-/* Media Queries                                                                 */
-/*********************************************************************************/
-
-@media screen and (max-width: 560px){
-    #Faculty
-    {
-        background-color: #FFF;
-        padding-bottom: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    #Students
-    {
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    #ProjectMembers
-    {
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    #GuestLecturers
-    {
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    #FormerStudents
-    {
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    #Directors
-    {
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    
+#Faculty
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+#Students
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#ProjectMembers
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#GuestLecturers
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#FormerStudents
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#Directors
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.backToPeopleList{
+    
+    margin: auto;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(221, 221, 221);
+    outline: none;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+
+}
+
+.backToPeopleList:hover{
+
+    background-color: rgb(221, 221, 221, 0.5);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
 
 @media screen and (min-width: 430px) 
 {
@@ -260,96 +287,60 @@
     #Faculty
     {
         max-width: 1000px;
-        background-color: #FFF;
-        padding-bottom: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         margin: auto;
-
     }
 
     #Students
     {
         max-width: 1000px;
         margin: auto;
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        
     }
 
     #ProjectMembers
     {
         max-width: 1000px;
         margin: auto;
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     #GuestLecturers
     {
         max-width: 1000px;
         margin: auto;
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     #FormerStudents
     {
         max-width: 1000px;
         margin: auto;
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     #Directors
     {
         max-width: 1000px;
         margin: auto;
-        background-color: #FFF;
-        padding-bottom: 60px;
-        margin-top: 60px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 }
 
 
 
 /* 
-
 .peopleContainer{
     height: 600px;
     display: flex;
 }
-
 .peopleList{
     padding: 8%;
     height: 600px;
     background-color: rgb(224, 196, 250);
 }
-
 .peopleListTitle{
     width: 100%;
     text-align: center;
     font-size: 1.8em;
 }
-
 .peopleBio{
     background-color: rgb(202, 235, 202);
 }
-
 .person{
     width: 300px;
     float: left;
@@ -358,84 +349,20 @@
 	border: 1px solid rgba(0,0,0,0.1);
 	border-radius: 8px;
 }
-
 .personName{
     font-size: 30px;
 }
-
 .person img{
     width: 270px;
     height: 285px;
 }
-
 .personTitle {
     font-size: 25px;
 } */
-.peopleList
-{
-    width: 100%;
-}
 
-.peopleBio
-{
-    border-radius: 8px;
-    width: 80%;
-    margin: auto;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-
-}
-
-.personBio
-{
-    min-height: 400px;
-    background-color: rgb(253, 252, 252);
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.personBio img 
-{
-    padding-right: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-    float: left;
-}
-
-.personBio h1
-{
-    font-size: 20px;
-}
-
-.backToPeopleList{
-    
-    margin: auto;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgb(221, 221, 221);
-    outline: none;
-    transition: 0.5s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-
-
-}
-
-.backToPeopleList:hover{
-
-    background-color: rgb(221, 221, 221, 0.5);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-}
 
 
 @media screen and (max-width: 480px) 
-/*Changes Bios page to fullscreen for better readability on mobile*/
 {
 
     .peopleBio
@@ -448,6 +375,7 @@
 
     }
 
+    
 
     .personBio img 
     {
@@ -481,149 +409,11 @@
         display: inline-block;
     }
     
-
-}
-
-.peopleTitle 
-{
-    font-size: 26px;
-    text-align: center;
-    padding-top: 60px;
-}
- 
-.band 
-{
-    width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 10px;
-    padding: 10px;
-
-}
-
-.peopleList h1 
-{
-    font-size: 9px;
-}
-
-.card 
-{
-    min-height: 100%;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: #444;
-    position: relative;
-    top: 0;
-    transition: all .1s ease-in;
-
-}
-
-.card:hover 
-{
-    top: -2px;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-}
-
-.card article 
-{
-    padding: 8px;
-    display: flex;
-
-    flex: 1;
-    justify-content: space-between;
-    flex-direction: column;
-
-}
-
-.card .personPic 
-{
-    background-size: cover;
-    background-position: center center;
-}
-
-.card span 
-{
-    font-size: 8px;
-    font-weight: bold;
-    color: #999;
-    text-transform: capitalize; /*uppercase;*/
-    letter-spacing: .05em;
-    margin: 2em 0 0 0;
-}
-
-.peopleTitle h2
-{
-    font-size: 25px;
 }
 
 /*********************************************************************************/
 /* Media Queries                                                                 */
 /*********************************************************************************/
-
-@media screen and (max-width: 720px) {
-/*To fix formatting for small browsers*/
-
-    .card{
-        width: 25vw;
-    }
-
-    .card article h1{
-        font-size: 12px;
-    }
-
-    .card article span{
-        font-size: 10px;
-    }
-    
-    .cardBody p{
-        font-size: 10px;
-    }
-
-    .card h1{
-        font-size: 10px;
-    }
-    
-    .cardFace{
-        width: 25vw;
-    }
-
-
-
-}
-
-@media screen and (max-width: 500px) {
-/*To fix formatting on mobile*/
-    .card article h1{
-        font-size: 9px;
-    }
-
-    .card article span{
-        font-size: 7px;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    /*To fix formatting on mobile*/
-        .card article h1{
-            font-size: 7px;
-        }
-    
-        .card article span{
-            font-size: 7px;
-        }
-    }
-
-
-
-
 
 @media screen and (min-width: 430px) 
 {
@@ -706,7 +496,23 @@
     }
 }
 
-    
+.contactLogo{
+    align-content: center;
+    margin-right: 15px;
+    width: 20px;
+    margin-bottom: 15px;
+
+}
+
+#scholar{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+
+  
+/* CSS for card flip template
+
 .itemInner{
     text-align: center;
     transition: transform 1s;
@@ -750,7 +556,6 @@
 }
 
 .frontContent span{
-    /*text-shadow: 0 0 1px black;*/
     color: #999;
 }
 
@@ -863,8 +668,5 @@
     margin-bottom: 15px;
 
 }
+*/
 
-#scholar{
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
