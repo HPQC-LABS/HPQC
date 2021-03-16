@@ -23,6 +23,8 @@ window.addEventListener('load', function(){
      console.log(clientWidth);
      console.log(document.querySelectorAll("#cardFace"));
      */
+     
+
      var elements = document.querySelectorAll("#cardFace");
      elements.forEach((elements) => {
           elements.style.width = clientWidth + "px";
@@ -41,5 +43,25 @@ window.addEventListener('load', function(){
           elements.style.height = imgClientHeight - 10 + "px";
      
      })
+
+     var elements = document.querySelectorAll("#getWidth");
+     elements.forEach((elements) => {
+          elements.style.width = clientWidth + "px";
+     
+     })
+
+
 })
 
+$(document).ready(function () {
+
+     var width = document.body.clientWidth;
+     $(window).on('resize', function () {
+          
+          var newWidth = document.body.clientWidth;
+          if(width != newWidth){
+               location.reload();
+          }
+               
+     });
+});

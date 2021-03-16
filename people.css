@@ -103,6 +103,7 @@
     height: auto;
     background-size: cover;
     background-position: center center;
+    display: block;
 }
 
 .card span 
@@ -177,6 +178,8 @@
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
+
+    
 }
 
 @media screen and (min-width: 430px) 
@@ -432,6 +435,7 @@
 
 
 @media screen and (max-width: 480px) 
+/*Changes Bios page to fullscreen for better readability on mobile*/
 {
 
     .peopleBio
@@ -563,6 +567,63 @@
 /*********************************************************************************/
 /* Media Queries                                                                 */
 /*********************************************************************************/
+
+@media screen and (max-width: 720px) {
+/*To fix formatting for small browsers*/
+
+    .card{
+        width: 25vw;
+    }
+
+    .card article h1{
+        font-size: 12px;
+    }
+
+    .card article span{
+        font-size: 10px;
+    }
+    
+    .cardBody p{
+        font-size: 10px;
+    }
+
+    .card h1{
+        font-size: 10px;
+    }
+    
+    .cardFace{
+        width: 25vw;
+    }
+
+
+
+}
+
+@media screen and (max-width: 500px) {
+/*To fix formatting on mobile*/
+    .card article h1{
+        font-size: 9px;
+    }
+
+    .card article span{
+        font-size: 7px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    /*To fix formatting on mobile*/
+        .card article h1{
+            font-size: 7px;
+        }
+    
+        .card article span{
+            font-size: 7px;
+        }
+    }
+
+
+
+
 
 @media screen and (min-width: 430px) 
 {
