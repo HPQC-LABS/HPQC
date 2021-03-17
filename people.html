@@ -21,6 +21,16 @@
 <link rel="shortcut icon" href="images/favicon.ico" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    window.MathJax = {
+      tex: {
+        // inlineMath: [['$', '$'], ['\\(', '\\)']],
+        packages: {'[+]': ['mhchem']}
+      },
+      loader: {load: ['[tex]/mhchem']},
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
@@ -596,8 +606,15 @@
         <br>
         <div id="101bio" class="personBio">
         <br>
-        <h1>Dr. Nike Dattani</h1><br>&nbsp&nbsp&nbsp 
-        <img src="images/NikeDattani.png", Width="270", Height="285">
+            <h1>Dr. Nike Dattani</h1><br>
+            <img src="images/NikeDattani.png", Width="270", Height="285">
+            <ul>
+                <li>The electronic complexity of the ground-state of the FeMo cofactor of nitrogenase as relevant to quantum simulations</li>
+                <li>High-fidelity adiabatic quantum computation using the intrinsic Hamiltonian of a spin system: Application to the experimental factorization of 291311</li>
+                <li>Entanglement in a quantum neural network based on quantum dots</li>
+                <li>Crushing runtimes in adiabatic quantum computation with Energy Landscape Manipulation (ELM): Application to Quantum Factoring</li>
+                <li>Analytic potentials and vibrational energies for \(\ce{ Li2 }\) states dissociating to \(\ce{ Li(2S) + Li(3P) }\). Part 1: The \(\ce{ ^{2S+1}Π_{u/g} }\) states</li>
+            </ul>
         </div>
         <br>
         
