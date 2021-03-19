@@ -30,6 +30,7 @@
 </head>
 
 <body>
+	<!--See comments about Nav bar in index.html-->
 	<div id="menu">
 		<div class="navbar-toggle" id="navbar-toggle">
 			<span></span>
@@ -60,21 +61,25 @@
 
 	<div id="banner">&nbsp;</div>
 	<div id="featured">
+		
 		<div class="container">
 			<div class="title">
 				<h2>2021 Lecture Series</h2><br>
 				<a href="lectures/LectureFlyer.pdf"> View/Download Schedule</a><br>
 
-
+				<!--Template design for upcoming lectures-->
 				<div class="container2" id="cont" data-aos="fade-up">
 					<h2 id="upcoming">Upcoming Lectures</h2><br>
 					<div class="card">
+
+						<!--Slider contains all bios in the slide carnival plugin-->
 						<div class="slider1">
 
-
+							<!--Item contains individual card entry-->
 							<div class="item">
 								<div class="itemInner" id="LZRow">
 									<div class="cardFace cardFaceFront">
+										<!--Contains card content on the front-->
 										<div class="frontContent">
 											<img src="images/flip-icon-29.jpg" class="flipImg">
 											<img src="images/LeonardZgrablic.png" alt="" class="lecImg2" id="img">
@@ -88,6 +93,7 @@
 											</p>
 										</div>
 									</div>
+									<!--Contains card content on the back-->
 									<div class="cardFace cardFaceBack">
 										<div class="cardContent">
 											<div class="cardHeader">
@@ -109,10 +115,13 @@
 													The Cult (2012),
 													and was listed as one of the lead stars in Catalyst (2015)
 													<br> <br>
-													<b>Contact:</b>
+
+													<!--Extra Contact information (only google scholar is visible for now)-->
+													<!--<b>Contact:</b>-->
 												</p>
+												<!--
 												<a href="https://www.linkedin.com/in/zgrablic/" target="_blank"><img
-														src="images/linkedin-square.svg" class="contactLogo"></a>
+														src="images/linkedin-square.svg" class="contactLogo"></a>-->
 											</div>
 										</div>
 
@@ -416,7 +425,7 @@
 					</div>
 				</div>
 
-
+				<!--Template design for past lectures-->
 				<div class="lecColumn" data-aos="fade-up">
 					<p id="lecHeader"><b>Past Lectures</b></p>
 					<div class="lecRow" id="TDRow">
@@ -564,6 +573,9 @@
 			<div id="copyright" class="container" , style="background:#79C255" ;>
 				<p>&copy; HPQC Labs. All rights reserved. </p>
 			</div>
+
+
+			<!--Initializing js files used-->
 			<script type="text/javascript" src="main.js"></script>
 			<script type="text/javascript" src="lectures.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -572,11 +584,13 @@
 
 
 			<script>
+				//Toggles the number of items displayed in slideshow depending on the screen width
 				var size = window.matchMedia("(min-width: 975px)")
 
 				function sizeToggle(x) {
 					if (size.matches) {
 						$(".slider1").slick({
+							//Given Settings for slideshow
 							centerMode: true,
 							centerPadding: '60px',
 							slidesToShow: 3	
@@ -592,31 +606,20 @@
 					}
 
 				}
-				
+				//Checks website to see if the width ever changes
 				sizeToggle(size)
 				size.addListener(sizeToggle)
-
-				/*
-				$(document).ready(function () {
-
-					$(window).on('resize', function () {
-						if ($(window).width() < 950) {
-							location.reload();
-						}
-						else {
-							location.reload();
-						}
-					});
-				});
-				*/
-
 			</script>
 
+			<!--Initializing js files used-->
 			<script src="Plugins/AOS/aos.js"></script>
+			<script type="text/javascript" src="Plugins/Slider/slick.min.js"></script>
+
+			<!--Initializes AOS script which is used to animate divs apppearing when scrolling down-->
 			<script>
 				AOS.init();
 			</script>
-			<script type="text/javascript" src="Plugins/Slider/slick.min.js"></script>
+			
 </body>
 
 </html>
