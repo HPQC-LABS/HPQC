@@ -53,6 +53,11 @@
     font-size: 20px;
 }
 
+.personBio h3
+{
+    text-align: left;
+}
+
 .personBio ul
 {
     color: black;
@@ -68,6 +73,32 @@
     display: list-item;
     margin-bottom: 5px;
 }
+
+.pubLink {
+
+    color: black !important;
+    text-decoration: none;
+}
+
+.publicationDiv{
+    margin-left: 20px;
+}
+
+.publicationDiv p{
+
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+}
+
+/*  Beginning of redisign for bios page
+.head{
+    width: 100%;
+    border-radius: 0 0 10% 0;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
+}
+*/
 
 .peopleTitle 
 {

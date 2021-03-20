@@ -14,7 +14,7 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }    
 }
-
+/*Mobile view*/
 @media screen and (max-width: 700px) {
     .latexContainer{
         width: 95%;
@@ -30,6 +30,7 @@
     }
 }
 
+/*Formatting for the containers holding pages content*/
 .latexContainer h1{
     text-align: center;
     padding: 15px;

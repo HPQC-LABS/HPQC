@@ -1,3 +1,4 @@
+/*Sets features of the container with all contents in it*/
 #college{
     background-color: #FFF;
     width: 60%;
@@ -11,15 +12,18 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     
 }
-
+/*Changes bold font*/
 #college b{
     color: gray;
 }
 
+/*Changes features of the title*/
 #collegeTitle{
     color: #FFF;
     margin-bottom: 15px;
 }
+
+/*Specific formatting for mobile / small browsers*/
 
 @media screen and (max-width: 550px) {
 

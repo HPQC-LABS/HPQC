@@ -1,7 +1,8 @@
+
+//Function initializes paypal payment button
 function initPayPalButton() {
-    console.log(code);
-    console.log(currency);
-    console.log(currencyName);
+    
+    //Variable declariation / initialization
     var shipping = 0;
     var itemOptions = document.querySelector("#smart-button-container #item-options");
     var quantity = parseInt();
@@ -9,10 +10,12 @@ function initPayPalButton() {
     if (!isNaN(quantity)) {
         quantitySelect.style.visibility = "visible";
     }
+    //Payment description
     var orderDescription = 'Lecture Series Ticket';
     if (orderDescription === '') {
         orderDescription = 'Item';
     }
+    //Styling of button
     paypal.Buttons({
         style: {
             shape: 'rect',
@@ -21,6 +24,8 @@ function initPayPalButton() {
             label: 'paypal',
 
         },
+
+        //Creation of new order 
         createOrder: function (data, actions) {
             var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
             var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
@@ -41,6 +46,7 @@ function initPayPalButton() {
             return actions.order.create({
                 purchase_units: [{
                     description: orderDescription,
+                    //Price, currency, & location settings
                     amount: {
                         currency_code: 'CAD',
                         value: priceTotal,
@@ -89,7 +95,7 @@ function initPayPalButton() {
     }).render('#paypal-button-container');
 }
 
-
+//Setting default conditions
 let code = 'CA';
 let currency = 'CAD';
 let currencyName = 'Dollars';
@@ -97,7 +103,7 @@ let currencyName = 'Dollars';
 
 
 
-
+//Logging country, and curreny from users ip
 function getIp() {
 
     $.getJSON('https://ipapi.co/json/', function(data) {
@@ -111,14 +117,14 @@ function getIp() {
 }
 
 
-
+//Running the following once website has loaded
 window.onload = function() {
-
     
+    //Takes in the currency symbol and exchange rate from exchange rate xml file
     function readXML(){
-
         xmlContent = '';
         fetch('exchangeRates/eurofxref-daily02-25-21.xml').then((response)=>{
+            //Parsing content from file
             response.text().then((xml)=>{
                 xmlContent = xml;
                 let parser = new DOMParser();
@@ -126,10 +132,13 @@ window.onload = function() {
                 let xmlCube = xmlDOM.querySelectorAll('Cube');
     
                 xmlCube.forEach(CubeXmlNode => {
+                    //Initializing variables 
                     var list;
                     var listCurrency;
                     var listExchangeRate;
                     console.log(CubeXmlNode.children.length);
+
+                    //Checking each entry to see if it matches users currency from their ip
                     for(i=0; i < CubeXmlNode.children.length; i++){
                         list = CubeXmlNode.children[i];
                         listExchangeRate =  list.getAttribute('rate');
@@ -149,6 +158,7 @@ window.onload = function() {
     
     }
 
+    //Determines the price of the ticket given the users location
     function getPrice(input) {
         list = input;
         console.log(list.getAttribute('rate'));
@@ -156,6 +166,7 @@ window.onload = function() {
         /*Exchange rate is based on EUR so prices will look off here*/
         var lecPrice = [23, 46, 68, 75, 91]; /*Original prices in CAD: 35, 70, 105, 140, 115*/
         var lecPriceDiscount = [20, 40, 60, 75, 80]; /*Original discount prices in CAD: 20, 40, 60, 80, 75*/
+        //Altering currency based on multiplier by location
         for(i=0; i < lecPrice.length; i++){
             
             lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
@@ -167,6 +178,7 @@ window.onload = function() {
         console.log(lecPrice);
     }
 
+    //Running the above functions
     getIp();
     setTimeout(function() { 
 
