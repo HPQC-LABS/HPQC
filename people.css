@@ -1,3 +1,8 @@
+#header{
+    margin-top: 40px;
+}
+
+/*Formatting for main div that contains all biography/person contents on the people page*/
 .peopleBio
 {
     border-radius: 8px;
@@ -8,10 +13,7 @@
 
 }
 
-#header{
-    margin-top: 40px;
-}
-
+/*Formatting the container of each bio entry*/
 .personBio
 {
     min-height: 400px;
@@ -23,21 +25,46 @@
     display: inline-block;
 }
 
+/*Biography text formatting*/
+    .personBio p
+    {
+        padding: 20px;
+        color: black;
+        text-align: left;
+    }
 
-.personBio p
-{
-    padding: 20px;
-    color: black;
-    text-align: left;
-}
-/*  Beginning of redisign for bios page
-.head{
-    width: 100%;
-    border-radius: 0 0 10% 0;
-    border-radius: 8px;
-    background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
-}
-*/
+    .personBio h1
+    {
+        font-size: 20px;
+    }
+
+    .personBio h3
+    {
+        text-align: left;
+    }
+
+    .personBio ul
+    {
+        color: black;
+        list-style-type: disc;
+        display: block;
+        text-align: left;
+        list-style-position:inside
+    }
+
+    .personBio li
+    {
+        color: black;
+        display: list-item;
+        margin-bottom: 5px;
+    }
+
+    .pubLink {
+
+        color: black !important;
+        text-decoration: none;
+    }
+
 .personBio img 
 {
     padding-right: 20px;
@@ -48,50 +75,19 @@
     float: left;
 }
 
-.personBio h1
-{
-    font-size: 20px;
-}
+/*Specific formatting for publications list*/
+    .publicationDiv{
+        margin-left: 20px;
+    }
 
-.personBio h3
-{
-    text-align: left;
-}
+    .publicationDiv p{
 
-.personBio ul
-{
-    color: black;
-    list-style-type: disc;
-    display: block;
-    text-align: left;
-    list-style-position:inside
-}
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+    }
 
-.personBio li
-{
-    color: black;
-    display: list-item;
-    margin-bottom: 5px;
-}
-
-.pubLink {
-
-    color: black !important;
-    text-decoration: none;
-}
-
-.publicationDiv{
-    margin-left: 20px;
-}
-
-.publicationDiv p{
-
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-}
-
-/*  Beginning of redisign for bios page
+/*  Beginning of redesign for bios page
 .head{
     width: 100%;
     border-radius: 0 0 10% 0;
@@ -100,13 +96,25 @@
 }
 */
 
+/*Formatting text for title headers (Faculty, Students, etc.)*/
 .peopleTitle 
 {
     font-size: 26px;
     text-align: center;
     padding-top: 60px;
 }
- 
+
+/*Formatting div for title headers (Faculty, Students, etc.)*/
+.newSection
+{
+    background-color: #FFF;
+    padding-bottom: 60px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/*Acts as a container for each person entry (split into groups 3 per row)*/
 .band 
 {
     width: 90%;
@@ -122,9 +130,9 @@
 
 }
 
+/*formatting for each individual entry*/
 .card 
 {
-    
     min-height: 100%;
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -137,121 +145,70 @@
     transition: all .1s ease-in;
 }
 
+/*Drop shadow and animation on hover*/
 .card:hover 
 {
     top: -2px;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
 }
 
-.card article 
-{
-    padding: 8px;
-    display: flex;
+/*Formatting of card contents*/
+    .card article 
+    {
+        padding: 8px;
+        display: flex;
 
-    flex: 1;
-    justify-content: space-between;
-    flex-direction: column;
+        flex: 1;
+        justify-content: space-between;
+        flex-direction: column;
 
-}
-
-.card .personPic 
-{
-    padding-bottom: 100%;
-    background-size: cover;
-    background-position: center center;
-}
-
-.card span 
-{
-    font-size: 8px;
-    font-weight: bold;
-    color: #999;
-    text-transform: capitalize; /*uppercase;*/
-    letter-spacing: .05em;
-    margin: 2em 0 0 0;
-}
-
-.peopleTitle h2
-{
-    font-size: 25px;
-}
-
-#Faculty
-{
-    background-color: #FFF;
-    padding-bottom: 60px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#Students
-{
-    background-color: #FFF;
-    padding-bottom: 60px;
-    margin-top: 60px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#ProjectMembers
-{
-    background-color: #FFF;
-    padding-bottom: 60px;
-    margin-top: 60px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#GuestLecturers
-{
-    background-color: #FFF;
-    padding-bottom: 60px;
-    margin-top: 60px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#FormerStudents
-{
-    background-color: #FFF;
-    padding-bottom: 60px;
-    margin-top: 60px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#Directors
-{
-    background-color: #FFF;
-    padding-bottom: 60px;
-    margin-top: 60px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.backToPeopleList{
+    }
     
-    margin: auto;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgb(221, 221, 221);
-    outline: none;
-    transition: 0.5s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    .card .personPic 
+    {
+        padding-bottom: 100%;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .card span 
+    {
+        font-size: 8px;
+        font-weight: bold;
+        color: #999;
+        text-transform: capitalize; /*uppercase;*/
+        letter-spacing: .05em;
+        margin: 2em 0 0 0;
+    }
+
+    .peopleTitle h2
+    {
+        font-size: 25px;
+    }
+
+/*Formatting button on biographies section*/
+    .backToPeopleList{
+        
+        margin: auto;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: rgb(221, 221, 221);
+        outline: none;
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .backToPeopleList:hover{
+
+        background-color: rgb(221, 221, 221, 0.5);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    }
 
 
-}
-
-.backToPeopleList:hover{
-
-    background-color: rgb(221, 221, 221, 0.5);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-}
-
-
+/*Text Formatting for mobile screens*/
 @media screen and (min-width: 430px) 
 {
     .band 
@@ -290,6 +247,7 @@
     }
 }
 
+/*Text Formatting for Desktop screens*/
 @media screen and (min-width: 560px) 
 {
     .personBio img 
@@ -362,49 +320,15 @@
         max-width: 1000px;
         margin: auto;
     }
+
+    #header{
+        text-align: center;
+        font-size: 40px;
+    }
 }
 
 
-
-/* 
-.peopleContainer{
-    height: 600px;
-    display: flex;
-}
-.peopleList{
-    padding: 8%;
-    height: 600px;
-    background-color: rgb(224, 196, 250);
-}
-.peopleListTitle{
-    width: 100%;
-    text-align: center;
-    font-size: 1.8em;
-}
-.peopleBio{
-    background-color: rgb(202, 235, 202);
-}
-.person{
-    width: 300px;
-    float: left;
-    margin: 10px 10px 0px 10px;
-    text-align: center;
-	border: 1px solid rgba(0,0,0,0.1);
-	border-radius: 8px;
-}
-.personName{
-    font-size: 30px;
-}
-.person img{
-    width: 270px;
-    height: 285px;
-}
-.personTitle {
-    font-size: 25px;
-} */
-
-
-
+/*Biography formatting for mobile Screens*/
 @media screen and (max-width: 480px) 
 {
 
@@ -454,262 +378,223 @@
     
 }
 
-/*********************************************************************************/
-/* Media Queries                                                                 */
-/*********************************************************************************/
+/*Formatting for contact icons used*/
+    .contactLogo{
+        align-content: center;
+        margin-right: 15px;
+        width: 20px;
+        margin-bottom: 15px;
 
-@media screen and (min-width: 430px) 
-{
-    .band 
-    {
-        grid-gap: 20px;
     }
 
-    .peopleList h1 
-    {
-        font-size: 12px;
+    #scholar{
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
     }
 
-    .personBio h1
-    {
-        font-size: 25px;
-    }
 
-    .card span 
-    {
-        font-size: 9px;
-        font-weight: bold;
-        color: #999;
-        text-transform: capitalize; /*uppercase;*/
-        letter-spacing: .05em;
-        margin: 2em 0 0 0;
-    }
+/********************************************************************************/
+/*                                UNUSED CSS                                    */
+/********************************************************************************/
 
-    .card article
-    {
-        padding: 10px;
-    }
-
-    .peopleTitle h2
-    {
-        font-size: 30px;
-    }
+/*Alternative formatting for people list*/
+/* 
+.peopleContainer{
+    height: 600px;
+    display: flex;
 }
+.peopleList{
+    padding: 8%;
+    height: 600px;
+    background-color: rgb(224, 196, 250);
+}
+.peopleListTitle{
+    width: 100%;
+    text-align: center;
+    font-size: 1.8em;
+}
+.peopleBio{
+    background-color: rgb(202, 235, 202);
+}
+.person{
+    width: 300px;
+    float: left;
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 8px;
+}
+.personName{
+    font-size: 30px;
+}
+.person img{
+    width: 270px;
+    height: 285px;
+}
+.personTitle {
+    font-size: 25px;
+} */
 
-@media screen and (min-width: 560px) 
-{
-    .personBio img 
-    {
-        padding-right: 20px;
-        padding-bottom: 20px;
-        width: 100%;
-        height: auto;
-        max-width: 200px;
-        float: left;
-    }
 
-    .personBio h1
-    {
-        font-size: 30px;
-    }
-
-    .peopleList h1 
-    {
-        font-size: 18px;
-    }
-
-    .card span 
-    {
-        font-size: 12px;
-        font-weight: bold;
-        color: #999;
-        text-transform: capitalize; /*uppercase;*/
-        letter-spacing: .05em;
-        margin: 2em 0 0 0;
-    }
     
-    .peopleTitle h2
-    {
-        font-size: 35px;
-    }
-
-    #header{
-        text-align: center;
-        font-size: 40px;
-    }
-}
-
-.contactLogo{
-    align-content: center;
-    margin-right: 15px;
-    width: 20px;
-    margin-bottom: 15px;
-
-}
-
-#scholar{
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
 
 
-  
 /* CSS for card flip template
 
-.itemInner{
-    text-align: center;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    perspective: 1000;
-    position: relative;
-    
-    
-}
+    .itemInner{
+        text-align: center;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        perspective: 1000;
+        position: relative;
+        
+        
+    }
 
-.itemInner.is-flipped {
-    transform: rotateY(180deg);
-}
+    .itemInner.is-flipped {
+        transform: rotateY(180deg);
+    }
 
-.cardFace{
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    overflow: hidden;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
-    
+    .cardFace{
+        position: absolute;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: hidden;
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+        
 
-}
+    }
 
-.cardFaceFront{
+    .cardFaceFront{
 
-    align-items: center;
-    justify-content: center;
-}
+        align-items: center;
+        justify-content: center;
+    }
 
-.cardFaceFront h2{
-    color: #fff;
-    font-size: 12px;
-}
+    .cardFaceFront h2{
+        color: #fff;
+        font-size: 12px;
+    }
 
-.cardFaceFront p{
-    font-size: 12px;
-    font-weight: 700;
+    .cardFaceFront p{
+        font-size: 12px;
+        font-weight: 700;
 
-}
+    }
 
-.frontContent span{
-    color: #999;
-}
+    .frontContent span{
+        color: #999;
+    }
 
-.cardFaceBack{
-    background-color: #fff;
-    transform:rotateY(180deg);
-    
-}
+    .cardFaceBack{
+        background-color: #fff;
+        transform:rotateY(180deg);
+        
+    }
 
-.cardContent{
-    width: 100%;
-    position: relative;
-    
+    .cardContent{
+        width: 100%;
+        position: relative;
+        
 
-}
+    }
 
-.cardHeader{
-    position: relative;
-    padding: 40px 15px 15px;
-}
+    .cardHeader{
+        position: relative;
+        padding: 40px 15px 15px;
+    }
 
-.cardHeader:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    border-radius: 0 0 25% 0;
-}
+    .cardHeader:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border-radius: 0 0 25% 0;
+    }
 
-.cardHeader h2{
-    color: #fff;
-    font-size: 32px;
-    font-weight: 900;
-    text-align: center;
-}
+    .cardHeader h2{
+        color: #fff;
+        font-size: 32px;
+        font-weight: 900;
+        text-align: center;
+    }
 
-#titleName{
+    #titleName{
 
-    font-size: 26px;
-    margin: 15px;
-}
-.cardBody{
-    padding: 30px;
-    color: black !important;
-    display: block;
-    padding-top: 0px;
-    
-    overflow-y: scroll;
+        font-size: 26px;
+        margin: 15px;
+    }
+    .cardBody{
+        padding: 30px;
+        color: black !important;
+        display: block;
+        padding-top: 0px;
+        
+        overflow-y: scroll;
 
-}
+    }
 
-.cardBody::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	border-radius: 10px;
-	background-color: #F5F5F5;
-}
+    .cardBody::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
 
-.cardBody::-webkit-scrollbar
-{
-	width: 8px;
-	background-color: #F5F5F5;
-}
+    .cardBody::-webkit-scrollbar
+    {
+        width: 8px;
+        background-color: #F5F5F5;
+    }
 
-.cardBody::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
-	background-color: #555;
-}
+    .cardBody::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+        background-color: #555;
+    }
 
-.cardBody h3{
-    color: black !important;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
+    .cardBody h3{
+        color: black !important;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
 
-.cardBody p {
-    color: black !important;
-    font-size: 18px;
-    line-height: 1.2;
-}
+    .cardBody p {
+        color: black !important;
+        font-size: 18px;
+        line-height: 1.2;
+    }
 
-.cardBody a {
-    margin-top: 10px;
-    display: inline-block;
-}
+    .cardBody a {
+        margin-top: 10px;
+        display: inline-block;
+    }
 
-.itemInner h4{
-    font-size: 30px;
-    color: #fff;
-    text-transform: capitalize;
-}
+    .itemInner h4{
+        font-size: 30px;
+        color: #fff;
+        text-transform: capitalize;
+    }
 
-.itemInner p{
-    font-size: 18px;
-    color: #fff;
-    letter-spacing: 1px;
-}
+    .itemInner p{
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 1px;
+    }
 
-.contactLogo{
-    align-content: center;
-    margin-right: 15px;
-    width: 20px;
-    margin-bottom: 15px;
+    .contactLogo{
+        align-content: center;
+        margin-right: 15px;
+        width: 20px;
+        margin-bottom: 15px;
 
-}
-*/
+    }
+    */
 
