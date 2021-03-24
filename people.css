@@ -2,6 +2,33 @@
     margin-top: 40px;
 }
 
+.toTop{
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: 9999;
+    float: right;
+
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg) scale(2);
+
+}
+
+.center {
+    margin: auto;
+    margin-left: 30%;
+    margin-top: 25%;
+    padding: 10px;
+  }
+
+
 /*Formatting for main div that contains all biography/person contents on the people page*/
 .peopleBio
 {
@@ -62,8 +89,13 @@
     .pubLink {
 
         color: black !important;
-        text-decoration: none;
     }
+
+    .peopleList h1 
+    {
+        font-size: 9px;
+    }
+
 
 .personBio img 
 {
