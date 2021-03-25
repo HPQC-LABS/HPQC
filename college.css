@@ -23,6 +23,11 @@
     margin-bottom: 15px;
 }
 
+.text{
+    margin: 10px;
+    padding-top: 20px;
+}
+
 /*Specific formatting for mobile / small browsers*/
 
 @media screen and (max-width: 550px) {

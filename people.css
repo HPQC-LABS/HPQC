@@ -4,28 +4,43 @@
 
 .toTop{
     position: fixed;
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
     background-color: rgba(0, 0, 0, 0.3); 
     z-index: 9999;
     float: right;
+    margin-top: 300px;
+    transition: all ease-in-out 0.5s;
 
 }
 
+
+
+@media screen and (max-width: 500px) {
+    .toTop{
+        margin-top: 100px;
+    }
+
+}
+
+
 .arrow {
-    border: solid black;
+    border: solid rgba(0,0,0,0.7);
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
     transform: rotate(-135deg) scale(2);
+    transition: all ease-in-out 0.5s;
+    
 
 }
 
 .center {
     margin: auto;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 25%;
     padding: 10px;
+    
   }
 
 
@@ -106,6 +121,44 @@
     max-width: 150px;
     float: left;
 }
+
+/*Formatting of contact logos*/
+    .contactLogo{
+        margin-right: 15px;
+        width: 10%;
+        margin-bottom: 15px;
+        margin: 0;
+    }
+
+    #scholar:hover{
+        width: 4%;
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+    }
+
+    #scholar{
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        margin: 0;
+        padding: 5px;
+        display: block;
+        line-height: 45px;
+        border-radius: 50%;
+        transition: all ease 0.5s; 
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+        width: 3%;
+        margin-left: 60px;
+        margin-bottom: 10px;
+    
+    }
+
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
 
 /*Specific formatting for publications list*/
     .publicationDiv{
@@ -363,15 +416,20 @@
 /*Biography formatting for mobile Screens*/
 @media screen and (max-width: 480px) 
 {
+    .featured{
+        width: 100%;
+    }
+    
+    .container{
+        width:100%;
+    }
 
     .peopleBio
     {
         border-radius: 8px;
         width: 100%;
-        margin: auto;
+        margin: 0;
         background-color: white;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-
     }
 
     
@@ -379,7 +437,7 @@
     .personBio img 
     {
         
-        margin: 0 auto;
+        margin: 0;
         display: block;
         padding-right: 250px;
         padding-bottom: 20px;
@@ -394,16 +452,16 @@
         min-height: 400px;
         background-color: rgb(253, 252, 252);
         padding: 20px;
-        margin: 15px;
         border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         height: 100%;
         overflow: hidden;
+        margin: 0;
     }
 
     .personBio p{
         text-align: left;
-        margin: 0 auto;
+        margin: 0;
         position: relative;
         display: inline-block;
     }
@@ -413,7 +471,6 @@
 /*Formatting for contact icons used*/
     .contactLogo{
         align-content: center;
-        margin-right: 15px;
         width: 20px;
         margin-bottom: 15px;
 
