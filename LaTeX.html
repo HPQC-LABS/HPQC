@@ -55,8 +55,14 @@
 
     <div id="banner">&nbsp;</div>
 
+	<!--Div used as a button to scroll to the top of the page-->
+    <div class="toTop" id="buttonID" data-aos="fade-right" data-aos-anchor="#trigger" data-aos-anchor-placement="top-top">
+        <!--Actual arrow in the main div, aligned using the center div-->
+        <div class="center"><div class="arrow"></div></div>
+    </div>
+
 	<!--Instruction on setting up/using LaTeX to successfully complete work-->
-	<div class="latexContainer">
+	<div class="latexContainer" id="trigger">
 		<h1>LaTeX Setup</h1>
 
 		<p>1. Install TeX Live and go through the installation process, making sure that the <b>install TeXworks front end box</b> is checked when you get to the page where you choose the installation root.</p>
@@ -297,6 +303,7 @@
 
 <!--Initializing js files used-->
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="LaTeX.js"></script>
 
 <!--Initializes AOS script which is used to animate divs apppearing when scrolling down-->
 <script src="Plugins/AOS/aos.js"></script>

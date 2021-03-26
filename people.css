@@ -2,6 +2,7 @@
     margin-top: 40px;
 }
 
+/*Formatting button used to scroll to top*/
 .toTop{
     position: fixed;
     width: 60px;
@@ -15,15 +16,14 @@
 }
 
 
-
+/*Alters the position of scroll button for mobile screens*/
 @media screen and (max-width: 500px) {
     .toTop{
         margin-top: 100px;
     }
-
 }
 
-
+/*Creates the arrow used in the scroll to top button*/
 .arrow {
     border: solid rgba(0,0,0,0.7);
     border-width: 0 3px 3px 0;
@@ -31,16 +31,14 @@
     padding: 3px;
     transform: rotate(-135deg) scale(2);
     transition: all ease-in-out 0.5s;
-    
-
 }
 
+/*Centers arrow inside the toTop Div*/
 .center {
     margin: auto;
     margin-left: 25%;
     margin-top: 25%;
     padding: 10px;
-    
   }
 
 
@@ -52,7 +50,6 @@
     margin: auto;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-
 }
 
 /*Formatting the container of each bio entry*/

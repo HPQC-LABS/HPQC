@@ -385,7 +385,7 @@
 
 	#menu .main-nav .content
 	{
-		transform: translateY(10px);
+		transform: translateY(10px) translateX(-25%);
 		display: none;
 		position: absolute;
 		background-color: rgb(255, 255, 255);
