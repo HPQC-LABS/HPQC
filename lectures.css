@@ -167,6 +167,7 @@
         margin-top: -60px;
         height: auto;
         perspective: 1000px; /*Used to give 3d effect on click*/
+        transition-delay: 0.5s;
         
     }
     
@@ -318,11 +319,16 @@
             transform: scale(1);
             opacity: 1;
         }
+
+        .slider1:not(.slick-current) .item {
+            transition: 300ms ease-in-out;
+            transition-delay: 500ms;
+          }
         
         /*Formatting for the previous/next buttons */
             .slick-arrow{
                 
-                transform: translateY(-300px);
+                transform: translateY(-350px);
                 position: absolute;
                 bottom: 0;
                 z-index: 99;
@@ -330,11 +336,13 @@
                 border: none;
                 padding: 8px 15px;
                 border-radius: 50px;
-                width: 100px;
+                width: 50px;
                 outline: none;
                 box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
                 transition: ease-in-out 0.5s;
                 margin: 10px;
+                background-size: contain;
+                
             }
             
             .slick-arrow:hover{
@@ -342,15 +350,38 @@
             }
             
             .slick-next{
+                
                 left: 50vw;
                 margin: 10px;
                 padding: 10px;
+
             }
             
             .slick-prev{
                 right: 50vw;
                 margin: 10px;
                 padding: 10px;
+            }
+
+            /*Creating actual arrow and changing rotation*/
+            .arrowRight {
+                border: solid rgba(0,0,0,0.7);
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                transition: all ease-in-out 0.5s;
+                transform: rotate(-45deg) ;
+    
+            }
+    
+            .arrowLeft {
+                border: solid rgba(0,0,0,0.7);
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                transition: all ease-in-out 0.5s;
+                transform: rotate(135deg) ;
+    
             }
 
         /*Total height of slideshow section*/
@@ -360,6 +391,8 @@
             padding-top: 55px !important;
             padding-bottom: 55px !important;
         }
+
+       
     
 
 
@@ -703,11 +736,12 @@
         border: none;
         padding: 8px 15px;
         border-radius: 50px;
-        width: 100px;
+        width: 50px;
         outline: none;
         box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
         transition: ease-in-out 0.5s;
         margin: 10px;
+        background-size: contain;
     }
     
     .slick-arrow:hover{
@@ -733,7 +767,33 @@
         padding-top: 55px !important;
         padding-bottom: 55px !important;
     }
+
+    .slider1:not(.slick-current) .item {
+        transition: 300ms ease-in-out;
+        transition-delay: 400ms;
+      }
     
+    .arrowRight {
+        border: solid rgba(0,0,0,0.7);
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transition: all ease-in-out 0.5s;
+        transform: rotate(-45deg) ;
+
+    }
+
+    .arrowLeft {
+        border: solid rgba(0,0,0,0.7);
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transition: all ease-in-out 0.5s;
+        transform: rotate(135deg) ;
+
+    }
+
+
 
 
 
@@ -847,3 +907,5 @@
         margin-top: -90px;
     }
  
+
+

@@ -611,13 +611,17 @@
 /*Corresponds to copyright section of each webpage*/
 #copyright
 {
+	margin-left: 5%;
+	margin-top: 100px;
+	height: 50px;
+	width: 90%;
 	overflow: hidden;
-	padding: 5em 0em;
-	border-top: 1px solid rgba(255,255,255,0.08);
+	border-top: 3px solid rgba(255,255,255,0.08);
 }
 
 #copyright p
 {
+	margin-top: 30px;
 	text-align: center;
 	font-size: 1em;
 	color: rgba(255,255,255,0.5);

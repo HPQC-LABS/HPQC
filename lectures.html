@@ -591,14 +591,26 @@
 					if (size.matches) {
 						$(".slider1").slick({
 							//Given Settings for slideshow
+							arrows: true,
+							nextArrow: '<button type="button" class="slick-next"><div class="arrowRight"></div></button>',
+							prevArrow: '<button type="button" class="slick-prev"><div class="arrowLeft"></button>',
+							infinite: true,
 							centerMode: true,
 							centerPadding: '60px',
-							slidesToShow: 3	
+							slidesToShow: 3,
+							autoplay: true,
+ 							autoplaySpeed: 5000,
+							slidesToScroll: 3
+							
 						});
 
 					}
 					else {
 						$(".slider1").slick({
+							arrows: true,
+							nextArrow: '<button type="button" class="slick-next"><div class="arrowRight"></div></button>',
+							prevArrow: '<button type="button" class="slick-prev"><div class="arrowLeft"></button>',
+							infinite: true,
 							centerMode: true,
 							slidesToShow: 1
 						});
