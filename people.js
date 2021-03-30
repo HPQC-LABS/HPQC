@@ -21,7 +21,7 @@ $(document).ready(function(){
      //List of ids corresponding to each entries biography 
      let ids = [101, 102, 103, 104, 105, 106, 107, 108, 109];
  
-     //If the div containing the id is click the showBio function will be run 
+     //If the div containing the id is clicked the showBio function will be run 
      ids.forEach(id => {
          $(`#${id}`).on("click", showBio);
      });

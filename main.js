@@ -97,11 +97,35 @@ function sizeToggle(x){
 sizeToggle(size)
 size.addListener(sizeToggle)
 
-/*
-let test = document.getElementById('Faculty');
 
-$(test).click(function(){
-    alert(window.innerWidth);
+
+let exit = document.getElementsByClassName('close');
+let popup = document.getElementsByClassName("unsubPopup");
+let overlay = document.getElementsByClassName("unsubContainer");
+
+$(exit).click(function(){
+
+    console.log("test");
+    $(popup).css("display", "none");
+    $(overlay).css("display", "none");
 
 });
-*/
+
+let unsub = document.getElementsByClassName("unsubButton");
+
+$(unsub).click(function(){
+
+    console.log("test");
+    $(popup).css("display", "block");
+    $(overlay).css("display", "block");
+
+});
+
+
+let confirm = document.getElementsByClassName('confirmButton');
+
+$(confirm).click(function(){
+
+    console.log("unsubscribing confirmed");
+
+});
