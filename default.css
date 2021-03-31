@@ -792,6 +792,7 @@
 		font-size: 34px;
 		font-weight: bold;
 		transition: ease-in-out 0.3s;
+		transform: translateY(-5px);
 	
 	}
 
@@ -813,6 +814,45 @@
 		cursor: pointer;
 	}
 
+	.endScreen{
+		display: none;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 660px; /* Could be more or less, depending on screen size */
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		text-align: left;
+		font-size: 24px;
+
+	}
+
+	.endScreenHeader .close{
+		transform: translateY(-5px);
+	}
+
+	@media screen and (max-width: 890px) {
+		.unsubPopup{
+			width: 100%; 
+			font-size: 12px;
+	
+		}
+
+		.unsubTitle{
+			font-size: 20px;
+		}
+
+		.close{
+		
+			color: #aaa;
+			float: center;
+			font-size: 34px;
+			font-weight: bold;
+			transition: ease-in-out 0.3s;
+			transform: translate(-50px, -8px);
+		
+		}
+	}
 
 
 

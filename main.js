@@ -98,6 +98,8 @@ sizeToggle(size)
 size.addListener(sizeToggle)
 
 
+//Js for Unsubscribe feature
+
 
 let exit = document.getElementsByClassName('close');
 let popup = document.getElementsByClassName("unsubPopup");
@@ -105,9 +107,13 @@ let overlay = document.getElementsByClassName("unsubContainer");
 
 $(exit).click(function(){
 
-    console.log("test");
     $(popup).css("display", "none");
     $(overlay).css("display", "none");
+
+    if(endToggle == 1){
+        $(endScreen).css("display", "none");
+        endToggle = 0;
+    }
 
 });
 
@@ -115,17 +121,58 @@ let unsub = document.getElementsByClassName("unsubButton");
 
 $(unsub).click(function(){
 
-    console.log("test");
     $(popup).css("display", "block");
     $(overlay).css("display", "block");
 
 });
 
 
-let confirm = document.getElementsByClassName('confirmButton');
+let confirm = document.getElementById('confirm');
+let endScreen = document.getElementById('end');
+var endToggle = 0;
 
 $(confirm).click(function(){
 
     console.log("unsubscribing confirmed");
+    $(popup).css("display", "none");
+    $(endScreen).css("display", "block");
+    endToggle = 1
+
+});
+
+let deny = document.getElementById('deny');
+
+$(deny).click(function(){
+
+    console.log("unsubscribing cancelled");
+    $(popup).css("display", "none");
+    $(overlay).css("display", "none");
+
+});
+
+
+window.addEventListener('load', function(){
+    
+    
+
+    if(window.location.href.indexOf("unsub") != -1){
+        
+        $(popup).css("display", "block");
+        $(overlay).css("display", "block");
+    }
+
+    /* Testing comparison on local host 
+
+    console.log(window.location.href);
+    if(window.location.href.indexOf("host") != -1){
+        console.log("url comparison works"); 
+    }
+    */
+
+    if(window.location.href.indexOf("host") != -1){
+    console.log("url comparison works"); 
+        $(popup).css("display", "block");
+        $(overlay).css("display", "block");
+    }
 
 });
