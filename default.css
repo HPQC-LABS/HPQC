@@ -761,11 +761,17 @@
 	.unsubPopup{
 
 		margin: 15% auto; /* 15% from the top and centered */
-		padding: 20px;
-		border: 1px solid #888;
 		width: 660px; /* Could be more or less, depending on screen size */
 		background-color: #fff;
 		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+	}
+
+	.unsubHeader{
+
+		padding: 20px;
+		background-color: #79C255;
+		margin: 0;
 
 	}
 
@@ -773,34 +779,53 @@
 		
 		font-size: 28px;
 		width: 100%;
-		/*
 		color: white;
-		background-color: #79C255;
-		*/
 	}
 
 	.unsubPopup p{
 
-		margin-top: 20px;
+		padding: 20px;
+		margin: 0px;
+
+	}
+
+	.buttons{
+
+		padding: 20px;
+		padding-top: 0px;
+	}
+
+	.buttons button{
+
+		letter-spacing: 0.1em;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 45px;
+		max-width: 160px;
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+		width: 100%;
 
 	}
 
 	.close{
 		
-		color: #aaa;
+		color: #fff;
 		float: right;
 		font-size: 34px;
 		font-weight: bold;
 		transition: ease-in-out 0.3s;
 		transform: translateY(-5px);
-	
+		transform-origin: 50% 50%;
+
 	}
 
 	.close:hover{
-
-		color: black;
+		
 		cursor: pointer;
-		transform: rotate(45deg);
+		transform: rotate(45deg) translate(-2.5px, -2.5px);
 	}
 
 	.unsubButton{
@@ -812,6 +837,23 @@
 
 		text-decoration: underline;
 		cursor: pointer;
+	}
+
+	.getEmail{
+		display: none;
+		margin: 15% auto; /* 15% from the top and centered */
+		width: 660px; /* Could be more or less, depending on screen size */
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		text-align: left;
+		font-size: 24px;
+
+	}
+	
+	.getEmail p{
+
+		padding: 20px;
+		font-size: 18px;
 	}
 
 	.endScreen{
@@ -829,6 +871,7 @@
 
 	.endScreenHeader .close{
 		transform: translateY(-5px);
+		color: #aaa;
 	}
 
 	@media screen and (max-width: 890px) {
@@ -844,13 +887,24 @@
 
 		.close{
 		
-			color: #aaa;
+			color: #fff;
 			float: center;
 			font-size: 34px;
 			font-weight: bold;
 			transition: ease-in-out 0.3s;
-			transform: translate(-50px, -8px);
+			transform: translate(-10px, -8px);
 		
+		}
+
+		.endScreen{
+
+			width: 100%; 
+			font-size: 14px;
+		
+		}
+
+		.endScreenHeader .close{
+			transform: translate(-50px, -12px);
 		}
 	}
 

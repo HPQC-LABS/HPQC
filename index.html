@@ -37,6 +37,13 @@ Released   : 20140216
 
 </head>
 
+<!--
+		<?php
+            echo "Hi, I'm a PHP script!";
+        ?>
+
+-->
+
 <body>
 
 	<div class="unsubContainer">
@@ -44,7 +51,7 @@ Released   : 20140216
 		<div class="unsubPopup" id="unsub">
 
 			
-			<div class="unSubHeader">
+			<div class="unsubHeader">
 				<span class="unsubTitle">Unsubscribe</span>
 				<span class="close">&times;</span>
 			</div>
@@ -57,9 +64,32 @@ Released   : 20140216
 				<br>
 				Are you sure you want to unsubscribe?
 			</p>
-			<button class="confirmButton" id="confirm">Yes</button>
-			<button class="denyButton" id="deny">No</button>
+			<div class="buttons">
+				<button class="confirmButton" id="confirm">Yes</button>
+				<button class="denyButton" id="deny">No</button>
+			</div>
 			
+			
+		</div>
+
+		<div class="getEmail">
+
+
+			<div class="unsubHeader">
+				<span class="unsubTitle">Unsubscribe</span>
+				<span class="close">&times;</span>
+			</div>
+
+			<p>
+				Please enter your email address:
+				<input type="text" id="email" name="fname"><br><br>
+
+			</p>
+			<div class="buttons">
+				<button class="submitUnsub" id="submitUnsub">Submit</button>
+			</div>
+
+
 		</div>
 
 		<div class="endScreen" id="end">

@@ -128,16 +128,27 @@ $(unsub).click(function(){
 
 
 let confirm = document.getElementById('confirm');
+let submit = document.getElementById('submitUnsub');
 let endScreen = document.getElementById('end');
+let emailScreen = document.getElementsByClassName('getEmail');
+
 var endToggle = 0;
 
 $(confirm).click(function(){
 
     console.log("unsubscribing confirmed");
     $(popup).css("display", "none");
+    $(emailScreen).css("display", "block");
+
+});
+
+$(submit).click(function(){
+
+    $(emailScreen).css("display", "none");
     $(endScreen).css("display", "block");
     endToggle = 1
-
+    var email = document.getElementById("email").value;
+    console.log(email)
 });
 
 let deny = document.getElementById('deny');
