@@ -179,11 +179,11 @@ window.addEventListener('load', function(){
         console.log("url comparison works"); 
     }
     */
-
+    /*
     if(window.location.href.indexOf("host") != -1){
     console.log("url comparison works"); 
         $(popup).css("display", "block");
         $(overlay).css("display", "block");
-    }
+    }*/
 
 });

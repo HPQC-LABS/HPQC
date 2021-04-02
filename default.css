@@ -850,10 +850,15 @@
 
 	}
 	
-	.getEmail p{
+	.inputContainer{
 
 		padding: 20px;
 		font-size: 18px;
+	}
+
+	.inputContainer input{
+
+		transform: translateX(50px);
 	}
 
 	.endScreen{
