@@ -191,9 +191,12 @@
 {
     background-color: #FFF;
     padding-bottom: 60px;
-    margin-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
+
 }
 
 /*Acts as a container for each person entry (split into groups 3 per row)*/
@@ -327,6 +330,8 @@
     {
         font-size: 30px;
     }
+
+
 }
 
 /*Text Formatting for Desktop screens*/
@@ -461,6 +466,14 @@
         margin: 0;
         position: relative;
         display: inline-block;
+    }
+
+    .newSection
+    {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 30px;
+    
     }
     
 }
