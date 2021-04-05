@@ -179,6 +179,22 @@
 */
 
 /*Formatting text for title headers (Faculty, Students, etc.)*/
+.personBio ul
+{
+    color: black;
+    list-style-type: disc;
+    display: block;
+    text-align: left;
+    list-style-position:inside
+}
+
+.personBio li
+{
+    color: black;
+    display: list-item;
+    margin-bottom: 5px;
+}
+
 .peopleTitle 
 {
     font-size: 26px;
