@@ -82,3 +82,128 @@ function initPayPalButton() {
     }).render('#paypal-button-container');
 }
 initPayPalButton();
+
+
+
+
+
+//Setting default conditions
+let code = 'CA';
+let currency = 'CAD';
+let currencyName = 'Dollars';
+
+
+
+
+//Logging country, and curreny from users ip
+function getIp() {
+
+    $.getJSON('https://ipapi.co/json/', function(data) {
+                console.log(JSON.stringify(data, null, 2));
+                code = data.country;
+                currency = data.currency;
+            
+            
+            });
+    
+}
+
+
+//Running the following once website has loaded
+window.onload = function() {
+    
+    //Takes in the currency symbol and exchange rate from exchange rate xml file
+    function readXML(){
+        xmlContent = '';
+        fetch('exchangeRates/eurofxref-daily02-25-21.xml').then((response)=>{
+            //Parsing content from file
+            response.text().then((xml)=>{
+                xmlContent = xml;
+                let parser = new DOMParser();
+                let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
+                let xmlCube = xmlDOM.querySelectorAll('Cube');
+    
+                xmlCube.forEach(CubeXmlNode => {
+                    //Initializing variables 
+                    var list;
+                    var listCurrency;
+                    var listExchangeRate;
+                    console.log(CubeXmlNode.children.length);
+
+                    //Checking each entry to see if it matches users currency from their ip
+                    for(i=0; i < CubeXmlNode.children.length; i++){
+                        list = CubeXmlNode.children[i];
+                        listExchangeRate =  list.getAttribute('rate');
+                        listCurrency = list.getAttribute('currency');
+                        listSymbol = list.getAttribute('symbol');
+                        
+                        if(listCurrency == currency){
+                            getPrice(list);
+                            break;
+                            console.log("Country is: " + listCurrency + " = " + currency + "\n Exchange rate is: " + listExchangeRate);
+                        }
+                        
+                    }
+
+                });
+            });
+        });
+    
+    
+    }
+
+    //Determines the price of the ticket given the users location
+    function getPrice(input) {
+        list = input;
+        console.log(list.getAttribute('rate'));
+        console.log(list.getAttribute('currency') + "TEST");
+
+
+
+        var select = document.getElementsByTagName('select');
+        var lecPrice = [20, 40, 50];
+        var lecPriceUSD = [16, 32, 40]; 
+
+
+        //Altering currency based on multiplier by location
+        for(i=0; i < lecPrice.length; i++){
+            
+            if(list.getAttribute('currency') == 'CAD'){
+
+                if(i==0){
+                    document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture: $" + lecPrice[i];
+                }
+                else{
+                    document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lectures: $" + lecPrice[i];
+                }
+            }
+
+            else if(list.getAttribute('currency') == 'USD'){
+
+                if(i==0){
+                    document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture: $" + lecPriceUSD[i];
+                }
+                else{
+                    document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lectures: $" + lecPriceUSD[i];
+                }
+            }
+            //lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
+            //lecSymbol = list.getAttribute('symbol');
+
+        
+        }
+        console.log(lecPrice);
+    }
+
+    //Running the above functions
+    getIp();
+
+    setTimeout(function() { 
+
+        readXML();
+       
+
+    }, 200);
+
+
+}

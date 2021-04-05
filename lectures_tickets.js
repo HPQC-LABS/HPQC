@@ -95,6 +95,13 @@ function initPayPalButton() {
     }).render('#paypal-button-container');
 }
 
+    initPayPalButton(); 
+
+
+
+
+
+
 //Setting default conditions
 let code = 'CA';
 let currency = 'CAD';
@@ -144,11 +151,13 @@ window.onload = function() {
                         listExchangeRate =  list.getAttribute('rate');
                         listCurrency = list.getAttribute('currency');
                         listSymbol = list.getAttribute('symbol');
+                        
                         if(listCurrency == currency){
                             getPrice(list);
                             break;
                             console.log("Country is: " + listCurrency + " = " + currency + "\n Exchange rate is: " + listExchangeRate);
                         }
+                        
                     }
 
                 });
@@ -162,17 +171,36 @@ window.onload = function() {
     function getPrice(input) {
         list = input;
         console.log(list.getAttribute('rate'));
+        console.log(list.getAttribute('currency') + "TEST");
+
+
+
         var select = document.getElementsByTagName('select');
         /*Exchange rate is based on EUR so prices will look off here*/
-        var lecPrice = [23, 46, 68, 75, 91]; /*Original prices in CAD: 35, 70, 105, 140, 115*/
-        var lecPriceDiscount = [20, 40, 60, 75, 80]; /*Original discount prices in CAD: 20, 40, 60, 80, 75*/
+        var lecPrice = [20, 40, 50]; /*Original prices in CAD: 35, 70, 105, 140, 115*/
+        var lecPriceUSD = [16, 32, 40]; /*Original prices in CAD: 35, 70, 105, 140, 115*/
+        //var lecPriceDiscount = [20, 40, 60, 75, 80]; /*Original discount prices in CAD: 20, 40, 60, 80, 75*/
         //Altering currency based on multiplier by location
+        //document.getElementById("1").innerHTML = "TEST";
+        document.getElementsByName('item-options')[0].options[0].innerHTML = "Water";
+
         for(i=0; i < lecPrice.length; i++){
             
-            lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
-            lecSymbol = list.getAttribute('symbol');
-            
-            select[0].options[i] = new Option((i + 1) + " Lecture: "  + lecSymbol  + " "  + lecPrice[i] );
+            if(list.getAttribute('currency') == 'CAD'){
+
+
+                document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture(s): $" + lecPrice[i];
+            }
+
+            else if(list.getAttribute('currency') == 'USD'){
+
+                document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture(s): $" + lecPriceUSD[i];
+            }
+            //lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
+            //lecSymbol = list.getAttribute('symbol');
+            //$('select option:contains("Newest")').text('TEMPEST');
+            //$('select[0] option[' + i + ']').text('Pog');
+            //select[0].options[i] = new Option((i + 1) + " Lecture: "  + lecSymbol  + " "  + lecPrice[i] );
         
         }
         console.log(lecPrice);
@@ -180,13 +208,13 @@ window.onload = function() {
 
     //Running the above functions
     getIp();
+
     setTimeout(function() { 
 
-        initPayPalButton(); 
         readXML();
        
 
-    }, 700);
+    }, 200);
 
 
 }
