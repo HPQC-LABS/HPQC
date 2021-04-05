@@ -78,7 +78,29 @@ $(BKToggle).click(function(){
     document.getElementById('BKArrow').classList.toggle('rotated');
 }); 
 
-/*For 4th Lecture box*/
+//Once the webpage is loaded, if the width is resized, the webpage will refresh
+//This is due to the way in which the entries are styled. Because they take in the height and width
+//from a singular entry, if the webpage is resized the formatting won't be updated unless the page is refreshed
+$(document).ready(function () {
+
+    var width = document.body.clientWidth;
+    $(window).on('resize', function () {
+         
+         var newWidth = document.body.clientWidth;
+         
+         //The reload must only happen when the width is changed as it can cause issues on mobile
+         //if it checks for changes in the height as well. 
+         if(width != newWidth){
+              location.reload();
+         }
+              
+    });
+});
+
+
+/* Additional code for upcoming lectures once they are finished
+
+//For 4th Lecture box
 let LZ = document.getElementById('LZInfo');
 let LZTxt = document.getElementById('LZDesc');
 let LZToggle = document.getElementById('LZRow');
