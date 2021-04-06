@@ -1103,6 +1103,87 @@ ul.staff li img
 
 
 /*********************************************************************************/
+/* 404 Page                                                            */
+/*********************************************************************************/
+
+.error404 h1{
+	font-size: 48px;
+	color: white;
+	
+}
+
+.error404 h3{
+	font-size: 24px;
+	color: white;
+}
+
+.error404 .byline
+{
+	padding: 30px;
+	display: inline;
+	font-size: 1.1em;
+	text-align: center;
+
+}
+
+.seeMore a{
+	text-decoration: none;
+	font-size: 18px;
+}
+
+#center{
+	margin: auto;
+}
+
+
+.homeButton{
+
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 45px;
+	max-width: 160px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 100%;
+	
+
+}
+
+#home{
+
+	text-decoration: none;
+	color: black !important;
+}
+
+/*Changes to titles / headers given a smaller screen*/
+@media screen and (min-width: 560px) 
+{
+
+	.error404 h2
+	{
+		color: white;
+		font-size: 2.7em;
+	}
+
+	.error404 .byline
+	{
+		text-align: center;
+		font-size: 1.7em;
+		color: white !important;
+		display: inline;
+
+	}
+
+	.error404 span{
+		color: white !important;
+	}
+}
+	
+
+/*********************************************************************************/
 /* Social Icon Styles                                                            */
 /*********************************************************************************/
 
