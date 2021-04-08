@@ -1136,27 +1136,53 @@ ul.staff li img
 }
 
 
-.homeButton{
 
-	letter-spacing: 0.1em;
+
+.homeButton {
+	border-radius: 4px;
+	border: none;
+	color: #79C255;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 400px;
+	transition: all 0.5s;
 	cursor: pointer;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 45px;
-	max-width: 160px;
-	position: relative;
-	text-decoration: none;
+	margin: 5px;
 	text-transform: uppercase;
-	width: 100%;
-	
+	font-size: 14px;
+	font-weight: 600;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05);
 
 }
 
-#home{
-
-	text-decoration: none;
-	color: black !important;
+.homeButton span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
 }
+
+.homeButton span:after {
+	content: '🡒';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+	transform: translate(10px, -8.5px);
+	font-size: 24px;
+}
+
+.homeButton:hover span {
+	padding-right: 25px;
+}
+
+.homeButton:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
 
 /*Changes to titles / headers given a smaller screen*/
 @media screen and (min-width: 560px) 
@@ -1177,9 +1203,6 @@ ul.staff li img
 
 	}
 
-	.error404 span{
-		color: white !important;
-	}
 }
 	
 
