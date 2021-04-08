@@ -31,6 +31,8 @@ function initPayPalButton() {
             var priceTotal = quantity * selectedItemPrice + parseFloat(shipping) + tax;
             priceTotal = Math.round(priceTotal * 100) / 100;
             var itemTotalValue = Math.round((selectedItemPrice * quantity) * 100) / 100;
+            console.log(code);
+
             return actions.order.create({
                 purchase_units: [{
                     description: orderDescription,
@@ -66,7 +68,7 @@ function initPayPalButton() {
                  },
                  payer: {
                      address: {
-                         country_code: 'CA'
+                         country_code: code,
                      }
                  }
              });
@@ -81,7 +83,7 @@ function initPayPalButton() {
         },
     }).render('#paypal-button-container');
 }
-initPayPalButton();
+
 
 
 
@@ -201,6 +203,10 @@ window.onload = function() {
     setTimeout(function() { 
 
         readXML();
+        setTimeout(function() { 
+            console.log(code);
+            initPayPalButton();
+        }, 200);
        
 
     }, 200);
