@@ -163,8 +163,8 @@ window.onload = function() {
 
 
         var select = document.getElementsByTagName('select');
-        var lecPrice = [20, 40, 50];
-        var lecPriceUSD = [16, 32, 40]; 
+        var lecPrice = [2, 20, 40, 50];
+        var lecPriceUSD = [1.75, 16, 32, 40]; 
 
 
         //Altering currency based on multiplier by location
