@@ -203,7 +203,7 @@ window.onload = function() {
                 //each switch case represents the index in the array, for specific text in each option just change what each element will be set to
                 switch(i) {
                     case 0:
-                        document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPrice[i];
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "Test: $" + lecPrice[i];
                         break;
                     case 1:
                         document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPrice[i];
@@ -233,7 +233,7 @@ window.onload = function() {
 
                 switch(i) {
                     case 0:
-                        document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPriceUSD[i];
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "Test: $" + lecPriceUSD[i];
                         break;
                     case 1:
                         document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPriceUSD[i];
