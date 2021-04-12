@@ -163,31 +163,89 @@ window.onload = function() {
 
 
         var select = document.getElementsByTagName('select');
-        var lecPrice = [20, 40, 50];
-        var lecPriceUSD = [16, 32, 40]; 
+        var lecPrice = [2, 20, 40, 50];
+        var lecPriceUSD = [1.75, 16, 32, 40]; 
 
 
         //Altering currency based on multiplier by location
         for(i=0; i < lecPrice.length; i++){
             
             if(list.getAttribute('currency') == 'CAD'){
+                
+                /* TESTING ALTERNATIVE METHODS TO TEXT CHANGE
 
+                var x = document.getElementsByName("item-options")[0].querySelectorAll(".cost"); 
+                console.log(document.getElementsByName('item-options')[0].options[i].querySelectorAll(".cost").innerHTML);
+                console.log($( "p.test1").text());
+                document.getElementsByName('item-options')[0].options[i].querySelectorAll(".cost")[i].innerHTML = lecPrice[i] + "test";
+                //x[i].innerHTML = lecPrice[i] + "test";
+
+                */
+
+
+
+                /* OLD METHOD
                 if(i==0){
+ 
                     document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture: $" + lecPrice[i];
+
                 }
                 else{
                     document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lectures: $" + lecPrice[i];
                 }
+            
+                
+                
+                
+                */
+
+                //TEMP METHOD
+                //each switch case represents the index in the array, for specific text in each option just change what each element will be set to
+                switch(i) {
+                    case 0:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPrice[i];
+                        break;
+                    case 1:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPrice[i];
+                        break;
+                    case 2:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "2 lectures: $" + lecPrice[i];
+                        break;
+                    case 3:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "3 lectures: $" + lecPrice[i];
+                        break;
+                  }
+
             }
 
             else if(list.getAttribute('currency') == 'USD'){
 
+                /* OLD METHOD
                 if(i==0){
                     document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture: $" + lecPriceUSD[i];
                 }
                 else{
                     document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lectures: $" + lecPriceUSD[i];
-                }
+                }*/
+
+
+                //TEMP METHOD
+
+                switch(i) {
+                    case 0:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPriceUSD[i];
+                        break;
+                    case 1:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPriceUSD[i];
+                        break;
+                    case 2:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "2 lectures: $" + lecPriceUSD[i];
+                        break;
+                    case 3:
+                        document.getElementsByName('item-options')[0].options[i].innerHTML = "3 lectures: $" + lecPriceUSD[i];
+                        break;
+                  }
+
             }
             //lecPrice[i] = Math.round(lecPrice[i] * list.getAttribute('rate'));
             //lecSymbol = list.getAttribute('symbol');
