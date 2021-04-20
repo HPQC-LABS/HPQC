@@ -294,6 +294,103 @@
 
 	</div>
 
+	<!--Instruction on setting up/using BetaFit to successfully complete work-->
+	<div class="latexContainer" data-aos="fade-up">
+		<h1>Running BetaFit</h1>
+		<h3>Compiling and Running BetaFit on Your Personal Computer</h3>
+		<p>
+			1. Download one of the gfortran binary packages from <a href="https://gcc.gnu.org/wiki/GFortranBinaries" target="_blank">here</a>. Choose one that matches the operating system you use.
+		</p>
+
+		<br>
+
+	        <p>2. Download the betafit code from <a href="https://www.sciencedirect.com/science/article/pii/S0022407316300966" target="_blank">this paper</a>. The text file for the code is under “Appendix A. Supplementary data” in “Application 2”. Make sure that when you download the text file, you transfer the contents into a .f file (we will refer to this file as betafit.f). </p>
+
+		<br>
+
+		<p>3. Open Terminal and change your current directory to the directory that has the betafit.f file and run the command: <p/>
+		<ul>
+			<li><code> gfortran betafit.f </code></li>
+		</ul>
+		<p>The executable produced will be called ‘a.exe’ (or ‘a.x’, ‘a.out’, etc. depending on your operating system). </p>
+
+		<br>
+
+		<p>4. Put your input file in the current directory. The input file should be a .5 file.</p>
+
+		<br>
+
+		<p>5. If your output file is called output.6, in Terminal, run the command (change the following line depending on executable file extension or input and output file names): <p/>
+		<ul>
+			<li><code> a.exe < input.5 > output.6 </code></li>
+		</ul>
+		<p>If this does not work, try running the command: <p/>
+		<ul>
+			<li><code> ./a.exe < input.5 > output.6 </code></li>
+		</ul>
+		<p> An output file called “output.6” will be created. </p>
+
+		<br>
+
+		<p>6. Open the created .6 file to view the output.</p>
+
+		<h3>Compiling and Running BetaFit on Graham</h3>
+		<p>1. Download the betafit code from <a href="https://www.sciencedirect.com/science/article/pii/S0022407316300966" target="_blank">this paper</a>. The text file for the code is under “Appendix A. Supplementary data” in “Application 2”. Make sure that when you download the text file, you transfer the contents into a .f file (we will refer to this file as betafit.f). </p>
+
+		<br>
+
+		<p>2. Open Ubuntu or a Linux environment and change your current directory to the directory that has the betafit.f file.  </p>
+
+		<br>
+
+		<p>3. In order to transfer your betafit.f file to Graham, run the command: <p/>
+		<ul>
+			<li><code> scp betafit.f yourusername@graham.computecanada.ca: </code></li>
+		</ul>
+		<p> If you want to put the betafit.f file to be in a specific directory in Graham, add the pathway to the end of the above command. For example, if you want to put the file in your project directory, run the command: <p/>
+		<ul>
+			<li><code> scp betafit.f yourusername@graham.computecanada.ca:projects/def-abcd/username </code></li>
+		</ul>
+
+		<br>
+
+		<p>4. Use step 3 to also transfer your input files to Graham. Make sure that your input files are .5 files.</p>
+
+		<br>
+
+		<p>5. Run the command: <code> ssh yourusername@graham.computecanada.ca </code> and put in your password at the prompt.</p>
+
+		<br>
+
+		<p>6. Once logged in, change your current directory to the directory that has the betafit.f file. You can check if your current directory by running the command: <code> ls </code></p>
+
+		<br>
+
+		<p>7. To get the compiler, run the command: <code> module load gcc </code></p>
+
+		<br>
+
+		<p>8. Once the compiler has been downloaded, run the command: <p/>
+		<ul>
+			<li><code> gfortran betafit.f </code> </li>
+		</ul>
+		<p>The executable produced will be called ‘a.out’.</p>
+
+		<br>
+
+		<p>9. If your input file is called ‘input’, run the command: <p/>
+		<ul>
+			<li><code>./a.out < input.5 > output.6 </code> </li>
+		</ul>
+		<p> An output file called “output.6” will be created. </p>
+
+		<br>
+
+		<p>10. To view the output, run the command: <p/>
+		<ul>
+			<li><code> cat output.6 </code> </li>
+		</ul>
+	</div>
 
 
 	<!-- <span style="display:block; margin-top:-37px;"> <h2><p style="color:white">a<br>a<br>a</p></h2></span> -->
