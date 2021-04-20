@@ -92,28 +92,33 @@ form button{
 #part1{
     margin-top: 50px;
     transition: 0.5s;
-    left: 0px;
+    -webkit-transition: 0.5s;
+    transform: translateX(0px);    
 }
 
 #part2{
     margin: 0;
     margin-top: 80px;
-    left: 650px;
+    transform: translateX(650px);
+    -webkit-transform: translateX(650px);
     transition: 0.5s;
-
+    -webkit-transition: 0.5s;
 }
 
 #part3{
     margin-top: 80px;
-    left: 650px;
+    transform: translateX(650px);
+    -webkit-transform: translateX(650px);
     transition: 0.5s;
-
+    -webkit-transition: 0.5s;
 }
 
 #part4{
     margin-top: 80px;
-    left: 650px;
+    transform: translateX(650px);
+    -webkit-transform: translateX(650px);
     transition: 0.5s;
+    -webkit-transition: 0.5s;
 
 }
 
@@ -132,6 +137,8 @@ form button{
     text-align: center;
     color: #333;
     position: relative;
+    display: inline-block;
+    margin: 0;
 
 }
 
@@ -141,6 +148,8 @@ form button{
     width: 25%;
     background: #79C255;
     transition: 1s;
+    -webkit-transition: 1s;
+
 }
 
 #progress::after{
