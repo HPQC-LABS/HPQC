@@ -34,6 +34,9 @@
 </head>
 
 <body>
+
+    
+
     <!--See comments about Nav bar in index.html-->
     <div id="menu">
         <div class="navbar-toggle" id="navbar-toggle">
@@ -77,7 +80,7 @@
                     <div class="registration">
                         
 
-                        <form id="registerForm" onSubmit="window.location.reload()">
+                        <form id="registerForm" action="https://script.google.com/macros/s/AKfycbwvhp5nxoBhl5lvXhsGr045iSUDb2dUApOM0c3FZOK_l5GlSICYinriMvAX8DtKV4oWGw/exec" onSubmit="window.location.reload()">
                         
                             <div class="page" id="part1">
                                 <h1>Special Registration for non-members</h1>
@@ -185,14 +188,50 @@
                             </script>
                                 <div class="btnBox">
                                     <button type="button" id="back3">Back</button>
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" id="submit-form">Submit</button>
                                 </div>
                             </div>
 
                             
                         </form>
+
                         <script>
 
+
+                            $.fn.serializeObject = function()
+                            {
+                                var o = {};
+                                var a = this.serializeArray();
+                                $.each(a, function() {
+                                if (o[this.name]) {
+                                if (!o[this.name].push) {
+                                o[this.name] = [o[this.name]];
+                            }
+                                o[this.name].push(this.value || '');
+                            } else {
+                                o[this.name] = this.value || '';
+                            }
+                            });
+                            return o;
+                            };
+
+                            /*
+                            var $form = $('form#registerForm'),
+                                url = 'https://script.google.com/macros/s/AKfycbwvhp5nxoBhl5lvXhsGr045iSUDb2dUApOM0c3FZOK_l5GlSICYinriMvAX8DtKV4oWGw/exec'
+
+                            $('#submit-form').on('click', function(e) {
+                         
+
+                                e.preventDefault();
+                                var jqxhr = $.ajax({
+                                    url: url,
+                                    method: "GET",
+                                    dataType: "json",
+                                    data: $form.serializeObject()
+                                }).done(
+                                    // do something
+                                );
+                            })
                             /* Alternative API used with apispreadsheets (only allows for 50 uses/day and 1500 slots total)
                             function SubForm (){   
                                 
@@ -211,6 +250,8 @@
                             }*/
                             
                             //Code that accesses Google Script API to write to document on submit
+
+                            /*
                             const scriptURL = 'https://script.google.com/macros/s/AKfycbxqzmOFSN1bhkNWqS5EtWSzCUn4eBXqFrPtr7Qi7c-nU-33CTQVIA4Ge9pMHOuk3BLu/exec'
                             const form = document.forms['registerForm']
                             
@@ -225,7 +266,9 @@
                                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                                 .then(response => console.log('Success!', response))
                                 .catch(error => console.error('Error!', error.message))
-                            })
+                            })*/
+
+                            
                         </script>
                             
 

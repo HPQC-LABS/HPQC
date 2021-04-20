@@ -241,41 +241,54 @@ window.onload = function() {
     var back3 = document.getElementById("back3");
 
     var progress = document.getElementById("progress");
+    
 
 
     next1.onclick = function(){
-        part1.style.left = "-650px";
-        part2.style.left = "0px";
+        part1.style.transform = "translateX(-650px)";
+        part2.style.transform = "translateX(0px)";
+        part1.style.webkitTransform = "translateX(-650px)";
+        part2.style.webkitTransform = "translateX(0px)";
         progress.style.width = "50%";
 
     }
     back1.onclick = function(){
-        part1.style.left = "0px";
-        part2.style.left = "650px";
+        part1.style.transform = "translateX(0px)";
+        part2.style.transform = "translateX(650px)";
+        part1.style.webkitTransform = "translateX(0px)";
+        part2.style.webkitTransform = "translateX(650px)";
         progress.style.width = "25%";
 
     }
     next2.onclick = function(){
-        part2.style.left = "-650px";
-        part3.style.left = "0px";
+        part2.style.transform = "translateX(-650px)";
+        part3.style.transform = "translateX(0px)";
+        part2.style.webkitTransform = "translateX(-650px)";
+        part3.style.webkitTransform = "translateX(0px)";
         progress.style.width = "75%";
 
     }
     back2.onclick = function(){
-        part2.style.left = "0px";
-        part3.style.left = "650px";
+        part2.style.transform = "translateX(0px)";
+        part3.style.transform = "translateX(650px)";
+        part2.style.webkitTransform = "translateX(0px)";
+        part3.style.webkitTransform = "translateX(650px)";
         progress.style.width = "50%";
 
     }
     next3.onclick = function(){
-        part3.style.left = "-650px";
-        part4.style.left = "0px";
+        part3.style.transform = "translateX(-650px)";
+        part4.style.transform = "translateX(0px)";
+        part3.style.webkitTransform = "translateX(-650px)";
+        part4.style.webkitTransform = "translateX(0px)";
         progress.style.width = "100%";
 
     }
     back3.onclick = function(){
-        part3.style.left = "0px";
-        part4.style.left = "650px";
+        part3.style.transform = "translateX(0px)";
+        part4.style.transform = "translateX(650px)";
+        part3.style.webkitTransform = "translateX(0px)";
+        part4.style.webkitTransform = "translateX(650px)";
         progress.style.width = "75%";
 
     }
