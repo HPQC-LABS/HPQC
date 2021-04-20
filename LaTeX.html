@@ -25,6 +25,7 @@
 
 </head>
 <body>
+	<!--See comments about Nav bar in index.html-->
 	<div id="menu">
         <div class="navbar-toggle" id="navbar-toggle">
 			<span></span>
@@ -53,7 +54,15 @@
 	</div>
 
     <div id="banner">&nbsp;</div>
-	<div class="latexContainer">
+
+	<!--Div used as a button to scroll to the top of the page-->
+    <div class="toTop" id="buttonID" data-aos="fade-right" data-aos-anchor="#trigger" data-aos-anchor-placement="top-top">
+        <!--Actual arrow in the main div, aligned using the center div-->
+        <div class="center"><div class="arrow"></div></div>
+    </div>
+
+	<!--Instruction on setting up/using LaTeX to successfully complete work-->
+	<div class="latexContainer" id="trigger">
 		<h1>LaTeX Setup</h1>
 
 		<p>1. Install TeX Live and go through the installation process, making sure that the <b>install TeXworks front end box</b> is checked when you get to the page where you choose the installation root.</p>
@@ -84,6 +93,7 @@
 	
 	</div>
 
+	<!--Instruction on using Git Bash to successfully complete work-->
 	<div class="latexContainer" data-aos="fade-up">
 		<h1>Uploading with GitBash</h1>
 		<p>
@@ -115,8 +125,53 @@
 			<li>git push</li>
 		</ul>
 
+		<h3>Updating Local Repositories</h3>
+
+		<p>
+			In some cases, the main page will be updated prior to your commit. With files that have been altered locally, you want to avoid pushing your commit as you may overwrite someones work, and you want to avoid merging the main file with your local repository, so you don't overwrite the work you have done.
+			<br>
+			To get around this, you will want to use the stash feature in git bash. 
+			
+			1. First you will want to use the following code to save your local changes to the stash and revert whatever files were modified to their original state.
+		</p>
+
+		<ul>
+			<li>git stash</li>
+		</ul>	
+
+		<p>
+			2. Next you will use the pull function to get your local repository back up to date with the main repository.
+		</p>
+
+		<ul>
+			<li>git pull origin gh-pages</li>
+		</ul>
+
+		<p>
+			3. Finally to merge the additions you have made back into the newly update repository, use the following command:
+		</p>
+
+		<ul>
+			<li>git stash pop</li>
+		</ul>
+
+		<p>
+			<b>Additional Note</b>
+			<br>
+			<br>
+			In some cases conflicts may appear when you are attempting to use <b>git stash pop</b> with the recently merged content. 
+			When this happens, you will need to manually go through and resolve these within your given application.
+			<br>
+			<br>
+			In the case of Visual Studio Code, the file that contains conflicts will be indicated, and the exact place in the code, highlighted. 
+			It will then offer the user the choice to accept the current changes (that were there prior to the pull), accept the new changes (after the pull), or accept both. 
+			Additionally there is a button to compare the code in each to see exactly what is being altered. 
+			After the conflicts have been dealt with, it should be safe to proceed with the steps above in order to commit your work.
+
+		</p>
 	</div>
 
+	<!--Instruction on setting up/using Sphinx to successfully complete work-->
 	<div class="latexContainer" data-aos="fade-up">
 		<h1>Running Sphinx</h1>
 		<p>
@@ -207,6 +262,7 @@
 
 	</div>
 
+	<!--Instruction on setting up/using Doxygen to successfully complete work-->
 	<div class="latexContainer" data-aos="fade-up">
 		<h1>Running doxygen</h1>
 		<p>
@@ -244,10 +300,17 @@
 <div id="copyright" class="container", style = "background:#79C255";>
 	<p>&copy; HPQC Labs. All rights reserved. </p>
 </div>
+
+<!--Initializing js files used-->
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="LaTeX.js"></script>
+
+<!--Initializes AOS script which is used to animate divs apppearing when scrolling down-->
 <script src="Plugins/AOS/aos.js"></script>
 <script>
     AOS.init();
 </script>
+
+
 </body>
 </html>

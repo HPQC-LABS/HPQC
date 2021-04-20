@@ -1,3 +1,43 @@
+/*Formatting button used to scroll to top*/
+.toTop{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: 9999;
+    float: right;
+    margin-top: 300px;
+    transition: all ease-in-out 0.5s;
+
+}
+
+
+/*Alters the position of scroll button for mobile screens*/
+@media screen and (max-width: 500px) {
+    .toTop{
+        margin-top: 100px;
+    }
+}
+
+/*Creates the arrow used in the scroll to top button*/
+.arrow {
+    border: solid rgba(0,0,0,0.7);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg) scale(2);
+    transition: all ease-in-out 0.5s;
+}
+
+/*Centers arrow inside the toTop Div*/
+.center {
+    margin: auto;
+    margin-left: 25%;
+    margin-top: 25%;
+    padding: 10px;
+  }
+
+
 /*Desktop view*/
 @media screen and (min-width: 700px) {
     .latexContainer{
@@ -14,7 +54,7 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }    
 }
-
+/*Mobile view*/
 @media screen and (max-width: 700px) {
     .latexContainer{
         width: 95%;
@@ -30,10 +70,18 @@
     }
 }
 
+/*Formatting for the containers holding pages content*/
 .latexContainer h1{
     text-align: center;
     padding: 15px;
     padding-top: 30px;
+}
+
+.latexContainer h3{
+    text-align: left;
+    padding: 15px;
+    padding-top: 30px;
+    padding-left: 50px;
 }
 
 .latexContainer p{

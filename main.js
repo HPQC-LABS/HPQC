@@ -72,7 +72,7 @@ function sleep (time){
     return new Promise((resolve) => setTimeout(resolve,time));
 }
 
-/*Checking window size so that nav bar doesn't mess up*/
+/*Checking window size so that nav bar doesn't format incorrectly*/
 var size = window.matchMedia("(min-width: 890px)")
 
 function sizeToggle(x){
@@ -97,11 +97,94 @@ function sizeToggle(x){
 sizeToggle(size)
 size.addListener(sizeToggle)
 
-/*
-let test = document.getElementById('Faculty');
 
-$(test).click(function(){
-    alert(window.innerWidth);
+
+//Js for Unsubscribe feature
+
+
+let exit = document.getElementsByClassName('close');
+let popup = document.getElementsByClassName("unsubPopup");
+let overlay = document.getElementsByClassName("unsubContainer");
+
+$(exit).click(function(){
+
+    $(popup).css("display", "none");
+    $(overlay).css("display", "none");
+
+    if(endToggle == 1){
+        $(endScreen).css("display", "none");
+        endToggle = 0;
+    }
 
 });
-*/
+
+let unsub = document.getElementsByClassName("unsubButton");
+
+$(unsub).click(function(){
+
+    $(popup).css("display", "block");
+    $(overlay).css("display", "block");
+
+});
+
+
+let confirm = document.getElementById('confirm');
+let submit = document.getElementById('submitUnsub');
+let endScreen = document.getElementById('end');
+let emailScreen = document.getElementsByClassName('getEmail');
+
+var endToggle = 0;
+
+$(confirm).click(function(){
+
+    console.log("unsubscribing confirmed");
+    $(popup).css("display", "none");
+    $(emailScreen).css("display", "block");
+
+});
+
+$(submit).click(function(){
+
+    $(emailScreen).css("display", "none");
+    $(endScreen).css("display", "block");
+    endToggle = 1
+    var email = document.getElementById("email").value;
+    console.log(email)
+});
+
+let deny = document.getElementById('deny');
+
+$(deny).click(function(){
+
+    console.log("unsubscribing cancelled");
+    $(popup).css("display", "none");
+    $(overlay).css("display", "none");
+
+});
+
+
+window.addEventListener('load', function(){
+    
+    
+
+    if(window.location.href.indexOf("unsub") != -1){
+        
+        $(popup).css("display", "block");
+        $(overlay).css("display", "block");
+    }
+
+    /* Testing comparison on local host 
+
+    console.log(window.location.href);
+    if(window.location.href.indexOf("host") != -1){
+        console.log("url comparison works"); 
+    }
+    */
+    /*
+    if(window.location.href.indexOf("host") != -1){
+    console.log("url comparison works"); 
+        $(popup).css("display", "block");
+        $(overlay).css("display", "block");
+    }*/
+
+});

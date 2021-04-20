@@ -1,3 +1,4 @@
+	/*Default settings for main html items*/
 	html, body
 	{
 		height: 100%;
@@ -48,11 +49,7 @@
 	{
 		line-height: 180%;
 	}
-	
-	strong
-	{
-	}
-	
+
 	a
 	{
 		color: #0000FF;
@@ -67,115 +64,7 @@
 	{
 		overflow: hidden;
 	}
-	
-/*********************************************************************************/
-/* Image Style                                                                   */
-/*********************************************************************************/
 
-	.image
-	{
-		display: inline-block;
-	}
-	
-	.image img
-	{
-		display: block;
-		width: 100%;
-	}
-	
-	.image-full
-	{
-		display: block;
-		width: 100%;
-		margin: 0 0 2em 0;
-	}
-	
-	.image-left
-	{
-		float: left;
-		margin: 0 2em 2em 0;
-	}
-	
-	.image-centered
-	{
-		display: block;
-		margin: 0 0 2em 0;
-	}
-	
-	.image-centered img
-	{
-		margin: 0 auto;
-		width: auto;
-	}
-
-/*********************************************************************************/
-/* List Styles                                                                   */
-/*********************************************************************************/
-
-	ul.staff
-	{
-		margin-bottom: 3em;
-	}
-
-	ul.staff li
-	{
-		display: inline-block;
-	}
-	
-	ul.staff li img
-	{
-		width: 80%;
-		border-radius: 50%;
-	}
-
-
-/*********************************************************************************/
-/* Social Icon Styles                                                            */
-/*********************************************************************************/
-
-	ul.contact
-	{
-		margin: 0;
-		padding: 2em 0em 0em 0em;
-		list-style: none;
-	}
-	
-	ul.contact li
-	{
-		display: inline-block;
-		padding: 0em 0.30em;
-		font-size: 1em;
-	}
-	
-	ul.contact li span
-	{
-		display: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	ul.contact li a
-	{
-		color: #FFF;
-	}
-	
-	ul.contact li a:before
-	{
-		display: inline-block;
-		background: #3f3f3f;
-		width: 40px;
-		height: 40px;
-		line-height: 40px;
-		border-radius: 20px;
-		text-align: center;
-		color: #FFFFFF;
-	}
-	
-	ul.contact li a.icon-twitter:before { background: #2DAAE4; }
-	ul.contact li a.icon-facebook:before { background: #39599F; }
-	ul.contact li a.icon-dribbble:before { background: #C4376B;	}
-	ul.contact li a.icon-tumblr:before { background: #31516A; }
-	ul.contact li a.icon-rss:before { background: #F2600B; }
 
 /*********************************************************************************/
 /* Button Style                                                                  */
@@ -240,7 +129,7 @@
 	/*********************************************************************************/
 
 
-
+	/*Changes to titles / headers given a smaller screen*/
 	@media screen and (min-width: 560px) 
 	{
 
@@ -259,120 +148,158 @@
 		}
 	}
 		
-/*********************************************************************************/
-/* 4-column                                                                      */
-/*********************************************************************************/
-
-	.box1,
-	.box2,
-	.box3,
-	.box4
-	{
-		width: 235px;
-	}
-	
-	.box1,
-	.box2,
-	.box3,
-	{
-		float: left;
-		margin-right: 20px;
-	}
-	
-	.box4
-	{
-		float: right;
-	}
-	
-/*********************************************************************************/
-/* 3-column                                                                      */
-/*********************************************************************************/
-	/*
-	.boxA,
-	.boxB,
-	.boxC
-	{
-		width: 320px;
-	}
-
-	.boxA,
-	.boxB
-	{
-		float: left;
-		margin-right: 20px;
-	}
-	
-	.boxC
-	{
-		float: right;
-	}
-	*/
-
-/*********************************************************************************/
-/* 2-column                                                                      */
-/*********************************************************************************/
-
-	.tbox1,
-	.tbox2
-	{
-		width: 575px;
-	}
-	
-	.tbox1
-	{
-		float: left;
-	}
-
-	.tbox2
-	{
-		float: right;
-	}
-/*	
-	#wrapper
-	{
-		background: #FFF;
-	}
-*/
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
-/*
-	#header
-	{
-		position: relative;
-		padding: 2em;
-	}
-*/
-/*********************************************************************************/
-/* Logo                                                                          */
-/*********************************************************************************/
-	/*
-	#logo
-	{
-		position: absolute;
-		top: 4em;
-		left: 0;
-	}
-	
-	#logo h1
-	{
-		color: #79C255;
-	}
-	
-	#logo a
-	{
-		text-decoration: none;
-		color: #79C255;
-	}
-	*/
 
 /*********************************************************************************/
 /* Menu                                                                          */
 /*********************************************************************************/
 
+/* Desktop */
+@media screen and (min-width: 890px) {
+
+	/*All formatting as it pertains to the nav bar / menu header*/
+	#menu
+	{
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 0;
+		height: 70px;
+		align-items: center;
+		background-color: #FFF;
+		padding: 35px;
+	}
+
+	#menu .main-nav
+	{
+		display: inline-flex;
+		text-align: center;
+		margin: 0;
+		padding-top: 0px;
+		float: left;
+		position:relative;
+	
+	}
+	/*Specific formatting for the logo + text combo on the LHS*/
+		#menu .logoTxt
+		{
+			position: relative;
+			display: inline-block;
+			transform: translateY(-20px);
+		}
+		#menu .logoImg
+		{
+			width: 100px;
+			position: relative;
+			display: inline-block;
+			transform: translateY(10px);
+		}
+
+		#menu .logo
+		{
+			display: inline-block;
+			font-size: 35px;
+			font-weight: 700;
+			text-decoration: none;
+			color: #79C255;
+			text-align: left;
+		}
+
+	/*Setting the toggle button to hidden when in desktop mode*/
+	#menu .navbar-toggle 
+	{
+		display: none;
+	}
+
+	/*Formatting of the list items in the nav bar*/
+	#menu .main-nav li
+	{
+		margin: 10px auto;
+		display: inline-block;
+	}
+
+	/*Specific formatting for the dropdown menu in the nav bar*/
+		#menu .main-nav li a, .dropbtn
+		{
+			text-align: center;
+			text-decoration: none;
+			text-decoration: none;
+			font-size: 17px;
+			color: #2B3F48;
+			padding: 10px;
+
+		}
+		
+		#menu .main-nav li a:hover, .dropmenu:hover .dropbtn
+		{
+			color:rgb(0, 0, 0);
+			transition: 0.25s ease-in-out;
+			background-color: rgb(221, 221, 221);
+		}
+
+		#menu .main-nav li.dropmenu
+		{
+			display: inline-block;
+			
+		}
+		#menu .main-nav .dropmenu:hover .content
+		{
+			display: block;
+		}
+
+		#menu .main-nav .content
+		{
+			transform: translateY(10px);
+			display: none;
+			position: absolute;
+			background-color: rgb(255, 255, 255);
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		
+		#menu .main-nav .content a
+		{
+			color: #2B3F48;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: center;
+		}
+
+		#menu .main-nav .content a:hover
+		{
+			background-color: rgb(221, 221, 221);
+		}
+
+	
+
+	/*Formatting for the current page selector*/
+		#menu .main-nav .current_page_item a:hover
+		{
+			color: #2B3F48;
+		}
+
+
+		#menu .main-nav .current_page_item a:hover
+		{
+			background: #79C255;
+			color: #2B3F48;
+			z-index: 100;
+		}
+
+		#menu .main-nav .current_page_item a
+		{
+			background: #79C255;
+			border-radius: 10px;
+			color: #FFF;
+		}
+}
+
+
+
 /* Mobile / Smaller Screen Devices */
 @media screen and (max-width: 890px) {
 
+	
 	#menu
 	{
 		display: block;
@@ -458,7 +385,7 @@
 
 	#menu .main-nav .content
 	{
-		transform: translateY(10px);
+		transform: translateY(10px) translateX(-25%);
 		display: none;
 		position: absolute;
 		background-color: rgb(255, 255, 255);
@@ -508,7 +435,7 @@
 	}
 
 	
-
+	/*Basic settings for navbar toggle button*/
 	#navbar-toggle{
 		
 		width: 30px;
@@ -530,7 +457,8 @@
 
 }	
 
-/*Additional formatting for small screen size */
+
+/*Additional formatting for small screen size (But not mobile)*/
 @media screen and (max-width: 530px) {
 		
 	#menu .logoTxt
@@ -561,6 +489,7 @@
 		margin-bottom: -20px;	
 	}
 
+	/*Enabling navbar button for smaller screens*/
 	#navbar-toggle{
 		display: inline-block;
 		margin-bottom: 10px;
@@ -580,417 +509,175 @@
 	
 }
 
-	/*********************************************************************************/
-	/* Navbar button toggle                                                         */
-	/*********************************************************************************/
-
-	#navbar-toggle span{
-
-		display: block;
-		position: absolute;
-		height: 3px;
-		width: 50%;
-		background: #79C255;
-		border-radius: 9px;
-		opacity: 1;
-		left: 0;
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-		transform: rotate(0deg);
-		-webkit-transition: 0.25s ease-in-out;
-		-moz-transition: 0.25s ease-in-out;
-		-o-transition: 0.25s ease-in-out;
-		transition: 0.25s ease-in-out;
-		margin-top: 20px;
-		margin-left: 17px;
-
-	}
-
-	#navbar-toggle span:nth-child(1){
-		top: 0px;
-	}
-
-	#navbar-toggle span:nth-child(2), span:nth-child(3){
-		top: 10px;
-	}
-	
-	#navbar-toggle span:nth-child(4){
-		top: 20px;
-	}
-
-	#navbar-toggle.open span:nth-child(1){
-		top: 10px;
-	}
-	#navbar-toggle.open span:nth-child(4){
-		top: 10px;
-	}
-
-	#navbar-toggle.openDuring span:nth-child(1){
-		opacity: 0;
-	}
-
-	#navbar-toggle.openDuring span:nth-child(4){
-		opacity: 0;
-	}
-
-	#navbar-toggle.openAfter span:nth-child(2){
-		-webkit-transform: rotate(45deg);
-		-moz-transform: rotate(45deg);
-		-o-transform: rotate(45deg);
-		transform: rotate(45deg);
-	}
-
-	#navbar-toggle.openAfter span:nth-child(3){
-		-webkit-transform: rotate(-45deg);
-		-moz-transform: rotate(-45deg);
-		-o-transform: rotate(-45deg);
-		transform: rotate(-45deg);
-	}
-
-	
-
-	/*********************************************************************************/
-	/* Media Queries: Menu                                                           */
-	/*********************************************************************************/
-
-	/* Desktop */
-	@media screen and (min-width: 890px) {
-
-		#menu
-		{
-			display: flex;
-			justify-content: space-between;
-			padding-bottom: 0;
-			height: 70px;
-			align-items: center;
-			background-color: #FFF;
-			padding: 35px;
-		}
-
-		#menu .main-nav
-		{
-			display: inline-flex;
-			text-align: center;
-			margin: 0;
-			padding-top: 0px;
-			float: left;
-			position:relative;
-		
-		}
-		#menu .logoTxt
-		{
-			position: relative;
-			display: inline-block;
-			transform: translateY(-20px);
-		}
-		#menu .logoImg
-		{
-			width: 100px;
-			position: relative;
-			display: inline-block;
-			transform: translateY(10px);
-		}
-
-		#menu .logo
-		{
-			display: inline-block;
-			font-size: 35px;
-			font-weight: 700;
-			text-decoration: none;
-			color: #79C255;
-			text-align: left;
-		}
-
-		#menu .navbar-toggle 
-		{
-			display: none;
-		}
-
-		#menu .main-nav li
-		{
-			margin: 10px auto;
-			display: inline-block;
-		}
-
-		#menu .main-nav li a, .dropbtn
-		{
-			text-align: center;
-			text-decoration: none;
-			text-decoration: none;
-			font-size: 17px;
-			color: #2B3F48;
-			padding: 10px;
-
-		}
-		
-		#menu .main-nav li a:hover, .dropmenu:hover .dropbtn
-		{
-			color:rgb(0, 0, 0);
-			transition: 0.25s ease-in-out;
-			background-color: rgb(221, 221, 221);
-		}
-
-		#menu .main-nav li.dropmenu
-		{
-			display: inline-block;
-			
-		}
-
-		#menu .main-nav .content
-		{
-			transform: translateY(10px);
-			display: none;
-			position: absolute;
-			background-color: rgb(255, 255, 255);
-			min-width: 160px;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-		
-		#menu .main-nav .content a
-		{
-			color: #2B3F48;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-			text-align: center;
-		}
-
-		#menu .main-nav .content a:hover
-		{
-			background-color: rgb(221, 221, 221);
-		}
-
-		#menu .main-nav .dropmenu:hover .content
-		{
-			display: block;
-		}
-
-		#menu .main-nav .current_page_item a:hover
-		{
-			color: #2B3F48;
-		}
-
-
-		#menu .main-nav .current_page_item a:hover
-		{
-			background: #79C255;
-			color: #2B3F48;
-			z-index: 100;
-		}
-
-		#menu .main-nav .current_page_item a
-		{
-			background: #79C255;
-			border-radius: 10px;
-			color: #FFF;
-		}
-	}
 
 
 
+
+
+/*********************************************************************************/
+/* Navbar button toggle                                                         */
+/*********************************************************************************/
+
+
+/*Targets all span items w/ navbar id and formats the line look*/
+#navbar-toggle span{
+
+	display: block;
+	position: absolute;
+	height: 3px;
+	width: 50%;
+	background: #79C255;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.25s ease-in-out;
+	-moz-transition: 0.25s ease-in-out;
+	-o-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
+	margin-top: 20px;
+	margin-left: 17px;
+
+}
+
+/*Sets the initial position of each span*/
+#navbar-toggle span:nth-child(1){
+	top: 0px;
+}
+
+#navbar-toggle span:nth-child(2), span:nth-child(3){
+	top: 10px;
+}
+
+#navbar-toggle span:nth-child(4){
+	top: 20px;
+}
+
+/*Starts first animation for spans 1 & 4*/
+#navbar-toggle.open span:nth-child(1){
+	top: 10px;
+}
+#navbar-toggle.open span:nth-child(4){
+	top: 10px;
+}
+
+/*Continues animation for spans 1 & 4*/
+#navbar-toggle.openDuring span:nth-child(1){
+	opacity: 0;
+}
+
+#navbar-toggle.openDuring span:nth-child(4){
+	opacity: 0;
+}
+
+/*Final animation for the 2 remaining spans*/
+#navbar-toggle.openAfter span:nth-child(2){
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#navbar-toggle.openAfter span:nth-child(3){
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
 
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
 
-	#banner
-	{
-		overflow: hidden;
-		padding: 10em 0em;
-		background: url(images/banner.jpg) no-repeat center;
-		background-size: cover;
-		text-align: center;
-		color: rgba(255,255,255,.8);
-	}
+/*Banner contains image content below nav bar*/
 
-	#banner .title
-	{
-		margin-bottom: 1em;
-	}
-
-	#banner .title h2
-	{
-		color: #FFF;
-	}
-
-	#banner .title .byline
-	{
-		color: rgba(255,255,255,.6);
-		text-align: center;
-		display: inline;
-
-
-	}
-	
-	#banner .button
-	{
-		margin-top: 3em;
-		background: #589937 !important;
-	}
-
-/*********************************************************************************/
-/* Page                                                                          */
-/*********************************************************************************/
-
-	#page
-	{
-		padding: 2em 0em 5em 0em;
-		text-align: center;
-	}
-	
-	#page .button
-	{
-		margin-top: 2em;
-		display: inline-block;
-		text-align: center;
-	}
-
-/*********************************************************************************/
-/* Content                                                                       */
-/*********************************************************************************/
-
-	#content
-	{
-	}
-
-/*********************************************************************************/
-/* Sidebar                                                                       */
-/*********************************************************************************/
-
-	#sidebar
-	{
-	}
-
-/*********************************************************************************/
-/* Footer                                                                        */
-/*********************************************************************************/
-
-	#footer
-	{
-	}
+#banner
+{
+	overflow: hidden;
+	padding: 10em 0em;
+	background: url(images/banner.jpg) no-repeat center;
+	background-size: cover;
+	text-align: center;
+	color: rgba(255,255,255,.8);
+}
 
 /*********************************************************************************/
 /* Copyright                                                                     */
 /*********************************************************************************/
 
-	#copyright
-	{
-		overflow: hidden;
-		padding: 5em 0em;
-		border-top: 1px solid rgba(255,255,255,0.08);
-	}
-	
-	#copyright p
-	{
-		text-align: center;
-		font-size: 1em;
-		color: rgba(255,255,255,0.5);
-	}
-	
-	#copyright a
-	{
-		text-decoration: none;
-		color: rgba(255,255,255,0.8);
-	}
+/*Corresponds to copyright section of each webpage*/
+#copyright
+{
+	margin-left: 5%;
+	margin-top: 100px;
+	height: auto;
+	width: 90%;
+	overflow: hidden;
+	border-top: 3px solid rgba(255,255,255,0.08);
+}
+
+#copyright p
+{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 1em;
+	color: rgba(255,255,255,0.5);
+}
+
+#copyright a
+{
+	text-decoration: none;
+	color: rgba(255,255,255,0.8);
+}
 
 /*********************************************************************************/
 /* Featured                                                                      */
 /*********************************************************************************/
 
-	#featured
-	{
-		overflow: hidden;
-		padding: 5em 0em;
-		background: #79C255;
-		color: rgba(255,255,255,.8);
-		text-align: center;
-	}
-
-	#featured a
-	{
-		color: rgba(255,255,255,1);
-	}
-	
-	#featured .button
-	{
-		background: #FFF;
-		margin-top: 3em;
-		font-size: 1em;
-		color: #79C255;
-	}
-
-	#featured .title
-	{
-	}
-
-	#featured .title h2
-	{
-		color: #FFF;
-	}
-
-	#featured .title .byline
-	{
-		color: rgba(255,255,255,.6);
-		text-align: center;
-		display: block;
-
-
-	}
-
-/*********************************************************************************/
-/* Featured                                                                      */
-/*********************************************************************************/
-.box
+/*The featured Id corresponds to the Title/description section of the webpage */
+#featured
 {
-	padding: 3em 2em 2em 2em;
-	border: 1px solid rgba(0,0,0,0.1);
-	border-radius: 8px;
-		text-align: center;
+	overflow: hidden;
+	padding: 5em 0em;
+	background: #79C255;
+	color: rgba(255,255,255,.8);
+	text-align: center;
 }
-/*
-.box
+
+#featured a
 {
-	padding: -1em -1em -1em -1em;
-	border: 1px solid rgba(0,0,0,0.1);
-	border-radius: 8px;
-		text-align: center;
-		margin-bottom: 20px;
+	color: rgba(255,255,255,1);
 }
-*/
-	#extra
-	{
-		overflow: hidden;
-		padding: 5em 0em;
-	}
-	
-	#extra .title
-	{
-		text-align: center;
-	}
-	
-	#extra .button
-	{
-		margin-top: 5em;
-	}
-	
-	#extra .fa
-	{
-		display: block;
-		margin-bottom: 0.5em;
-		text-align: center;
-		font-size: 3em;
-	}
-	
-	.gallery
-	{
-		overflow: hidden;
-		margin-bottom: 3em;
-	}
+
+#featured .button
+{
+	background: #FFF;
+	margin-top: 3em;
+	font-size: 1em;
+	color: #79C255;
+}
+
+
+#featured .title h2
+{
+	color: #FFF;
+}
+
+#featured .title .byline
+{
+	color: rgba(255,255,255,.6);
+	text-align: center;
+	display: block;
+
+
+}
 
 
 
+/*CSS for global font on website*/
 @font-face{
 
 	font-family: 'Source Sans Pro', sans-serif;
@@ -999,3 +686,570 @@
 	src: local('Source Sans Pro'), local()
 }
 
+
+
+
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+
+
+/*Below this Point the CSS is leftover from the template used*/
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+
+
+
+
+/*********************************************************************************/
+/* Featured                                                                      */
+/*********************************************************************************/
+
+/*Used in contact.html & research.html to format containers*/
+.box
+{
+	padding: 3em 2em 2em 2em;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 8px;
+	text-align: center;
+}
+
+/*Used in contact.html & research.html to indentify extra content*/
+#extra .title
+{
+	text-align: center;
+}
+
+#extra .button
+{
+	margin-top: 5em;
+}
+
+#extra .fa
+{
+	display: block;
+	margin-bottom: 0.5em;
+	text-align: center;
+	font-size: 3em;
+}
+
+/*Used in contact.html & research.html to hold images*/
+.gallery
+{
+	overflow: hidden;
+	margin-bottom: 3em;
+}
+
+/*Unsubscribe Pop-up*/
+
+	.unsubContainer{
+
+		display: none;
+		overflow: none;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		z-index: 9999;
+		background-color: rgba(0,0,0,0.3);
+
+
+	}
+
+	.unsubPopup{
+
+		margin: 15% auto; /* 15% from the top and centered */
+		width: 660px; /* Could be more or less, depending on screen size */
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+	}
+
+	.unsubHeader{
+
+		padding: 20px;
+		background-color: #79C255;
+		margin: 0;
+
+	}
+
+	.unsubTitle{
+		
+		font-size: 28px;
+		width: 100%;
+		color: white;
+	}
+
+	.unsubPopup p{
+
+		padding: 20px;
+		margin: 0px;
+
+	}
+
+	.buttons{
+
+		padding: 20px;
+		padding-top: 0px;
+	}
+
+	.buttons button{
+
+		letter-spacing: 0.1em;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 45px;
+		max-width: 160px;
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+		width: 100%;
+
+	}
+
+	.close{
+		
+		color: #fff;
+		float: right;
+		font-size: 34px;
+		font-weight: bold;
+		transition: ease-in-out 0.3s;
+		transform: translateY(-5px);
+		transform-origin: 50% 50%;
+
+	}
+
+	.close:hover{
+		
+		cursor: pointer;
+		transform: rotate(45deg) translate(-2.5px, -2.5px);
+	}
+
+	.unsubButton{
+
+		text-decoration: none;
+	}
+
+	.unsubButton:hover{
+
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	.getEmail{
+		display: none;
+		margin: 15% auto; /* 15% from the top and centered */
+		width: 660px; /* Could be more or less, depending on screen size */
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		text-align: left;
+		font-size: 24px;
+
+	}
+	
+	.inputContainer{
+
+		padding: 20px;
+		font-size: 18px;
+	}
+
+	.inputContainer input{
+
+		transform: translateX(50px);
+	}
+
+	.endScreen{
+		display: none;
+		margin: 15% auto; /* 15% from the top and centered */
+		padding: 20px;
+		border: 1px solid #888;
+		width: 660px; /* Could be more or less, depending on screen size */
+		background-color: #fff;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		text-align: left;
+		font-size: 24px;
+
+	}
+
+	.endScreenHeader .close{
+		transform: translateY(-5px);
+		color: #aaa;
+	}
+
+	@media screen and (max-width: 890px) {
+		.unsubPopup{
+			width: 100%; 
+			font-size: 12px;
+	
+		}
+
+		.unsubTitle{
+			font-size: 20px;
+		}
+
+		.close{
+		
+			color: #fff;
+			float: center;
+			font-size: 34px;
+			font-weight: bold;
+			transition: ease-in-out 0.3s;
+			transform: translate(-10px, -8px);
+		
+		}
+
+		.endScreen{
+
+			width: 100%; 
+			font-size: 14px;
+		
+		}
+
+		.endScreenHeader .close{
+			transform: translate(-50px, -12px);
+		}
+	}
+
+
+
+/*********************************************************************************/
+/* Page                                                                          */
+/*********************************************************************************/
+
+/*Used in contact.html & research.html to indicate page contents*/
+#page
+{
+	padding: 2em 0em 5em 0em;
+	text-align: center;
+}
+
+#page .button
+{
+	margin-top: 2em;
+	display: inline-block;
+	text-align: center;
+}
+
+/*********************************************************************************/
+/* 4-column                                                                      */
+/*********************************************************************************/
+
+.box1,
+.box2,
+.box3,
+.box4
+{
+	width: 235px;
+}
+
+.box1,
+.box2,
+.box3
+{
+	float: left;
+	margin-right: 20px;
+}
+
+.box4
+{
+	float: right;
+}
+
+/*********************************************************************************/
+/* 3-column                                                                      */
+/*********************************************************************************/
+/*
+.boxA,
+.boxB,
+.boxC
+{
+	width: 320px;
+}
+
+.boxA,
+.boxB
+{
+	float: left;
+	margin-right: 20px;
+}
+
+.boxC
+{
+	float: right;
+}
+*/
+
+/*********************************************************************************/
+/* 2-column                                                                      */
+/*********************************************************************************/
+
+.tbox1,
+.tbox2
+{
+	width: 575px;
+}
+
+.tbox1
+{
+	float: left;
+}
+
+.tbox2
+{
+	float: right;
+}
+/*	
+#wrapper
+{
+	background: #FFF;
+}
+*/
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+/*
+#header
+{
+	position: relative;
+	padding: 2em;
+}
+*/
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+/*
+#logo
+{
+	position: absolute;
+	top: 4em;
+	left: 0;
+}
+
+#logo h1
+{
+	color: #79C255;
+}
+
+#logo a
+{
+	text-decoration: none;
+	color: #79C255;
+}
+*/
+
+	
+/*********************************************************************************/
+/* Image Style                                                                   */
+/*********************************************************************************/
+
+.image
+{
+	display: inline-block;
+}
+
+.image img
+{
+	display: block;
+	width: 100%;
+}
+
+.image-full
+{
+	display: block;
+	width: 100%;
+	margin: 0 0 2em 0;
+}
+
+.image-left
+{
+	float: left;
+	margin: 0 2em 2em 0;
+}
+
+.image-centered
+{
+	display: block;
+	margin: 0 0 2em 0;
+}
+
+.image-centered img
+{
+	margin: 0 auto;
+	width: auto;
+}
+
+/*********************************************************************************/
+/* List Styles                                                                   */
+/*********************************************************************************/
+
+ul.staff
+{
+	margin-bottom: 3em;
+}
+
+ul.staff li
+{
+	display: inline-block;
+}
+
+ul.staff li img
+{
+	width: 80%;
+	border-radius: 50%;
+}
+
+
+/*********************************************************************************/
+/* 404 Page                                                            */
+/*********************************************************************************/
+
+.error404 h1{
+	font-size: 48px;
+	color: white;
+	
+}
+
+.error404 h3{
+	font-size: 24px;
+	color: white;
+}
+
+.error404 .byline
+{
+	padding: 30px;
+	display: inline;
+	font-size: 1.1em;
+	text-align: center;
+
+}
+
+.seeMore a{
+	text-decoration: none;
+	font-size: 18px;
+}
+
+#center{
+	margin: auto;
+}
+
+
+
+
+.homeButton {
+	border-radius: 4px;
+	border: none;
+	color: #79C255;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 400px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 600;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05);
+
+}
+
+.homeButton span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.homeButton span:after {
+	content: '🡒';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+	transform: translate(10px, -8.5px);
+	font-size: 24px;
+}
+
+.homeButton:hover span {
+	padding-right: 25px;
+}
+
+.homeButton:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+
+/*Changes to titles / headers given a smaller screen*/
+@media screen and (min-width: 560px) 
+{
+
+	.error404 h2
+	{
+		color: white;
+		font-size: 2.7em;
+	}
+
+	.error404 .byline
+	{
+		text-align: center;
+		font-size: 1.7em;
+		color: white !important;
+		display: inline;
+
+	}
+
+}
+	
+
+/*********************************************************************************/
+/* Social Icon Styles                                                            */
+/*********************************************************************************/
+
+ul.contact
+{
+	margin: 0;
+	padding: 2em 0em 0em 0em;
+	list-style: none;
+}
+
+ul.contact li
+{
+	display: inline-block;
+	padding: 0em 0.30em;
+	font-size: 1em;
+}
+
+ul.contact li span
+{
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.contact li a
+{
+	color: #FFF;
+}
+
+ul.contact li a:before
+{
+	display: inline-block;
+	background: #3f3f3f;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 20px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+ul.contact li a.icon-twitter:before { background: #2DAAE4; }
+ul.contact li a.icon-facebook:before { background: #39599F; }
+ul.contact li a.icon-dribbble:before { background: #C4376B;	}
+ul.contact li a.icon-tumblr:before { background: #31516A; }
+ul.contact li a.icon-rss:before { background: #F2600B; }

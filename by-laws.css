@@ -1,3 +1,4 @@
+/*Sets features of the container with all contents in it*/
 #contentsContainer{
     background-color: #FFF;
     width: 80%;
@@ -9,13 +10,15 @@
     color: #79C255;
     text-decoration: none;
     
-
+    
 }
 
+/*Changing design of the list the links are shown in*/
 #pdf li{
     margin: 5px;
 }
 
+/*Design of links themselves*/
 #pdfLink{
     text-decoration: none;
     color: #79C255 !Important;
@@ -23,6 +26,7 @@
 
 }
 
+/*Specific formatting for mobile / small browsers*/
 @media screen and (max-width: 750px) {
     #contentsContainer{
         background-color: #FFF;

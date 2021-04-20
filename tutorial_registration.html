@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HPQC Labs: High Performance & Quantum Computing</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="lectures.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="lectures_tickets.css" rel="stylesheet" type="text/css" media="all" />
+    <!--<link href="lectures.html" rel="stylesheet" type="text/css" media="all" />-->
+    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="AOS\aos.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+
+<body>
+    <div id="menu">
+        <div class="navbar-toggle" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo">
+            <img src="images/HPQC_Labs.svg" class="logoImg">
+            <span class="logoTxt">HPQC Labs</span>
+        </a>
+        <ul class="main-nav" id="main-nav">
+            <li><a href="index.html" accesskey="1" title="">Homepage</a></li>
+            <li><a href="people.html" accesskey="2" title="">People</a></li>
+            <li><a href="https://github.com/HPQC-LABS" accesskey="3" title="">Research</a></li>
+            <li><a href="by-laws.html" accesskey="4" title="">By-laws</a></li>
+            <li class="dropmenu">
+                <div class="current_page_item"><a class="dropbtn" accesskey="6" id="selection" title="">Lectures</a>
+                </div>
+                <div class="content">
+                    <a href="lectures.html" title="">Lectures</a>
+                    <a href="LaTeX.html">LaTeX Setup</a>
+                </div>
+            </li>
+            <li><a href="college.html" accesskey="5" title="">HPQC College</a></li>
+        </ul>
+    </div>
+
+    <div id="banner">&nbsp;</div>
+    <div id="featured">
+        <div class="container">
+            <div class="title">
+            <div id="form">
+                <h3 id="limited">1-on-1 Quantum Computing Tutoring</h3> <br>
+                <div id="smart-button-container">
+                    <div style="text-align: center;">
+                      <div id="paypal-button-container"></div>
+                    </div>
+                  </div>
+                <script src="https://www.paypal.com/sdk/js?client-id=AUxR66Q_yUYfX3tS0xJv8DaWshJG8mQ2U2WBX_3TfXxhHaJw5TvwcAWsWN48ukg1LlllId7ygMNZfr-5&currency=USD" data-sdk-integration-source="button-factory"></script>
+                <script>
+                  function initPayPalButton() {
+                    paypal.Buttons({
+                      style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
+                        
+                      },
+              
+                      createOrder: function(data, actions) {
+                        return actions.order.create({
+                          purchase_units: [{"description":"1-on-1 Quantum Computing Tutoring","amount":{"currency_code":"USD","value":250}}]
+                        });
+                      },
+              
+                      onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                          alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        });
+                      },
+              
+                      onError: function(err) {
+                        console.log(err);
+                      }
+                    }).render('#paypal-button-container');
+                  }
+                  initPayPalButton();
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="copyright" class="container" , style="background:#79C255" ;>
+		<p>&copy; HPQC Labs. All rights reserved. </p>
+	</div>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="lectures.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script src="AOS\aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</body>
+
+
+</html>

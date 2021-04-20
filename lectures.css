@@ -1,9 +1,8 @@
-
-
 /*Desktop view*/
 
 @media screen and (min-width: 650px) {
     
+    /*Main Container for the section (Past Lectures)*/
     .lecColumn{
         width: 65%;
         height: 50%;
@@ -20,6 +19,11 @@
     }
     
 
+
+    /*Past Lectures CSS*/
+
+    
+    /*Container for each entry of the past lectures format (equivalent to item for upcoming lectures)*/
     .lecRow{
         background-color: #FFF;
         text-align: center;
@@ -40,6 +44,7 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
 
+    /*Image formatting*/
     .lecImg{
         padding: 10px;
         width: 95px;
@@ -47,53 +52,56 @@
         float:left;
     }
 
+    /*Description / Text formatting*/
+        /*Text on initial entry*/
+        .lecTxt{
+            text-align: left;
+            float: left;
+        }
 
-    .lecTxt{
-        text-align: left;
-        float: left;
-    }
+        .lecTxt h3{
+            padding-top: 10px;
+        }
+        /*Text revealed on click*/
+        .moreInfo{
+            background-color: rgb(221, 221, 221, 0.5);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            width: 100%;
+            position: relative;
+            display: inline-flex;
+            margin: auto;
+            border-radius: 5px;
+        }
 
-    .lecTxt h3{
-        padding-top: 10px;
-    }
+        .description{
+            width: 100%;
+            display: none;
+            padding-top: 10px; 
+            padding-left: 25px;
+            padding-right: 25px;
+            color: black; 
+            text-align: left;
+        }
 
-    .moreInfo{
-        background-color: rgb(221, 221, 221, 0.5);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        width: 100%;
-        position: relative;
-        display: inline-flex;
-        margin: auto;
-        border-radius: 5px;
-    }
+        .description p {
+            line-height: 1.25;
+        }
 
-    .description{
-        width: 100%;
-        display: none;
-        padding-top: 10px; 
-        padding-left: 25px;
-        padding-right: 25px;
-        color: black; 
-        text-align: left;
-    }
+    /*Formatting of contact logos*/
+        .contactLogo{
+            align-content: center;
+            margin-right: 15px;
+            width: 20px;
+            margin-bottom: 15px;
 
-    .description p {
-        line-height: 1.25;
-    }
+        }
 
-    .contactLogo{
-        align-content: center;
-        margin-right: 15px;
-        width: 20px;
-        margin-bottom: 15px;
+        #scholar{
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
 
-    }
-
-    #scholar{
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
-
+    /*Formatting for the arrow / animation*/
     .arrow{
         width: 0;
         height: 0;
@@ -113,9 +121,11 @@
  
     }
 
-    /* CSS For Slider*/
 
-        
+    /* CSS For Slideshow / Upcoming Lectures*/
+
+    
+    /*Main Container for the section (Past Lectures)*/
     .container2{
         border-radius: 8px;
         text-align: center;
@@ -128,11 +138,13 @@
         
     }
 
+    /*Formatting for title*/
     #upcoming{
         color: black !important;
         margin: auto;
     }
     
+    /*Image formatting*/
     .lecImg2{
         margin: 0 auto;
         max-width: 120px;
@@ -141,11 +153,12 @@
         margin-bottom: -25px;
     }
     
+    /*Establish height for all entries*/
     .card{
         height: 600px;
-
     }
     
+    /*Formatting for each entry in the slideshow*/
     .item{
         padding: 15px;
         outline: none;
@@ -153,12 +166,13 @@
         margin: 100px auto 0;
         margin-top: -60px;
         height: auto;
-        perspective: 1000px;
+        perspective: 1000px; /*Used to give 3d effect on click*/
+        transition-delay: 0.5s;
         
     }
     
+    /*Contains inner content of the card*/
     .itemInner{
-        /*background: linear-gradient(220deg, #82d35a, rgba(75, 221, 3, 0.5));*/
         border-radius: 18px;
         text-align: center;
         padding: 25px;
@@ -171,114 +185,117 @@
         
     }
     
+    /*Toggle rotation for when the card is clicked*/
     .itemInner.is-flipped {
         transform: rotateY(180deg);
     }
     
+
     .cardFace{
         position: absolute;
         width: 100%;
         height: 400px;
+        /*Turns visibility of the backside off*/
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         overflow: hidden;
         border-radius: 16px;
-        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);    
+    }
+    
+    /*Formatting for the front card*/
+        .cardFaceFront{
         
-    
-    }
-    
-    .cardFaceFront{
-    
-        height: 400px;
-        background-image: linear-gradient(to bottom right, #82d35a, rgba(75, 221, 3, 0.5));
-        align-items: center;
-        justify-content: center;
-        transform: translateX(-50px);
-    }
-    
-    .cardFaceFront h2{
-        color: #fff;
-        font-size: 12px;
-    }
+            height: 400px;
+            background-image: linear-gradient(to bottom right, #82d35a, rgba(75, 221, 3, 0.5));
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50px);
+        }
+        
+        .cardFaceFront h2{
+            color: #fff;
+            font-size: 12px;
+        }
 
-    .cardFaceFront p{
-        font-size: 12px;
-        font-weight: 700;
+        .cardFaceFront p{
+            font-size: 12px;
+            font-weight: 700;
 
-    }
-    
-    .frontContent{
-        padding-top: 20px;
-        text-shadow: 0 0 1px black;
+        }
+        
+        /*Formatting specifically the contents on the front*/
+        .frontContent{
+            padding-top: 20px;
+            text-shadow: 0 0 1px black;
 
-    }
+        }
     
-    .cardFaceBack{
-        background-color: #fff;
-        transform:rotateY(180deg);
-    }
-
-    .itemInner:hover{
-        transition: all ease-in-out 0.5s;
-    }
-    
-    .cardContent{
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-    
-    }
-    
-    .cardHeader{
-        position: relative;
-        padding: 40px 15px 15px;
-    }
-    
-    .cardHeader:after{
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        border-radius: 0 0 25% 0;
-        background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
-    }
-    
-    .cardHeader h2{
-        color: #fff;
-        font-size: 32px;
-        font-weight: 900;
-        text-align: center;
-    }
-    
-    .cardBody{
-        padding: 30px;
-        color: black !important;
-        display: block;
-    }
-    
-    .cardBody h3{
-        color: black !important;
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
-    
-    .cardBody p {
-        color: black !important;
-        font-size: 18px;
-        line-height: 1.2;
-    }
-    
-    .cardBody a {
-        margin-top: 10px;
-        display: inline-block;
-    }
-    
+    /*Formatting for the back card*/
+        .cardFaceBack{
+            background-color: #fff;
+            transform:rotateY(180deg); /*Starts the card rotated 180deg*/
+        }
+        
+        .cardContent{
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        
+        }
+        
+        .cardHeader{
+            position: relative;
+            padding: 40px 15px 15px;
+        }
+        
+        /*Specific formatting for the header (specifically the background shape)*/
+        .cardHeader:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            border-radius: 0 0 25% 0;
+            background-image: linear-gradient(to bottom left, #82d35a 10%, rgba(75, 221, 3, 0.5) 115%);
+        }
+        
+        .cardHeader h2{
+            color: #fff;
+            font-size: 32px;
+            font-weight: 900;
+            text-align: center;
+        }
+        
+        .cardBody{
+            padding: 30px;
+            color: black !important;
+            display: block;
+        }
+        
+        .cardBody h3{
+            color: black !important;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .cardBody p {
+            color: black !important;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+        
+        .cardBody a {
+            margin-top: 10px;
+            display: inline-block;
+        }
+      
+        
+    /*General text formatting*/
     .itemInner h4{
         font-size: 30px;
         color: #fff;
@@ -291,59 +308,91 @@
         letter-spacing: 1px;
     }
     
-    .slick-slide{
-        transform: scale(0.8);
-        opacity: 0.3;
-        transition: all ease 0.5s;
+    /*Slideshow API CSS/Formatting*/
+        .slick-slide{
+            transform: scale(0.8);
+            opacity: 0.3;
+            transition: all ease 0.5s;     
+        }
         
-    }
-    
-    .slick-slide.slick-current{
-        transform: scale(1);
-        opacity: 1;
-    
-    }
-    
-    .slick-arrow{
-        
-        transform: translateY(-300px);
-        position: absolute;
-        bottom: 0;
-        z-index: 99;
-        background:#fff;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 50px;
-        width: 100px;
-        outline: none;
-        box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
-        transition: ease-in-out 0.5s;
-        margin: 10px;
-    }
-    
-    .slick-arrow:hover{
-        box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.4);
-    }
-    
-    .slick-next{
-        left: 50vw;
-        margin: 10px;
-        padding: 10px;
-    }
-    
-    .slick-prev{
-        right: 50vw;
-        margin: 10px;
-        padding: 10px;
+        .slick-slide.slick-current{
+            transform: scale(1);
+            opacity: 1;
+        }
 
+        .slider1:not(.slick-current) .item {
+            transition: 300ms ease-in-out;
+            transition-delay: 500ms;
+          }
         
-    }
-    .slick-list{
-        height: 750px;
-        display: flex;
-        padding-top: 55px !important;
-        padding-bottom: 55px !important;
-    }
+        /*Formatting for the previous/next buttons */
+            .slick-arrow{
+                
+                transform: translateY(-350px);
+                position: absolute;
+                bottom: 0;
+                z-index: 99;
+                background:#fff;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 50px;
+                width: 50px;
+                outline: none;
+                box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
+                transition: ease-in-out 0.5s;
+                margin: 10px;
+                background-size: contain;
+                
+            }
+            
+            .slick-arrow:hover{
+                box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.4);
+            }
+            
+            .slick-next{
+                
+                left: 50vw;
+                margin: 10px;
+                padding: 10px;
+
+            }
+            
+            .slick-prev{
+                right: 50vw;
+                margin: 10px;
+                padding: 10px;
+            }
+
+            /*Creating actual arrow and changing rotation*/
+            .arrowRight {
+                border: solid rgba(0,0,0,0.7);
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                transition: all ease-in-out 0.5s;
+                transform: rotate(-45deg) ;
+    
+            }
+    
+            .arrowLeft {
+                border: solid rgba(0,0,0,0.7);
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                transition: all ease-in-out 0.5s;
+                transform: rotate(135deg) ;
+    
+            }
+
+        /*Total height of slideshow section*/
+        .slick-list{
+            height: 750px;
+            display: flex;
+            padding-top: 55px !important;
+            padding-bottom: 55px !important;
+        }
+
+       
     
 
 
@@ -378,13 +427,14 @@
 
     }
 
+    /*Specific formatting for vector images*/
     svg {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         height: 100%;
-      }
+    }
 
     .lecRow:hover{
         box-shadow: 0 2px 5px rgba(0,0,0,0.4);
@@ -462,7 +512,8 @@
         transition: all 0.5s ease-in-out;
     }
 
-        /* CSS For Slider*/
+    
+    /* CSS For Slider*/
 
         
     .container2{
@@ -507,7 +558,6 @@
     }
     
     .itemInner{
-        /*background: linear-gradient(220deg, #82d35a, rgba(75, 221, 3, 0.5));*/
         border-radius: 18px;
         text-align: center;
         padding: 25px;
@@ -686,11 +736,12 @@
         border: none;
         padding: 8px 15px;
         border-radius: 50px;
-        width: 100px;
+        width: 50px;
         outline: none;
         box-shadow: 0px 6px 18px 0px rgba(0,0,0,0.2);
         transition: ease-in-out 0.5s;
         margin: 10px;
+        background-size: contain;
     }
     
     .slick-arrow:hover{
@@ -716,7 +767,33 @@
         padding-top: 55px !important;
         padding-bottom: 55px !important;
     }
+
+    .slider1:not(.slick-current) .item {
+        transition: 300ms ease-in-out;
+        transition-delay: 400ms;
+      }
     
+    .arrowRight {
+        border: solid rgba(0,0,0,0.7);
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transition: all ease-in-out 0.5s;
+        transform: rotate(-45deg) ;
+
+    }
+
+    .arrowLeft {
+        border: solid rgba(0,0,0,0.7);
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transition: all ease-in-out 0.5s;
+        transform: rotate(135deg) ;
+
+    }
+
+
 
 
 
@@ -725,6 +802,7 @@
 
 @media screen and (max-width: 390px) {
 
+    /*Specific formatting for very small screens*/
     .container2{
         width: 100%;
         margin: 0;
@@ -735,7 +813,7 @@
 
 }
 
-
+/*Arrow rotation toggled on click*/
 .arrow.rotated{
    -webkit-transform : rotate(180deg);
    -moz-transform : rotate(180deg);  
@@ -752,94 +830,82 @@
 
 
 
-/* CSS For Slider*/
 
 
-  
-  .contactLogo{
-    display: inline;
-    margin-right: 15px;
-    width: 20px;
-    margin-bottom: 15px;
-  }
-  
-  #scholar{
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-  
-  /*
-  .lecImg{
-    padding: 10px;
-    margin: 0 auto;
-    max-width: 120px;
-    border: 3px; 
-    border-radius: 100%;
-    float:left;
-  }*/
-  /*
-  ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space *//*
-    background: transparent;  /* Optional: just make scrollbar invisible *//*
-  }
-  */
 
-  .cardContent::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	border-radius: 10px;
-	background-color: #F5F5F5;
-}
+/*Contact img formatting*/
+    .contactLogo{
+        display: inline;
+        margin-right: 15px;
+        width: 20px;
+        margin-bottom: 15px;
+    }
 
-.cardContent::-webkit-scrollbar
-{
-	width: 8px;
-	background-color: #F5F5F5;
-}
+    #scholar{
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
 
-.cardContent::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
-	background-color: #555;
-}
+    #email{
 
-  .cardBody a {
-    margin-top: 10px;
-    padding: 5px;
-    align-content: center;
-    display: inline-block;
-    line-height: 45px;
-    border-radius: 50%;
-    transition: all ease 0.5s; 
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.1);
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
 
-}
+/*formatting for custom scroll bar*/
+    .cardContent::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
 
-.cardBody a img {
+    .cardContent::-webkit-scrollbar
+    {
+        width: 8px;
+        background-color: #F5F5F5;
+    }
 
-    align-content: center;
-    transform: translate(7px, 7px);
+    .cardContent::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+        background-color: #555;
+    }
 
-}
+/*General formatting for card layout*/
+    .cardBody a {
+        margin-top: 10px;
+        padding: 5px;
+        align-content: center;
+        display: inline-block;
+        line-height: 45px;
+        border-radius: 50%;
+        transition: all ease 0.5s; 
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.1);
 
-#email{
+    }
 
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
+    .cardBody a img {
 
-.cardBody a:hover {
+        align-content: center;
+        transform: translate(7px, 7px);
 
-    transform: translateY(-5px);
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+    }
 
-}
+    .cardBody a:hover {
 
-.flipImg{
-    transform: scale(0.3) translateX(-200px);
-    position: absolute;
-    filter: brightness(0) invert(1);
-    margin-top: -90px;
-}
+        transform: translateY(-5px);
+        box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+
+    }
+
+    .flipImg{
+        transform: scale(0.3) translateX(-200px);
+        position: absolute;
+        filter: brightness(0) invert(1);
+        margin-top: -90px;
+    }
  
+
+

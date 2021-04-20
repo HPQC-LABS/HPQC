@@ -25,12 +25,19 @@
     <link rel="shortcut icon" href="images/favicon.ico" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
 
 <body>
+
+    
+
+    <!--See comments about Nav bar in index.html-->
     <div id="menu">
         <div class="navbar-toggle" id="navbar-toggle">
             <span></span>
@@ -63,62 +70,286 @@
     <div id="featured">
         <div class="container">
             <div class="title">
-            <div id="form">
-		        <img class="imgFrame" src="lectures/LectureFlyer.png"></img>
-                <h3 id="limited">Very limited spots for people not currently paying tuition at HPQC College</h3> <br>
-                <!-- Form that asks for donation -->
-		<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfKlkhsk89Cj3o7TBjvPW1QTI7dqs1wegDfyAZgtdFzds0LEQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
-		<!-- Form that does not ask for donation -->
-		     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfGKvrTj2M-6EKL5OphMDSGXFrD4UrljaOqb0Glsp4udxvwlQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>    
-            </div>
-            <!-- <div id="donation">
-                <h3>For people not currently paying tuition at HPQC College, please make a small donation to register.</h3>
-                <h3>Limited space is available for people from outside the college.</h3>
-		    <br>
-		    <br>
-		    <p style="color:black">Donation amount for individual lectures: <var id="currency1txt">$35</var>.<br>
-		For the whole series: <var id="currency5txt">$115</var> .<br>
-		Donations can be made directly by e-transfer to info@hpqc.org, or by the methods available below.<br>
-		A small processing fee may be added if using one of the methods below.</p>   
-                <div id="smart-button-container">
-                    <div id="options">
-                        <select id="item-options">
-			    <!-- <option value="Test" price="1">Test</option> ->
-               
+
+                <!--Html for the form which contains the flyer, and application google form-->
+                <div id="form">
+                    <img class="imgFrame" src="lectures/LectureFlyer.png"></img>
+                    <h3 id="limited">Very limited spots for people not currently paying tuition at HPQC College</h3>
+                    <br><br><br>
+
+                    <div class="registration">
+                        
+
+                        <form id="registerForm" action="https://script.google.com/macros/s/AKfycbwvhp5nxoBhl5lvXhsGr045iSUDb2dUApOM0c3FZOK_l5GlSICYinriMvAX8DtKV4oWGw/exec" onSubmit="window.location.reload()">
+                        
+                            <div class="page" id="part1">
+                                <h1>Special Registration for non-members</h1>
+                                <p>Limited space event registration for people not paying tuition at HPQC college</p>
+                                
+                                <!--<label>Please Enter your Email Address and Name</label>
+                                <br/>--><br/>
+                                <input  type="email" id="email" name="email" placeholder="Email Address" class="required" required autofocus>
+                                <br/><br/><br/>
+        
+                                <input type="text" id="name" name="name" placeholder="Name" class="required" required autofocus oninvalid="this.setCustomValidity('test')" oninput="this.setCustomValidity('')"><br>
+                                <br/><br/><br/>
+    
+                                <!--<label>What is your School / Organization</label>
+                                <br/><br/>-->
+                                <input type="text" id="school" name="school" placeholder="School/Organization" class="required" required autofocus><br>
+                                <br/><br/><br/>
+    
+                                <!--<label>Year and Specialization (if in school), Profession (if graduated)</label>
+                                <br/><br/>-->
+                                <input type="text" id="year" name="year" placeholder="Year & Specialization (In School), or Profession (Graduated)" class="required" required autofocus><br>
+                                <br/><br/>
+    
+                                <div class="btnBox">
+                                    <button type="button" id="next1">Next</button>
+                                </div>
+                            </div>
+                            <div class="page options" id="part2">
+                                <label><h3>Which lectures would you like to attend?</h3></label>
+                                <br/><br/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input required" type="checkbox" name="lecture1" value="Thomas Dimson" disabled/>
+                                    <label class="form-check-label" for="inlineCheckbox1"><strike>10 February 2021: Thomas Dimson (Instagram)</strike></label>
+                                </div>
+                                <br/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input required" type="checkbox" name="lecture2" value="Evan Browning" disabled/>
+                                    <label class="form-check-label" for="inlineCheckbox1"><strike>24 February 2021: Evan Browning (Netflix)</strike></label>
+                                </div>
+                                <br/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input required" type="checkbox" name="lecture3" value="Brianne Kent" disabled/>
+                                    <label class="form-check-label" for="inlineCheckbox1"><strike>10 March 2021: Brianne Kent (Simon Fraser University)</strike></label>
+                                </div>
+                                <br/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input required" type="checkbox" name="lecture4" value="Leonard Zgrablic" disabled/>
+                                    <label class="form-check-label" for="inlineCheckbox1"><strike>14 April 2021: Leonard Zgrablic (Google)</strike></label>
+                                </div>
+                                <br/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input required" type="checkbox" name="lecture5" value="Ahmed Omran" required/>
+                                    <label class="form-check-label" for="inlineCheckbox2">12 May 2021: Ahmed Omran (Google)</label>
+                                </div>
+                                <br/>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input required" type="checkbox" name="lecture6" value="Genevieve Laurier" required/>
+                                    <label class="form-check-label" for="inlineCheckbox3">16 June 2021: Genevieve Laurier (Managing Director, The Social  Innovation Partnership)</label>
+                                </div>
+                                <br/><br/>
+                                <div class="btnBox">
+                                    <button type="button" id="back1">Back</button>
+                                    <button type="button" id="next2">Next</button>
+                                </div>
+                            </div>
+                            <div class="page" id="part3">
+                                <label><h3>How did you hear about this event?</h3></label>
+                                <br/><br/>
+                                <label><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" required>School email</input></label><br/><br/>
+                                <label><input class="form-check-input required"  type="radio" name="notice" value="LinkedIn" onClick="regularOption()">LinkedIn</input></label><br/><br/>
+                                <label><input class="form-check-input required"  type="radio" name="notice" value="Discord" onClick="regularOption()">Discord Channel (Please specify which one in the "other" option)</input></label><br/><br/>
+                                <label><input class="form-check-input required"  type="radio" name="notice" value="Facebook" onClick="regularOption()">Facebook Group (Please specify which one in the "other" option)</input></label><br/><br/>
+                                <label><input class="form-check-input required"  type="radio" name="notice" value="Email" onClick="regularOption()">Direct Email (Please specify who sent it in the "other" option)</input></label><br/><br/>
+                                <label onClick="otherOption()">
+                                    <input class="form-check-input required" name="notice" type="radio" id="otherOption" value="other">Other:</input>
+                                    <input type ="text" name="other" id="otherText"/></label>
+                    
+                                <script>
+                                function otherOption(){
+                                a=document.getElementById('otherOption');
+                                a.checked=true;
+                                console.log(a);
+                                }
+                                function regularOption(){
+                                a=document.getElementById('otherText');
+                                a.value="";
+                                console.log(a);                             
+                                }
+                                </script>
+
+                                <br/><br/>
+                                <div class="btnBox">
+                                    <button type="button" id="back2">Back</button>
+                                    <button type="button" id="next3">Next</button>
+                                </div>
+    
+                            </div>
+                            <div class="page" id="part4">
+                                <label>If you have and comments or questions, feel free to leave them below:</label>
+                                <br/><br/>
+                                <textarea name="message" id="message" required autofocus></textarea>
+                                <br/><br/><br/>
+
+            
+                            </script>
+                                <div class="btnBox">
+                                    <button type="button" id="back3">Back</button>
+                                    <button type="submit" id="submit-form">Submit</button>
+                                </div>
+                            </div>
+
+                            
+                        </form>
+
+                        <script>
+
+
+                            $.fn.serializeObject = function()
+                            {
+                                var o = {};
+                                var a = this.serializeArray();
+                                $.each(a, function() {
+                                if (o[this.name]) {
+                                if (!o[this.name].push) {
+                                o[this.name] = [o[this.name]];
+                            }
+                                o[this.name].push(this.value || '');
+                            } else {
+                                o[this.name] = this.value || '';
+                            }
+                            });
+                            return o;
+                            };
+
+                            /*
+                            var $form = $('form#registerForm'),
+                                url = 'https://script.google.com/macros/s/AKfycbwvhp5nxoBhl5lvXhsGr045iSUDb2dUApOM0c3FZOK_l5GlSICYinriMvAX8DtKV4oWGw/exec'
+
+                            $('#submit-form').on('click', function(e) {
+                         
+
+                                e.preventDefault();
+                                var jqxhr = $.ajax({
+                                    url: url,
+                                    method: "GET",
+                                    dataType: "json",
+                                    data: $form.serializeObject()
+                                }).done(
+                                    // do something
+                                );
+                            })
+                            /* Alternative API used with apispreadsheets (only allows for 50 uses/day and 1500 slots total)
+                            function SubForm (){   
+                                
+                                $.ajax({
+                                    url:'https://api.apispreadsheets.com/data/10651/',
+                                    type:'post',
+                                    data:$("#registerForm").serializeArray(),
+                                    success: function(){
+                                    
+                                    },
+                                    error: function(){
+                                    
+                                    }
+                                });
+        
+                            }*/
+                            
+                            //Code that accesses Google Script API to write to document on submit
+
+                            /*
+                            const scriptURL = 'https://script.google.com/macros/s/AKfycbxqzmOFSN1bhkNWqS5EtWSzCUn4eBXqFrPtr7Qi7c-nU-33CTQVIA4Ge9pMHOuk3BLu/exec'
+                            const form = document.forms['registerForm']
+                            
+                            form.addEventListener('submit', e => {
+
+                                //Used to get the value of the other option 
+                                if(document.getElementById('otherText').value != ""){
+                                    document.getElementById('otherOption').value = document.getElementById('otherText').value
+                                }
+                                //Continuation of the writing to Google sheet
+                                e.preventDefault()
+                                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                                .then(response => console.log('Success!', response))
+                                .catch(error => console.error('Error!', error.message))
+                            })*/
+
+                            
+                        </script>
+                            
+
+
+                        <div class="stepRow">
+                            <div id="progress"></div>
+                            <div class="stepCol"><small>Step 1</small></div>
+                            <div class="stepCol"><small>Step 2</small></div>
+                            <div class="stepCol"><small>Step 3</small></div>
+                            <div class="stepCol"><small>Step 4</small></div>
+                        </div>
+                    </div>
 
                     
-                         
-                            <option value="Early Bird Special x 1" price="35">One lecture: <p id="currency">$35</p></option>
-			    <option value="Early Bird Special x 2" price="70">Two lectures: <p id="currency">$70</p></option>
-		            <option value="Early Bird Special x 3" price="105">Three lectures: <p id="currency">$105</p></option>
-			    <option value="Early Bird Special x 4" price="140">Four lectures: <p id="currency">$140</p></option>
-                            <option value="Whole Series" price="115">Five lectures (whole series): <p id="currency = ">$115</p></option>
-                        </select>
-                        <select style="visibility: hidden" id="quantitySelect"></select>
-                    </div>
-                    <div id="paypal-button-container"></div>
-                </div>
-                <script src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
-                    data-sdk-integration-source="button-factory"></script>
-                
-            </div> -->
-        </div>
-    </div>
-    <div id="copyright" class="container" , style="background:#79C255" ;>
-		<p>&copy; HPQC Labs. All rights reserved. </p>
-	</div>
-	<script type="text/javascript" src="main.js"></script>
-	<script type="text/javascript" src="lectures.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    
 
-	<script src="AOS\aos.js"></script>
-	<script>
-		AOS.init();
-	</script>
-	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+                    <br><br><br>
+                    
+                    <!--ORIGINAL GOOGLE FORM USED FOR REGISTRATION / DONATION-->
+
+
+                    <!-- Form that asks for donation -->
+                    <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfKlkhsk89Cj3o7TBjvPW1QTI7dqs1wegDfyAZgtdFzds0LEQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+                    <!-- Form that does not ask for donation -->
+                    <!--
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSfGKvrTj2M-6EKL5OphMDSGXFrD4UrljaOqb0Glsp4udxvwlQ/viewform?embedded=true"
+                        width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    -->
+                </div>
+
+<!--Html for the donation form & buttons for online payment-->
+<!--                <div id="donation">
+                    <h3>For people not currently paying tuition at HPQC College, please make a small donation to
+                        register.</h3>
+                    <h3>Limited space is available for people from outside the college.</h3>
+                    <br>
+                    <br>
+                    <p style="color:black">Donation amount for individual lectures: <var
+                            id="currency1txt">$35</var>.<br>
+                        For the whole series: <var id="currency5txt">$115</var> .<br>
+                        Donations can be made directly by e-transfer to info@hpqc.org, or by the methods available
+                        below.<br>
+                        A small processing fee may be added if using one of the methods below.</p>
+                    <div id="smart-button-container">
+                        <div id="options">
+                            <select id="item-options" name="item-options">
+                                <option value="1 Lecture" price="21"><p id='1'>1 lecture: $20</p></option>
+                                <option value="2 Lectures" price="41"><p id='2'>2 lectures: $40</p></option>
+                                <option value="3 Lectures" price="51"><p id='3'>3 lectures: $50</p></option>  
+                            </select>
+                            <select style="visibility: hidden" id="quantitySelect"></select>
+                        </div>
+                        <div id="paypal-button-container"></div>
+                    </div>
+                    <script
+                        src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
+                        data-sdk-integration-source="button-factory"></script>
+
+                </div>
+            </div>
+        </div>
+        <div id="copyright" class="container" , style="background:#79C255" ;>
+            <p>&copy; HPQC Labs. All rights reserved. </p>
+        </div>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="lectures.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="AOS\aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
+
+        <script src="lectures_tickets.js"></script>
+
 </body>
 
-<script src="lectures_tickets.js"></script>
 
 
 </html>
