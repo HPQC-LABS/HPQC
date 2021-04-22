@@ -80,7 +80,7 @@
                     <div class="registration">
                         
 
-                        <form id="registerForm" action="https://script.google.com/macros/s/AKfycbwvhp5nxoBhl5lvXhsGr045iSUDb2dUApOM0c3FZOK_l5GlSICYinriMvAX8DtKV4oWGw/exec" onSubmit="window.location.reload()">
+                        <form id="registerForm" >
                         
                             <div class="page" id="part1">
                                 <h1>Special Registration for non-members</h1>
@@ -112,32 +112,32 @@
                                 <label><h3>Which lectures would you like to attend?</h3></label>
                                 <br/><br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture1" value="Thomas Dimson" disabled/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled/>
                                     <label class="form-check-label" for="inlineCheckbox1"><strike>10 February 2021: Thomas Dimson (Instagram)</strike></label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture2" value="Evan Browning" disabled/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture2" id="lecture2" value="Evan Browning" disabled/>
                                     <label class="form-check-label" for="inlineCheckbox1"><strike>24 February 2021: Evan Browning (Netflix)</strike></label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture3" value="Brianne Kent" disabled/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture3" id="lecture3" value="Brianne Kent" disabled/>
                                     <label class="form-check-label" for="inlineCheckbox1"><strike>10 March 2021: Brianne Kent (Simon Fraser University)</strike></label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture4" value="Leonard Zgrablic" disabled/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture4" id="lecture4" value="Leonard Zgrablic" disabled/>
                                     <label class="form-check-label" for="inlineCheckbox1"><strike>14 April 2021: Leonard Zgrablic (Google)</strike></label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture5" value="Ahmed Omran" required/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture5" id="lecture5" value="Ahmed Omran" required/>
                                     <label class="form-check-label" for="inlineCheckbox2">12 May 2021: Ahmed Omran (Google)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture6" value="Genevieve Laurier" required/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture6" id="lecture6" value="Genevieve Laurier" required/>
                                     <label class="form-check-label" for="inlineCheckbox3">16 June 2021: Genevieve Laurier (Managing Director, The Social  Innovation Partnership)</label>
                                 </div>
                                 <br/><br/>
@@ -181,7 +181,7 @@
                             <div class="page" id="part4">
                                 <label>If you have and comments or questions, feel free to leave them below:</label>
                                 <br/><br/>
-                                <textarea name="message" id="message" required autofocus></textarea>
+                                <textarea name="message" id="message" value="" required autofocus></textarea>
                                 <br/><br/><br/>
 
             
@@ -197,41 +197,85 @@
 
                         <script>
 
+                            var htmlForm = document.getElementById('registerForm');
 
-                            $.fn.serializeObject = function()
-                            {
-                                var o = {};
-                                var a = this.serializeArray();
-                                $.each(a, function() {
-                                if (o[this.name]) {
-                                if (!o[this.name].push) {
-                                o[this.name] = [o[this.name]];
+                            function afterSubmit(e){
+                                
+                                //Variable declariation for form results
+                                var formArray = $('#registerForm').serializeArray();
+                                console.log(formArray);
+                                var email = findElement(formArray, "name", "email");
+                                var userName = findElement(formArray, "name", "name");
+                                var school = findElement(formArray, "name", "school");
+                                var year = findElement(formArray, "name", "year");
+                                var lecture1 = findElement(formArray, "name", "lecture1");
+                                console.log(lecture1);
+                                var lecture2 = findElement(formArray, "name", "lecture2");
+                                var lecture3 = findElement(formArray, "name", "lecture3");
+                                var lecture4 = findElement(formArray, "name", "lecture4");
+                                var lecture5 = findElement(formArray, "name", "lecture5");
+                                var lecture6 = findElement(formArray, "name", "lecture6");
+                                var notice = findElement(formArray, "name", "notice");//Need to figure out how to do radio w/ this method 
+                                var message = findElement(formArray, "name", "message");
+
+
+                                e.preventDefault(); //prevents default submission behaviour
+                                //Content passing to Google Sheet
+                                var info = {
+                                    email: email.value,
+                                    name: userName.value,
+                                    school:	school.value,
+                                    year: year.value,
+                                    lecture1: lecture1.value,	
+                                    lecture2: lecture2.value,	
+                                    lecture3: lecture3.value,	
+                                    lecture4: lecture4.value,	
+                                    lecture5: lecture5.value,	
+                                    lecture6: lecture6.value,	
+                                    notice: notice.value,
+                                    message: message.value,
+                                };
+                                //Script URL 
+                                const url = "https://script.google.com/macros/s/AKfycbzDEh0XOAB22Bj3gao18J-AJqxrmKfzYovCdi8Mn8q7itW3TYGuW1u6XQuryTOeQr33VA/exec";
+                                fetch(url,{
+                                    method: 'POST',
+                                    mode: 'no-cors',
+                                    cache: 'no-cache',
+                                    redirect: 'follow',
+                                    body: JSON.stringify(info)
+                                })
+
+                                alert("Thank you for submitting the form!");
+                                htmlForm.reset();
                             }
-                                o[this.name].push(this.value || '');
-                            } else {
-                                o[this.name] = this.value || '';
+
+                            //Function returns the value of the corresponding form entry
+                            function findElement(arr, propName, propValue) {
+                                for (var i=0; i < arr.length; i++){
+                                    if(arr[i] == undefined)
+                                        return "";
+                                    else if (arr[i][propName] == propValue){
+                                        
+                                        //Checking if there is a specific entry under other option
+                                        if(arr[i][propName] == "notice" && arr[i].value == "other"){
+                                            for (var j=0; j < arr.length; j++){
+                                                if(arr[j][propName] == "other")
+                                                    return arr[j];
+                                            }
+                                        }
+                                        //Return default value for corresponding option
+                                        else
+                                            return arr[i];
+
+                                    }
+                                }
+
+                                return "";  //Default sheet entry if variable is undefined
+
                             }
-                            });
-                            return o;
-                            };
 
-                            /*
-                            var $form = $('form#registerForm'),
-                                url = 'https://script.google.com/macros/s/AKfycbwvhp5nxoBhl5lvXhsGr045iSUDb2dUApOM0c3FZOK_l5GlSICYinriMvAX8DtKV4oWGw/exec'
+                            htmlForm.addEventListener("submit", afterSubmit);
 
-                            $('#submit-form').on('click', function(e) {
-                         
-
-                                e.preventDefault();
-                                var jqxhr = $.ajax({
-                                    url: url,
-                                    method: "GET",
-                                    dataType: "json",
-                                    data: $form.serializeObject()
-                                }).done(
-                                    // do something
-                                );
-                            })
                             /* Alternative API used with apispreadsheets (only allows for 50 uses/day and 1500 slots total)
                             function SubForm (){   
                                 
@@ -251,7 +295,7 @@
                             
                             //Code that accesses Google Script API to write to document on submit
 
-                            /*
+                           /*
                             const scriptURL = 'https://script.google.com/macros/s/AKfycbxqzmOFSN1bhkNWqS5EtWSzCUn4eBXqFrPtr7Qi7c-nU-33CTQVIA4Ge9pMHOuk3BLu/exec'
                             const form = document.forms['registerForm']
                             
@@ -266,8 +310,8 @@
                                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                                 .then(response => console.log('Success!', response))
                                 .catch(error => console.error('Error!', error.message))
-                            })*/
-
+                            })
+                            */
                             
                         </script>
                             
@@ -330,7 +374,7 @@
                         src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
                         data-sdk-integration-source="button-factory"></script>
 
-                </div>
+                </div>-->
             </div>
         </div>
         <div id="copyright" class="container" , style="background:#79C255" ;>
@@ -344,7 +388,7 @@
         <script>
             AOS.init();
         </script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
         <script src="lectures_tickets.js"></script>
 
