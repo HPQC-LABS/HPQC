@@ -22,7 +22,7 @@
     text-align: center;
     height: 500px;
     width: 600px;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: block; 
     margin-left: auto;
     margin-right: auto;
@@ -42,6 +42,7 @@
 }
 
 .page{
+    display: none;
     margin: 0 auto;
     width: 100%;
     position: absolute;
@@ -92,33 +93,33 @@ form button{
 #part1{
     margin-top: 50px;
     transition: 0.5s;
-    -webkit-transition: 0.5s;
-    transform: translateX(0px);    
+    /* -webkit-transition: 0.5s;
+    transform: translateX(0px);     */
 }
 
 #part2{
     margin: 0;
     margin-top: 80px;
-    transform: translateX(650px);
+    /* transform: translateX(650px);
     -webkit-transform: translateX(650px);
     transition: 0.5s;
-    -webkit-transition: 0.5s;
+    -webkit-transition: 0.5s; */
 }
 
 #part3{
     margin-top: 80px;
-    transform: translateX(650px);
+    /* transform: translateX(650px);
     -webkit-transform: translateX(650px);
     transition: 0.5s;
-    -webkit-transition: 0.5s;
+    -webkit-transition: 0.5s; */
 }
 
 #part4{
     margin-top: 80px;
-    transform: translateX(650px);
+    /* transform: translateX(650px);
     -webkit-transform: translateX(650px);
     transition: 0.5s;
-    -webkit-transition: 0.5s;
+    -webkit-transition: 0.5s; */
 
 }
 
@@ -130,6 +131,7 @@ form button{
     align-items: center;
     box-shadow: 0 2px 2.5px -2px #000;    
     position: relative;
+    overflow: hidden;
 }
 
 .stepCol{
@@ -188,7 +190,11 @@ form button{
     .registration{
         width: auto;
         margin: 20px;
-        height: 550px;
+        /* height: 550px; */
+    }
+
+    .registration input{
+        width: 80%;
     }
 
 
