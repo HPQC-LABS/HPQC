@@ -245,52 +245,52 @@ window.onload = function() {
 
 
     next1.onclick = function(){
-        part1.style.transform = "translateX(-650px)";
-        part2.style.transform = "translateX(0px)";
-        part1.style.webkitTransform = "translateX(-650px)";
-        part2.style.webkitTransform = "translateX(0px)";
+        // part1.style.transform = "translateX(-650px)";
+        // part2.style.transform = "translateX(0px)";
+        // part1.style.webkitTransform = "translateX(-650px)";
+        // part2.style.webkitTransform = "translateX(0px)";
         progress.style.width = "50%";
-
+        showPage(1);
     }
     back1.onclick = function(){
-        part1.style.transform = "translateX(0px)";
-        part2.style.transform = "translateX(650px)";
-        part1.style.webkitTransform = "translateX(0px)";
-        part2.style.webkitTransform = "translateX(650px)";
+        // part1.style.transform = "translateX(0px)";
+        // part2.style.transform = "translateX(650px)";
+        // part1.style.webkitTransform = "translateX(0px)";
+        // part2.style.webkitTransform = "translateX(650px)";
         progress.style.width = "25%";
-
+        showPage(0);
     }
     next2.onclick = function(){
-        part2.style.transform = "translateX(-650px)";
-        part3.style.transform = "translateX(0px)";
-        part2.style.webkitTransform = "translateX(-650px)";
-        part3.style.webkitTransform = "translateX(0px)";
+        // part2.style.transform = "translateX(-650px)";
+        // part3.style.transform = "translateX(0px)";
+        // part2.style.webkitTransform = "translateX(-650px)";
+        // part3.style.webkitTransform = "translateX(0px)";
         progress.style.width = "75%";
-
+        showPage(2);
     }
     back2.onclick = function(){
-        part2.style.transform = "translateX(0px)";
-        part3.style.transform = "translateX(650px)";
-        part2.style.webkitTransform = "translateX(0px)";
-        part3.style.webkitTransform = "translateX(650px)";
+        // part2.style.transform = "translateX(0px)";
+        // part3.style.transform = "translateX(650px)";
+        // part2.style.webkitTransform = "translateX(0px)";
+        // part3.style.webkitTransform = "translateX(650px)";
         progress.style.width = "50%";
-
+        showPage(1);
     }
     next3.onclick = function(){
-        part3.style.transform = "translateX(-650px)";
-        part4.style.transform = "translateX(0px)";
-        part3.style.webkitTransform = "translateX(-650px)";
-        part4.style.webkitTransform = "translateX(0px)";
+        // part3.style.transform = "translateX(-650px)";
+        // part4.style.transform = "translateX(0px)";
+        // part3.style.webkitTransform = "translateX(-650px)";
+        // part4.style.webkitTransform = "translateX(0px)";
         progress.style.width = "100%";
-
+        showPage(3);
     }
     back3.onclick = function(){
-        part3.style.transform = "translateX(0px)";
-        part4.style.transform = "translateX(650px)";
-        part3.style.webkitTransform = "translateX(0px)";
-        part4.style.webkitTransform = "translateX(650px)";
+        // part3.style.transform = "translateX(0px)";
+        // part4.style.transform = "translateX(650px)";
+        // part3.style.webkitTransform = "translateX(0px)";
+        // part4.style.webkitTransform = "translateX(650px)";
         progress.style.width = "75%";
-
+        showPage(2);
     }
 
 
@@ -318,6 +318,24 @@ window.onload = function() {
     
 }
 
+currentPage = 0;
+showPage(currentPage); // Display the current Page
+
+function showPage(n) {
+    // This function will display the specified Page of the form ...
+    var x = document.getElementsByClassName("page");
+    x[n].style.display = "block";
+    if (n == 0){
+        x[n+1].style.display = "none";
+    }
+    else if (n > 0 && n < x.length){
+        x[n-1].style.display = "none";
+        x[n+1].style.display = "none";
+    } 
+    else {
+        x[n-1].style.display = "none";
+    }   
+}
 
 
 
