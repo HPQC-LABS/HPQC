@@ -85,32 +85,65 @@
                             <div class="page" id="part1">
                                 <h1>Special Registration for non-members</h1>
                                 <p>Limited space event registration for people not paying tuition at HPQC college</p>
-                                
+                                <label id="requiredTxt">* Required</label><br><br/>
                                 <!--<label>Please Enter your Email Address and Name</label>
-                                <br/>--><br/>
+                                <br/>-->
+                                <label id="requiredTxt">*</label>
                                 <input  type="email" id="email" name="email" placeholder="Email Address" class="required" required autofocus>
-                                <br/><br/><br/>
-        
-                                <input type="text" id="name" name="name" placeholder="Name" class="required" required autofocus oninvalid="this.setCustomValidity('test')" oninput="this.setCustomValidity('')"><br>
-                                <br/><br/><br/>
+                                <br/><br/>
+
+                                <label id="requiredTxt">*</label>
+                                <input type="text" id="name" name="name" placeholder="Name" class="required" required autofocus oninvalid="this.setCustomValidity('test')" oninput="this.setCustomValidity('')">
+                                <br/><br/>
     
                                 <!--<label>What is your School / Organization</label>
                                 <br/><br/>-->
+                                <label id="requiredTxt">*</label>
                                 <input type="text" id="school" name="school" placeholder="School/Organization" class="required" required autofocus><br>
-                                <br/><br/><br/>
+                                <br/>
     
                                 <!--<label>Year and Specialization (if in school), Profession (if graduated)</label>
                                 <br/><br/>-->
-                                <input type="text" id="year" name="year" placeholder="Year & Specialization (In School), or Profession (Graduated)" class="required" required autofocus><br>
-                                <br/><br/>
+                                <!--<input type="text" id="year" name="year" placeholder="Year & Specialization (In School), or Profession (Graduated)" class="required" required autofocus><br>-->
+
+                                <div class="form-check form-check-inline">
+                                    <label id="requiredTxt">*</label>
+                                    <label class="form-check-label">Student&emsp;&emsp;Graduated</label> <br>
+                                    <input class="inputSpace" type="radio" name="education" id="student" value="Student"/>
+                                    <input class="inputSpace" type="radio" name="education" id="graduated" value="Graduated"/>
+                                    <div id="ifStudent" style="display:none">
+                                        <label>Level of Education:</label><br> 
+                                        <div class="choiceCol">
+                                            <div class="left"  style="display: table-cell;">
+                                                <label><input class="form-check-input" type="radio" name="level" value="PhD">PhD</label><br> 
+                                                <label><input class="form-check-input" type="radio" name="level" value="Masters">Masters</label><br> 
+                                                <label><input class="form-check-input" type="radio" name="level" value="Bachelors">Bachelors</label><br> 
+                                                <label><input class="form-check-input" type="radio" name="level" value="College">College Diploma</label><br> 
+                                            </div>
+                                            <div class="right" style="display: table-cell;">
+                                                <label><input class="form-check-input" type="radio" name="level" value="Secondary">Secondary</label><br> 
+                                                <label><input class="form-check-input" type="radio" name="level" value="Middle">Middle</label><br> 
+                                                <label><input class="form-check-input" type="radio" name="level" value="Elementary">Elementary</label>
+                                            </div>
+                                            </div>
+                                        
+                                    </div>
+                                    <div id="ifGraduated" style="display:none">
+                                        <label>Year of graduation:</label><br> <input type='text' id='graduationYear' name='level'><br><br/>
+                                        
+                                    </div>
+                                    
+                                </div>
+
+                                
     
                                 <div class="btnBox">
                                     <button type="button" id="next1">Next</button>
                                 </div>
                             </div>
                             <div class="page options" id="part2">
-                                <label><h3>Which lectures would you like to attend?</h3></label>
-                                <br/><br/>
+                                <label><h3>Which lectures would you like to attend?<label id="requiredTxt">*</label></h3></label>
+                                
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled/>
                                     <label class="form-check-label" for="inlineCheckbox1"><strike>10 February 2021: Thomas Dimson (Instagram)</strike></label>
@@ -140,34 +173,57 @@
                                     <input class="form-check-input required" type="checkbox" name="lecture6" id="lecture6" value="Genevieve Laurier" required/>
                                     <label class="form-check-label" for="inlineCheckbox3">16 June 2021: Genevieve Laurier (Managing Director, The Social  Innovation Partnership)</label>
                                 </div>
-                                <br/><br/>
+                                <br/>
                                 <div class="btnBox">
                                     <button type="button" id="back1">Back</button>
                                     <button type="button" id="next2">Next</button>
                                 </div>
                             </div>
                             <div class="page" id="part3">
-                                <label><h3>How did you hear about this event?</h3></label>
-                                <br/><br/>
-                                <label><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" required>School email</input></label><br/><br/>
-                                <label><input class="form-check-input required"  type="radio" name="notice" value="LinkedIn" onClick="regularOption()">LinkedIn</input></label><br/><br/>
-                                <label><input class="form-check-input required"  type="radio" name="notice" value="Discord" onClick="regularOption()">Discord Channel (Please specify which one in the "other" option)</input></label><br/><br/>
-                                <label><input class="form-check-input required"  type="radio" name="notice" value="Facebook" onClick="regularOption()">Facebook Group (Please specify which one in the "other" option)</input></label><br/><br/>
-                                <label><input class="form-check-input required"  type="radio" name="notice" value="Email" onClick="regularOption()">Direct Email (Please specify who sent it in the "other" option)</input></label><br/><br/>
+                                <label><h3>How did you hear about this event?<label id="requiredTxt">*</label></h3></label>
+                                <br/>
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" required>School email</input></label><br/><br/>
+                                
+                                
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="LinkedIn" onClick="regularOption()">LinkedIn</input></label><br/><br/>
+                                
+                                
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="discordCheck">Discord Channel</input></label><br/><br/>
+                                    <div id="ifDiscord" style="display:none">
+                                        <label>Please specify which one:</label><br> <input type='text' id='discordOther' name="other" value=""><br>
+                                        <br/>
+                                    </div>
+                                
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="fbCheck">Facebook Group</input></label><br/><br/>
+                                    <div id="ifFb" style="display:none">
+                                        <label>Please specify which one:</label><br> <input type='text' id='fbOther' name="other" value=""><br>
+                                        <br/>
+                                    </div>
+                                    
+                                
+                                <label class='radio'><input class="form-check-input required radio"  type="radio" name="notice" value="input" onClick="regularOption()" id="emailCheck">Direct Email</input></label><br/><br/>
+                                    <div id="ifEmail" style="display:none">
+                                        <label>Please specify who sent it:</label><br> <input type='text' id='emailOther' name="other" value=""><br>
+                                        <br/>
+                                    </div>
+
                                 <label onClick="otherOption()">
-                                    <input class="form-check-input required" name="notice" type="radio" id="otherOption" value="other">Other:</input>
+                                    <input class="form-check-input required" name="notice" type="radio" id="otherOption" value="input">Other:</input>
                                     <input type ="text" name="other" id="otherText"/></label>
                     
                                 <script>
                                 function otherOption(){
-                                a=document.getElementById('otherOption');
-                                a.checked=true;
-                                console.log(a);
+                                document.getElementById('otherOption').checked=true;
+                                document.getElementById('discordOther').value = "";
+                                document.getElementById('fbOther').value = "";
+                                document.getElementById('emailOther').value = "";
                                 }
                                 function regularOption(){
-                                a=document.getElementById('otherText');
-                                a.value="";
-                                console.log(a);                             
+                                //Clears input fields on radio click
+                                document.getElementById('otherText').value = "";
+                                document.getElementById('discordOther').value = "";
+                                document.getElementById('fbOther').value = "";
+                                document.getElementById('emailOther').value = "";
                                 }
                                 </script>
 
@@ -181,7 +237,7 @@
                             <div class="page" id="part4">
                                 <label>If you have and comments or questions, feel free to leave them below:</label>
                                 <br/><br/>
-                                <textarea name="message" id="message" value="" required autofocus></textarea>
+                                <textarea name="message" id="message" value="" autofocus></textarea>
                                 <br/><br/><br/>
 
             
@@ -207,15 +263,14 @@
                                 var email = findElement(formArray, "name", "email");
                                 var userName = findElement(formArray, "name", "name");
                                 var school = findElement(formArray, "name", "school");
-                                var year = findElement(formArray, "name", "year");
+                                var level = findElement(formArray, "name", "level");
                                 var lecture1 = findElement(formArray, "name", "lecture1");
-                                console.log(lecture1);
                                 var lecture2 = findElement(formArray, "name", "lecture2");
                                 var lecture3 = findElement(formArray, "name", "lecture3");
                                 var lecture4 = findElement(formArray, "name", "lecture4");
                                 var lecture5 = findElement(formArray, "name", "lecture5");
                                 var lecture6 = findElement(formArray, "name", "lecture6");
-                                var notice = findElement(formArray, "name", "notice");//Need to figure out how to do radio w/ this method 
+                                var notice = findElement(formArray, "name", "notice");
                                 var message = findElement(formArray, "name", "message");
 
 
@@ -225,7 +280,7 @@
                                     email: email.value,
                                     name: userName.value,
                                     school:	school.value,
-                                    year: year.value,
+                                    year: level.value,
                                     lecture1: lecture1.value,	
                                     lecture2: lecture2.value,	
                                     lecture3: lecture3.value,	
@@ -242,11 +297,12 @@
                                     mode: 'no-cors',
                                     cache: 'no-cache',
                                     redirect: 'follow',
-                                    body: JSON.stringify(info)
+                                    body: JSON.stringify(info) //What gets sent to the sheet
                                 })
 
                                 alert("Thank you for submitting the form!");
                                 htmlForm.reset();
+                                location.reload();
                             }
 
                             //Function returns the value of the corresponding form entry
@@ -257,9 +313,10 @@
                                     else if (arr[i][propName] == propValue){
                                         
                                         //Checking if there is a specific entry under other option
-                                        if(arr[i][propName] == "notice" && arr[i].value == "other"){
+                                        if(arr[i][propName] == "notice" && arr[i].value == "input"){
                                             for (var j=0; j < arr.length; j++){
-                                                if(arr[j][propName] == "other")
+                                                console.log(arr[j]);
+                                                if(arr[j][propName] == "other" && arr[j].value != "")
                                                     return arr[j];
                                             }
                                         }
@@ -292,27 +349,7 @@
                                 });
         
                             }*/
-                            
-                            //Code that accesses Google Script API to write to document on submit
-
-                           /*
-                            const scriptURL = 'https://script.google.com/macros/s/AKfycbxqzmOFSN1bhkNWqS5EtWSzCUn4eBXqFrPtr7Qi7c-nU-33CTQVIA4Ge9pMHOuk3BLu/exec'
-                            const form = document.forms['registerForm']
-                            
-                            form.addEventListener('submit', e => {
-
-                                //Used to get the value of the other option 
-                                if(document.getElementById('otherText').value != ""){
-                                    document.getElementById('otherOption').value = document.getElementById('otherText').value
-                                }
-                                //Continuation of the writing to Google sheet
-                                e.preventDefault()
-                                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                                .then(response => console.log('Success!', response))
-                                .catch(error => console.error('Error!', error.message))
-                            })
-                            */
-                            
+                                                       
                         </script>
                             
 
