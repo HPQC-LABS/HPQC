@@ -1,4 +1,222 @@
-/*
+
+
+
+
+window.onload = function() {
+
+
+    var part1 = document.getElementById("part1");
+    var part2 = document.getElementById("part2");
+    var part3 = document.getElementById("part3");
+    var part4 = document.getElementById("part4");
+
+    var next1 = document.getElementById("next1");
+    var next2 = document.getElementById("next2");
+    var next3 = document.getElementById("next3");
+
+    var back1 = document.getElementById("back1");
+    var back2 = document.getElementById("back2");
+    var back3 = document.getElementById("back3");
+
+    var progress = document.getElementById("progress");
+    
+
+
+    next1.onclick = function(){
+        // part1.style.transform = "translateX(-650px)";
+        // part2.style.transform = "translateX(0px)";
+        // part1.style.webkitTransform = "translateX(-650px)";
+        // part2.style.webkitTransform = "translateX(0px)";
+        progress.style.width = "50%";
+        showPage(1);
+    }
+    back1.onclick = function(){
+        // part1.style.transform = "translateX(0px)";
+        // part2.style.transform = "translateX(650px)";
+        // part1.style.webkitTransform = "translateX(0px)";
+        // part2.style.webkitTransform = "translateX(650px)";
+        progress.style.width = "25%";
+        showPage(0);
+    }
+    next2.onclick = function(){
+        // part2.style.transform = "translateX(-650px)";
+        // part3.style.transform = "translateX(0px)";
+        // part2.style.webkitTransform = "translateX(-650px)";
+        // part3.style.webkitTransform = "translateX(0px)";
+        progress.style.width = "75%";
+        showPage(2);
+    }
+    back2.onclick = function(){
+        // part2.style.transform = "translateX(0px)";
+        // part3.style.transform = "translateX(650px)";
+        // part2.style.webkitTransform = "translateX(0px)";
+        // part3.style.webkitTransform = "translateX(650px)";
+        progress.style.width = "50%";
+        showPage(1);
+    }
+    next3.onclick = function(){
+        // part3.style.transform = "translateX(-650px)";
+        // part4.style.transform = "translateX(0px)";
+        // part3.style.webkitTransform = "translateX(-650px)";
+        // part4.style.webkitTransform = "translateX(0px)";
+        progress.style.width = "100%";
+        showPage(3);
+    }
+    back3.onclick = function(){
+        // part3.style.transform = "translateX(0px)";
+        // part4.style.transform = "translateX(650px)";
+        // part3.style.webkitTransform = "translateX(0px)";
+        // part4.style.webkitTransform = "translateX(650px)";
+        progress.style.width = "75%";
+        showPage(2);
+    }
+
+
+    //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
+    $(function(){
+        var requiredCheckboxes = $('.options :checkbox[required]');
+        requiredCheckboxes.change(function(){
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            } else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+    });
+
+
+    document.addEventListener('invalid', (function () {
+        return function (e) {
+            alert("Please fill out all required fields before submitting");
+            e.preventDefault();
+            document.getElementById("name").focus();
+        };
+    })(), true);
+
+
+
+    //Code for event reveal when clicking student or graduated checkboxes
+
+
+    var student = document.getElementById('student')
+    var graduated = document.getElementById('graduated')
+
+    $('.inputSpace').click(function(){
+        if (student.checked) {
+            document.getElementById('ifStudent').style.display = 'block';
+            document.getElementById('graduationYear').value = '';
+        }
+        else document.getElementById('ifStudent').style.display = 'none';
+
+        if (graduated.checked) {
+            document.getElementById('ifGraduated').style.display = 'block';
+            $('input[name=level]').prop('checked',false);
+        }
+        else document.getElementById('ifGraduated').style.display = 'none';
+
+    });
+
+
+
+    //Code for event reveal when clicking facebook, discord, or email radio buttons 
+    
+    //Variable declaration
+    var discord = document.getElementById('discordCheck')
+    var fb = document.getElementById('fbCheck')
+    var emailOption = document.getElementById('emailCheck')
+    console.log(document.getElementsByName('other'));
+
+    $('.radio').click(function(){
+
+        //Reveal input box when clicking specific radio
+        if (discord.checked) {
+            document.getElementById('ifDiscord').style.display = 'block';
+        }
+        else document.getElementById('ifDiscord').style.display = 'none';
+
+        if (fb.checked) {
+            document.getElementById('ifFb').style.display = 'block';
+        }
+        else document.getElementById('ifFb').style.display = 'none';
+
+        if (emailOption.checked) {
+            document.getElementById('ifEmail').style.display = 'block';
+        }
+        else document.getElementById('ifEmail').style.display = 'none';
+    });
+
+
+
+
+
+    //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
+    $(function(){
+        var requiredCheckboxes = $('.options :checkbox[required]');
+        requiredCheckboxes.change(function(){
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            } else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+    });
+
+
+    document.addEventListener('invalid', (function () {
+        return function (e) {
+            alert("Please fill out all required fields before submitting");
+            e.preventDefault();
+            document.getElementById("name").focus();
+        };
+    })(), true);
+
+    
+}
+
+
+currentPage = 0;
+showPage(currentPage); // Display the current Page
+
+function showPage(n) {
+    // This function will display the specified Page of the form ...
+    var x = document.getElementsByClassName("page");
+    x[n].style.display = "block";
+    if (n == 0){
+        x[n+1].style.display = "none";
+    }
+    else if (n > 0 && n < x.length){
+        x[n-1].style.display = "none";
+        x[n+1].style.display = "none";
+    } 
+    else {
+        x[n-1].style.display = "none";
+    }   
+}
+
+
+
+    /*
+    If the following api stops working below is a stack overflow page containing a list of possible other apis with pros/cons
+    https://stackoverflow.com/questions/391979/how-to-get-clients-ip-address-using-javascript
+
+    **Note when accessing information from api (example: currency) the codes may differ with a new api and you will have to change the declaration lines:
+            code = data.country;
+            currency = data.currency;
+
+        In this example the .country and .currency will need to be changed to their corresponding titles in the api being used
+        The same goes for the xml file containing the exchange rates, if that website ever goes down and new rates are needed 
+        https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
+
+    */
+  
+
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////THIS IS OLD CODE THAT WAS USED BEFORE LECTURES_PAYMENT, FOR UP TO DATE VERSION OF PAYPAL AND IP LOOK AT LECTURES_PAYMENT.JS//////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    /*
         //Function initializes paypal payment button
         function initPayPalButton() {
             
@@ -225,117 +443,6 @@
 */
 
 
-window.onload = function() {
-
-    var part1 = document.getElementById("part1");
-    var part2 = document.getElementById("part2");
-    var part3 = document.getElementById("part3");
-    var part4 = document.getElementById("part4");
-
-    var next1 = document.getElementById("next1");
-    var next2 = document.getElementById("next2");
-    var next3 = document.getElementById("next3");
-
-    var back1 = document.getElementById("back1");
-    var back2 = document.getElementById("back2");
-    var back3 = document.getElementById("back3");
-
-    var progress = document.getElementById("progress");
-    
-
-
-    next1.onclick = function(){
-        // part1.style.transform = "translateX(-650px)";
-        // part2.style.transform = "translateX(0px)";
-        // part1.style.webkitTransform = "translateX(-650px)";
-        // part2.style.webkitTransform = "translateX(0px)";
-        progress.style.width = "50%";
-        showPage(1);
-    }
-    back1.onclick = function(){
-        // part1.style.transform = "translateX(0px)";
-        // part2.style.transform = "translateX(650px)";
-        // part1.style.webkitTransform = "translateX(0px)";
-        // part2.style.webkitTransform = "translateX(650px)";
-        progress.style.width = "25%";
-        showPage(0);
-    }
-    next2.onclick = function(){
-        // part2.style.transform = "translateX(-650px)";
-        // part3.style.transform = "translateX(0px)";
-        // part2.style.webkitTransform = "translateX(-650px)";
-        // part3.style.webkitTransform = "translateX(0px)";
-        progress.style.width = "75%";
-        showPage(2);
-    }
-    back2.onclick = function(){
-        // part2.style.transform = "translateX(0px)";
-        // part3.style.transform = "translateX(650px)";
-        // part2.style.webkitTransform = "translateX(0px)";
-        // part3.style.webkitTransform = "translateX(650px)";
-        progress.style.width = "50%";
-        showPage(1);
-    }
-    next3.onclick = function(){
-        // part3.style.transform = "translateX(-650px)";
-        // part4.style.transform = "translateX(0px)";
-        // part3.style.webkitTransform = "translateX(-650px)";
-        // part4.style.webkitTransform = "translateX(0px)";
-        progress.style.width = "100%";
-        showPage(3);
-    }
-    back3.onclick = function(){
-        // part3.style.transform = "translateX(0px)";
-        // part4.style.transform = "translateX(650px)";
-        // part3.style.webkitTransform = "translateX(0px)";
-        // part4.style.webkitTransform = "translateX(650px)";
-        progress.style.width = "75%";
-        showPage(2);
-    }
-
-
-    //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
-    $(function(){
-        var requiredCheckboxes = $('.options :checkbox[required]');
-        requiredCheckboxes.change(function(){
-            if(requiredCheckboxes.is(':checked')) {
-                requiredCheckboxes.removeAttr('required');
-            } else {
-                requiredCheckboxes.attr('required', 'required');
-            }
-        });
-    });
-
-
-    document.addEventListener('invalid', (function () {
-        return function (e) {
-            alert("Please fill out all required fields before submitting");
-            e.preventDefault();
-            document.getElementById("name").focus();
-        };
-    })(), true);
-
-    
-}
-
-currentPage = 0;
-showPage(currentPage); // Display the current Page
-
-function showPage(n) {
-    // This function will display the specified Page of the form ...
-    var x = document.getElementsByClassName("page");
-    x[n].style.display = "block";
-    if (n == 0){
-        x[n+1].style.display = "none";
-    }
-    else if (n > 0 && n < x.length){
-        x[n-1].style.display = "none";
-        x[n+1].style.display = "none";
-    } 
-    else {
-        x[n-1].style.display = "none";
-    }   
-}
 
 
 

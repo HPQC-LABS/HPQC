@@ -35,9 +35,16 @@
 }
 
 .registration h1{
-    padding-top: 20px;
+    padding-top: 10px;
     font-weight: 200;
     text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.registration h3{
+    
+    margin-bottom: 20px;
 
 }
 
@@ -181,6 +188,23 @@ form button{
     margin-bottom: 10px;
 }
 
+.inputSpace{
+    width: 80px !important;
+    margin:5px !important;
+}
+
+.choiceCol{
+    width: 250px;
+    text-align: left;
+    display: block;
+    justify-content: center;
+    margin: auto;
+}
+
+#requiredTxt{
+    color: red;
+}
+
 .registration textarea{
 }
 
@@ -190,7 +214,7 @@ form button{
     .registration{
         width: auto;
         margin: 20px;
-        /* height: 550px; */
+        height: 600px;
     }
 
     .registration input{
@@ -198,6 +222,11 @@ form button{
     }
 
 
+    .registration h3{
+    
+        margin-bottom: 0px;
+    
+    }
 
 }
 
