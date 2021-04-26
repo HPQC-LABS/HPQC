@@ -90,6 +90,10 @@ form button{
     outline: none;
 }
 
+.registration input.invalid {
+    background-color: #ffdddd;
+}
+
 .registration label{
 
     color: black;
