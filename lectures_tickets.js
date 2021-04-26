@@ -9,19 +9,20 @@ window.onload = function() {
     var part2 = document.getElementById("part2");
     var part3 = document.getElementById("part3");
     var part4 = document.getElementById("part4");
+    var part5 = document.getElementById("part5");
 
     var next1 = document.getElementById("next1");
     var next2 = document.getElementById("next2");
     var next3 = document.getElementById("next3");
+    var next4 = document.getElementById("next4");
 
     var back1 = document.getElementById("back1");
     var back2 = document.getElementById("back2");
     var back3 = document.getElementById("back3");
+    var back4 = document.getElementById("back4");
 
     var progress = document.getElementById("progress");
     
-
-
     next1.onclick = function(){
         // part1.style.transform = "translateX(-650px)";
         // part2.style.transform = "translateX(0px)";
