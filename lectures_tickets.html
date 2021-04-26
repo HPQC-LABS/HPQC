@@ -185,25 +185,25 @@
                                 </div>
                             </div>
                             <div class="page options" id="part2">
-                                <label><h3><label id="requiredTxt">*</label>Which lectures would you like to attend?</h3></label>
+                                <label><h3><label id="requiredTxt">*&nbsp;</label>Which lectures would you like to attend?</h3></label>
                                 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled/>
+                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled/> -->
                                     <label class="form-check-label" for="inlineCheckbox1">10 February 2021: Thomas Dimson (Instagram)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture2" id="lecture2" value="Evan Browning" disabled/>
+                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture2" id="lecture2" value="Evan Browning" disabled/> -->
                                     <label class="form-check-label" for="inlineCheckbox1">24 February 2021: Evan Browning (Netflix)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture3" id="lecture3" value="Brianne Kent" disabled/>
+                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture3" id="lecture3" value="Brianne Kent" disabled/> -->
                                     <label class="form-check-label" for="inlineCheckbox1">10 March 2021: Brianne Kent (Simon Fraser University)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture4" id="lecture4" value="Leonard Zgrablic" disabled/>
+                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture4" id="lecture4" value="Leonard Zgrablic" disabled/> -->
                                     <label class="form-check-label" for="inlineCheckbox1">14 April 2021: Leonard Zgrablic (Google)</label>
                                 </div>
                                 <br/>
@@ -282,16 +282,59 @@
                                 <br/><br/>
                                 <textarea name="message" id="message" value="" autofocus></textarea>
                                 <br/><br/><br/>
-
             
-                            </script>
-                                <div class="btnBox">
-                                    <button type="button" id="back3">Back</button>
-                                    <button type="submit" id="submit-form">Submit</button>
-                                </div>
-                            </div>
+                           </script>                                              
+                               <div class="btnBox">                               
+                                   <button type="button" id="back3">Back</button> 
+                                   <button type="submit" id="next4">Next</button> 
+                               </div>                                             
+                           </div>                                                 
 
+                            <div class="page" id="part5">
+                                        <div id="donation">                                                                                                                               
+                                            <h3>For people not currently paying tuition at HPQC College</h3>
+                                            <br>
+                                            <p style="color:black">
+                                                We are asking for a very small donation for you to register. We are a not-for-profit school.<br>
+                                                Limited space is available for people from outside the college.
+                                                <br>
+                                                <br>
+                                                Donation requested for individual lectures: 20 Canadian dollars / 16 US dollars.<br>
+                                                For three lectures: 50 Canadian Dollars / 40 USD.<br>
+                                                <br>
+                                                <br>
+                                                Donations can be made directly by e-transfer to info@hpqc.org, or by the methods available
+                                                below.<br>
+                                                A small processing fee may be added if using one of the methods below.
+                                            </p>
+                                            <div id="smart-button-container">
+                                                <div id="options">
+                                                    <select id="item-options" name="item-options">
                             
+                                                        <!-- WARNING: IF YOU CHANGE ANYTHING HERE, MAKE SURE TO ALSO CHANGE THE HARD-CODED VALUES IN THE .JS FILE -->
+                                                        <option value="Test"      price="2"> <p>Test: $2</p></option>
+                                                        <option value="1 Lecture" price="21"><p>1 lecture: $20</p></option>
+                                                        <option value="2 Lectures" price="41"><p>2 lectures: $40</p></option>
+                                                        <option value="3 Lectures" price="51"><p>3 lectures: $50</p></option>
+                                                        <!-- WARNING: IF YOU CHANGE ANYTHING HERE, MAKE SURE TO ALSO CHANGE THE HARD-CODED VALUES IN THE .JS FILE -->
+                            
+                                                    </select>
+                                                    <select style="visibility: hidden" id="quantitySelect"></select>
+                                                </div>
+                                                <div id="paypal-button-container"></div>
+                                            </div>
+                                            <script
+                                                src="https://www.paypal.com/sdk/js?client-id=Ad6783gW_8HR4Qi8H7EZmje6ZRKZRw2Ji2nsvFl8sHXVsgerwA1NHDnLRpapuKG6ze0yWRmx1ZK0PD3Y&currency=CAD"
+                                                data-sdk-integration-source="button-factory"></script>
+                                            <script src="lectures_payment.js"></script>
+                                        </div>
+
+                              </script>
+                                  <div class="btnBox">
+                                      <button type="button" id="back4">Back</button>
+                                      <button type="submit" id="submit-form">Submit</button>
+                                  </div>
+                              </div>
                         </form>
 
                         <script>
