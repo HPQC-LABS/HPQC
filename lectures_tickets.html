@@ -232,7 +232,7 @@
 
 
                             <div class="page" id="part3">
-                                <label><h3>How did you hear about this event?<label id="requiredTxt">*</label></h3></label>
+                                <label><label id="requiredTxt">*&nbsp;</label><h3>How did you hear about this event?</h3></label>
                                 <br/>
                                 <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" required>Email from your school</input></label><br/><br/>
                                 
@@ -358,8 +358,10 @@
                                 console.log(formArray);
                                 var email = findElement(formArray, "name", "email");
                                 var userName = findElement(formArray, "name", "name");
+                                var lastName = findElement(formArray, "name", "lastName");
                                 var school = findElement(formArray, "name", "school");
                                 var level = findElement(formArray, "name", "level");
+                                var yearInEducation = findElement(formArray, "name", "yearInEducation");
                                 var lecture1 = findElement(formArray, "name", "lecture1");
                                 var lecture2 = findElement(formArray, "name", "lecture2");
                                 var lecture3 = findElement(formArray, "name", "lecture3");
@@ -375,8 +377,10 @@
                                 var info = {
                                     email: email.value,
                                     name: userName.value,
+                                    lastName: lastName.value,
                                     school:	school.value,
                                     year: level.value,
+                                    yearInEducation: yearInEducation.value,
                                     lecture1: lecture1.value,	
                                     lecture2: lecture2.value,	
                                     lecture3: lecture3.value,	
