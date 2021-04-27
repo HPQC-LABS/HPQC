@@ -3,6 +3,7 @@
 
 
 window.onload = function() {
+    
 
 
     var part1 = document.getElementById("part1");
@@ -22,14 +23,20 @@ window.onload = function() {
     var back4 = document.getElementById("back4");
 
     var progress = document.getElementById("progress");
+
+    currentPage = 0;
+    showPage(currentPage); // Display the current Page
     
     next1.onclick = function(){
         // part1.style.transform = "translateX(-650px)";
         // part2.style.transform = "translateX(0px)";
         // part1.style.webkitTransform = "translateX(-650px)";
         // part2.style.webkitTransform = "translateX(0px)";
-        progress.style.width = "50%";
-        showPage(1);
+        if (validateForm()) {
+            progress.style.width = "50%";
+            showPage(1);
+            currentPage += 1;
+        }
     }
     back1.onclick = function(){
         // part1.style.transform = "translateX(0px)";
@@ -38,14 +45,19 @@ window.onload = function() {
         // part2.style.webkitTransform = "translateX(650px)";
         progress.style.width = "25%";
         showPage(0);
+        currentPage -= 1;
+        
     }
     next2.onclick = function(){
         // part2.style.transform = "translateX(-650px)";
         // part3.style.transform = "translateX(0px)";
         // part2.style.webkitTransform = "translateX(-650px)";
         // part3.style.webkitTransform = "translateX(0px)";
-        progress.style.width = "75%";
-        showPage(2);
+        if (validateForm()) {
+            progress.style.width = "75%";
+            showPage(2);
+            currentPage += 1;
+        }
     }
     back2.onclick = function(){
         // part2.style.transform = "translateX(0px)";
@@ -54,14 +66,18 @@ window.onload = function() {
         // part3.style.webkitTransform = "translateX(650px)";
         progress.style.width = "50%";
         showPage(1);
+        currentPage -= 1;
     }
     next3.onclick = function(){
         // part3.style.transform = "translateX(-650px)";
         // part4.style.transform = "translateX(0px)";
         // part3.style.webkitTransform = "translateX(-650px)";
         // part4.style.webkitTransform = "translateX(0px)";
-        progress.style.width = "100%";
-        showPage(3);
+        if (validateForm()) {
+            progress.style.width = "100%";
+            showPage(3);
+            currentPage += 1;
+        }
     }
     back3.onclick = function(){
         // part3.style.transform = "translateX(0px)";
@@ -70,6 +86,7 @@ window.onload = function() {
         // part4.style.webkitTransform = "translateX(650px)";
         progress.style.width = "75%";
         showPage(2);
+        currentPage -= 1;
     }
 
 
@@ -174,10 +191,6 @@ window.onload = function() {
     
 }
 
-
-currentPage = 0;
-showPage(currentPage); // Display the current Page
-
 function showPage(n) {
     // This function will display the specified Page of the form ...
     var x = document.getElementsByClassName("page");
@@ -194,6 +207,33 @@ function showPage(n) {
     }   
 }
 
+function validateForm(){
+    var x,
+    y,
+    i,
+    valid = true;
+    x = document.getElementsByClassName("page");
+    y = x[currentPage].getElementsByClassName("required");
+
+    // Check required input fields
+    for (i = 0; i < y.length; i++) {
+        // format check for email input
+        if (y[i].id == "email"){
+            var mailformat = /^[^@]+@\w+(\.\w+)+\w$/;
+            if (!mailformat.test(y[i].value.toLowerCase())){
+                y[i].className += " invalid";
+                valid = false;
+            }
+        }
+        // format check for normal text input
+        else if (y[i].value == ""){
+            y[i].className += " invalid";
+            valid = false;
+        }
+    }
+    return valid;
+    
+}
 
 
     /*
