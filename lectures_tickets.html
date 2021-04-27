@@ -176,7 +176,7 @@
                                     </div>
                                         
                                     <div id="ifGraduated" style="display:none">
-                                        <label>Year of graduation:</label><br> <input type='text' id='graduationYear' name='level'><br><br/>
+                                        <label>Year of graduation:</label><br> <input type='text' id='graduationYear' name='level' oninput="this.className = ''"><br><br/>
                                     </div>
                                 </div>
 
@@ -240,42 +240,42 @@
                                 <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="LinkedIn" onClick="regularOption()">LinkedIn</input></label><br/><br/>
                                 
                                 
-                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="discordCheck">Discord Channel</input></label><br/><br/>
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="discordOption">Discord Channel</input></label><br/><br/>
                                     <div id="ifDiscord" style="display:none">
-                                        <label>Please specify which one:</label><br> <input type='text' id='discordOther' name="other" value=""><br>
+                                        <label>Please specify which one:</label><br> <input type='text' id='discordText' name="noticeText" value="" oninput="this.className = ''"><br>
                                         <br/>
                                     </div>
                                 
-                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="fbCheck">Facebook Group</input></label><br/><br/>
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="fbOption">Facebook Group</input></label><br/><br/>
                                     <div id="ifFb" style="display:none">
-                                        <label>Please specify which one:</label><br> <input type='text' id='fbOther' name="other" value=""><br>
+                                        <label>Please specify which one:</label><br> <input type='text' id='fbText' name="noticeText" value="" oninput="this.className = ''"><br>
                                         <br/>
                                     </div>
                                     
                                 
-                                <label class='radio'><input class="form-check-input required radio"  type="radio" name="notice" value="input" onClick="regularOption()" id="emailCheck">Direct invitation</input></label><br/><br/>
+                                <label class='radio'><input class="form-check-input required radio"  type="radio" name="notice" value="input" onClick="regularOption()" id="emailOption">Direct invitation</input></label><br/><br/>
                                     <div id="ifEmail" style="display:none">
-                                        <label>From whom?</label><br> <input type='text' id='emailOther' name="other" value=""><br>
+                                        <label>From whom?</label><br> <input type='text' id='emailText' name="noticeText" value="" oninput="this.className = ''"><br>
                                         <br/>
                                     </div>
 
-                                <label onClick="otherOption()">
+                                <label class='radio' onClick="otherOption()">
                                     <input class="form-check-input required" name="notice" type="radio" id="otherOption" value="input">Other:</input>
-                                    <input type ="text" name="other" id="otherText"/></label>
+                                    <input type ="text" name="noticeText" id="otherText" oninput="this.className = ''"/></label>
                     
                                 <script>
                                 function otherOption(){
-                                document.getElementById('otherOption').checked=true;
-                                document.getElementById('discordOther').value = "";
-                                document.getElementById('fbOther').value = "";
-                                document.getElementById('emailOther').value = "";
+                                    document.getElementById('otherText').checked=true;
+                                    document.getElementById('discordText').value = "";
+                                    document.getElementById('fbText').value = "";
+                                    document.getElementById('emailText').value = "";
                                 }
                                 function regularOption(){
-                                //Clears input fields on radio click
-                                document.getElementById('otherText').value = "";
-                                document.getElementById('discordOther').value = "";
-                                document.getElementById('fbOther').value = "";
-                                document.getElementById('emailOther').value = "";
+                                    //Clears input fields on radio click
+                                    document.getElementById('otherText').value = "";
+                                    document.getElementById('discordText').value = "";
+                                    document.getElementById('fbText').value = "";
+                                    document.getElementById('emailText').value = "";
                                 }
                                 </script>
 
