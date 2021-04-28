@@ -140,10 +140,10 @@ window.onload = function() {
     //Code for event reveal when clicking facebook, discord, or email radio buttons 
     
     //Variable declaration
-    var discord = document.getElementById('discordCheck')
-    var fb = document.getElementById('fbCheck')
-    var emailOption = document.getElementById('emailCheck')
-    console.log(document.getElementsByName('other'));
+    var discord = document.getElementById('discordOption');
+    var fb = document.getElementById('fbOption');
+    var emailOption = document.getElementById('emailOption');
+    console.log(document.getElementsByName('noticeText'));
 
     $('.radio').click(function(){
 
@@ -217,31 +217,74 @@ function resetForm(){
 }
 
 function validateForm(){
-    var x,
-    y,
-    i,
-    valid = true;
-    x = document.getElementsByClassName("page");
-    y = x[currentPage].getElementsByClassName("required");
+    var x = document.getElementsByClassName("page");
+    var valid = true;
 
-    // Check required input fields
-    for (i = 0; i < y.length; i++) {
-        // format check for email input
-        if (y[i].id == "email"){
-            var mailformat = /^[^@]+@\w+(\.\w+)+\w$/;
-            if (!mailformat.test(y[i].value.toLowerCase())){
-                y[i].className += " invalid";
+    if (currentPage == 0){
+        // Text input check for required fields
+        var req_fields = x[currentPage].querySelectorAll(".required");
+        for (var i = 0; i < req_fields.length; ++i) {
+            // Format check for email input
+            if (req_fields[i].id == "email"){
+                var mailformat = /^[^@]+@\w+(\.\w+)+\w$/;
+                if (!mailformat.test(req_fields[i].value.toLowerCase())){
+                    req_fields[i].className += " invalid";
+                    valid = false;
+                }
+            }
+            // Empty string check for normal text input
+            else if (req_fields[i].value == ""){
+                req_fields[i].className += " invalid";
                 valid = false;
             }
         }
-        // format check for normal text input
-        else if (y[i].value == ""){
-            y[i].className += " invalid";
+
+        // Selection check for radio buttons
+        if (student.checked) {
+            // Selection check for education level
+            var marked = x[currentPage].querySelector('input[name="level"]:checked');
+            if (!marked) {
+                valid = false;
+            }
+        }
+        else if (graduated.checked) {
+            // Empty string check for graduation year
+            var grad_yr = x[currentPage].querySelector("#graduationYear");
+            if (grad_yr.value == "" || isNaN(grad_yr.value) ){
+                valid = false;
+                grad_yr.className += " invalid";
+            }
+        } else {
             valid = false;
         }
     }
+
+    if (currentPage == 1) {
+        var marked = x[currentPage].querySelector('input:checked');
+        if (!marked) {
+            valid = false;
+        }
+    }
+
+    if (currentPage == 2) {
+        var marked = document.querySelector('input[name="notice"]:checked');
+        if (!marked){
+            valid = false;
+        } else {
+            if (marked.value == "input"){
+                // get the corresponding input text element 
+                // by replacing "Option" in the id with "Text"
+                // ex. "fbOption" id becomes "fbText"
+                var input = document.getElementById(marked.id.replace("Option", "Text"));
+                if (input.value == ""){
+                    input.className += " invalid";
+                    valid = false;
+                }
+            }
+        }
+    }
+
     return valid;
-    
 }
 
 //For Message popup after submitting the form
