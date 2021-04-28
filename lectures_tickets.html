@@ -25,6 +25,7 @@
     <link rel="shortcut icon" href="images/favicon.ico" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -35,6 +36,18 @@
 
 <body>
 
+    <div class="endContainer">
+        <div class="endScreen" id="end">
+            <div class="endScreenHeader">
+                <span class="endScreenTitle">Form Submitted</span>
+                <span class="close">&times;</span>
+            </div>	
+            <p>
+                Thank you for registering! We look forward to seeing you at the event.<br>
+                Please check your email for a verification link.
+            </p>
+        </div>
+    </div>
     
 
     <!--See comments about Nav bar in index.html-->
@@ -100,7 +113,8 @@
                                 <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="required" required  oninput="this.className = 'required'">
                                 <br/><br/>
     
-                                <!-- <label>What is your School / Organization</label>
+                                <!--
+                                <label>What is your School / Organization</label>
                                 <br/><br/>
                                 <label id="requiredTxt">*</label>
                                 <input type="text" id="school" name="school" placeholder="School/Organization" class="required" required autofocus><br>
@@ -114,10 +128,10 @@
                                 <div class="form-check form-check-inline">
                                     <label id="requiredTxt">*</label>
                                     <label class="form-check-label">Student&emsp;&emsp;Graduated</label> <br>
-                                    <input class="inputSpace" type="radio" name="education" id="student" value="Student"/>
-                                    <input class="inputSpace" type="radio" name="education" id="graduated" value="Graduated"/>
-                                    <div id="ifStudent" style="display:none">
-                                        <label>Current studies:</label><br> 
+                                    <input class="inputSpace" type="radio" name="StudentOrGrad" id="student" value="Student"/>
+                                    <input class="inputSpace" type="radio" name="StudentOrGrad" id="graduated" value="Graduated"/>
+                                    <div id="whenClicked" style="display:none">
+                                        <label id="listHeader">Current studies:</label><br> 
                                         <div class="choiceCol">
                                             <div class="left"  style="display: table-cell;">
                                                 <label><input class="form-check-input" type="radio" name="level" value="PhD">PhD</label><br> 
@@ -128,7 +142,7 @@
                                             <div class="right" style="display: table-cell;">
                                                 <label><input class="form-check-input" type="radio" name="level" value="Secondary">Secondary School</label><br> 
                                                 <label><input class="form-check-input" type="radio" name="level" value="Middle">Middle School</label><br> 
-                                                <label><input class="form-check-input" type="radio" name="level" value="Elementary">Elementary/Primary School</label>
+                                                <label><input class="form-check-input" type="radio" name="level" value="Elementary">Elementary/Primary School</label><br> 
                                                 <label><input class="form-check-input" type="radio" name="level" value="OtherSchool">Other</label>
                                             </div>
                                             </div>
@@ -188,22 +202,22 @@
                                 <label><h3><label id="requiredTxt">*&nbsp;</label>Which lectures would you like to attend?</h3></label>
                                 
                                 <div class="form-check form-check-inline">
-                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled/> -->
+                                    <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled style="display:none"/>
                                     <label class="form-check-label" for="inlineCheckbox1">10 February 2021: Thomas Dimson (Instagram)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture2" id="lecture2" value="Evan Browning" disabled/> -->
+                                    <input class="form-check-input required" type="checkbox" name="lecture2" id="lecture2" value="Evan Browning" disabled style="display:none"/>
                                     <label class="form-check-label" for="inlineCheckbox1">24 February 2021: Evan Browning (Netflix)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture3" id="lecture3" value="Brianne Kent" disabled/> -->
+                                    <input class="form-check-input required" type="checkbox" name="lecture3" id="lecture3" value="Brianne Kent" disabled style="display:none"/> 
                                     <label class="form-check-label" for="inlineCheckbox1">10 March 2021: Brianne Kent (Simon Fraser University)</label>
                                 </div>
                                 <br/>
                                 <div class="form-check form-check-inline">
-                                    <!-- <input class="form-check-input required" type="checkbox" name="lecture4" id="lecture4" value="Leonard Zgrablic" disabled/> -->
+                                    <input class="form-check-input required" type="checkbox" name="lecture4" id="lecture4" value="Leonard Zgrablic" disabled style="display:none"/> 
                                     <label class="form-check-label" for="inlineCheckbox1">14 April 2021: Leonard Zgrablic (Google)</label>
                                 </div>
                                 <br/>
@@ -222,14 +236,6 @@
                                     <button type="button" id="next2">Next</button>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
 
                             <div class="page" id="part3">
                                 <label><label id="requiredTxt">*&nbsp;</label><h3>How did you hear about this event?</h3></label>
@@ -289,7 +295,7 @@
                             <div class="page" id="part4">
                                 <label>If you have and comments or questions, feel free to leave them below:</label>
                                 <br/><br/>
-                                <textarea name="message" id="message" value="" autofocus></textarea>
+                                <textarea rows="10" cols="40" name="message" id="message" value="" autofocus></textarea>
                                 <br/><br/><br/>
             
                            </script>                                              
@@ -354,14 +360,19 @@
                             function afterSubmit(e){
                                 
                                 //Variable declariation for form results
+
+                                /*IMPORTANT NOTE: WHEN ADDING VARIABLES TO FIND ELEMENT AND INFO ENSURE THAT THERE IS A CORRESPONDING COLUMN IN THE GOOGLE SHEETS*/
+
                                 var formArray = $('#registerForm').serializeArray();
-                                console.log(formArray);
+                                //console.log(formArray); If testing needs to be done to check the values of variables in the form
+
+
                                 var email = findElement(formArray, "name", "email");
                                 var userName = findElement(formArray, "name", "name");
                                 var lastName = findElement(formArray, "name", "lastName");
-                                var school = findElement(formArray, "name", "school");
+                                var StudentOrGrad = findElement(formArray, "name", "StudentOrGrad");
                                 var level = findElement(formArray, "name", "level");
-                                var yearInEducation = findElement(formArray, "name", "yearInEducation");
+                                //var yearInEducation = findElement(formArray, "name", "yearInEducation");
                                 var lecture1 = findElement(formArray, "name", "lecture1");
                                 var lecture2 = findElement(formArray, "name", "lecture2");
                                 var lecture3 = findElement(formArray, "name", "lecture3");
@@ -373,14 +384,15 @@
 
 
                                 e.preventDefault(); //prevents default submission behaviour
+
                                 //Content passing to Google Sheet
                                 var info = {
                                     email: email.value,
                                     name: userName.value,
                                     lastName: lastName.value,
-                                    school:	school.value,
                                     year: level.value,
-                                    yearInEducation: yearInEducation.value,
+                                    StudentOrGrad: StudentOrGrad.value,
+                                    //yearInEducation: yearInEducation.value,
                                     lecture1: lecture1.value,	
                                     lecture2: lecture2.value,	
                                     lecture3: lecture3.value,	
@@ -400,9 +412,10 @@
                                     body: JSON.stringify(info) //What gets sent to the sheet
                                 })
 
-                                alert("Thank you for registering! We look forward to seeing you at the event.");
-                                htmlForm.reset();
-                                location.reload();
+                                htmlForm.reset(); //Clears all entries in the form
+                                resetForm(); //Set form page back to 0
+                                revealEndScreen(); //Toggles form end screen (Thank you for registering...)
+                                
                             }
 
                             //Function returns the value of the corresponding form entry
@@ -420,14 +433,14 @@
                                                     return arr[j];
                                             }
                                         }
-                                        //Return default value for corresponding option
+                                        //Return default value for corresponding option if other option is not filled in
                                         else
                                             return arr[i];
 
                                     }
                                 }
 
-                                return "";  //Default sheet entry if variable is undefined
+                                return "";  //Default sheet entry if none of the above are true
 
                             }
 
@@ -449,27 +462,29 @@
                                 });
         
                             }*/
+                      
                                                        
                         </script>
                             
 
-
+                        <!--Progress bar on top of form-->
                         <div class="stepRow">
                             <div id="progress"></div>
                             <div class="stepCol"><small>Step 1</small></div>
                             <div class="stepCol"><small>Step 2</small></div>
                             <div class="stepCol"><small>Step 3</small></div>
                             <div class="stepCol"><small>Step 4</small></div>
+                            <!--NOTE: If a step is added the js will have to be altered by how much the bar moves on each click (currently 25%)-->
                         </div>
                     </div>
 
-                    
-                    
-
-
-
                     <br><br><br>
                     
+                   
+                    
+
+
+
                     <!--ORIGINAL GOOGLE FORM USED FOR REGISTRATION / DONATION-->
 
 

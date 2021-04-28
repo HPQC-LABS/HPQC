@@ -118,19 +118,20 @@ window.onload = function() {
 
     var student = document.getElementById('student')
     var graduated = document.getElementById('graduated')
+    var header = document.getElementById('listHeader')
 
+    //Onclick list will be revealed and the header text will be changed given the radio chosen
     $('.inputSpace').click(function(){
         if (student.checked) {
-            document.getElementById('ifStudent').style.display = 'block';
-            document.getElementById('graduationYear').value = '';
+            document.getElementById('whenClicked').style.display = 'block';
+            header.innerHTML = "Current studies:"
         }
-        else document.getElementById('ifStudent').style.display = 'none';
-
-        if (graduated.checked) {
-            document.getElementById('ifGraduated').style.display = 'block';
-            $('input[name=level]').prop('checked',false);
+        else if (graduated.checked) {
+            document.getElementById('whenClicked').style.display = 'block';
+            header.innerHTML = "Highest completed level of education:"
+            //$('input[name=level]').prop('checked',false);
         }
-        else document.getElementById('ifGraduated').style.display = 'none';
+        else document.getElementById('whenClicked').style.display = 'none';
 
     });
 
@@ -207,6 +208,14 @@ function showPage(n) {
     }   
 }
 
+function resetForm(){
+    //Function will reset form after submission)
+    var x = document.getElementsByClassName("page");
+    x[3].style.display = "none";
+    x[0].style.display = "block";
+    progress.style.width = "25%";
+}
+
 function validateForm(){
     var x,
     y,
@@ -233,6 +242,26 @@ function validateForm(){
     }
     return valid;
     
+}
+
+//For Message popup after submitting the form
+
+let exit = document.getElementsByClassName('close');
+let overlay = document.getElementsByClassName("endContainer");
+let endScreen = document.getElementById('end');
+
+
+//Toggle div visibility on close button 
+$(exit).click(function(){
+    $(overlay).css("display", "none");
+    $(endScreen).css("display", "none");
+});
+
+//Reveal End Screen after form is submitted
+function revealEndScreen(){
+    console.log("test");
+    $(overlay).css("display", "block");
+    $(endScreen).css("display", "block");
 }
 
 
