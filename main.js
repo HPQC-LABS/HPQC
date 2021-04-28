@@ -101,7 +101,7 @@ size.addListener(sizeToggle)
 
 //Js for Unsubscribe feature
 
-
+/*
 let exit = document.getElementsByClassName('close');
 let popup = document.getElementsByClassName("unsubPopup");
 let overlay = document.getElementsByClassName("unsubContainer");
@@ -185,6 +185,6 @@ window.addEventListener('load', function(){
     console.log("url comparison works"); 
         $(popup).css("display", "block");
         $(overlay).css("display", "block");
-    }*/
+    }
 
-});
+});*/
