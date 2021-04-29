@@ -1,4 +1,8 @@
 /*Contains formatting for div that holds flyer and registration form*/
+:root {
+    --default-step-width: 25%;
+}
+
 #form{
     background-color: #FFF;
     width: 60%;
@@ -146,7 +150,7 @@ form button{
 }
 
 .stepCol{
-    width: 25%;
+    width: var(--default-step-width);
     text-align: center;
     color: #333;
     position: relative;

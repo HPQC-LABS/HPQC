@@ -26,6 +26,7 @@ window.onload = function() {
 
     // Set the progress and step col width based on the number of visible pages
     progress.style.width = width_per_page + "%";
+    document.documentElement.style.setProperty('--default-step-width', width_per_page+"%");
 
     // Display the current page
     currentPage = 0;
@@ -197,18 +198,18 @@ function showPage(n) {
     // Display the specified page of the form
     vis_pages[n].style.display = "block";
     // Display the correct buttons
-    var prevBtn = document.getElementById("prevBtn");
+    var backBtn = document.getElementById("backBtn");
     var nextBtn = document.getElementById("nextBtn");
     var submitBtn = document.getElementById("submit-form");
 
     submitBtn.style.display = "none";
     if (n == 0) {
-        prevBtn.style.display = "none";
+        backBtn.style.display = "none";
     } else if (n == vis_pages.length - 1) {
         nextBtn.style.display = "none";
         submitBtn.style.display = "inline";
     } else {
-        prevBtn.style.display = "inline";
+        backBtn.style.display = "inline";
         nextBtn.style.display = "inline";
         nextBtn.innerHTML = "Next";
     }   
@@ -218,7 +219,7 @@ function nextPrev(n) {
     // This function will figure out which page to display
     // pass n = 1 to go to the next page
     // pass n = -1 to go to the previous page
-    
+
     if (n == 1 && !validateForm()) return false;
     // Hide the current page:
     vis_pages[currentPage].style.display = "none";
