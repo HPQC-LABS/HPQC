@@ -1,6 +1,6 @@
 
-
-
+var vis_pages = document.getElementsByClassName("page visible");
+var width_per_page = 1/vis_pages.length*100;
 
 window.onload = function() {
     
@@ -12,82 +12,86 @@ window.onload = function() {
     var part4 = document.getElementById("part4");
     var part5 = document.getElementById("part5");
 
-    var next1 = document.getElementById("next1");
-    var next2 = document.getElementById("next2");
-    var next3 = document.getElementById("next3");
-    var next4 = document.getElementById("next4");
+    // var next1 = document.getElementById("next1");
+    // var next2 = document.getElementById("next2");
+    // var next3 = document.getElementById("next3");
+    // var next4 = document.getElementById("next4");
 
-    var back1 = document.getElementById("back1");
-    var back2 = document.getElementById("back2");
-    var back3 = document.getElementById("back3");
-    var back4 = document.getElementById("back4");
+    // var back1 = document.getElementById("back1");
+    // var back2 = document.getElementById("back2");
+    // var back3 = document.getElementById("back3");
+    // var back4 = document.getElementById("back4");
 
     var progress = document.getElementById("progress");
 
+    // Set the progress and step col width based on the number of visible pages
+    progress.style.width = width_per_page + "%";
+
+    // Display the current page
     currentPage = 0;
-    showPage(currentPage); // Display the current Page
+    showPage(currentPage); 
     
-    next1.onclick = function(){
-        // part1.style.transform = "translateX(-650px)";
-        // part2.style.transform = "translateX(0px)";
-        // part1.style.webkitTransform = "translateX(-650px)";
-        // part2.style.webkitTransform = "translateX(0px)";
-        if (validateForm()) {
-            progress.style.width = "50%";
-            showPage(1);
-            currentPage += 1;
-        }
-    }
-    back1.onclick = function(){
-        // part1.style.transform = "translateX(0px)";
-        // part2.style.transform = "translateX(650px)";
-        // part1.style.webkitTransform = "translateX(0px)";
-        // part2.style.webkitTransform = "translateX(650px)";
-        progress.style.width = "25%";
-        showPage(0);
-        currentPage -= 1;
+    // next1.onclick = function(){
+    //     // part1.style.transform = "translateX(-650px)";
+    //     // part2.style.transform = "translateX(0px)";
+    //     // part1.style.webkitTransform = "translateX(-650px)";
+    //     // part2.style.webkitTransform = "translateX(0px)";
+    //     if (validateForm()) {
+    //         progress.style.width = "50%";
+    //         showPage(1);
+    //         currentPage += 1;
+    //     }
+    // }
+    // back1.onclick = function(){
+    //     // part1.style.transform = "translateX(0px)";
+    //     // part2.style.transform = "translateX(650px)";
+    //     // part1.style.webkitTransform = "translateX(0px)";
+    //     // part2.style.webkitTransform = "translateX(650px)";
+    //     progress.style.width = "25%";
+    //     showPage(0);
+    //     currentPage -= 1;
         
-    }
-    next2.onclick = function(){
-        // part2.style.transform = "translateX(-650px)";
-        // part3.style.transform = "translateX(0px)";
-        // part2.style.webkitTransform = "translateX(-650px)";
-        // part3.style.webkitTransform = "translateX(0px)";
-        if (validateForm()) {
-            progress.style.width = "75%";
-            showPage(2);
-            currentPage += 1;
-        }
-    }
-    back2.onclick = function(){
-        // part2.style.transform = "translateX(0px)";
-        // part3.style.transform = "translateX(650px)";
-        // part2.style.webkitTransform = "translateX(0px)";
-        // part3.style.webkitTransform = "translateX(650px)";
-        progress.style.width = "50%";
-        showPage(1);
-        currentPage -= 1;
-    }
-    next3.onclick = function(){
-        // part3.style.transform = "translateX(-650px)";
-        // part4.style.transform = "translateX(0px)";
-        // part3.style.webkitTransform = "translateX(-650px)";
-        // part4.style.webkitTransform = "translateX(0px)";
-        if (validateForm()) {
-            progress.style.width = "100%";
-            showPage(3);
-            currentPage += 1;
-        }
-    }
-    back3.onclick = function(){
-        // part3.style.transform = "translateX(0px)";
-        // part4.style.transform = "translateX(650px)";
-        // part3.style.webkitTransform = "translateX(0px)";
-        // part4.style.webkitTransform = "translateX(650px)";
-        progress.style.width = "75%";
-        showPage(2);
-        currentPage -= 1;
-    }
+    // }
+    // next2.onclick = function(){
+    //     // part2.style.transform = "translateX(-650px)";
+    //     // part3.style.transform = "translateX(0px)";
+    //     // part2.style.webkitTransform = "translateX(-650px)";
+    //     // part3.style.webkitTransform = "translateX(0px)";
+    //     if (validateForm()) {
+    //         progress.style.width = "75%";
+    //         showPage(2);
+    //         currentPage += 1;
+    //     }
+    // }
+    // back2.onclick = function(){
+    //     // part2.style.transform = "translateX(0px)";
+    //     // part3.style.transform = "translateX(650px)";
+    //     // part2.style.webkitTransform = "translateX(0px)";
+    //     // part3.style.webkitTransform = "translateX(650px)";
+    //     progress.style.width = "50%";
+    //     showPage(1);
+    //     currentPage -= 1;
+    // }
+    // next3.onclick = function(){
+    //     // part3.style.transform = "translateX(-650px)";
+    //     // part4.style.transform = "translateX(0px)";
+    //     // part3.style.webkitTransform = "translateX(-650px)";
+    //     // part4.style.webkitTransform = "translateX(0px)";
+    //     if (validateForm()) {
+    //         progress.style.width = "100%";
+    //         showPage(3);
+    //         currentPage += 1;
+    //     }
+    // }
+    // back3.onclick = function(){
+    //     // part3.style.transform = "translateX(0px)";
+    //     // part4.style.transform = "translateX(650px)";
+    //     // part3.style.webkitTransform = "translateX(0px)";
+    //     // part4.style.webkitTransform = "translateX(650px)";
+    //     progress.style.width = "75%";
+    //     showPage(2);
+    //     currentPage -= 1;
+    // }
 
 
     //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
@@ -165,9 +169,6 @@ window.onload = function() {
     });
 
 
-
-
-
     //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
     $(function(){
         var requiredCheckboxes = $('.options :checkbox[required]');
@@ -193,36 +194,61 @@ window.onload = function() {
 }
 
 function showPage(n) {
-    // This function will display the specified Page of the form ...
-    var x = document.getElementsByClassName("page");
-    x[n].style.display = "block";
-    if (n == 0){
-        x[n+1].style.display = "none";
-    }
-    else if (n > 0 && n < x.length){
-        x[n-1].style.display = "none";
-        x[n+1].style.display = "none";
-    } 
-    else {
-        x[n-1].style.display = "none";
+    // Display the specified page of the form
+    vis_pages[n].style.display = "block";
+    // Display the correct buttons
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var submitBtn = document.getElementById("submit-form");
+
+    submitBtn.style.display = "none";
+    if (n == 0) {
+        prevBtn.style.display = "none";
+    } else if (n == vis_pages.length - 1) {
+        nextBtn.style.display = "none";
+        submitBtn.style.display = "inline";
+    } else {
+        prevBtn.style.display = "inline";
+        nextBtn.style.display = "inline";
+        nextBtn.innerHTML = "Next";
     }   
 }
 
+function nextPrev(n) {
+    // This function will figure out which page to display
+    // pass n = 1 to go to the next page
+    // pass n = -1 to go to the previous page
+    
+    if (n == 1 && !validateForm()) return false;
+    // Hide the current page:
+    vis_pages[currentPage].style.display = "none";
+    // Increase or decrease the current page by 1:
+    currentPage = currentPage + n;
+    // Display the correct page:
+    showPage(currentPage);
+    // Increase or decrease the progress
+    const new_width = (currentPage+1)/vis_pages.length*100;
+    progress.style.width = new_width.toString() + "%";
+}
+
 function resetForm(){
-    //Function will reset form after submission)
-    var x = document.getElementsByClassName("page");
-    x[3].style.display = "none";
-    x[0].style.display = "block";
-    progress.style.width = "25%";
+    //Function will reset form after submission
+    showPage(0);
+    // hide the studies section
+    var studies = document.getElementById("whenClicked");
+    studies.style.display = "none";
+    // hide last step
+    vis_pages[vis_pages.length-1].style.display = "none";
+    // reset progress
+    progress.style.width = width_per_page + "%";
 }
 
 function validateForm(){
-    var x = document.getElementsByClassName("page");
     var valid = true;
 
     if (currentPage == 0){
         // Text input check for required fields
-        var req_fields = x[currentPage].querySelectorAll(".required");
+        var req_fields = vis_pages[currentPage].querySelectorAll(".required");
         for (var i = 0; i < req_fields.length; ++i) {
             // Format check for email input
             if (req_fields[i].id == "email"){
@@ -242,14 +268,14 @@ function validateForm(){
         // Selection check for radio buttons
         if (student.checked) {
             // Selection check for education level
-            var marked = x[currentPage].querySelector('input[name="level"]:checked');
+            var marked = vis_pages[currentPage].querySelector('input[name="level"]:checked');
             if (!marked) {
                 valid = false;
             }
         }
         else if (graduated.checked) {
             // Empty string check for graduation year
-            var grad_yr = x[currentPage].querySelector("#graduationYear");
+            var grad_yr = vis_pages[currentPage].querySelector("#graduationYear");
             if (grad_yr.value == "" || isNaN(grad_yr.value) ){
                 valid = false;
                 grad_yr.className += " invalid";
@@ -260,7 +286,7 @@ function validateForm(){
     }
 
     if (currentPage == 1) {
-        var marked = x[currentPage].querySelector('input:checked');
+        var marked = vis_pages[currentPage].querySelector('input:checked');
         if (!marked) {
             valid = false;
         }
