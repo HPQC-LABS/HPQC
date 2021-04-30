@@ -1,26 +1,25 @@
-
-
+//var idList = getIdList(); //Runs getIdList as soon as webpage loads to give time to retrieve data form sheet
 
 
 window.onload = function() {
     
 
-
+/*
     var part1 = document.getElementById("part1");
     var part2 = document.getElementById("part2");
     var part3 = document.getElementById("part3");
     var part4 = document.getElementById("part4");
     var part5 = document.getElementById("part5");
-
+*/
     var next1 = document.getElementById("next1");
     var next2 = document.getElementById("next2");
     var next3 = document.getElementById("next3");
-    var next4 = document.getElementById("next4");
+    //var next4 = document.getElementById("next4");
 
     var back1 = document.getElementById("back1");
     var back2 = document.getElementById("back2");
     var back3 = document.getElementById("back3");
-    var back4 = document.getElementById("back4");
+    //var back4 = document.getElementById("back4");
 
     var progress = document.getElementById("progress");
 
@@ -89,36 +88,14 @@ window.onload = function() {
         currentPage -= 1;
     }
 
-
-    //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
-    $(function(){
-        var requiredCheckboxes = $('.options :checkbox[required]');
-        requiredCheckboxes.change(function(){
-            if(requiredCheckboxes.is(':checked')) {
-                requiredCheckboxes.removeAttr('required');
-            } else {
-                requiredCheckboxes.attr('required', 'required');
-            }
-        });
-    });
+    
 
 
-    document.addEventListener('invalid', (function () {
-        return function (e) {
-            alert("Please fill out all required fields before submitting");
-            e.preventDefault();
-            document.getElementById("name").focus();
-        };
-    })(), true);
-
-
-
-    //Code for event reveal when clicking student or graduated checkboxes
-
-
+//Code for event reveal when clicking student or graduated checkboxes
     var student = document.getElementById('student')
     var graduated = document.getElementById('graduated')
     var header = document.getElementById('listHeader')
+
 
     //Onclick list will be revealed and the header text will be changed given the radio chosen
     $('.inputSpace').click(function(){
@@ -165,11 +142,8 @@ window.onload = function() {
     });
 
 
-
-
-
-    //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
-    $(function(){
+      //Function goes through checkboxes and removes required field from those that aren't selected (as long as at least one is selected)
+      $(function(){
         var requiredCheckboxes = $('.options :checkbox[required]');
         requiredCheckboxes.change(function(){
             if(requiredCheckboxes.is(':checked')) {
@@ -189,7 +163,6 @@ window.onload = function() {
         };
     })(), true);
 
-    
 }
 
 function showPage(n) {
@@ -290,7 +263,7 @@ function validateForm(){
 //For Message popup after submitting the form
 
 let exit = document.getElementsByClassName('close');
-let overlay = document.getElementsByClassName("endContainer");
+let overlay = document.getElementById("eContainer");
 let endScreen = document.getElementById('end');
 
 
@@ -308,24 +281,64 @@ function revealEndScreen(){
 }
 
 
-    /*
-    If the following api stops working below is a stack overflow page containing a list of possible other apis with pros/cons
-    https://stackoverflow.com/questions/391979/how-to-get-clients-ip-address-using-javascript
+/* Code for creating new id - for this to work, also uncomment the two id declaration lines in lectures_tickets.html
 
-    **Note when accessing information from api (example: currency) the codes may differ with a new api and you will have to change the declaration lines:
-            code = data.country;
-            currency = data.currency;
+function getIdList(){
+    return new Promise(resolve => {
+        const url = "https://script.google.com/macros/s/AKfycbyr7PrhYsP5EbwFiKLLiAiDzfSQB8MHJqUXp6BH971tW711OgcviDrAcpMxaeGjVmMdCQ/exec";
 
-        In this example the .country and .currency will need to be changed to their corresponding titles in the api being used
-        The same goes for the xml file containing the exchange rates, if that website ever goes down and new rates are needed 
-        https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
-
-    */
-  
-
+        fetch(url)
+            .then(d => d.json())
+            .then(d => {
+                //console.log(d[0].id);
+                idList2 = d[0].id;
+                resolve(idList2);
+            });
+      });
     
+
+}
+
+//Returns idList containing all current ids in Google Sheet
+function getId(){
+    return idList;
+}
+
+//Function creates a unique id after checking ids in Google Sheets
+async function createId(){
+    var list;
+    var newId =  Math.floor((Math.random() * 1000000000) + 1);
+    await getId().then(result => list = result);
+    var create = false;
+
+    //While loop will run until the id is new
+    while(create != true){
+
+        //Creates a new number if the current one already exists
+        if(list.indexOfForArrays([newId]) != -1){
+            newId =  Math.floor((Math.random() * 1000000000) + 1);
+            console.log("id already exists")
+        }
+        else{
+            //Returns new id
+            create = true;
+            return newId;
+        }
+    }
+}
+
+//Function is used to search through array of arrays to see if the variable search
+Array.prototype.indexOfForArrays = function(search)
+{
+  var searchJson = JSON.stringify(search); 
+  var arrJson = this.map(JSON.stringify);
+
+  return arrJson.indexOf(searchJson);
+};
+*/
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////THIS IS OLD CODE THAT WAS USED BEFORE LECTURES_PAYMENT, FOR UP TO DATE VERSION OF PAYPAL AND IP LOOK AT LECTURES_PAYMENT.JS//////////////
+//////THIS IS OLD CODE THAT WAS USED BEFORE LECTURES_PAYMENT, FOR UP TO DATE VERSION OF PAYPAL AND IP LOOK AT LECTURES_PAYMENT.JS///////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

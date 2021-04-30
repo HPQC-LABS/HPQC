@@ -20,7 +20,7 @@
     margin: 80px;
     padding-bottom: 30px;
     text-align: center;
-    height: 500px;
+    height: 600px;
     width: 600px;
     /* overflow: hidden; */
     display: block; 
@@ -219,7 +219,7 @@ form button{
     .registration{
         width: auto;
         margin: 20px;
-        height: 600px;
+        height: 700px;
     }
 
     .registration input{
