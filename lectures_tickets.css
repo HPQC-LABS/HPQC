@@ -1,4 +1,8 @@
 /*Contains formatting for div that holds flyer and registration form*/
+:root {
+    --default-step-width: 25%;
+}
+
 #form{
     background-color: #FFF;
     width: 60%;
@@ -20,7 +24,7 @@
     margin: 80px;
     padding-bottom: 30px;
     text-align: center;
-    height: 500px;
+    height: 600px;
     width: 600px;
     /* overflow: hidden; */
     display: block; 
@@ -52,7 +56,7 @@
     display: none;
     margin: 0 auto;
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     text-align: center;
     background: transparent;
     transition: 0.5s;
@@ -134,7 +138,7 @@ form button{
 
 }
 
-.stepRow{
+#stepRow{
     width: 100%;
     height: 40px;
     margin: 0 auto;
@@ -146,7 +150,7 @@ form button{
 }
 
 .stepCol{
-    width: 25%;
+    width: var(--default-step-width);
     text-align: center;
     color: #333;
     position: relative;
@@ -158,7 +162,7 @@ form button{
 #progress{
     position: absolute;
     height: 100%;
-    width: 25%;
+    /* width: 25%; */
     background: #79C255;
     transition: 1s;
     -webkit-transition: 1s;
