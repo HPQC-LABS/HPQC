@@ -90,16 +90,20 @@
                     <h3 id="limited">Very limited spots for people not currently paying tuition at HPQC College</h3>
                     <br><br><br>
 
-
-
                     <div class="registration"> <!--Use this class to change height of the form and any other features of the container-->
                         
-                        <form id="registerForm">
+                        <!-- If you want pages to be visible, add the visible class to the page -->
+                        <form id="registerForm" >
+                            <div id="stepRow">
+                                <div id="progress"></div>
+                                <div class="stepCol"><small>Step 1</small></div>
+                                <div class="stepCol"><small>Step 2</small></div>
+                                <div class="stepCol"><small>Step 3</small></div>
+                                <div class="stepCol"><small>Step 4</small></div>
+                            </div>
                         
-
-
                             <!--PAGE 1-->
-                            <div class="page" id="part1"> <!--Page styles the divs inside the form with each part id corresponding to an individual page/section-->
+                            <div class="page visible" id="part1"> <!--Page styles the divs inside the form with each part id corresponding to an individual page/section-->
                                 <h1>Special Registration for non-members</h1>
                                 <p>Limited space event registration for people not paying tuition at HPQC college</p>
                                 <label id="requiredTxt">* Required</label><br><br/> <!--Use the requiredTxt id for red text-->
@@ -202,15 +206,17 @@
 
                                 </div>
 
-                                <div class="btnBox">
+                                <!-- <div class="btnBox">
                                     <button type="button" id="next1">Next</button>
-                                </div>
+                                </div> -->
                             </div>
 
 
 
+                        
                             <!--PAGE 2-->
-                            <div class="page options" id="part2">
+                            <div class="page options visible" id="part2">
+
                                 <label><h3><label id="requiredTxt">*&nbsp;</label>Which lectures would you like to attend?</h3></label>
                                 
                                 <!--
@@ -248,16 +254,16 @@
                                     <label class="form-check-label" for="inlineCheckbox3">16 June 2021: Genevieve Laurier (Managing Director, The Social  Innovation Partnership)</label>
                                 </div>
                                 <br/>
-                                <div class="btnBox">
+                                <!-- <div class="btnBox">
                                     <button type="button" id="back1">Back</button>
                                     <button type="button" id="next2">Next</button>
-                                </div>
+                                </div> -->
                             </div>
 
 
 
                             <!--PAGE 3-->
-                            <div class="page" id="part3">
+                            <div class="page visible" id="part3">
                                 <h3><label><label id="requiredTxt">*&nbsp;</label>How did you hear about this event?</h3></label>
                                 <br/>
                                 <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" required>Email from your school</input></label><br/><br/>
@@ -307,29 +313,24 @@
                                 </script>
 
                                 <br/><br/>
-                                <div class="btnBox">
+                                <!-- <div class="btnBox">
                                     <button type="button" id="back2">Back</button>
                                     <button type="button" id="next3">Next</button>
-                                </div>
+                                </div> -->
     
                             </div>
 
-
-
-                            <!--PAGE 4-->
-                            <div class="page" id="part4">
+                             <!--PAGE 4-->
+                            <div class="page visible" id="part4">
                                 <label>If you have and comments or questions, feel free to leave them below:</label>
                                 <br/><br/>
                                 <textarea rows="10" cols="40" name="message" id="message" value="" autofocus></textarea> <!--Change initial size w/ rows and cols tags-->
-                                <br/><br/><br/>
-            
-                           </script>                                              
-                               <div class="btnBox">                               
+                                <br/><br/><br/>                                            
+                               <!-- <div class="btnBox">                               
                                    <button type="button" id="back3">Back</button> 
                                    <button type="submit" id="submit-form">Submit</button> 
-                               </div>                                             
-                           </div>                                                 
-
+                               </div>                                              -->
+                            </div>                                                 
 
 
                            <!--PAGE 5 (Currently not added)-->
@@ -372,12 +373,18 @@
                                             <script src="lectures_payment.js"></script>
                                     <!-- </div> -->
                               </script>
-                                  <div class="btnBox">
+                                  <!-- <div class="btnBox">
                                       <button type="button" id="back4">Back</button>
                                       <button type="submit" id="submit-form">Submit</button>
-                                  </div>
-                              </div>
+                                  </div> -->
+                            </div>
+                            <div class="btnBox">
+                                <button type="button" id="backBtn" onclick="nextPrev(-1)">Back</button>
+                                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button> 
+                                <button type="submit" id="submit-form">Submit</button>
+                            </div>
                         </form>
+                        
 
                         <script>
 
@@ -513,14 +520,14 @@
                             
 
                         <!--Progress bar on top of form-->
-                        <div class="stepRow">
+                        <!-- <div class="stepRow">
                             <div id="progress"></div>
                             <div class="stepCol"><small>Step 1</small></div>
                             <div class="stepCol"><small>Step 2</small></div>
                             <div class="stepCol"><small>Step 3</small></div>
                             <div class="stepCol"><small>Step 4</small></div>
                             <!--NOTE: If a step is added the js will have to be altered by how much the bar moves on each click (currently 25%)-->
-                        </div>
+                        </div> -->
                     </div>
 
                     <br><br><br>
