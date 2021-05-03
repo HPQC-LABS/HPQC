@@ -36,7 +36,7 @@
 
 <body>
 
-    <div class="endContainer">
+    <div class="endContainer" id="eContainer">
         <div class="endScreen" id="end">
             <div class="endScreenHeader">
                 <span class="endScreenTitle">Form Submitted</span>
@@ -84,13 +84,13 @@
         <div class="container">
             <div class="title">
 
-                <!--Html for the form which contains the flyer, and application google form-->
+                <!--Html for the form which contains the flyer, and registration form-->
                 <div id="form">
                     <img class="imgFrame" src="lectures/LectureFlyer.png"></img>
                     <h3 id="limited">Very limited spots for people not currently paying tuition at HPQC College</h3>
                     <br><br><br>
 
-                    <div class="registration">
+                    <div class="registration"> <!--Use this class to change height of the form and any other features of the container-->
                         
                         <!-- If you want pages to be visible, add the visible class to the page -->
                         <form id="registerForm" >
@@ -102,12 +102,13 @@
                                 <div class="stepCol"><small>Step 4</small></div>
                             </div>
                         
-                            <div class="page visible" id="part1">
+                            <!--PAGE 1-->
+                            <div class="page visible" id="part1"> <!--Page styles the divs inside the form with each part id corresponding to an individual page/section-->
                                 <h1>Special Registration for non-members</h1>
                                 <p>Limited space event registration for people not paying tuition at HPQC college</p>
-                                <label id="requiredTxt">* Required</label><br><br/>
-                                <!--<label>Please Enter your Email Address and Name</label>
-                                <br/>-->
+                                <label id="requiredTxt">* Required</label><br><br/> <!--Use the requiredTxt id for red text-->
+
+
                                 <label id="requiredTxt">*</label>
                                 <input  type="email" id="email" name="email" placeholder="Email Address" class="required" required oninput="this.className = 'required'">
                                 <br/><br/>
@@ -127,19 +128,17 @@
                                 <input type="text" id="school" name="school" placeholder="School/Organization" class="required" required autofocus><br>
                                 <br/>
                                 -->
-                                
-                                <!--<label>Year and Specialization (if in school), Profession (if graduated)</label>
-                                <br/><br/>-->
-                                <!--<input type="text" id="year" name="year" placeholder="Year & Specialization (In School), or Profession (Graduated)" class="required" required autofocus><br>-->
 
-                                <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline"> <!--Classes used to format margins & padding-->
                                     <label id="requiredTxt">*</label>
                                     <label class="form-check-label">Student&emsp;&emsp;Graduated</label> <br>
                                     <input class="inputSpace" type="radio" name="StudentOrGrad" id="student" value="Student"/>
                                     <input class="inputSpace" type="radio" name="StudentOrGrad" id="graduated" value="Graduated"/>
+                                    
+                                    <!--Div toggled when choosing either Student or Graduated - see lectures_tickets.js $('.inputSpace').click function-->
                                     <div id="whenClicked" style="display:none">
                                         <br><label id="listHeader">Current studies:</label><br><br>
-                                        <div class="choiceCol">
+                                        <div class="choiceCol"> <!--Width & Centering of the list determined by choiceCol classs-->
                                             <div class="left"  style="display: table-cell;">
                                                 <label><input class="form-check-input" type="radio" name="level" value="PhD">PhD</label><br> 
                                                 <label><input class="form-check-input" type="radio" name="level" value="Masters">Masters</label><br> 
@@ -156,6 +155,7 @@
                                             </div>
                                     </div>
                                     
+                                    <!--Potential Future Additions-->
                                     <div id="ifSecondary" style="display:none">
                                     <label>Grade:</label><br> 
                                         <div class="choiceCol">
@@ -197,20 +197,35 @@
                                         </div>
                                     </div>
                                         
+                                    <!-- Asks user for their graduation year - not currently working if uncommented
+
                                     <div id="ifGraduated" style="display:none">
                                         <label>Year of graduation:</label><br> <input type='text' id='graduationYear' name='level' oninput="this.className = ''"><br><br/>
                                     </div>
+                                    -->
+
                                 </div>
 
                                 <!-- <div class="btnBox">
                                     <button type="button" id="next1">Next</button>
                                 </div> -->
                             </div>
+
+
+
+                        
+                            <!--PAGE 2-->
                             <div class="page options visible" id="part2">
+
                                 <label><h3><label id="requiredTxt">*&nbsp;</label>Which lectures would you like to attend?</h3></label>
                                 
+                                <!--
+                                    Individual entries (name) are needed for the checkboxes as multiple entries can be selected at once 
+                                    When adding, removing, or changing these entries, ensure that the name corresponds to the Google Sheet header and the js in the findElement function below
+                                -->
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled style="display:none"/>
+                                    <input class="form-check-input required" type="checkbox" name="lecture1" id="lecture1" value="Thomas Dimson" disabled style="display:none"/> 
+                                    <!--For lectures that are finished, display of checkbox is set to none - The entire thing CANNOT be commented as the will mess with the writing to Google Scripts function (will try to write undefined value)-->
                                     <label class="form-check-label" for="inlineCheckbox1">10 February 2021: Thomas Dimson (Instagram)</label>
                                 </div>
                                 <br/>
@@ -245,6 +260,9 @@
                                 </div> -->
                             </div>
 
+
+
+                            <!--PAGE 3-->
                             <div class="page visible" id="part3">
                                 <h3><label><label id="requiredTxt">*&nbsp;</label>How did you hear about this event?</h3></label>
                                 <br/>
@@ -253,7 +271,7 @@
                                 
                                 <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="LinkedIn" onClick="regularOption()">LinkedIn</input></label><br/><br/>
                                 
-                                
+                                <!--When adding the input field to be revealed on click make sure to add the corresponding code in the tickets.js file under the $('.radio').click function-->
                                 <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="input" onClick="regularOption()" id="discordOption">Discord Channel</input></label><br/><br/>
                                     <div id="ifDiscord" style="display:none">
                                         <label>Please specify which one:</label><br> <input type='text' id='discordText' name="noticeText" value="" oninput="this.className = ''"><br>
@@ -278,19 +296,20 @@
                                     <input type ="text" name="noticeText" id="otherText" oninput="this.className = ''"/></label>
                     
                                 <script>
-                                function otherOption(){
-                                    document.getElementById('otherText').checked=true;
-                                    document.getElementById('discordText').value = "";
-                                    document.getElementById('fbText').value = "";
-                                    document.getElementById('emailText').value = "";
-                                }
-                                function regularOption(){
-                                    //Clears input fields on radio click
-                                    document.getElementById('otherText').value = "";
-                                    document.getElementById('discordText').value = "";
-                                    document.getElementById('fbText').value = "";
-                                    document.getElementById('emailText').value = "";
-                                }
+                                    //Functinos for enabling otherOption and setting other input fields to empty when changing selections
+                                    function otherOption(){
+                                        document.getElementById('otherText').checked=true;
+                                        document.getElementById('discordText').value = "";
+                                        document.getElementById('fbText').value = "";
+                                        document.getElementById('emailText').value = "";
+                                    }
+                                    function regularOption(){
+                                        //Clears input fields on radio click
+                                        document.getElementById('otherText').value = "";
+                                        document.getElementById('discordText').value = "";
+                                        document.getElementById('fbText').value = "";
+                                        document.getElementById('emailText').value = "";
+                                    }
                                 </script>
 
                                 <br/><br/>
@@ -301,10 +320,11 @@
     
                             </div>
 
+                             <!--PAGE 4-->
                             <div class="page visible" id="part4">
                                 <label>If you have and comments or questions, feel free to leave them below:</label>
                                 <br/><br/>
-                                <textarea rows="10" cols="40" name="message" id="message" value="" autofocus></textarea>
+                                <textarea rows="10" cols="40" name="message" id="message" value="" autofocus></textarea> <!--Change initial size w/ rows and cols tags-->
                                 <br/><br/><br/>                                            
                                <!-- <div class="btnBox">                               
                                    <button type="button" id="back3">Back</button> 
@@ -312,6 +332,8 @@
                                </div>                                              -->
                             </div>                                                 
 
+
+                           <!--PAGE 5 (Currently not added)-->
                             <div class="page" id="part5">
                                     <!-- <div id="donation">  -->
                                             <h3>For people not currently paying tuition at HPQC College</h3>
@@ -350,7 +372,6 @@
                                                 data-sdk-integration-source="button-factory"></script>
                                             <script src="lectures_payment.js"></script>
                                     <!-- </div> -->
-
                               </script>
                                   <!-- <div class="btnBox">
                                       <button type="button" id="back4">Back</button>
@@ -367,17 +388,22 @@
 
                         <script>
 
-                            var htmlForm = document.getElementById('registerForm');
+                            var htmlForm = document.getElementById('registerForm'); //used to detect form submission for afterSubmit function
 
                             function afterSubmit(e){
                                 
-                                //Variable declariation for form results
 
+                                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                 /*IMPORTANT NOTE: WHEN ADDING VARIABLES TO FIND ELEMENT AND INFO ENSURE THAT THERE IS A CORRESPONDING COLUMN IN THE GOOGLE SHEETS*/
+                                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+                                //Variable declariation for form results
                                 var formArray = $('#registerForm').serializeArray();
+
                                 //console.log(formArray); If testing needs to be done to check the values of variables in the form
 
+                                e.preventDefault(); //prevents default submission behaviour
 
                                 var email = findElement(formArray, "name", "email");
                                 var userName = findElement(formArray, "name", "name");
@@ -393,9 +419,10 @@
                                 var lecture6 = findElement(formArray, "name", "lecture6");
                                 var notice = findElement(formArray, "name", "notice");
                                 var message = findElement(formArray, "name", "message");
-
-
-                                e.preventDefault(); //prevents default submission behaviour
+                                /*var idVal = createId().then( value => {
+                                        return value
+                                    })
+                                */
 
                                 //Content passing to Google Sheet
                                 var info = {
@@ -413,9 +440,13 @@
                                     lecture6: lecture6.value,	
                                     notice: notice.value,
                                     message: message.value,
+                                    //id: idVal
                                 };
-                                //Script URL 
+                                
+                                //Script URL (CHANGE URL IF THE SCRIPT AND SHEET IS MOVED TO A DIFFERENT EMAIL ACCOUNT)
                                 const url = "https://script.google.com/macros/s/AKfycbzDEh0XOAB22Bj3gao18J-AJqxrmKfzYovCdi8Mn8q7itW3TYGuW1u6XQuryTOeQr33VA/exec";
+                                console.log(info);
+
                                 fetch(url,{
                                     method: 'POST',
                                     mode: 'no-cors',
@@ -427,11 +458,14 @@
                                 htmlForm.reset(); //Clears all entries in the form
                                 resetForm(); //Set form page back to 0
                                 revealEndScreen(); //Toggles form end screen (Thank you for registering...)
-                                
+  
+  
                             }
 
                             //Function returns the value of the corresponding form entry
                             function findElement(arr, propName, propValue) {
+
+                                //Looping through each element in array created from serialized form 
                                 for (var i=0; i < arr.length; i++){
                                     if(arr[i] == undefined)
                                         return "";
@@ -456,13 +490,19 @@
 
                             }
 
-                            htmlForm.addEventListener("submit", afterSubmit);
+                            htmlForm.addEventListener("submit", afterSubmit); //Runs afterSubmit function once htmlForm is submitted
+
+
+
+
+
+
 
                             /* Alternative API used with apispreadsheets (only allows for 50 uses/day and 1500 slots total)
                             function SubForm (){   
                                 
                                 $.ajax({
-                                    url:'https://api.apispreadsheets.com/data/10651/',
+                                    url:'url needed here but account must be made in api spreadsheets',
                                     type:'post',
                                     data:$("#registerForm").serializeArray(),
                                     success: function(){
@@ -492,6 +532,7 @@
 
                     <br><br><br>
                     
+
                    
                     
 
