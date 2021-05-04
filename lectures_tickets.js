@@ -252,10 +252,15 @@ function validateForm(){
         }
         else if (graduated.checked) {
             // Empty string check for graduation year
-            var grad_yr = vis_pages[currentPage].querySelector("#graduationYear");
-            if (grad_yr.value == "" || isNaN(grad_yr.value) ){
+//            var grad_yr = vis_pages[currentPage].querySelector("#graduationYear");
+//            if (grad_yr.value == "" || isNaN(grad_yr.value) ){
+//                valid = false;
+//                grad_yr.className += " invalid";
+//            }
+            // Selection check for education level
+            var marked = vis_pages[currentPage].querySelector('input[name="level"]:checked');
+            if (!marked) {
                 valid = false;
-                grad_yr.className += " invalid";
             }
         } else {
             valid = false;
