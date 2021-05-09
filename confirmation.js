@@ -163,8 +163,8 @@ window.onload = function() {
 
 
         var select = document.getElementsByTagName('select');
-        var lecPrice = [2, 20, 40, 50];
-        var lecPriceUSD = [1.75, 16, 32, 40]; 
+        var lecPrice = [2, 20];
+        var lecPriceUSD = [1.75, 16]; 
 
 
         //Altering currency based on multiplier by location
@@ -208,12 +208,12 @@ window.onload = function() {
                     case 1:
                         document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPrice[i];
                         break;
-                    case 2:
-                        document.getElementsByName('item-options')[0].options[i].innerHTML = "2 lectures: $" + lecPrice[i];
-                        break;
-                    case 3:
-                        document.getElementsByName('item-options')[0].options[i].innerHTML = "3 lectures: $" + lecPrice[i];
-                        break;
+               //     case 2:
+               //         document.getElementsByName('item-options')[0].options[i].innerHTML = "2 lectures: $" + lecPrice[i];
+               //         break;
+               //     case 3:
+               //         document.getElementsByName('item-options')[0].options[i].innerHTML = "3 lectures: $" + lecPrice[i];
+               //         break; 
                   }
 
             }
@@ -238,12 +238,12 @@ window.onload = function() {
                     case 1:
                         document.getElementsByName('item-options')[0].options[i].innerHTML = "1 lecture: $" + lecPriceUSD[i];
                         break;
-                    case 2:
-                        document.getElementsByName('item-options')[0].options[i].innerHTML = "2 lectures: $" + lecPriceUSD[i];
-                        break;
-                    case 3:
-                        document.getElementsByName('item-options')[0].options[i].innerHTML = "3 lectures: $" + lecPriceUSD[i];
-                        break;
+                //    case 2:
+                //        document.getElementsByName('item-options')[0].options[i].innerHTML = "2 lectures: $" + lecPriceUSD[i];
+                //        break;
+                //    case 3:
+                //        document.getElementsByName('item-options')[0].options[i].innerHTML = "3 lectures: $" + lecPriceUSD[i];
+                //        break;
                   }
 
             }
