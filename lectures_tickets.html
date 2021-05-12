@@ -264,8 +264,11 @@
                             <div class="page visible" id="part3">
                                 <h3><label><label id="requiredTxt">*&nbsp;</label>How did you hear about this event?</h3></label>
                                 <br/>
-                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" required>Email from your school</input></label><br/><br/>
-                                
+                                <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="School" onClick="regularOption()" id="schoolOption">Email from your school</input></label><br/><br/>
+                                    <div id="ifSchool" style="display:none">
+                                        <label>Please specify school name:</label><br> <input type='text' id='schoolText' name="noticeText" value="" oninput="this.className = ''"><br>
+                                        <br/>
+                                    </div>
                                 
                                 <label class='radio'><input class="form-check-input required"  type="radio" name="notice" value="LinkedIn" onClick="regularOption()">LinkedIn</input></label><br/><br/>
                                 
@@ -300,6 +303,7 @@
                                         document.getElementById('discordText').value = "";
                                         document.getElementById('fbText').value = "";
                                         document.getElementById('emailText').value = "";
+                                        document.getElementById('schoolText').value = "";
                                     }
                                     function regularOption(){
                                         //Clears input fields on radio click
@@ -307,6 +311,7 @@
                                         document.getElementById('discordText').value = "";
                                         document.getElementById('fbText').value = "";
                                         document.getElementById('emailText').value = "";
+                                        document.getElementById('schoolText').value = "";
                                     }
                                 </script>
 
@@ -416,6 +421,7 @@
                                 var lecture5 = findElement(formArray, "name", "lecture5");
                                 var lecture6 = findElement(formArray, "name", "lecture6");
                                 var notice = findElement(formArray, "name", "notice");
+                                var noticeText = findElement(formArray, "name", "noticeText");
                                 var message = findElement(formArray, "name", "message");
                                 /*var idVal = createId().then( value => {
                                         return value
@@ -437,6 +443,7 @@
                                     lecture5: lecture5.value,	
                                     lecture6: lecture6.value,	
                                     notice: notice.value,
+                                    noticeText: noticeText.value,
                                     message: message.value,
                                     //id: idVal
                                 };

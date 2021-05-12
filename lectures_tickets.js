@@ -122,6 +122,7 @@ window.onload = function() {
     //Code for event reveal when clicking facebook, discord, or email radio buttons 
     
     //Variable declaration
+    var school = document.getElementById('schoolOption');
     var discord = document.getElementById('discordOption');
     var fb = document.getElementById('fbOption');
     var emailOption = document.getElementById('emailOption');
@@ -130,6 +131,11 @@ window.onload = function() {
     $('.radio').click(function(){
 
         //Reveal input box when clicking specific radio
+        if (school.checked) {
+            document.getElementById('ifSchool').style.display = 'block';
+        }
+        else document.getElementById('ifSchool').style.display = 'none';
+        
         if (discord.checked) {
             document.getElementById('ifDiscord').style.display = 'block';
         }
