@@ -102,63 +102,23 @@ function getIp() {
 
     $.getJSON('https://ipapi.co/json/', function(data) {
                 console.log(JSON.stringify(data, null, 2));
-                code = data.country;
                 currency = data.currency;
-            
+                code = data.country;         
             
             });
-    
 }
 
 
 //Running the following once website has loaded
 window.onload = function() {
     
-    //Takes in the currency symbol and exchange rate from exchange rate xml file
-    function readXML(){
-        xmlContent = '';
-        fetch('exchangeRates/eurofxref-daily02-25-21.xml').then((response)=>{
-            //Parsing content from file
-            response.text().then((xml)=>{
-                xmlContent = xml;
-                let parser = new DOMParser();
-                let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
-                let xmlCube = xmlDOM.querySelectorAll('Cube');
-    
-                xmlCube.forEach(CubeXmlNode => {
-                    //Initializing variables 
-                    var list;
-                    var listCurrency;
-                    var listExchangeRate;
-                    console.log(CubeXmlNode.children.length);
 
-                    //Checking each entry to see if it matches users currency from their ip
-                    for(i=0; i < CubeXmlNode.children.length; i++){
-                        list = CubeXmlNode.children[i];
-                        listExchangeRate =  list.getAttribute('rate');
-                        listCurrency = list.getAttribute('currency');
-                        listSymbol = list.getAttribute('symbol');
-                        
-                        if(listCurrency == currency){
-                            getPrice(list);
-                            break;
-                            console.log("Country is: " + listCurrency + " = " + currency + "\n Exchange rate is: " + listExchangeRate);
-                        }
-                        
-                    }
-
-                });
-            });
-        });
-    
-    
-    }
 
     //Determines the price of the ticket given the users location
-    function getPrice(input) {
-        list = input;
-        console.log(list.getAttribute('rate'));
-        console.log(list.getAttribute('currency') + "TEST");
+    function getPrice() {
+//        list = input;
+//        console.log(list.getAttribute('rate'));
+//        console.log(list.getAttribute('currency') + "TEST");
 
 
 
@@ -170,34 +130,8 @@ window.onload = function() {
         //Altering currency based on multiplier by location
         for(i=0; i < lecPrice.length; i++){
             
-            if(list.getAttribute('currency') == 'CAD'){
-                
-                /* TESTING ALTERNATIVE METHODS TO TEXT CHANGE
-
-                var x = document.getElementsByName("item-options")[0].querySelectorAll(".cost"); 
-                console.log(document.getElementsByName('item-options')[0].options[i].querySelectorAll(".cost").innerHTML);
-                console.log($( "p.test1").text());
-                document.getElementsByName('item-options')[0].options[i].querySelectorAll(".cost")[i].innerHTML = lecPrice[i] + "test";
-                //x[i].innerHTML = lecPrice[i] + "test";
-
-                */
-
-
-
-                /* OLD METHOD
-                if(i==0){
- 
-                    document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lecture: $" + lecPrice[i];
-
-                }
-                else{
-                    document.getElementsByName('item-options')[0].options[i].innerHTML = i+1 + " lectures: $" + lecPrice[i];
-                }
-            
-                
-                
-                
-                */
+            if(currency == 'CAD'){
+               
 
                 //TEMP METHOD
                 //each switch case represents the index in the array, for specific text in each option just change what each element will be set to
@@ -218,7 +152,7 @@ window.onload = function() {
 
             }
 
-            else if(list.getAttribute('currency') == 'USD'){
+            else if(currency == 'USD'){
 
                 /* OLD METHOD
                 if(i==0){
@@ -252,22 +186,27 @@ window.onload = function() {
 
         
         }
-        console.log(lecPrice);
+        console.log(code);
     }
 
     //Running the above functions
-    getIp();
+//    getIp().then(function() {
+//        getPrice();
+//        }).then(function() {
+//        initPayPalButton();
+//        });
+    $.when(getIp()).then(getPrice()).then(initPayPalButton())
 
-    setTimeout(function() { 
-
-        readXML();
-        setTimeout(function() { 
-            console.log(code);
-            initPayPalButton();
-        }, 200);
-       
-
-    }, 200);
+//    setTimeout(function() { 
+//        getPrice();
+////        readXML();
+//        setTimeout(function() { 
+//            console.log(code);
+//            initPayPalButton();
+//        }, 500);
+//       
+//
+//    }, 500);
 
 
 }
