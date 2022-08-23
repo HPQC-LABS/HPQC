@@ -1,388 +1,112 @@
-#header{
-    margin-top: 40px;
-}
+#header{         margin-top: 40px; }
 
 /*Formatting for main div that contains all biography/person contents on the people page*/
-.peopleBio
-{
-    border-radius: 8px;
-    width: 80%;
-    margin: auto;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
+.peopleBio {     border-radius: 8px;
+                 width: 80%;
+                 margin: auto;
+                 background-color: white;
+                 box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
 /*Formatting the container of each bio entry*/
-.personBio
-{
-    min-height: 400px;
-    background-color: rgb(253, 252, 252);
-    margin: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    width: 90%;
-    display: inline-block;
-}
+.personBio {     min-height: 400px;
+                 background-color: rgb(253, 252, 252);
+                 margin: 15px;
+                 border-radius: 8px;
+                 box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                 width: 90%;
+                 display: inline-block; }
 
 /*Biography text formatting*/
-.personBio p
-{
-        padding: 00px;
-        color: black;
-        text-align: left;
-}
-
-.personBio h1
-{
-        font-size: 20px;
-}
-
-.personBio h3
-{
-        text-align: left;
-}
-
-.personBio ul
-{
-        color: black;
-        list-style-type: disc;
-        display: block;
-        text-align: left;
-        list-style-position:inside
-}
-
-.personBio li
-{
-        color: black;
-        display: list-item;
-        margin-bottom: 5px;
-}
-
-.pubLink {
-
-        color: black !important;
-}
-
-.peopleList h1 
-{
-        font-size: 9px;
-}
-
-
-.personBio img 
-{
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 0px;
-    width: 100%;
-    height: auto;
-    max-width: 150px;
-    float: left;
-}
-
-.peopleTitle 
-{
-    font-size: 26px;
-    text-align: center;
-    padding-top: 60px;
-}
+.personBio p {   padding: 00px;
+                 color: black;
+                 text-align: left; }
+.personBio h1 {  font-size: 20px; }
+.personBio h3 {  text-align: center; }
+.personBio ul {  color: black;
+                 list-style-type: disc;
+                 display: block;
+                 text-align: left;
+                 list-style-position:inside }
+.personBio li {  color: black;
+                 display: list-item;
+                 margin-bottom: 5px; }
+.pubLink { color: black !important; }
+.peopleList h1 { font-size: 9px; }
+.personBio img { padding-right: 20px;
+                 padding-left: 20px;
+                 padding-bottom: 0px;
+                 width: 100%;
+                 height: auto;
+                 max-width: 150px;
+                 float: left; }
+.peopleTitle {   font-size: 26px;
+                 text-align: center;
+                 padding-top: 60px; }
 
 /*Text Formatting for mobile screens*/
 @media screen and (min-width: 430px) 
-{
- .band 
- {
-     grid-gap: 20px;
- }
-
- .peopleList h1 
- {
-     font-size: 12px;
- }
-
- .personBio h1
- {
-     font-size: 25px;
- }
-
- .card span 
- {
-     font-size: 9px;
-     font-weight: bold;
-     color: #999;
-     text-transform: capitalize; /*uppercase;*/
-     letter-spacing: .05em;
-     margin: 2em 0 0 0;
- }
-
- .card article
- {
-     padding: 10px;
- }
-
- .peopleTitle h2
- {
-     font-size: 30px;
- }
-}
+{ .band { grid-gap: 20px; }
+  .peopleList h1{font-size: 12px; }
+  .personBio h1 {font-size: 25px; }
+  .card span    {font-size: 9px;
+                 font-weight: bold;
+                 color: #999;
+                 text-transform: capitalize; /*uppercase;*/
+                 letter-spacing: .05em;
+                 margin: 2em 0 0 0; }
+ .card article  {padding: 10px; }
+ .peopleTitle h2{font-size: 30px; }}
 
 /*Text Formatting for Desktop screens*/
 @media screen and (min-width: 560px) 
-{
- .personBio img 
- {
-     padding-right: 20px;
-     padding-bottom: 20px;
-     width: 100%;
-     height: auto;
-     max-width: 200px;
-     float: left;
- }
-
- .personBio h1
- {
-     font-size: 30px;
- }
-
- .peopleList h1 
- {
-     font-size: 18px;
- }
-
- .card span 
- {
-     font-size: 12px;
-     font-weight: bold;
-     color: #999;
-     text-transform: capitalize; /*uppercase;*/
-     letter-spacing: .05em;
-     margin: 2em 0 0 0;
- }
- 
- .peopleTitle h2
- {
-     font-size: 35px;
- }
-
- #header{
-     text-align: center;
-     font-size: 40px;
- }
-}
-
+{ .personBio img{padding-right: 20px;
+                padding-bottom: 20px;
+                width: 100%;
+                height: auto;
+                max-width: 200px;
+                float: left; }
+ .personBio h1{ font-size: 30px; }
+ .peopleList h1{font-size: 18px; }
+ .card span{    font-size: 12px;
+                font-weight: bold;
+                color: #999;
+                text-transform: capitalize; /*uppercase;*/
+                letter-spacing: .05em;
+                margin: 2em 0 0 0; }
+ .peopleTitle h2{font-size: 35px; }
+ #header{       text-align: center;
+                font-size: 40px; } }
 
 /*Biography formatting for mobile Screens*/
 @media screen and (max-width: 480px) 
-{
- .featured{
-     width: 100%;
- }
- 
- .container{
-     width:100%;
- }
-
- .peopleBio
- {
-     border-radius: 8px;
-     width: 100%;
-     margin: 0;
-     background-color: white;
- }
-
- .personBio img 
- {
-     
-     margin: 0;
-     display: block;
-     padding-right: 250px;
-     padding-bottom: 20px;
-     width: 100%;
-     max-width: 150px;
- }
-
- .personBio
- {
-     min-height: 400px;
-     background-color: rgb(253, 252, 252);
-     padding: 20px;
-     border-radius: 8px;
-     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-     height: 100%;
-     overflow: hidden;
-     margin: 0;
- }
-
- .personBio p{
-     text-align: left;
-     margin: 0;
-     position: relative;
-     display: inline-block;
- }
-
- .newSection
- {
-     width: 100%;
-     margin: auto;
-     margin-bottom: 30px;
- }
-}
-
-/*Formatting for contact icons used*/
-.contactLogo{
-    align-content: center;
-    width: 20px;
-    margin-bottom: 15px;
-}
-
-#scholar{
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
-
-
-/* CSS for card flip template */
-.itemInner{
-    text-align: center;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    perspective: 1000;
-    position: relative;
-}
-
-.itemInner.is-flipped {
-    transform: rotateY(180deg);
-}
-
-.cardFace{
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    overflow: hidden;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
-}
-
-.cardFaceFront{
-    align-items: center;
-    justify-content: center;
-}
-
-.cardFaceFront h2{
-    color: #fff;
-    font-size: 12px;
-}
-
-.cardFaceFront p{
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.frontContent span{
-    color: #999;
-}
-
-.cardFaceBack{
-    background-color: #fff;
-    transform:rotateY(180deg);
-}
-
-.cardContent{
-    width: 100%;
-    position: relative;
-}
-
-.cardHeader{
-    position: relative;
-    padding: 40px 15px 15px;
-}
-
-.cardHeader:after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    border-radius: 0 0 25% 0;
-}
-
-.cardHeader h2{
-    color: #fff;
-    font-size: 32px;
-    font-weight: 900;
-    text-align: center;
-}
-
-#titleName{
-
-    font-size: 26px;
-    margin: 15px;
-}
-.cardBody{
-    padding: 30px;
-    color: black !important;
-    display: block;
-    padding-top: 0px;
-    overflow-y: scroll;
-}
-
-.cardBody::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    background-color: #F5F5F5;
-}
-
-.cardBody::-webkit-scrollbar
-{
-    width: 8px;
-    background-color: #F5F5F5;
-}
-
-.cardBody::-webkit-scrollbar-thumb
-{
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);
-    background-color: #555;
-}
-
-.cardBody h3{
-    color: black !important;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.cardBody p {
-    color: black !important;
-    font-size: 18px;
-    line-height: 1.2;
-}
-
-.cardBody a {
-    margin-top: 10px;
-    display: inline-block;
-}
-
-.itemInner h4{
-    font-size: 30px;
-    color: #fff;
-    text-transform: capitalize;
-}
-
-.itemInner p{
-    font-size: 18px;
-    color: #fff;
-    letter-spacing: 1px;
-}
-
-.contactLogo{
-    align-content: center;
-    margin-right: 15px;
-    width: 20px;
-    margin-bottom: 15px;
-
-}
+{.featured{     width:100%; }
+ .container{    width:100%; }
+ .peopleBio{    border-radius: 8px;
+                width: 100%;
+                margin: 0;
+                background-color: white; }
+ .personBio img{margin: 0;
+                display: block;
+                padding-right: 250px;
+                padding-bottom: 20px;
+                width: 100%;
+                /* Doesn't doo much:         text-align: center; */
+                max-width: 150px; }
+ .personBio{    min-height: 400px;
+                background-color: rgb(253, 252, 252);
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                height: 100%;
+                overflow: hidden;
+                margin: 0; }
+ .personBio p{ text-align: left;
+                margin: 0;
+                position: relative;
+                display: inline-block; }
+ .newSection {  width: 100%;
+                margin: auto;
+                margin-bottom: 30px; }
+ .personImg {   display: block;
+                margin-left: 20px;
+                margin-right: 50px; }                }
