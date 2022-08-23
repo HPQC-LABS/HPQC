@@ -82,7 +82,7 @@
 @media screen and (max-width: 480px) 
 {.featured{     width:100%; }
  .container{    width:100%; }
- .peopleBio{    border-radius: 8px;
+ .peopleBio{    border-radius: 8px; /*for the rounded corners*/
                 width: 100%;
                 margin: 0;
                 background-color: white; }
@@ -91,13 +91,13 @@
                 margin: auto;
                 margin-left: auto;
                 margin-right: auto;
-                padding-left:  110px;
-                padding-right:  80px;
+                padding-left:   100px;
+                padding-right:  100px;
                 padding-bottom: 20px; 
                 width: 50%;
                 /* Doesn't doo much:         text-align: center; */
                 max-width: 150px; }
- .personBio{    min-height: 400px;
+ .personBio{    min-height: 650px;
                 background-color: rgb(253, 252, 252);
                 padding: 20px;
                 border-radius: 8px;
