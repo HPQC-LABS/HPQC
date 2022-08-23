@@ -34,6 +34,7 @@
 .peopleList h1 { font-size: 9px; }
 .personBio img { padding-right: 20px;
                  padding-left: 20px;
+                 padding-top: 25px;
                  padding-bottom: 0px;
                  width: 100%;
                  height: auto;
@@ -85,11 +86,15 @@
                 width: 100%;
                 margin: 0;
                 background-color: white; }
- .personBio img{margin: 0;
+ .personBio img{/*margin: 0;*/
                 display: block;
-                padding-right: 250px;
-                padding-bottom: 20px;
-                width: 100%;
+                margin: auto;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left:  110px;
+                padding-right:  80px;
+                padding-bottom: 20px; 
+                width: 50%;
                 /* Doesn't doo much:         text-align: center; */
                 max-width: 150px; }
  .personBio{    min-height: 400px;
