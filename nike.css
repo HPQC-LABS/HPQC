@@ -29,7 +29,7 @@
                  list-style-position:inside }
 .personBio li {  color: black;
                  display: list-item;
-                 margin-bottom: 5px; }
+                 margin-bottom: 0px; }
 .pubLink { color: black !important; }
 .peopleList h1 { font-size: 9px; }
 .personBio img { padding-right: 20px;
@@ -92,7 +92,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 padding-left:    90px;
-                padding-right:  100px;
+                padding-right:  180px;
                 padding-bottom: 20px; 
                 width: 50%;
                 /* Doesn't doo much:         text-align: center; */
