@@ -1,4 +1,5 @@
 # Procedure for cropping photos for people.html
+================================================
 
 If anything doesn't seem easy, or seems to look different from what's described below, please let at admin know:
 
