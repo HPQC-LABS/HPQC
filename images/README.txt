@@ -1,7 +1,9 @@
-Procedure for cropping photos for people.html
+# Procedure for cropping photos for people.html
 
-1) https://www.img2go.com/
-2) Make Width=270, Height=285
+If anything doesn't seem easy, or seems to look different from what's described below, please let at admin know:
+
+1) https://www.img2go.com/crop-image (drag and drop your photo into the box)
+2) Make the box have dimensions: Width=270, Height=285 (you might have to zoom out to see the boxes where you can type custom values).
 3) Drag the cropping window by a corner, to preserve te aspect ratio.
 4) Select the desired area (include the full face and full hair, but not much more)
 5) Click "Apply"
