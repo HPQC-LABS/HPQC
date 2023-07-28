@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tetrahedron Calculator</title>
+  <link rel="stylesheet" href="tetrahedron.css">
+</head>
+<body>
+  <div style="text-align: center;">
+    <table style="display: inline-block;">
+      <colgroup>
+        <col style="width: 16.66%" />
+        <col style="width: 16.66%" />
+        <col style="width: 16.66%" />
+        <col style="width: 16.66%" />
+        <col style="width: 16.66%" />
+        <col style="width: 16.66%" />
+      </colgroup>
+      <tr>
+        <th colspan="6">Tetrahedron Type</th>
+      </tr>
+      <form name="formA">
+        <tr>
+          <td colspan="2"><input type="radio" name="special_tet" value="0" checked="checked"><label>Irregular tetrahedron</label></td>
+          <td colspan="2"><input type="radio" name="special_tet" value="1"><label>Triangular pyramid</label></td>
+          <td colspan="2"><input type="radio" name="special_tet" value="2"><label>Tetragonal disphenoid</label></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="radio" name="special_tet" value="3"><label>Digonal disphenoid</label></td>
+          <td colspan="2"><input type="radio" name="special_tet" value="4"><label>Rhombic disphenoid</label></td>
+          <td colspan="2"><input type="radio" name="special_tet" value="5"><label>Phyllic disphenoid</label></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="radio" name="special_tet" value="6"><label>Sphenoid</label></td>      
+          <td colspan="2"><input type="radio" name="special_tet" value="7"><label>Regular tetrahedron</label></td>      
+          <td colspan="2"><button id="clear">Clear all fields</button></td>  
+        </tr>
+      </form>
+      <tr>
+        <th colspan="6">Lengths</th>
+      </tr>
+      <tr>
+        <td colspan="2">r1:  <input id="label1" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">r2:  <input id="label2" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">r3:  <input id="label3" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">r4: <input id="label4" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">r5: <input id="label5" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">r6: <input id="label6" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">r7:  <input id="label7" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">r8:  <input id="label8" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">r9:  <input id="label9" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <th colspan="6">Angles</th>
+      </tr>
+      <tr>
+        <td colspan="2">θ1: <input id="angle1" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ2: <input id="angle2" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ3: <input id="angle3" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">θ4:  <input id="angle4" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ5:  <input id="angle5" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ6:  <input id="angle6" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">θ7:  <input id="angle7" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ8:  <input id="angle8" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ9:  <input id="angle9" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">θ10: <input id="angle10" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ11: <input id="angle11" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">θ12: <input id="angle12" type="number" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <th colspan="6">Dihedrals</th>
+      </tr>
+      <tr>
+        <td colspan="3">ABC & ABD: <input id="dihedral1" type="number" placeholder="φ1" onfocusout="validate()"/></td>
+        <td colspan="3">ABC & ACD: <input id="dihedral2" type="number" placeholder="φ2" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="3">ABD & ACD: <input id="dihedral3" type="number" placeholder="φ3" onfocusout="validate()"/></td>
+        <td colspan="3">ACD & BCD: <input id="dihedral4" type="number" placeholder="φ4" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <td colspan="3">ABD & BCD: <input id="dihedral5" type="number" placeholder="φ5" onfocusout="validate()"/></td>
+        <td colspan="3">ABC & BCD: <input id="dihedral6" type="number" placeholder="φ6" onfocusout="validate()"/></td>
+      </tr>
+      <tr>
+        <th colspan="6">Orange: A, Blue: B, Purple: C, Green: D</th>
+      </tr>
+    </table>
+    <svg width="36%" id="triangle" style="text-align:justify;display: inline-block;" viewBox="-8 -6.9282032302755105 416 360.26656797432656">
+      <polygon id="svg-line" points="0 0, 400 0, 200 346.4101615137755"/>
+      <polygon id="svg-line1" points="200 0, 100 173.205081, 300 173.205081"/>
+      <circle id = "p1" cx="0" cy="0" r="1.5%" fill="orange" />
+      <circle id = "p2" cx="200" cy="0" r="1.5%" fill="blue" />
+      <circle id = "p3" cx="400" cy="0" r="1.5%" fill="orange" />
+      <circle id = "p4" cx="300" cy="173.205081" r="1.5%" fill="green" />
+      <circle id = "p5" cx="200" cy="346.4101615137755" r="1.5%" fill="orange" />
+      <circle id = "p6" cx="100" cy="173.205081" r="1.5%" fill="purple" />
+      <text id="pq1" x="184.4" y="204.40508075688774" placeholder="r1" font-size="24.96px">r1</text>
+      <text id="pq2" x="265.6" y="86.60254037844388" placeholder="r1" font-size="24.96px">r2</text>
+      <text id="pq3" x="118.8" y="86.60254037844388" placeholder="r1" font-size="24.96px">r3</text>
+      <text id="pq4" x="84.4" y="31.2" placeholder="r1" font-size="24.96px">r4</text>
+      <text id="pq5" x="65.59999999999998" y="86.60254037844388" placeholder="r1" font-size="24.96px">r5</text>
+      <text id="pq6" x="284.4" y="31.2" placeholder="r1" font-size="24.96px">r6</text>
+      <text id="pq7" x="318.8" y="86.60254037844388" placeholder="r1" font-size="24.96px">r7</text>
+      <text id="pq8" x="165.59999999999994" y="259.8076211353316" placeholder="r1" font-size="24.96px">r8</text>
+      <text id="pq9" x="218.79999999999998" y="259.8076211353316" placeholder="r1" font-size="24.96px">r9</text>
+      <text id="ang" x="190" y="40" placeholder="r1" font-size="24.96px">θ1</text>
+      <text id="ang" x="120" y="165" placeholder="r1" font-size="24.96px">θ2</text>
+      <text id="ang" x="255" y="165" placeholder="r1" font-size="24.96px">θ3</text>
+      <text id="ang" x="150" y="30" placeholder="r1" font-size="24.96px">θ4</text>
+      <text id="ang" x="25" y="30" placeholder="r1" font-size="24.96px">θ5</text>
+      <text id="ang" x="87.5" y="140" placeholder="r1" font-size="24.96px">θ6</text>
+      <text id="ang" x="220" y="30" placeholder="r1" font-size="24.96px">θ7</text>
+      <text id="ang" x="287.5" y="140" placeholder="r1" font-size="24.96px">θ8</text>
+      <text id="ang" x="350" y="30" placeholder="r1" font-size="24.96px">θ9</text>
+      <text id="ang" x="120" y="200" placeholder="r1" font-size="24.96px">θ10</text>
+      <text id="ang" x="180" y="300" placeholder="r1" font-size="24.96px">θ11</text>
+      <text id="ang" x="240" y="200" placeholder="r1" font-size="24.96px">θ12</text>
+    </svg>
+  </div>
+  <script src="tetrahedron.js"></script>
+</body>
+</html>
