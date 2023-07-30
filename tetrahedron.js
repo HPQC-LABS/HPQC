@@ -87,6 +87,13 @@ var a10 = angle10.value*Math.PI/180
 var a11 = angle11.value*Math.PI/180
 var a12 = angle12.value*Math.PI/180
 
+var d1 = dihedral1.value*Math.PI/180
+var d2 = dihedral2.value*Math.PI/180
+var d3 = dihedral3.value*Math.PI/180
+var d4 = dihedral4.value*Math.PI/180
+var d5 = dihedral5.value*Math.PI/180
+var d6 = dihedral6.value*Math.PI/180
+
 //Method for updating the variables
 function update(){
     r1 = label1.value
@@ -119,349 +126,914 @@ function update(){
     a10 = angle10.value*Math.PI/180
     a11 = angle11.value*Math.PI/180
     a12 = angle12.value*Math.PI/180
+    d1 = dihedral1.value*Math.PI/180
+    d2 = dihedral2.value*Math.PI/180
+    d3 = dihedral3.value*Math.PI/180
+    d4 = dihedral4.value*Math.PI/180
+    d5 = dihedral5.value*Math.PI/180
+    d6 = dihedral6.value*Math.PI/180
 }
 
-//Given enough information the method will calculate the missing information
-function validate() {
-    update();
-    //First determines triangle 1
-    let vals1 = 0b000000;
-    if(label1.value != ""){vals1 |= 0b100000}
-    if(label2.value != ""){vals1 |= 0b010000}
-    if(label3.value != ""){vals1 |= 0b001000}
-    if(angle1.value != ""){vals1 |= 0b000100}
-    if(angle2.value != ""){vals1 |= 0b000010}
-    if(angle3.value != ""){vals1 |= 0b000001}
-    if((vals1 & 0b111000) === 0b111000){
-        angle1.value = (180/Math.PI*Math.acos((r2_2+r3_2-r1_2)/(2*r2*r3))).toFixed(4)
-        angle2.value = (180/Math.PI*Math.acos((r1_2+r3_2-r2_2)/(2*r1*r3))).toFixed(4)
-        angle3.value = (180/Math.PI*Math.acos((r1_2+r2_2-r3_2)/(2*r1*r2))).toFixed(4)
-    }else if((vals1 & 0b110001) === 0b110001){
-        label3.value = (Math.sqrt(r1_2+r2_2-2*r1*r2*Math.cos(a3))).toFixed(4)
+var flags = 0b000000000000000000000000000;
+function setFlags(){
+    if(label1.value != ""){flags |= 0b100000000000000000000000000}
+    if(label2.value != ""){flags |= 0b010000000000000000000000000}
+    if(label3.value != ""){flags |= 0b001000000000000000000000000}
+    if(label4.value != ""){flags |= 0b000100000000000000000000000}
+    if(label5.value != ""){flags |= 0b000010000000000000000000000}
+    if(label6.value != ""){flags |= 0b000001000000000000000000000}
+    if(label7.value != ""){flags |= 0b000000100000000000000000000}
+    if(label8.value != ""){flags |= 0b000000010000000000000000000}
+    if(label9.value != ""){flags |= 0b000000001000000000000000000}
+
+    if(angle1.value != ""){flags |= 0b000000000100000000000000000}
+    if(angle2.value != ""){flags |= 0b000000000010000000000000000}
+    if(angle3.value != ""){flags |= 0b000000000001000000000000000}
+    if(angle4.value != ""){flags |= 0b000000000000100000000000000}
+    if(angle5.value != ""){flags |= 0b000000000000010000000000000}
+    if(angle6.value != ""){flags |= 0b000000000000001000000000000}
+    if(angle7.value != ""){flags |= 0b000000000000000100000000000}
+    if(angle8.value != ""){flags |= 0b000000000000000010000000000}
+    if(angle9.value != ""){flags |= 0b000000000000000001000000000}
+    if(angle10.value != ""){flags |= 0b000000000000000000100000000}
+    if(angle11.value != ""){flags |= 0b000000000000000000010000000}
+    if(angle12.value != ""){flags |= 0b000000000000000000001000000}
+   
+    if(dihedral1.value != ""){flags |= 0b000000000000000000000100000}
+    if(dihedral2.value != ""){flags |= 0b000000000000000000000010000}
+    if(dihedral3.value != ""){flags |= 0b000000000000000000000001000}
+    if(dihedral4.value != ""){flags |= 0b000000000000000000000000100}
+    if(dihedral5.value != ""){flags |= 0b000000000000000000000000010}
+    if(dihedral6.value != ""){flags |= 0b000000000000000000000000001}
+}
+
+function lock1(){
+    label1.disabled = true;
+    label2.disabled = true;
+    label3.disabled = true;
+    angle1.disabled = true;
+    angle2.disabled = true;
+    angle3.disabled = true;
+}
+
+function lock2(){
+    label3.disabled = true;
+    label4.disabled = true;
+    label5.disabled = true;
+    angle4.disabled = true;
+    angle5.disabled = true;
+    angle6.disabled = true;
+}
+
+function lock3(){
+    label2.disabled = true;
+    label6.disabled = true;
+    label7.disabled = true;
+    angle7.disabled = true;
+    angle8.disabled = true;
+    angle9.disabled = true;
+}
+
+function lock4(){
+    label1.disabled = true;
+    label8.disabled = true;
+    label9.disabled = true;
+    angle10.disabled = true;
+    angle11.disabled = true;
+    angle12.disabled = true;
+}
+
+function validate(){
+    let changed = true;
+    let count = 0;
+    setFlags();
+    while(changed && count<100){
+        count += 1;
         update();
-        angle1.value = (180/Math.PI*Math.acos((r2_2+r3_2-r1_2)/(2*r2*r3))).toFixed(4)
-        angle2.value = (180/Math.PI*Math.acos((r1_2+r3_2-r2_2)/(2*r1*r3))).toFixed(4)
-    }else if((vals1 & 0b101010) === 0b101010){
-        label2.value = (Math.sqrt(r1_2+r3_2-2*r1*r3*Math.cos(a2))).toFixed(4)
-        update();
-        angle1.value = (180/Math.PI*Math.acos((r2_2+r3_2-r1_2)/(2*r2*r3))).toFixed(4)
-        angle3.value = (180/Math.PI*Math.acos((r1_2+r2_2-r3_2)/(2*r1*r2))).toFixed(4)
-    }else if((vals1 & 0b011100) === 0b011100){
-        label1.value = (Math.sqrt(r2_2+r3_2-2*r2*r3*Math.cos(a1))).toFixed(4)
-        update();
-        angle2.value = (180/Math.PI*Math.acos((r1_2+r3_2-r2_2)/(2*r1*r3))).toFixed(4)
-        angle3.value = (180/Math.PI*Math.acos((r1_2+r2_2-r3_2)/(2*r1*r2))).toFixed(4)
-    }else if((vals1 & 0b100111) === 0b100111){
-        label2.value = (r1*Math.sin(a2)/Math.sin(a1)).toFixed(4)
-        label3.value = (r1*Math.sin(a3)/Math.sin(a1)).toFixed(4)
-    }else if((vals1 & 0b010111) === 0b010111){
-        label1.value = (r2*Math.sin(a1)/Math.sin(a2)).toFixed(4)
-        label3.value = (r2*Math.sin(a3)/Math.sin(a2)).toFixed(4)
-    }else if((vals1 & 0b001111) === 0b001111){
-        label1.value = (r3*Math.sin(a1)/Math.sin(a3)).toFixed(4)
-        label2.value = (r3*Math.sin(a2)/Math.sin(a3)).toFixed(4)
-    }else if((vals1 & 0b000011) === 0b000011){
-        angle1.value = (180-angle2.value-angle3.value).toFixed(4)
-    }else if((vals1 & 0b000101) === 0b000101){
-        angle2.value = (180-angle1.value-angle3.value).toFixed(4)
-    }else if((vals1 & 0b000110) === 0b000110){
-        angle3.value = (180-angle2.value-angle1.value).toFixed(4)
+        //unlock();
+        //Complete using lengths
+        //Triangle 1
+        if(((flags & 0b111000000000000000000000000) === 0b111000000000000000000000000) && ((flags & 0b000000000111000000000000000) != 0b000000000111000000000000000)){
+            angle1.value = (180/Math.PI*Math.acos((r2_2+r3_2-r1_2)/(2*r2*r3))).toFixed(4)
+            angle2.value = (180/Math.PI*Math.acos((r1_2+r3_2-r2_2)/(2*r1*r3))).toFixed(4)
+            angle3.value = (180/Math.PI*Math.acos((r1_2+r2_2-r3_2)/(2*r1*r2))).toFixed(4)
+            lock1();
+            changed = true
+        }else if(((flags & 0b110000000001000000000000000) === 0b110000000001000000000000000) && ((flags & 0b001000000000000000000000000) !== 0b001000000000000000000000000)){
+            label3.value = (Math.sqrt(r1_2+r2_2-2*r1*r2*Math.cos(a3))).toFixed(4)
+            lock1();
+            changed = true
+        }else if(((flags & 0b101000000010000000000000000) === 0b101000000010000000000000000) && ((flags & 0b010000000000000000000000000) !== 0b010000000000000000000000000)){
+            label2.value = (Math.sqrt(r1_2+r3_2-2*r1*r3*Math.cos(a2))).toFixed(4)
+            lock1();
+            changed = true
+        }else if(((flags & 0b011000000100000000000000000) === 0b011000000100000000000000000) && ((flags & 0b100000000000000000000000000) !== 0b100000000000000000000000000)){
+            label1.value = (Math.sqrt(r2_2+r3_2-2*r2*r3*Math.cos(a1))).toFixed(4)
+            lock1();
+            changed = true
+        }else if(((flags & 0b100000000111000000000000000) === 0b100000000111000000000000000) && ((flags & 0b011000000000000000000000000) !== 0b011000000000000000000000000)){
+            label2.value = (r1*Math.sin(a2)/Math.sin(a1)).toFixed(4)
+            label3.value = (r1*Math.sin(a3)/Math.sin(a1)).toFixed(4)
+            lock1();
+            changed = true
+        }else if(((flags & 0b010000000111000000000000000) === 0b010000000111000000000000000) && ((flags & 0b101000000000000000000000000) !== 0b101000000000000000000000000)){
+            label1.value = (r2*Math.sin(a1)/Math.sin(a2)).toFixed(4)
+            label3.value = (r2*Math.sin(a3)/Math.sin(a2)).toFixed(4)
+            lock1();
+            changed = true
+        }else if(((flags & 0b001000000111000000000000000) === 0b001000000111000000000000000) && ((flags & 0b110000000000000000000000000) !== 0b110000000000000000000000000)){
+            label1.value = (r3*Math.sin(a1)/Math.sin(a3)).toFixed(4)
+            label2.value = (r3*Math.sin(a2)/Math.sin(a3)).toFixed(4)
+            lock1();
+            changed = true
+        }
+        //Triangle 2
+        else if(((flags & 0b001110000000000000000000000) === 0b001110000000000000000000000) && ((flags & 0b000000000000111000000000000) != 0b000000000000111000000000000)){
+            angle5.value = (180/Math.PI*Math.acos((r4_2+r5_2-r3_2)/(2*r4*r5))).toFixed(4)
+            angle6.value = (180/Math.PI*Math.acos((r3_2+r5_2-r4_2)/(2*r3*r5))).toFixed(4)
+            angle4.value = (180/Math.PI*Math.acos((r3_2+r4_2-r5_2)/(2*r3*r4))).toFixed(4)
+            lock2();
+            changed = true
+        }else if(((flags & 0b001100000000100000000000000) === 0b001100000000100000000000000) && ((flags & 0b000010000000000000000000000) !== 0b000010000000000000000000000)){
+            label5.value = (Math.sqrt(r3_2+r4_2-2*r3*r4*Math.cos(a4))).toFixed(4)
+            lock2();
+            changed = true
+        }else if(((flags & 0b001010000000001000000000000) === 0b001010000000001000000000000) && ((flags & 0b000100000000000000000000000) !== 0b000100000000000000000000000)){
+            label4.value = (Math.sqrt(r3_2+r5_2-2*r3*r5*Math.cos(a6))).toFixed(4)
+            lock2();
+            changed = true
+        }else if(((flags & 0b000110000000010000000000000) === 0b000110000000010000000000000) && ((flags & 0b001000000000000000000000000) !== 0b001000000000000000000000000)){
+            label3.value = (Math.sqrt(r4_2+r5_2-2*r4*r5*Math.cos(a5))).toFixed(4)
+            lock2();
+            changed = true
+        }
+        else if(((flags & 0b001000000000111000000000000) === 0b001000000000111000000000000) && ((flags & 0b000110000000000000000000000) !== 0b000110000000000000000000000)){
+            label4.value = (r3*Math.sin(a6)/Math.sin(a5)).toFixed(4)
+            label5.value = (r3*Math.sin(a4)/Math.sin(a5)).toFixed(4)
+            lock2();
+            changed = true
+        }else if(((flags & 0b000100000000111000000000000) === 0b000100000000111000000000000) && ((flags & 0b001010000000000000000000000) !== 0b001010000000000000000000000)){
+            label3.value = (r4*Math.sin(a5)/Math.sin(a6)).toFixed(4)
+            label5.value = (r4*Math.sin(a4)/Math.sin(a6)).toFixed(4)
+            lock2();
+            changed = true
+        }else if(((flags & 0b000010000000111000000000000) === 0b000010000000111000000000000) && ((flags & 0b001100000000000000000000000) !== 0b001100000000000000000000000)){
+            label3.value = (r5*Math.sin(a5)/Math.sin(a4)).toFixed(4)
+            label4.value = (r5*Math.sin(a6)/Math.sin(a4)).toFixed(4)
+            lock2();
+            changed = true
+        }
+        //Triangle 3
+        else if(((flags & 0b010001100000000000000000000) === 0b010001100000000000000000000) && ((flags & 0b000000000000000111000000000) != 0b000000000000000111000000000)){
+            angle9.value = (180/Math.PI*Math.acos((r6_2+r7_2-r2_2)/(2*r6*r7))).toFixed(4)
+            angle8.value = (180/Math.PI*Math.acos((r2_2+r7_2-r6_2)/(2*r2*r7))).toFixed(4)
+            angle7.value = (180/Math.PI*Math.acos((r2_2+r6_2-r7_2)/(2*r2*r6))).toFixed(4)
+            lock3();
+            changed = true
+        }else if(((flags & 0b010001000000000100000000000) === 0b010001000000000100000000000) && ((flags & 0b000000100000000000000000000) !== 0b000000100000000000000000000)){
+            label7.value = (Math.sqrt(r2_2+r6_2-2*r2*r6*Math.cos(a7))).toFixed(4)
+            lock3();
+            changed = true
+        }else if(((flags & 0b010000100000000010000000000) === 0b010000100000000010000000000) && ((flags & 0b000001000000000000000000000) !== 0b000001000000000000000000000)){
+            label6.value = (Math.sqrt(r2_2+r7_2-2*r2*r7*Math.cos(a8))).toFixed(4)
+            lock3();
+            changed = true
+        }else if(((flags & 0b000001100000000100000000000) === 0b000001100000000100000000000) && ((flags & 0b010000000000000000000000000) !== 0b010000000000000000000000000)){
+            label2.value = (Math.sqrt(r6_2+r7_2-2*r6*r7*Math.cos(a9))).toFixed(4)
+            lock3();
+            changed = true
+        }
+        else if(((flags & 0b010000000000000111000000000) === 0b010000000000000111000000000) && ((flags & 0b000001100000000000000000000) !== 0b000001100000000000000000000)){
+            label6.value = (r2*Math.sin(a8)/Math.sin(a9)).toFixed(4)
+            label7.value = (r2*Math.sin(a7)/Math.sin(a9)).toFixed(4)
+            lock3();
+            changed = true
+        }else if(((flags & 0b000001000000000111000000000) === 0b000001000000000111000000000) && ((flags & 0b010000100000000000000000000) !== 0b010000100000000000000000000)){
+            label2.value = (r6*Math.sin(a9)/Math.sin(a8)).toFixed(4)
+            label7.value = (r6*Math.sin(a7)/Math.sin(a8)).toFixed(4)
+            lock3();
+            changed = true
+        }else if(((flags & 0b000000100000000111000000000) === 0b000000100000000111000000000) && ((flags & 0b010001000000000000000000000) !== 0b010001000000000000000000000)){
+            label2.value = (r7*Math.sin(a9)/Math.sin(a7)).toFixed(4)
+            label6.value = (r7*Math.sin(a8)/Math.sin(a7)).toFixed(4)
+            lock3();
+            changed = true
+        }
+        //Triangle 4
+        else if(((flags & 0b100000011000000000000000000) === 0b100000011000000000000000000) && ((flags & 0b000000000000000000111000000) != 0b000000000000000000111000000)){
+            angle11.value = (180/Math.PI*Math.acos((r8_2+r9_2-r1_2)/(2*r8*r9))).toFixed(4)
+            angle12.value = (180/Math.PI*Math.acos((r1_2+r9_2-r8_2)/(2*r1*r9))).toFixed(4)
+            angle10.value = (180/Math.PI*Math.acos((r1_2+r8_2-r9_2)/(2*r1*r8))).toFixed(4)
+            lock4();
+            changed = true
+        }else if(((flags & 0b100000010000000000100000000) === 0b100000010000000000100000000) && ((flags & 0b000000001000000000000000000) !== 0b000000001000000000000000000)){
+            label9.value = (Math.sqrt(r1_2+r8_2-2*r1*r8*Math.cos(a10))).toFixed(4)
+            lock4();
+            changed = true
+        }else if(((flags & 0b100000001000000000001000000) === 0b100000001000000000001000000) && ((flags & 0b000000010000000000000000000) !== 0b000000010000000000000000000)){
+            label8.value = (Math.sqrt(r1_2+r9_2-2*r1*r9*Math.cos(a12))).toFixed(4)
+            lock4();
+            changed = true
+        }else if(((flags & 0b000000011000000000010000000) === 0b000000011000000000010000000) && ((flags & 0b100000000000000000000000000) !== 0b100000000000000000000000000)){
+            label1.value = (Math.sqrt(r8_2+r9_2-2*r8*r9*Math.cos(a11))).toFixed(4)
+            lock4();
+            changed = true
+        }
+        else if(((flags & 0b100000000000000000111000000) === 0b100000000000000000111000000) && ((flags & 0b000000011000000000000000000) !== 0b000000011000000000000000000)){
+            label8.value = (r1*Math.sin(a12)/Math.sin(a11)).toFixed(4)
+            label9.value = (r1*Math.sin(a10)/Math.sin(a11)).toFixed(4)
+            lock4();
+            changed = true
+        }else if(((flags & 0b000000010000000000111000000) === 0b000000010000000000111000000) && ((flags & 0b100000001000000000000000000) !== 0b100000001000000000000000000)){
+            label1.value = (r8*Math.sin(a11)/Math.sin(a12)).toFixed(4)
+            label9.value = (r8*Math.sin(a10)/Math.sin(a12)).toFixed(4)
+            lock4();
+            changed = true
+        }else if(((flags & 0b000000001000000000111000000) === 0b000000001000000000111000000) && ((flags & 0b100000010000000000000000000) !== 0b100000010000000000000000000)){
+            label1.value = (r9*Math.sin(a11)/Math.sin(a10)).toFixed(4)
+            label8.value = (r9*Math.sin(a12)/Math.sin(a10)).toFixed(4)
+            lock4();
+            changed = true
+        }
+        //Only angles
+        //Triangle 1
+        else if(((flags & 0b000000000011000000000000000) === 0b000000000011000000000000000) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
+            angle1.value = (180-angle2.value-angle3.value).toFixed(4)
+            angle1.disabled = true;
+            angle2.disabled = true;
+            angle3.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000101000000000000000) === 0b000000000101000000000000000) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
+            angle2.value = (180-angle1.value-angle3.value).toFixed(4)
+            angle1.disabled = true;
+            angle2.disabled = true;
+            angle3.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000110000000000000000) === 0b000000000110000000000000000) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
+            angle3.value = (180-angle2.value-angle1.value).toFixed(4)
+            angle1.disabled = true;
+            angle2.disabled = true;
+            angle3.disabled = true;
+            changed = true
+        }//Triangle 2
+        else if(((flags & 0b000000000000011000000000000) === 0b000000000000011000000000000) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
+            angle4.value = (180-angle5.value-angle6.value).toFixed(4)
+            angle4.disabled = true;
+            angle5.disabled = true;
+            angle6.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000101000000000000) === 0b000000000000101000000000000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
+            angle5.value = (180-angle4.value-angle6.value).toFixed(4)
+            angle4.disabled = true;
+            angle5.disabled = true;
+            angle6.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000110000000000000) === 0b000000000000110000000000000) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
+            angle6.value = (180-angle4.value-angle5.value).toFixed(4)
+            angle4.disabled = true;
+            angle5.disabled = true;
+            angle6.disabled = true;
+            changed = true
+        }//Triangle 3
+        else if(((flags & 0b000000000000000011000000000) === 0b000000000000000011000000000) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
+            angle7.value = (180-angle8.value-angle9.value).toFixed(4)
+            angle7.disabled = true;
+            angle8.disabled = true;
+            angle9.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000101000000000) === 0b000000000000000101000000000) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
+            angle8.value = (180-angle7.value-angle9.value).toFixed(4)
+            angle7.disabled = true;
+            angle8.disabled = true;
+            angle9.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000110000000000) === 0b000000000000000110000000000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
+            angle9.value = (180-angle7.value-angle8.value).toFixed(4)
+            angle7.disabled = true;
+            angle8.disabled = true;
+            angle9.disabled = true;
+            changed = true
+        }//Triangle 4
+        else if(((flags & 0b000000000000000000011000000) === 0b000000000000000000011000000) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
+            angle10.value = (180-angle11.value-angle12.value).toFixed(4)
+            angle10.disabled = true;
+            angle11.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000000101000000) === 0b000000000000000000101000000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
+            angle11.value = (180-angle10.value-angle12.value).toFixed(4)
+            angle10.disabled = true;
+            angle11.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000000110000000) === 0b000000000000000000110000000) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
+            angle12.value = (180-angle10.value-angle11.value).toFixed(4)
+            angle10.disabled = true;
+            angle11.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }
+        //Dihedral 1 with angles 1,4,7
+        else if(((flags & 0b000000000100100100000000000) === 0b000000000100100100000000000) && ((flags & 0b000000000000000000000100000) !== 0b000000000000000000000100000)){
+            dihedral1.value = 180*Math.acos((Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7)))/Math.PI
+            dihedral1.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000100100000000100000) === 0b000000000100100000000100000) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
+            angle7.value = inverse_dihedral(Math.cos(d1)*Math.sin(a4),Math.cos(a4),Math.cos(a1))
+            dihedral1.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000100000100000100000) === 0b000000000100000100000100000) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
+            angle4.value = inverse_dihedral(Math.cos(d1)*Math.sin(a7),Math.cos(a7),Math.cos(a1))
+            dihedral1.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000100100000100000) === 0b000000000000100100000100000) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
+            angle1.value = 180*Math.acos(Math.cos(d1)*Math.sin(a4)*Math.sin(a7)+Math.cos(a4)*Math.cos(a7))/Math.PI
+            dihedral1.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }
+        //Dihedral 1 with angles 5,9,11
+        else if(((flags & 0b000000000000010001010000000) === 0b000000000000010001010000000) && ((flags & 0b000000000000000000000100000) !== 0b000000000000000000000100000)){
+            dihedral1.value = 180*Math.acos((Math.cos(a11)-Math.cos(a5)*Math.cos(a9))/(Math.sin(a5)*Math.sin(a9)))/Math.PI
+            dihedral1.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000010001000100000) === 0b000000000000010001000100000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
+            angle11.value = 180*Math.acos(Math.cos(d1)*Math.sin(a5)*Math.sin(a9)+Math.cos(a5)*Math.cos(a9))/Math.PI
+            dihedral1.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000010000010100000) === 0b000000000000010000010100000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
+            angle9.value = inverse_dihedral(Math.cos(d1)*Math.sin(a5),Math.cos(a5),Math.cos(a11))
+            dihedral1.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000001010100000) === 0b000000000000000001010100000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
+            angle5.value = inverse_dihedral(Math.cos(d1)*Math.sin(a9),Math.cos(a9),Math.cos(a11))
+            dihedral1.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }
+        //Dihedral 2 with angles 2,6,10
+        else if(((flags & 0b000000000010001000100000000) === 0b000000000010001000100000000) && ((flags & 0b000000000000000000000010000) !== 0b000000000000000000000010000)){
+            dihedral2.value = 180*Math.acos((Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10)))/Math.PI
+            dihedral2.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000010001000000010000) === 0b000000000010001000000010000) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
+            angle10.value = inverse_dihedral(Math.cos(d2)*Math.sin(a6),Math.cos(a6),Math.cos(a2))
+            dihedral2.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000010000000100010000) === 0b000000000010000000100010000) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
+            angle6.value = inverse_dihedral(Math.cos(d2)*Math.sin(a10),Math.cos(a10),Math.cos(a2))
+            dihedral2.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000001000100010000) === 0b000000000000001000100010000) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
+            angle2.value = 180*Math.acos(Math.cos(d2)*Math.sin(a6)*Math.sin(a10)+Math.cos(a6)*Math.cos(a10))/Math.PI
+            dihedral2.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }
+        //Dihedral 2 with angles 5,9,11
+        else if(((flags & 0b000000000000010001010000000) === 0b000000000000010001010000000) && ((flags & 0b000000000000000000000010000) !== 0b000000000000000000000010000)){
+            dihedral2.value = 180*Math.acos((Math.cos(a9)-Math.cos(a5)*Math.cos(a11))/(Math.sin(a5)*Math.sin(a11)))/Math.PI
+            dihedral2.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000010001000010000) === 0b000000000000010001000010000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
+            angle11.value = inverse_dihedral(Math.cos(d2)*Math.sin(a5),Math.cos(a5),Math.cos(a9))
+            dihedral2.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000010000010010000) === 0b000000000000010000010010000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
+            angle9.value = 180*Math.acos(Math.cos(d2)*Math.sin(a5)*Math.sin(a11)+Math.cos(a5)*Math.cos(a11))/Math.PI
+            dihedral2.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000001010010000) === 0b000000000000000001010010000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
+            angle5.value = inverse_dihedral(Math.cos(d2)*Math.sin(a11),Math.cos(a11),Math.cos(a9))
+            dihedral2.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }
+        //Dihedral 3 with angles 3,8,12
+        else if(((flags & 0b000000000001000010001000000) === 0b000000000001000010001000000) && ((flags & 0b000000000000000000000001000) !== 0b000000000000000000000001000)){
+            dihedral3.value = 180*Math.acos((Math.cos(a3)-Math.cos(a8)*Math.cos(a12))/(Math.sin(a8)*Math.sin(a12)))/Math.PI
+            dihedral3.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000001000010000001000) === 0b000000000001000010000001000) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
+            angle12.value = inverse_dihedral(Math.cos(d3)*Math.sin(a8),Math.cos(a8),Math.cos(a3))
+            dihedral3.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000001000000001001000) === 0b000000000001000000001001000) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
+            angle8.value = inverse_dihedral(Math.cos(d3)*Math.sin(a12),Math.cos(a12),Math.cos(a3))
+            dihedral3.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000010001001000) === 0b000000000000000010001001000) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
+            angle3.value = 180*Math.acos(Math.cos(d3)*Math.sin(a8)*Math.sin(a12)+Math.cos(a8)*Math.cos(a12))/Math.PI
+            dihedral3.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }
+        //Dihedral 3 with angles 5,9,11
+        else if(((flags & 0b000000000000010001010000000) === 0b000000000000010001010000000) && ((flags & 0b000000000000000000000001000) !== 0b000000000000000000000001000)){
+            dihedral3.value = 180*Math.acos((Math.cos(a5)-Math.cos(a9)*Math.cos(a11))/(Math.sin(a9)*Math.sin(a11)))/Math.PI
+            dihedral3.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000010001000001000) === 0b000000000000010001000001000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
+            angle11.value = inverse_dihedral(Math.cos(d3)*Math.sin(a9),Math.cos(a9),Math.cos(a5))
+            dihedral3.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000010000010001000) === 0b000000000000010000010001000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
+            angle9.value = inverse_dihedral(Math.cos(d3)*Math.sin(a11),Math.cos(a11),Math.cos(a5))
+            dihedral3.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000001010001000) === 0b000000000000000001010001000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
+            angle5.value = 180*Math.acos(Math.cos(d3)*Math.sin(a9)*Math.sin(a11)+Math.cos(a9)*Math.cos(a11))/Math.PI
+            dihedral3.disabled = true;
+            angle5.disabled = true;
+            angle9.disabled = true;
+            angle11.disabled = true;
+            changed = true
+        }
+        //Dihedral 4 with angles 3,8,12
+        else if(((flags & 0b000000000001000010001000000) === 0b000000000001000010001000000) && ((flags & 0b000000000000000000000000100) !== 0b000000000000000000000000100)){
+            dihedral4.value = 180*Math.acos((Math.cos(a8)-Math.cos(a3)*Math.cos(a12))/(Math.sin(a3)*Math.sin(a12)))/Math.PI
+            dihedral4.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000001000010000000100) === 0b000000000001000010000000100) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
+            angle12.value = inverse_dihedral(Math.cos(d4)*Math.sin(a3),Math.cos(a3),Math.cos(a8))
+            dihedral4.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000001000000001000100) === 0b000000000001000000001000100) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
+            angle8.value = 180*Math.acos(Math.cos(d4)*Math.sin(a3)*Math.sin(a12)+Math.cos(a3)*Math.cos(a12))/Math.PI
+            dihedral4.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000010001000100) === 0b000000000000000010001000100) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
+            angle3.value = inverse_dihedral(Math.cos(d4)*Math.sin(a12),Math.cos(a12),Math.cos(a8))
+            dihedral4.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }
+        //Dihedral 4 with angles 2,6,10
+        else if(((flags & 0b000000000010001000100000000) === 0b000000000010001000100000000) && ((flags & 0b000000000000000000000000100) !== 0b000000000000000000000000100)){
+            dihedral4.value = 180*Math.acos((Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10)))/Math.PI
+            dihedral4.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000010001000000000100) === 0b000000000010001000000000100) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
+            angle10.value = inverse_dihedral(Math.cos(d4)*Math.sin(a2),Math.cos(a2),Math.cos(a6))
+            dihedral4.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000010000000100000100) === 0b000000000010000000100000100) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
+            angle6.value = 180*Math.acos(Math.cos(d4)*Math.sin(a2)*Math.sin(a10)+Math.cos(a2)*Math.cos(a10))/Math.PI
+            dihedral4.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000001000100000100) === 0b000000000000001000100000100) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
+            angle2.value = inverse_dihedral(Math.cos(d4)*Math.sin(a10),Math.cos(a10),Math.cos(a6))
+            dihedral4.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }
+        //Dihedral 5 with angles 3,8,12
+        else if(((flags & 0b000000000001000010001000000) === 0b000000000001000010001000000) && ((flags & 0b000000000000000000000000010) !== 0b000000000000000000000000010)){
+            dihedral5.value = 180*Math.acos((Math.cos(a8)-Math.cos(a3)*Math.cos(a12))/(Math.sin(a3)*Math.sin(a12)))/Math.PI
+            dihedral5.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000001000010000000010) === 0b000000000001000010000000010) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
+            angle12.value = 180*Math.acos(Math.cos(d5)*Math.sin(a3)*Math.sin(a8)+Math.cos(a3)*Math.cos(a8))/Math.PI
+            dihedral5.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000001000000001000010) === 0b000000000001000000001000010) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
+            angle8.value = inverse_dihedral(Math.cos(d5)*Math.sin(a3),Math.cos(a3),Math.cos(a12))
+            dihedral5.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000000010001000010) === 0b000000000000000010001000010) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
+            angle3.value = inverse_dihedral(Math.cos(d5)*Math.sin(a8),Math.cos(a8),Math.cos(a12))
+            dihedral5.disabled = true;
+            angle3.disabled = true;
+            angle8.disabled = true;
+            angle12.disabled = true;
+            changed = true
+        }
+        //Dihedral 5 with angles 1,4,7
+        else if(((flags & 0b000000000100100100000000000) === 0b000000000100100100000000000) && ((flags & 0b000000000000000000000000010) !== 0b000000000000000000000000010)){
+            dihedral5.value = 180*Math.acos((Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7)))/Math.PI
+            dihedral5.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000100100000000000010) === 0b000000000100100000000000010) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
+            angle7.value = inverse_dihedral(Math.cos(d5)*Math.sin(a1),Math.cos(a1),Math.cos(a4))
+            dihedral5.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000100000100000000010) === 0b000000000100000100000000010) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
+            angle4.value = 180*Math.acos(Math.cos(d5)*Math.sin(a1)*Math.sin(a7)+Math.cos(a1)*Math.cos(a7))/Math.PI
+            dihedral5.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000100100000000010) === 0b000000000000100100000000010) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
+            angle1.value = inverse_dihedral(Math.cos(d5)*Math.sin(a7),Math.cos(a7),Math.cos(a4))
+            dihedral5.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }
+        //Dihedral 6 with angles 1,4,7
+        else if(((flags & 0b000000000100100100000000000) === 0b000000000100100100000000000) && ((flags & 0b000000000000000000000000001) !== 0b000000000000000000000000001)){
+            dihedral6.value = 180*Math.acos((Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7)))/Math.PI
+            dihedral6.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000100100000000000001) === 0b000000000100100000000000001) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
+            angle7.value = 180*Math.acos(Math.cos(d6)*Math.sin(a1)*Math.sin(a4)+Math.cos(a1)*Math.cos(a4))/Math.PI
+            dihedral6.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000100000100000000001) === 0b000000000100000100000000001) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
+            angle4.value = inverse_dihedral(Math.cos(d6)*Math.sin(a1),Math.cos(a1),Math.cos(a7))
+            dihedral6.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000100100000000001) === 0b000000000000100100000000001) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
+            angle1.value = inverse_dihedral(Math.cos(d6)*Math.sin(a4),Math.cos(a4),Math.cos(a7))
+            dihedral6.disabled = true;
+            angle1.disabled = true;
+            angle4.disabled = true;
+            angle7.disabled = true;
+            changed = true
+        }
+        //Dihedral 6 with angles 2,6,10
+        else if(((flags & 0b000000000010001000100000000) === 0b000000000010001000100000000) && ((flags & 0b000000000000000000000000001) !== 0b000000000000000000000000001)){
+            dihedral6.value = 180*Math.acos((Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10)))/Math.PI
+            dihedral6.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000010001000000000001) === 0b000000000010001000000000001) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
+            angle10.value = 180*Math.acos(Math.cos(d4)*Math.sin(a2)*Math.sin(a6)+Math.cos(a2)*Math.cos(a6))/Math.PI
+            dihedral6.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000010000000100000001) === 0b000000000010000000100000001) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
+            angle6.value = inverse_dihedral(Math.cos(d4)*Math.sin(a2),Math.cos(a2),Math.cos(a10))
+            dihedral6.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }else if(((flags & 0b000000000000001000100000001) === 0b000000000000001000100000001) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
+            angle2.value = inverse_dihedral(Math.cos(d4)*Math.sin(a6),Math.cos(a6),Math.cos(a10))
+            dihedral6.disabled = true;
+            angle2.disabled = true;
+            angle6.disabled = true;
+            angle10.disabled = true;
+            changed = true
+        }
+        else{
+            changed = false
+        }
+        setFlags();
     }
 
-    //First determines triangle 2
-    let vals2 = 0b000000;
-    if(label3.value != ""){vals2 |= 0b100000}
-    if(label4.value != ""){vals2 |= 0b010000}
-    if(label5.value != ""){vals2 |= 0b001000}
-    if(angle5.value != ""){vals2 |= 0b000100}
-    if(angle6.value != ""){vals2 |= 0b000010}
-    if(angle4.value != ""){vals2 |= 0b000001}
-    if((vals2 & 0b111000) === 0b111000){
-        angle5.value = (180/Math.PI*Math.acos((r4_2+r5_2-r3_2)/(2*r4*r5))).toFixed(4)
-        angle6.value = (180/Math.PI*Math.acos((r3_2+r5_2-r4_2)/(2*r3*r5))).toFixed(4)
-        angle4.value = (180/Math.PI*Math.acos((r3_2+r4_2-r5_2)/(2*r3*r4))).toFixed(4)
-    }else if((vals2 & 0b110001) === 0b110001){
-        label5.value = (Math.sqrt(r3_2+r4_2-2*r3*r4*Math.cos(a4))).toFixed(4)
-        update();
-        angle5.value = (180/Math.PI*Math.acos((r4_2+r6_2-r5_2)/(2*r4*r6))).toFixed(4)
-        angle6.value = (180/Math.PI*Math.acos((r4_2+r5_2-r6_2)/(2*r4*r5))).toFixed(4)
-    }else if((vals2 & 0b101010) === 0b101010){
-        label4.value = (Math.sqrt(r3_2+r5_2-2*r3*r5*Math.cos(a6))).toFixed(4)
-        update();
-        angle5.value = (180/Math.PI*Math.acos((r4_2+r6_2-r5_2)/(2*r4*r6))).toFixed(4)
-        angle4.value = (180/Math.PI*Math.acos((r5_2+r6_2-r4_2)/(2*r5*r6))).toFixed(4)
-    }else if((vals2 & 0b011100) === 0b011100){
-        label3.value = (Math.sqrt(r4_2+r5_2-2*r4*r5*Math.cos(a5))).toFixed(4)
-        update();
-        angle6.value = (180/Math.PI*Math.acos((r4_2+r5_2-r6_2)/(2*r4*r5))).toFixed(4)
-        angle4.value = (180/Math.PI*Math.acos((r5_2+r6_2-r4_2)/(2*r5*r6))).toFixed(4)
-    }else if((vals2 & 0b100111) === 0b100111){
-        label4.value = (r3*Math.sin(a6)/Math.sin(a5)).toFixed(4)
-        label5.value = (r3*Math.sin(a4)/Math.sin(a5)).toFixed(4)
-    }else if((vals2 & 0b010111) === 0b010111){
-        label3.value = (r4*Math.sin(a5)/Math.sin(a6)).toFixed(4)
-        label5.value = (r4*Math.sin(a4)/Math.sin(a6)).toFixed(4)
-    }else if((vals2 & 0b001111) === 0b001111){
-        label3.value = (r5*Math.sin(a5)/Math.sin(a4)).toFixed(4)
-        label4.value = (r5*Math.sin(a6)/Math.sin(a4)).toFixed(4)
-    }else if((vals2 & 0b000011) === 0b000011){
-        angle5.value = (180-angle6.value-angle4.value).toFixed(4)
-    }else if((vals2 & 0b000101) === 0b000101){
-        angle6.value = (180-angle5.value-angle4.value).toFixed(4)
-    }else if((vals2 & 0b000110) === 0b000110){
-        angle4.value = (180-angle6.value-angle5.value).toFixed(4)
+    let done = true
+    if(label1.value == ""){done = false;}
+    if(label2.value == ""){done = false;}
+    if(label3.value == ""){done = false;}
+    if(label4.value == ""){done = false;}
+    if(label5.value == ""){done = false;}
+    if(label6.value == ""){done = false;}
+    if(label7.value == ""){done = false;}
+    if(label8.value == ""){done = false;}
+    if(label9.value == ""){done = false;}
+    if(angle1.value == ""){done = false;}
+    if(angle2.value == ""){done = false;}
+    if(angle3.value == ""){done = false;}
+    if(angle4.value == ""){done = false;}
+    if(angle5.value == ""){done = false;}
+    if(angle6.value == ""){done = false;}
+    if(angle7.value == ""){done = false;}
+    if(angle8.value == ""){done = false;}
+    if(angle9.value == ""){done = false;}
+    if(angle10.value == ""){done = false;}
+    if(angle11.value == ""){done = false;}
+    if(angle12.value == ""){done = false;}
+    if(done){
+        if(count == 100){
+            alert("Some lengths, angles or dihedrals isNaN")
+            location.reload();
+        }else{
+            render();
+        }
+    }else{
+        unrender();
     }
-
-    //First determines triangle 3
-    let vals3 = 0b000000;
-    if(label2.value != ""){vals3 |= 0b100000}
-    if(label6.value != ""){vals3 |= 0b010000}
-    if(label7.value != ""){vals3 |= 0b001000}
-    if(angle9.value != ""){vals3 |= 0b000100}
-    if(angle8.value != ""){vals3 |= 0b000010}
-    if(angle7.value != ""){vals3 |= 0b000001}
-    if((vals3 & 0b111000) === 0b111000){
-        angle9.value = (180/Math.PI*Math.acos((r6_2+r7_2-r2_2)/(2*r6*r7))).toFixed(4)
-        angle8.value = (180/Math.PI*Math.acos((r2_2+r7_2-r6_2)/(2*r2*r7))).toFixed(4)
-        angle7.value = (180/Math.PI*Math.acos((r2_2+r6_2-r7_2)/(2*r2*r6))).toFixed(4)
-    }else if((vals3 & 0b110001) === 0b110001){
-        label7.value = (Math.sqrt(r2_2+r6_2-2*r2*r6*Math.cos(a7))).toFixed(4)
-        update();
-        angle9.value = (180/Math.PI*Math.acos((r6_2+r7_2-r2_2)/(2*r6*r7))).toFixed(4)
-        angle8.value = (180/Math.PI*Math.acos((r2_2+r7_2-r6_2)/(2*r2*r7))).toFixed(4)
-    }else if((vals3 & 0b101010) === 0b101010){
-        label6.value = (Math.sqrt(r2_2+r7_2-2*r2*r7*Math.cos(a8))).toFixed(4)
-        update();
-        angle9.value = (180/Math.PI*Math.acos((r6_2+r7_2-r2_2)/(2*r6*r7))).toFixed(4)
-        angle7.value = (180/Math.PI*Math.acos((r2_2+r6_2-r7_2)/(2*r2*r6))).toFixed(4)
-    }else if((vals3 & 0b011100) === 0b011100){
-        label2.value = (Math.sqrt(r6_2+r7_2-2*r6*r7*Math.cos(a9))).toFixed(4)
-        update();
-        angle8.value = (180/Math.PI*Math.acos((r2_2+r7_2-r6_2)/(2*r2*r7))).toFixed(4)
-        angle7.value = (180/Math.PI*Math.acos((r2_2+r6_2-r7_2)/(2*r2*r6))).toFixed(4)
-    }else if((vals3 & 0b100111) === 0b100111){
-        label6.value = (r2*Math.sin(a8)/Math.sin(a9)).toFixed(4)
-        label7.value = (r2*Math.sin(a7)/Math.sin(a9)).toFixed(4)
-    }else if((vals3 & 0b010111) === 0b010111){
-        label2.value = (r6*Math.sin(a9)/Math.sin(a8)).toFixed(4)
-        label7.value = (r6*Math.sin(a7)/Math.sin(a8)).toFixed(4)
-    }else if((vals3 & 0b001111) === 0b001111){
-        label2.value = (r7*Math.sin(a9)/Math.sin(a7)).toFixed(4)
-        label6.value = (r7*Math.sin(a8)/Math.sin(a7)).toFixed(4)
-    }else if((vals3 & 0b000011) === 0b000011){
-        angle9.value = (180-angle8.value-angle7.value).toFixed(4)
-    }else if((vals3 & 0b000101) === 0b000101){
-        angle8.value = (180-angle9.value-angle7.value).toFixed(4)
-    }else if((vals3 & 0b000110) === 0b000110){
-        angle7.value = (180-angle9.value-angle8.value).toFixed(4)
+    let check_len = true
+    if(label1.value <=0 && label1.value != ""){check_len = false;}
+    if(label2.value <=0 && label2.value != ""){check_len = false;}
+    if(label3.value <=0 && label3.value != ""){check_len = false;}
+    if(label4.value <=0 && label4.value != ""){check_len = false;}
+    if(label5.value <=0 && label5.value != ""){check_len = false;}
+    if(label6.value <=0 && label6.value != ""){check_len = false;}
+    if(label7.value <=0 && label7.value != ""){check_len = false;}
+    if(label8.value <=0 && label8.value != ""){check_len = false;}
+    if(label9.value <=0 && label9.value != ""){check_len = false;}
+    if(!check_len){
+        alert("Lengths can't be negative")
+        erase();
+        location.reload();
     }
-
-    //First determines triangle 4
-
-    let vals4 = 0b000000;
-    if(label1.value != ""){vals4 |= 0b100000}
-    if(label8.value != ""){vals4 |= 0b010000}
-    if(label9.value != ""){vals4 |= 0b001000}
-    if(angle11.value != ""){vals4 |= 0b000100}
-    if(angle12.value != ""){vals4 |= 0b000010}
-    if(angle10.value != ""){vals4 |= 0b000001}
-    if((vals4 & 0b111000) === 0b111000){
-        angle11.value = (180/Math.PI*Math.acos((r8_2+r9_2-r1_2)/(2*r8*r9))).toFixed(4)
-        angle12.value = (180/Math.PI*Math.acos((r1_2+r9_2-r8_2)/(2*r1*r9))).toFixed(4)
-        angle10.value = (180/Math.PI*Math.acos((r1_2+r8_2-r9_2)/(2*r1*r8))).toFixed(4)
-    }else if((vals4 & 0b110001) === 0b110001){
-        label9.value = (Math.sqrt(r1_2+r8_2-2*r1*r8*Math.cos(a10))).toFixed(4)
-        update();
-        angle11.value = (180/Math.PI*Math.acos((r8_2+r9_2-r1_2)/(2*r8*r9))).toFixed(4)
-        angle12.value = (180/Math.PI*Math.acos((r1_2+r9_2-r8_2)/(2*r1*r9))).toFixed(4)
-    }else if((vals4 & 0b101010) === 0b101010){
-        label8.value = (Math.sqrt(r1_2+r9_2-2*r1*r9*Math.cos(a12))).toFixed(4)
-        update();
-        angle11.value = (180/Math.PI*Math.acos((r8_2+r9_2-r1_2)/(2*r8*r9))).toFixed(4)
-        angle10.value = (180/Math.PI*Math.acos((r1_2+r8_2-r9_2)/(2*r1*r8))).toFixed(4)
-    }else if((vals4 & 0b011100) === 0b011100){
-        label1.value = (Math.sqrt(r8_2+r9_2-2*r8*r9*Math.cos(a11))).toFixed(4)
-        update();
-        angle12.value = (180/Math.PI*Math.acos((r1_2+r9_2-r8_2)/(2*r1*r9))).toFixed(4)
-        angle10.value = (180/Math.PI*Math.acos((r1_2+r8_2-r9_2)/(2*r1*r8))).toFixed(4)
-    }else if((vals4 & 0b100111) === 0b100111){
-        label8.value = (r1*Math.sin(a12)/Math.sin(a11)).toFixed(4)
-        label9.value = (r1*Math.sin(a10)/Math.sin(a11)).toFixed(4)
-    }else if((vals4 & 0b010111) === 0b010111){
-        label1.value = (r8*Math.sin(a11)/Math.sin(a12)).toFixed(4)
-        label9.value = (r8*Math.sin(a10)/Math.sin(a12)).toFixed(4)
-    }else if((vals4 & 0b001111) === 0b001111){
-        label1.value = (r9*Math.sin(a11)/Math.sin(a10)).toFixed(4)
-        label8.value = (r9*Math.sin(a12)/Math.sin(a10)).toFixed(4)
-    }else if((vals4 & 0b000011) === 0b000011){
-        angle11.value = (180-angle12.value-angle10.value).toFixed(4)
-    }else if((vals4 & 0b000101) === 0b000101){
-        angle12.value = (180-angle11.value-angle10.value).toFixed(4)
-    }else if((vals4 & 0b000110) === 0b000110){
-        angle10.value = (180-angle12.value-angle11.value).toFixed(4)
+    let check_angle = true
+    if((angle1.value <=0 || angle1.value >=180) && angle1.value != ""){check_angle= false;}
+    if((angle2.value <=0 || angle2.value >=180) && angle2.value != ""){check_angle= false;}
+    if((angle3.value <=0 || angle3.value >=180) && angle3.value != ""){check_angle= false;}
+    if((angle4.value <=0 || angle4.value >=180) && angle4.value != ""){check_angle= false;}
+    if((angle5.value <=0 || angle5.value >=180) && angle5.value != ""){check_angle= false;}
+    if((angle6.value <=0 || angle6.value >=180) && angle6.value != ""){check_angle= false;}
+    if((angle7.value <=0 || angle7.value >=180) && angle7.value != ""){check_angle= false;}
+    if((angle8.value <=0 || angle8.value >=180) && angle8.value != ""){check_angle= false;}
+    if((angle9.value <=0 || angle9.value >=180) && angle9.value != ""){check_angle= false;}
+    if((angle10.value <=0 || angle10.value >=180) && angle10.value != ""){check_angle= false;}
+    if((angle11.value <=0 || angle11.value >=180) && angle11.value != ""){check_angle= false;}
+    if((angle12.value <=0 || angle12.value >=180) && angle12.value != ""){check_angle= false;}
+    if(!check_angle){
+        alert("Angles not in range")
+        erase();
+        location.reload();
     }
+}
+
+function inverse_dihedral(a, b, c){
+    let ans = +Math.acos(c/(Math.sqrt(Math.pow(a,2)+Math.pow(b,2))))+Math.atan(a/b)
+    /*if (ans < 0){
+        ans = ans + 2*Math.PI
+    }*/
+    return ans*180/Math.PI
 }
 
 //Initialising event handlers corresponding to the 9 lengths and 8 types of tetrahedron. I still need to do the same for angles
 const handlers = [[],[],[],[],[],[],[],[],[]]
-handlers[0][0] = () => {refresh();}
-handlers[1][0] = () => {refresh();}
-handlers[2][0] = () => {refresh();}
-handlers[3][0] = () => {label6.value = label4.value; refresh();}
-handlers[4][0] = () => {label8.value = label5.value; refresh();}
-handlers[5][0] = () => {label4.value = label6.value; refresh();}
-handlers[6][0] = () => {label9.value = label7.value; refresh();}
-handlers[7][0] = () => {label5.value = label8.value; refresh();}
-handlers[8][0] = () => {label7.value = label9.value; refresh();}
-handlers[0][1] = () => {label2.value = label1.value; label3.value = label1.value; refresh();}
-handlers[1][1] = () => {label1.value = label2.value; label3.value = label2.value; refresh();}
-handlers[2][1] = () => {label1.value = label3.value; label2.value = label3.value; refresh();}
-handlers[3][1] = () => {label5.value = label4.value; label6.value = label4.value; label7.value = label4.value; label8.value = label4.value; label9.value = label4.value; refresh();}
-handlers[4][1] = () => {label4.value = label5.value; label6.value = label5.value; label7.value = label5.value; label8.value = label5.value; label9.value = label5.value; refresh();}
-handlers[5][1] = () => {label5.value = label6.value; label4.value = label6.value; label7.value = label6.value; label8.value = label6.value; label9.value = label6.value; refresh();}
-handlers[6][1] = () => {label5.value = label7.value; label6.value = label7.value; label4.value = label7.value; label8.value = label7.value; label9.value = label7.value; refresh();}
-handlers[7][1] = () => {label5.value = label8.value; label6.value = label8.value; label7.value = label8.value; label4.value = label8.value; label9.value = label8.value; refresh();}
-handlers[8][1] = () => {label5.value = label9.value; label6.value = label9.value; label7.value = label9.value; label8.value = label9.value; label4.value = label9.value; refresh();}
-handlers[0][2] = () => {label4.value = label1.value; label6.value = label1.value; refresh();}
-handlers[1][2] = () => {label3.value = label2.value; label5.value = label2.value; label7.value = label2.value; label8.value = label2.value; label9.value = label2.value; refresh();}
-handlers[2][2] = () => {label2.value = label3.value; label5.value = label3.value; label7.value = label3.value; label8.value = label3.value; label9.value = label3.value; refresh();}
-handlers[3][2] = () => {label1.value = label4.value; label6.value = label4.value; refresh();}
-handlers[4][2] = () => {label3.value = label5.value; label2.value = label5.value; label7.value = label5.value; label8.value = label5.value; label9.value = label5.value; refresh();}
-handlers[5][2] = () => {label4.value = label6.value; label1.value = label6.value; refresh();}
-handlers[6][2] = () => {label3.value = label7.value; label5.value = label7.value; label2.value = label7.value; label8.value = label7.value; label9.value = label7.value; refresh();}
-handlers[7][2] = () => {label3.value = label8.value; label5.value = label8.value; label7.value = label8.value; label2.value = label8.value; label9.value = label8.value; refresh();}
-handlers[8][2] = () => {label3.value = label9.value; label5.value = label9.value; label7.value = label9.value; label8.value = label9.value; label2.value = label9.value; refresh();}
-handlers[0][3] = () => {label5.value = label1.value; label8.value = label1.value; label6.value = label1.value; label4.value = label1.value; refresh();}
-handlers[1][3] = () => {label3.value = label2.value; label9.value = label2.value; label7.value = label2.value; refresh();}
-handlers[2][3] = () => {label2.value = label3.value; label9.value = label3.value; label7.value = label3.value; refresh();}
-handlers[3][3] = () => {label5.value = label4.value; label8.value = label4.value; label6.value = label4.value; label1.value = label4.value; refresh();}
-handlers[4][3] = () => {label1.value = label5.value; label8.value = label5.value; label6.value = label5.value; label4.value = label5.value; refresh();}
-handlers[5][3] = () => {label5.value = label6.value; label8.value = label6.value; label1.value = label6.value; label4.value = label6.value; refresh();}
-handlers[6][3] = () => {label2.value = label7.value; label9.value = label7.value; label3.value = label7.value; refresh();}
-handlers[7][3] = () => {label5.value = label8.value; label1.value = label8.value; label6.value = label8.value; label4.value = label8.value; refresh();}
-handlers[8][3] = () => {label2.value = label9.value; label7.value = label9.value; label3.value = label9.value; refresh();}
-handlers[0][4] = () => {label6.value = label1.value; label4.value = label1.value; refresh();}
-handlers[1][4] = () => {label5.value = label2.value; label8.value = label2.value; refresh();}
-handlers[2][4] = () => {label9.value = label3.value; label7.value = label3.value; refresh();}
-handlers[3][4] = () => {label1.value = label4.value; label6.value = label4.value; refresh();}
-handlers[4][4] = () => {label8.value = label5.value; label2.value = label5.value; refresh();}
-handlers[5][4] = () => {label1.value = label6.value; label4.value = label1.value; refresh();}
-handlers[6][4] = () => {label9.value = label7.value; label3.value = label7.value; refresh();}
-handlers[7][4] = () => {label5.value = label8.value; label2.value = label8.value; refresh();}
-handlers[8][4] = () => {label7.value = label9.value; label3.value = label9.value; refresh();}
-handlers[0][5] = () => {label6.value = label1.value; label4.value = label1.value; refresh();}
-handlers[1][5] = () => {refresh();}
-handlers[2][5] = () => {label9.value = label3.value; label7.value = label3.value; refresh();}
-handlers[3][5] = () => {label1.value = label4.value; label6.value = label4.value; refresh();}
-handlers[4][5] = () => {label8.value = label5.value; refresh();}
-handlers[5][5] = () => {label1.value = label6.value; label4.value = label1.value; refresh();}
-handlers[6][5] = () => {label9.value = label7.value; label3.value = label7.value; refresh();}
-handlers[7][5] = () => {label5.value = label8.value; refresh();}
-handlers[8][5] = () => {label7.value = label9.value; label3.value = label9.value; refresh();}
-handlers[0][6] = () => {refresh();}
-handlers[1][6] = () => {label3.value = label2.value; refresh();}
-handlers[2][6] = () => {label2.value = label3.value; refresh();}
-handlers[3][6] = () => {label6.value = label4.value; refresh();}
-handlers[4][6] = () => {label7.value = label5.value; label8.value = label5.value; label9.value = label5.value; refresh();}
-handlers[5][6] = () => {label4.value = label6.value; refresh();}
-handlers[6][6] = () => {label5.value = label7.value; label8.value = label7.value; label9.value = label7.value; refresh();}
-handlers[7][6] = () => {label7.value = label8.value; label5.value = label8.value; label9.value = label8.value; refresh();}
-handlers[8][6] = () => {label7.value = label9.value; label8.value = label9.value; label5.value = label9.value; refresh();}
-handlers[0][7] = () => {label2.value = label1.value;label3.value = label1.value;label4.value = label1.value;label5.value = label1.value;label6.value = label1.value;label7.value = label1.value;label8.value = label1.value;label9.value = label1.value;refresh();}
-handlers[1][7] = () => {label1.value = label2.value;label3.value = label2.value;label4.value = label2.value;label5.value = label2.value;label6.value = label2.value;label7.value = label2.value;label8.value = label2.value;label9.value = label2.value;refresh();}
-handlers[2][7] = () => {label2.value = label3.value;label1.value = label3.value;label4.value = label3.value;label5.value = label3.value;label6.value = label3.value;label7.value = label3.value;label8.value = label3.value;label9.value = label3.value;refresh();}
-handlers[3][7] = () => {label2.value = label4.value;label3.value = label4.value;label1.value = label4.value;label5.value = label4.value;label6.value = label4.value;label7.value = label4.value;label8.value = label4.value;label9.value = label4.value;refresh();}
-handlers[4][7] = () => {label2.value = label5.value;label3.value = label5.value;label4.value = label5.value;label1.value = label5.value;label6.value = label5.value;label7.value = label5.value;label8.value = label5.value;label9.value = label5.value;refresh();}
-handlers[5][7] = () => {label2.value = label6.value;label3.value = label6.value;label4.value = label6.value;label5.value = label6.value;label1.value = label6.value;label7.value = label6.value;label8.value = label6.value;label9.value = label6.value;refresh();}
-handlers[6][7] = () => {label2.value = label7.value;label3.value = label7.value;label4.value = label7.value;label5.value = label7.value;label6.value = label7.value;label1.value = label7.value;label8.value = label7.value;label9.value = label7.value;refresh();}
-handlers[7][7] = () => {label2.value = label8.value;label3.value = label8.value;label4.value = label8.value;label5.value = label8.value;label6.value = label8.value;label7.value = label8.value;label1.value = label8.value;label9.value = label8.value;refresh();}
-handlers[8][7] = () => {label2.value = label9.value;label3.value = label9.value;label4.value = label9.value;label5.value = label9.value;label6.value = label9.value;label7.value = label9.value;label8.value = label9.value;label1.value = label9.value;refresh();}
+handlers[0][0] = () => {}
+handlers[1][0] = () => {}
+handlers[2][0] = () => {}
+handlers[3][0] = () => {label6.value = label4.value; }
+handlers[4][0] = () => {label8.value = label5.value; }
+handlers[5][0] = () => {label4.value = label6.value; }
+handlers[6][0] = () => {label9.value = label7.value; }
+handlers[7][0] = () => {label5.value = label8.value; }
+handlers[8][0] = () => {label7.value = label9.value; }
+handlers[0][1] = () => {label2.value = label1.value; label3.value = label1.value; }
+handlers[1][1] = () => {label1.value = label2.value; label3.value = label2.value; }
+handlers[2][1] = () => {label1.value = label3.value; label2.value = label3.value; }
+handlers[3][1] = () => {label5.value = label4.value; label6.value = label4.value; label7.value = label4.value; label8.value = label4.value; label9.value = label4.value; }
+handlers[4][1] = () => {label4.value = label5.value; label6.value = label5.value; label7.value = label5.value; label8.value = label5.value; label9.value = label5.value; }
+handlers[5][1] = () => {label5.value = label6.value; label4.value = label6.value; label7.value = label6.value; label8.value = label6.value; label9.value = label6.value; }
+handlers[6][1] = () => {label5.value = label7.value; label6.value = label7.value; label4.value = label7.value; label8.value = label7.value; label9.value = label7.value; }
+handlers[7][1] = () => {label5.value = label8.value; label6.value = label8.value; label7.value = label8.value; label4.value = label8.value; label9.value = label8.value; }
+handlers[8][1] = () => {label5.value = label9.value; label6.value = label9.value; label7.value = label9.value; label8.value = label9.value; label4.value = label9.value; }
+handlers[0][2] = () => {label4.value = label1.value; label6.value = label1.value; }
+handlers[1][2] = () => {label3.value = label2.value; label5.value = label2.value; label7.value = label2.value; label8.value = label2.value; label9.value = label2.value; }
+handlers[2][2] = () => {label2.value = label3.value; label5.value = label3.value; label7.value = label3.value; label8.value = label3.value; label9.value = label3.value; }
+handlers[3][2] = () => {label1.value = label4.value; label6.value = label4.value; }
+handlers[4][2] = () => {label3.value = label5.value; label2.value = label5.value; label7.value = label5.value; label8.value = label5.value; label9.value = label5.value; }
+handlers[5][2] = () => {label4.value = label6.value; label1.value = label6.value; }
+handlers[6][2] = () => {label3.value = label7.value; label5.value = label7.value; label2.value = label7.value; label8.value = label7.value; label9.value = label7.value; }
+handlers[7][2] = () => {label3.value = label8.value; label5.value = label8.value; label7.value = label8.value; label2.value = label8.value; label9.value = label8.value; }
+handlers[8][2] = () => {label3.value = label9.value; label5.value = label9.value; label7.value = label9.value; label8.value = label9.value; label2.value = label9.value; }
+handlers[0][3] = () => {label5.value = label1.value; label8.value = label1.value; label6.value = label1.value; label4.value = label1.value; }
+handlers[1][3] = () => {label3.value = label2.value; label9.value = label2.value; label7.value = label2.value; }
+handlers[2][3] = () => {label2.value = label3.value; label9.value = label3.value; label7.value = label3.value; }
+handlers[3][3] = () => {label5.value = label4.value; label8.value = label4.value; label6.value = label4.value; label1.value = label4.value; }
+handlers[4][3] = () => {label1.value = label5.value; label8.value = label5.value; label6.value = label5.value; label4.value = label5.value; }
+handlers[5][3] = () => {label5.value = label6.value; label8.value = label6.value; label1.value = label6.value; label4.value = label6.value; }
+handlers[6][3] = () => {label2.value = label7.value; label9.value = label7.value; label3.value = label7.value; }
+handlers[7][3] = () => {label5.value = label8.value; label1.value = label8.value; label6.value = label8.value; label4.value = label8.value; }
+handlers[8][3] = () => {label2.value = label9.value; label7.value = label9.value; label3.value = label9.value; }
+handlers[0][4] = () => {label6.value = label1.value; label4.value = label1.value; }
+handlers[1][4] = () => {label5.value = label2.value; label8.value = label2.value; }
+handlers[2][4] = () => {label9.value = label3.value; label7.value = label3.value; }
+handlers[3][4] = () => {label1.value = label4.value; label6.value = label4.value; }
+handlers[4][4] = () => {label8.value = label5.value; label2.value = label5.value; }
+handlers[5][4] = () => {label1.value = label6.value; label4.value = label1.value; }
+handlers[6][4] = () => {label9.value = label7.value; label3.value = label7.value; }
+handlers[7][4] = () => {label5.value = label8.value; label2.value = label8.value; }
+handlers[8][4] = () => {label7.value = label9.value; label3.value = label9.value; }
+handlers[0][5] = () => {label6.value = label1.value; label4.value = label1.value; }
+handlers[1][5] = () => {}
+handlers[2][5] = () => {label9.value = label3.value; label7.value = label3.value; }
+handlers[3][5] = () => {label1.value = label4.value; label6.value = label4.value; }
+handlers[4][5] = () => {label8.value = label5.value; }
+handlers[5][5] = () => {label1.value = label6.value; label4.value = label1.value; }
+handlers[6][5] = () => {label9.value = label7.value; label3.value = label7.value; }
+handlers[7][5] = () => {label5.value = label8.value; }
+handlers[8][5] = () => {label7.value = label9.value; label3.value = label9.value; }
+handlers[0][6] = () => {}
+handlers[1][6] = () => {label3.value = label2.value; }
+handlers[2][6] = () => {label2.value = label3.value; }
+handlers[3][6] = () => {label6.value = label4.value; }
+handlers[4][6] = () => {label7.value = label5.value; label8.value = label5.value; label9.value = label5.value; }
+handlers[5][6] = () => {label4.value = label6.value; }
+handlers[6][6] = () => {label5.value = label7.value; label8.value = label7.value; label9.value = label7.value; }
+handlers[7][6] = () => {label7.value = label8.value; label5.value = label8.value; label9.value = label8.value; }
+handlers[8][6] = () => {label7.value = label9.value; label8.value = label9.value; label5.value = label9.value; }
+handlers[0][7] = () => {label2.value = label1.value;label3.value = label1.value;label4.value = label1.value;label5.value = label1.value;label6.value = label1.value;label7.value = label1.value;label8.value = label1.value;label9.value = label1.value;}
+handlers[1][7] = () => {label1.value = label2.value;label3.value = label2.value;label4.value = label2.value;label5.value = label2.value;label6.value = label2.value;label7.value = label2.value;label8.value = label2.value;label9.value = label2.value;}
+handlers[2][7] = () => {label2.value = label3.value;label1.value = label3.value;label4.value = label3.value;label5.value = label3.value;label6.value = label3.value;label7.value = label3.value;label8.value = label3.value;label9.value = label3.value;}
+handlers[3][7] = () => {label2.value = label4.value;label3.value = label4.value;label1.value = label4.value;label5.value = label4.value;label6.value = label4.value;label7.value = label4.value;label8.value = label4.value;label9.value = label4.value;}
+handlers[4][7] = () => {label2.value = label5.value;label3.value = label5.value;label4.value = label5.value;label1.value = label5.value;label6.value = label5.value;label7.value = label5.value;label8.value = label5.value;label9.value = label5.value;}
+handlers[5][7] = () => {label2.value = label6.value;label3.value = label6.value;label4.value = label6.value;label5.value = label6.value;label1.value = label6.value;label7.value = label6.value;label8.value = label6.value;label9.value = label6.value;}
+handlers[6][7] = () => {label2.value = label7.value;label3.value = label7.value;label4.value = label7.value;label5.value = label7.value;label6.value = label7.value;label1.value = label7.value;label8.value = label7.value;label9.value = label7.value;}
+handlers[7][7] = () => {label2.value = label8.value;label3.value = label8.value;label4.value = label8.value;label5.value = label8.value;label6.value = label8.value;label7.value = label8.value;label1.value = label8.value;label9.value = label8.value;}
+handlers[8][7] = () => {label2.value = label9.value;label3.value = label9.value;label4.value = label9.value;label5.value = label9.value;label6.value = label9.value;label7.value = label9.value;label8.value = label9.value;label1.value = label9.value;}
 
 const handlers2 = [[],[],[],[],[],[],[],[],[],[],[],[]]
-handlers2[0][0] = () => {refresh();}
-handlers2[1][0] = () => {refresh();}
-handlers2[2][0] = () => {refresh();}
-handlers2[3][0] = () => {refresh();}
-handlers2[4][0] = () => {refresh();}
-handlers2[5][0] = () => {refresh();}
-handlers2[6][0] = () => {refresh();}
-handlers2[7][0] = () => {refresh();}
-handlers2[8][0] = () => {refresh();}
-handlers2[9][0] = () => {refresh();}
-handlers2[10][0] = () => {refresh();}
-handlers2[11][0] = () => {refresh();}
+handlers2[0][0] = () => {}
+handlers2[1][0] = () => {}
+handlers2[2][0] = () => {}
+handlers2[3][0] = () => {}
+handlers2[4][0] = () => {}
+handlers2[5][0] = () => {}
+handlers2[6][0] = () => {}
+handlers2[7][0] = () => {}
+handlers2[8][0] = () => {}
+handlers2[9][0] = () => {}
+handlers2[10][0] = () => {}
+handlers2[11][0] = () => {}
 handlers2[0][1] = () => {angle1.value = "60";angle2.value = "60";angle3.value = "60";}
 handlers2[1][1] = () => {angle1.value = "60";angle2.value = "60";angle3.value = "60";}
 handlers2[2][1] = () => {angle1.value = "60";angle2.value = "60";angle3.value = "60";}
-handlers2[3][1] = () => {angle6.value = angle4.value;angle7.value = angle4.value;angle8.value = angle4.value;angle10.value = angle4.value;angle12.value = angle4.value;refresh();}
-handlers2[4][1] = () => {angle9.value = angle5.value;angle11.value = angle5.value; angle4.value = (180-angle5.value)/2;angle7.value = (180-angle5.value)/2;angle10.value = (180-angle5.value)/2;refresh(); }
-handlers2[5][1] = () => {angle4.value = angle6.value;angle7.value = angle6.value;angle8.value = angle6.value;angle10.value = angle6.value;angle12.value = angle6.value;refresh();}
-handlers2[6][1] = () => {angle6.value = angle7.value;angle4.value = angle7.value;angle8.value = angle7.value;angle10.value = angle7.value;angle12.value = angle7.value;refresh();}
-handlers2[7][1] = () => {angle6.value = angle8.value;angle7.value = angle8.value;angle4.value = angle8.value;angle10.value = angle8.value;angle12.value = angle8.value;refresh();}
-handlers2[8][1] = () => {angle5.value = angle9.value;angle11.value = angle9.value; angle4.value = (180-angle9.value)/2;angle7.value = (180-angle9.value)/2;angle10.value = (180-angle9.value)/2;refresh();}
-handlers2[9][1] = () => {angle6.value = angle10.value;angle7.value = angle10.value;angle8.value = angle10.value;angle4.value = angle10.value;angle12.value = angle10.value;refresh();}
-handlers2[10][1] = () => {angle5.value = angle11.value;angle9.value = angle11.value; angle4.value = (180-angle11.value)/2;angle7.value = (180-angle11.value)/2;angle10.value = (180-angle11.value)/2;refresh();}
-handlers2[11][1] = () => {angle6.value = angle12.value;angle7.value = angle12.value;angle8.value = angle12.value;angle10.value = angle12.value;angle4.value = angle12.value;refresh();}
-handlers2[0][2] = () => {angle6.value = angle1.value; angle8.value = angle1.value; angle11.value = angle1.value;angle2.value = (180-angle1.value)/2;angle5.value = (180-angle1.value)/2;angle7.value = (180-angle1.value)/2;angle10.value = (180-angle1.value)/2;refresh();}
-handlers2[1][2] = () => {angle3.value = angle2.value; angle4.value = angle2.value; angle5.value = angle2.value; angle7.value = angle2.value; angle9.value = angle2.value; angle10.value = angle2.value; angle12.value = angle2.value;refresh();}
-handlers2[2][2] = () => {angle2.value = angle3.value; angle4.value = angle3.value; angle5.value = angle3.value; angle7.value = angle3.value; angle9.value = angle3.value; angle10.value = angle3.value; angle12.value = angle3.value;refresh();}
-handlers2[3][2] = () => {angle3.value = angle4.value; angle2.value = angle4.value; angle5.value = angle4.value; angle7.value = angle4.value; angle9.value = angle4.value; angle10.value = angle4.value; angle12.value = angle4.value;refresh();}
-handlers2[4][2] = () => {angle3.value = angle5.value; angle4.value = angle5.value; angle2.value = angle5.value; angle7.value = angle5.value; angle9.value = angle5.value; angle10.value = angle5.value; angle12.value = angle5.value;refresh();}
-handlers2[5][2] = () => {angle1.value = angle6.value; angle8.value = angle6.value; angle11.value = angle6.value;angle2.value = (180-angle6.value)/2;angle5.value = (180-angle6.value)/2;angle7.value = (180-angle6.value)/2;angle10.value = (180-angle6.value)/2;refresh();}
-handlers2[6][2] = () => {angle3.value = angle7.value; angle4.value = angle7.value; angle5.value = angle7.value; angle2.value = angle7.value; angle9.value = angle7.value; angle10.value = angle7.value; angle12.value = angle7.value;refresh();}
-handlers2[7][2] = () => {angle6.value = angle8.value; angle1.value = angle8.value; angle11.value = angle8.value;angle2.value = (180-angle8.value)/2;angle5.value = (180-angle8.value)/2;angle7.value = (180-angle8.value)/2;angle10.value = (180-angle8.value)/2;refresh();}
-handlers2[8][2] = () => {angle3.value = angle9.value; angle4.value = angle9.value; angle5.value = angle9.value; angle7.value = angle9.value; angle2.value = angle9.value; angle10.value = angle9.value; angle12.value = angle9.value;refresh();}
-handlers2[9][2] = () => {angle3.value = angle10.value; angle4.value = angle10.value; angle5.value = angle10.value; angle7.value = angle10.value; angle9.value = angle10.value; angle2.value = angle10.value; angle12.value = angle10.value;refresh();}
-handlers2[10][2] = () => {angle6.value = angle11.value; angle8.value = angle11.value; angle1.value = angle11.value;angle2.value = (180-angle11.value)/2;angle5.value = (180-angle11.value)/2;angle7.value = (180-angle11.value)/2;angle10.value = (180-angle11.value)/2;refresh();}
-handlers2[11][2] = () => {angle3.value = angle12.value; angle4.value = angle12.value; angle5.value = angle12.value; angle7.value = angle12.value; angle9.value = angle12.value; angle10.value = angle12.value; angle2.value = angle12.value;refresh();}
-handlers2[0][3] = () => {angle8.value = angle1.value; angle2.value = (180-angle1.value)/2;angle7.value = (180-angle1.value)/2;refresh();}
-handlers2[1][3] = () => {angle3.value = angle2.value;angle7.value = angle2.value;angle9.value = angle2.value;refresh();}
-handlers2[2][3] = () => {angle2.value = angle3.value;angle7.value = angle3.value;angle9.value = angle3.value;refresh();}
-handlers2[3][3] = () => {angle6.value = angle4.value;angle11.value = angle4.value;angle12.value = angle4.value;refresh();}
-handlers2[4][3] = () => {angle10.value = angle5.value; angle4.value = (180-angle5.value)/2;angle11.value = (180-angle5.value)/2;refresh();}
-handlers2[5][3] = () => {angle4.value = angle6.value;angle11.value = angle6.value;angle12.value = angle6.value;refresh();}
-handlers2[6][3] = () => {angle3.value = angle7.value;angle2.value = angle7.value;angle9.value = angle7.value;refresh();}
-handlers2[7][3] = () => {angle1.value = angle8.value; angle2.value = (180-angle8.value)/2;angle7.value = (180-angle8.value)/2;refresh();}
-handlers2[8][3] = () => {angle3.value = angle9.value;angle7.value = angle9.value;angle2.value = angle9.value;refresh();}
-handlers2[9][3] = () => {angle5.value = angle10.value; angle4.value = (180-angle10.value)/2;angle11.value = (180-angle10.value)/2;refresh();}
-handlers2[10][3] = () => {angle6.value = angle11.value;angle4.value = angle11.value;angle12.value = angle11.value;refresh();}
-handlers2[11][3] = () => {angle6.value = angle12.value;angle11.value = angle12.value;angle4.value = angle12.value;refresh();}
-handlers2[0][4] = () => {angle6.value = angle1.value; angle8.value = angle1.value; angle11.value = angle1.value;refresh();}
-handlers2[1][4] = () => {angle4.value = angle2.value; angle9.value = angle2.value; angle12.value = angle2.value;refresh();}
-handlers2[2][4] = () => {angle5.value = angle3.value; angle7.value = angle3.value; angle10.value = angle3.value;refresh();}
-handlers2[3][4] = () => {angle2.value = angle4.value; angle9.value = angle4.value; angle12.value = angle4.value;refresh();}
-handlers2[4][4] = () => {angle3.value = angle5.value; angle7.value = angle5.value; angle10.value = angle5.value;refresh();}
-handlers2[5][4] = () => {angle1.value = angle6.value; angle8.value = angle6.value; angle11.value = angle6.value;refresh();}
-handlers2[6][4] = () => {angle5.value = angle7.value; angle3.value = angle7.value; angle10.value = angle7.value;refresh();}
-handlers2[7][4] = () => {angle6.value = angle8.value; angle1.value = angle8.value; angle11.value = angle8.value;refresh();}
-handlers2[8][4] = () => {angle4.value = angle9.value; angle2.value = angle9.value; angle12.value = angle9.value;refresh();}
-handlers2[9][4] = () => {angle5.value = angle10.value; angle7.value = angle10.value; angle3.value = angle10.value;refresh();}
-handlers2[10][4] = () => {angle6.value = angle11.value; angle8.value = angle11.value; angle1.value = angle11.value;refresh();}
-handlers2[11][4] = () => {angle4.value = angle12.value; angle9.value = angle12.value; angle2.value = angle12.value;refresh();}
-handlers2[0][5] = () => {angle8.value = angle1.value;refresh();}
-handlers2[1][5] = () => {angle9.value = angle2.value;refresh();}
-handlers2[2][5] = () => {angle7.value = angle3.value;refresh();}
-handlers2[3][5] = () => {angle12.value = angle4.value;refresh();}
-handlers2[4][5] = () => {angle10.value = angle5.value;refresh();}
-handlers2[5][5] = () => {angle11.value = angle6.value;refresh();}
-handlers2[6][5] = () => {angle3.value = angle7.value;refresh();}
-handlers2[7][5] = () => {angle1.value = angle8.value;refresh();}
-handlers2[8][5] = () => {angle2.value = angle9.value;refresh();}
-handlers2[9][5] = () => {angle5.value = angle10.value;refresh();}
-handlers2[10][5] = () => {angle6.value = angle11.value;refresh();}
-handlers2[11][5] = () => {angle4.value = angle12.value;refresh();}
-handlers2[0][6] = () => {angle2.value = (180-angle1.value)/2; refresh();}
-handlers2[1][6] = () => {angle3.value = angle2.value;refresh();}
-handlers2[2][6] = () => {angle2.value = angle3.value;refresh();}
-handlers2[3][6] = () => {angle7.value = angle4.value;refresh();}
-handlers2[4][6] = () => {angle9.value = angle5.value;refresh();}
-handlers2[5][6] = () => {angle8.value = angle6.value;refresh();}
-handlers2[6][6] = () => {angle4.value = angle7.value;refresh();}
-handlers2[7][6] = () => {angle6.value = angle8.value;refresh();}
-handlers2[8][6] = () => {angle5.value = angle9.value;refresh();}
-handlers2[9][6] = () => {angle12.value = angle10.value;refresh();}
-handlers2[10][6] = () => {angle10.value = (180-angle11.value)/2; refresh();}
-handlers2[11][6] = () => {angle10.value = angle12.value;refresh();}
+handlers2[3][1] = () => {angle6.value = angle4.value;angle7.value = angle4.value;angle8.value = angle4.value;angle10.value = angle4.value;angle12.value = angle4.value;}
+handlers2[4][1] = () => {angle9.value = angle5.value;angle11.value = angle5.value; angle4.value = (180-angle5.value)/2;angle7.value = (180-angle5.value)/2;angle10.value = (180-angle5.value)/2;}
+handlers2[5][1] = () => {angle4.value = angle6.value;angle7.value = angle6.value;angle8.value = angle6.value;angle10.value = angle6.value;angle12.value = angle6.value;}
+handlers2[6][1] = () => {angle6.value = angle7.value;angle4.value = angle7.value;angle8.value = angle7.value;angle10.value = angle7.value;angle12.value = angle7.value;}
+handlers2[7][1] = () => {angle6.value = angle8.value;angle7.value = angle8.value;angle4.value = angle8.value;angle10.value = angle8.value;angle12.value = angle8.value;}
+handlers2[8][1] = () => {angle5.value = angle9.value;angle11.value = angle9.value; angle4.value = (180-angle9.value)/2;angle7.value = (180-angle9.value)/2;angle10.value = (180-angle9.value)/2;}
+handlers2[9][1] = () => {angle6.value = angle10.value;angle7.value = angle10.value;angle8.value = angle10.value;angle4.value = angle10.value;angle12.value = angle10.value;}
+handlers2[10][1] = () => {angle5.value = angle11.value;angle9.value = angle11.value; angle4.value = (180-angle11.value)/2;angle7.value = (180-angle11.value)/2;angle10.value = (180-angle11.value)/2;}
+handlers2[11][1] = () => {angle6.value = angle12.value;angle7.value = angle12.value;angle8.value = angle12.value;angle10.value = angle12.value;angle4.value = angle12.value;}
+handlers2[0][2] = () => {angle6.value = angle1.value; angle8.value = angle1.value; angle11.value = angle1.value;angle2.value = (180-angle1.value)/2;angle5.value = (180-angle1.value)/2;angle7.value = (180-angle1.value)/2;angle10.value = (180-angle1.value)/2;}
+handlers2[1][2] = () => {angle3.value = angle2.value; angle4.value = angle2.value; angle5.value = angle2.value; angle7.value = angle2.value; angle9.value = angle2.value; angle10.value = angle2.value; angle12.value = angle2.value;}
+handlers2[2][2] = () => {angle2.value = angle3.value; angle4.value = angle3.value; angle5.value = angle3.value; angle7.value = angle3.value; angle9.value = angle3.value; angle10.value = angle3.value; angle12.value = angle3.value;}
+handlers2[3][2] = () => {angle3.value = angle4.value; angle2.value = angle4.value; angle5.value = angle4.value; angle7.value = angle4.value; angle9.value = angle4.value; angle10.value = angle4.value; angle12.value = angle4.value;}
+handlers2[4][2] = () => {angle3.value = angle5.value; angle4.value = angle5.value; angle2.value = angle5.value; angle7.value = angle5.value; angle9.value = angle5.value; angle10.value = angle5.value; angle12.value = angle5.value;}
+handlers2[5][2] = () => {angle1.value = angle6.value; angle8.value = angle6.value; angle11.value = angle6.value;angle2.value = (180-angle6.value)/2;angle5.value = (180-angle6.value)/2;angle7.value = (180-angle6.value)/2;angle10.value = (180-angle6.value)/2;}
+handlers2[6][2] = () => {angle3.value = angle7.value; angle4.value = angle7.value; angle5.value = angle7.value; angle2.value = angle7.value; angle9.value = angle7.value; angle10.value = angle7.value; angle12.value = angle7.value;}
+handlers2[7][2] = () => {angle6.value = angle8.value; angle1.value = angle8.value; angle11.value = angle8.value;angle2.value = (180-angle8.value)/2;angle5.value = (180-angle8.value)/2;angle7.value = (180-angle8.value)/2;angle10.value = (180-angle8.value)/2;}
+handlers2[8][2] = () => {angle3.value = angle9.value; angle4.value = angle9.value; angle5.value = angle9.value; angle7.value = angle9.value; angle2.value = angle9.value; angle10.value = angle9.value; angle12.value = angle9.value;}
+handlers2[9][2] = () => {angle3.value = angle10.value; angle4.value = angle10.value; angle5.value = angle10.value; angle7.value = angle10.value; angle9.value = angle10.value; angle2.value = angle10.value; angle12.value = angle10.value;}
+handlers2[10][2] = () => {angle6.value = angle11.value; angle8.value = angle11.value; angle1.value = angle11.value;angle2.value = (180-angle11.value)/2;angle5.value = (180-angle11.value)/2;angle7.value = (180-angle11.value)/2;angle10.value = (180-angle11.value)/2;}
+handlers2[11][2] = () => {angle3.value = angle12.value; angle4.value = angle12.value; angle5.value = angle12.value; angle7.value = angle12.value; angle9.value = angle12.value; angle10.value = angle12.value; angle2.value = angle12.value;}
+handlers2[0][3] = () => {angle8.value = angle1.value; angle2.value = (180-angle1.value)/2;angle7.value = (180-angle1.value)/2;}
+handlers2[1][3] = () => {angle3.value = angle2.value;angle7.value = angle2.value;angle9.value = angle2.value;}
+handlers2[2][3] = () => {angle2.value = angle3.value;angle7.value = angle3.value;angle9.value = angle3.value;}
+handlers2[3][3] = () => {angle6.value = angle4.value;angle11.value = angle4.value;angle12.value = angle4.value;}
+handlers2[4][3] = () => {angle10.value = angle5.value; angle4.value = (180-angle5.value)/2;angle11.value = (180-angle5.value)/2;}
+handlers2[5][3] = () => {angle4.value = angle6.value;angle11.value = angle6.value;angle12.value = angle6.value;}
+handlers2[6][3] = () => {angle3.value = angle7.value;angle2.value = angle7.value;angle9.value = angle7.value;}
+handlers2[7][3] = () => {angle1.value = angle8.value; angle2.value = (180-angle8.value)/2;angle7.value = (180-angle8.value)/2;}
+handlers2[8][3] = () => {angle3.value = angle9.value;angle7.value = angle9.value;angle2.value = angle9.value;}
+handlers2[9][3] = () => {angle5.value = angle10.value; angle4.value = (180-angle10.value)/2;angle11.value = (180-angle10.value)/2;}
+handlers2[10][3] = () => {angle6.value = angle11.value;angle4.value = angle11.value;angle12.value = angle11.value;}
+handlers2[11][3] = () => {angle6.value = angle12.value;angle11.value = angle12.value;angle4.value = angle12.value;}
+handlers2[0][4] = () => {angle6.value = angle1.value; angle8.value = angle1.value; angle11.value = angle1.value;}
+handlers2[1][4] = () => {angle4.value = angle2.value; angle9.value = angle2.value; angle12.value = angle2.value;}
+handlers2[2][4] = () => {angle5.value = angle3.value; angle7.value = angle3.value; angle10.value = angle3.value;}
+handlers2[3][4] = () => {angle2.value = angle4.value; angle9.value = angle4.value; angle12.value = angle4.value;}
+handlers2[4][4] = () => {angle3.value = angle5.value; angle7.value = angle5.value; angle10.value = angle5.value;}
+handlers2[5][4] = () => {angle1.value = angle6.value; angle8.value = angle6.value; angle11.value = angle6.value;}
+handlers2[6][4] = () => {angle5.value = angle7.value; angle3.value = angle7.value; angle10.value = angle7.value;}
+handlers2[7][4] = () => {angle6.value = angle8.value; angle1.value = angle8.value; angle11.value = angle8.value;}
+handlers2[8][4] = () => {angle4.value = angle9.value; angle2.value = angle9.value; angle12.value = angle9.value;}
+handlers2[9][4] = () => {angle5.value = angle10.value; angle7.value = angle10.value; angle3.value = angle10.value;}
+handlers2[10][4] = () => {angle6.value = angle11.value; angle8.value = angle11.value; angle1.value = angle11.value;}
+handlers2[11][4] = () => {angle4.value = angle12.value; angle9.value = angle12.value; angle2.value = angle12.value;}
+handlers2[0][5] = () => {angle8.value = angle1.value;}
+handlers2[1][5] = () => {angle9.value = angle2.value;}
+handlers2[2][5] = () => {angle7.value = angle3.value;}
+handlers2[3][5] = () => {angle12.value = angle4.value;}
+handlers2[4][5] = () => {angle10.value = angle5.value;}
+handlers2[5][5] = () => {angle11.value = angle6.value;}
+handlers2[6][5] = () => {angle3.value = angle7.value;}
+handlers2[7][5] = () => {angle1.value = angle8.value;}
+handlers2[8][5] = () => {angle2.value = angle9.value;}
+handlers2[9][5] = () => {angle5.value = angle10.value;}
+handlers2[10][5] = () => {angle6.value = angle11.value;}
+handlers2[11][5] = () => {angle4.value = angle12.value;}
+handlers2[0][6] = () => {angle2.value = (180-angle1.value)/2; }
+handlers2[1][6] = () => {angle3.value = angle2.value;}
+handlers2[2][6] = () => {angle2.value = angle3.value;}
+handlers2[3][6] = () => {angle7.value = angle4.value;}
+handlers2[4][6] = () => {angle9.value = angle5.value;}
+handlers2[5][6] = () => {angle8.value = angle6.value;}
+handlers2[6][6] = () => {angle4.value = angle7.value;}
+handlers2[7][6] = () => {angle6.value = angle8.value;}
+handlers2[8][6] = () => {angle5.value = angle9.value;}
+handlers2[9][6] = () => {angle12.value = angle10.value;}
+handlers2[10][6] = () => {angle10.value = (180-angle11.value)/2; }
+handlers2[11][6] = () => {angle10.value = angle12.value;}
 handlers2[0][7] = () => {angle1.value = "60";angle2.value = "60";angle3.value = "60";angle4.value = "60";angle5.value = "60";angle6.value = "60";angle7.value = "60";angle8.value = "60";angle9.value = "60";angle10.value = "60";angle11.value = "60";angle12.value = "60";}
 handlers2[1][7] = () => {angle1.value = "60";angle2.value = "60";angle3.value = "60";angle4.value = "60";angle5.value = "60";angle6.value = "60";angle7.value = "60";angle8.value = "60";angle9.value = "60";angle10.value = "60";angle11.value = "60";angle12.value = "60";}
 handlers2[2][7] = () => {angle1.value = "60";angle2.value = "60";angle3.value = "60";angle4.value = "60";angle5.value = "60";angle6.value = "60";angle7.value = "60";angle8.value = "60";angle9.value = "60";angle10.value = "60";angle11.value = "60";angle12.value = "60";}
@@ -477,44 +1049,24 @@ handlers2[11][7] = () => {angle1.value = "60";angle2.value = "60";angle3.value =
 
 //Tests to see if all fields have been filled. If so then it will render the image else it will unrender.
 function refresh(){
-    let full = true;
-    if(label1.value != ""){pq1.textContent = label1.value;}else{pq1.textContent = "r1"; full=false;}
-    if(label2.value != ""){pq2.textContent = label2.value;}else{pq2.textContent = "r2"; full=false;}
-    if(label3.value != ""){pq3.textContent = label3.value;}else{pq3.textContent = "r3"; full=false;}
-    if(label4.value != ""){pq4.textContent = label4.value;}else{pq4.textContent = "r4"; full=false;}
-    if(label5.value != ""){pq5.textContent = label5.value;}else{pq5.textContent = "r5"; full=false;}
-    if(label6.value != ""){pq6.textContent = label6.value;}else{pq6.textContent = "r6"; full=false;}
-    if(label7.value != ""){pq7.textContent = label7.value;}else{pq7.textContent = "r7"; full=false;}
-    if(label8.value != ""){pq8.textContent = label8.value;}else{pq8.textContent = "r8"; full=false;}
-    if(label9.value != ""){pq9.textContent = label9.value;}else{pq9.textContent = "r9"; full=false;}
-    if (full){
-        render();
-        a1 = angle1.value*Math.PI/180
-        a2 = angle2.value*Math.PI/180
-        a3 = angle3.value*Math.PI/180
-        a4 = angle4.value*Math.PI/180
-        a5 = angle5.value*Math.PI/180
-        a6 = angle6.value*Math.PI/180
-        a7 = angle7.value*Math.PI/180
-        a8 = angle8.value*Math.PI/180
-        a9 = angle9.value*Math.PI/180
-        a10 = angle10.value*Math.PI/180
-        a11 = angle11.value*Math.PI/180
-        a12 = angle12.value*Math.PI/180
-        dihedral1.value = 180*Math.acos((Math.cos(a11)-Math.cos(a5)*Math.cos(a9))/(Math.sin(a5)*Math.sin(a9)))/Math.PI
-        dihedral2.value = 180*Math.acos((Math.cos(a9)-Math.cos(a5)*Math.cos(a11))/(Math.sin(a5)*Math.sin(a11)))/Math.PI
-        dihedral3.value = 180*Math.acos((Math.cos(a5)-Math.cos(a11)*Math.cos(a9))/(Math.sin(a11)*Math.sin(a9)))/Math.PI
-        dihedral4.value = 180*Math.acos((Math.cos(a8)-Math.cos(a3)*Math.cos(a12))/(Math.sin(a3)*Math.sin(a12)))/Math.PI
-        dihedral5.value = 180*Math.acos((Math.cos(a12)-Math.cos(a3)*Math.cos(a8))/(Math.sin(a3)*Math.sin(a8)))/Math.PI
-        dihedral6.value = 180*Math.acos((Math.cos(a10)-Math.cos(a2)*Math.cos(a6))/(Math.sin(a2)*Math.sin(a6)))/Math.PI
-    }else{
-        unrender();
-    }
+    if(label1.value != ""){pq1.textContent = label1.value;}else{pq1.textContent = "r1";}
+    if(label2.value != ""){pq2.textContent = label2.value;}else{pq2.textContent = "r2";}
+    if(label3.value != ""){pq3.textContent = label3.value;}else{pq3.textContent = "r3";}
+    if(label4.value != ""){pq4.textContent = label4.value;}else{pq4.textContent = "r4";}
+    if(label5.value != ""){pq5.textContent = label5.value;}else{pq5.textContent = "r5";}
+    if(label6.value != ""){pq6.textContent = label6.value;}else{pq6.textContent = "r6";}
+    if(label7.value != ""){pq7.textContent = label7.value;}else{pq7.textContent = "r7";}
+    if(label8.value != ""){pq8.textContent = label8.value;}else{pq8.textContent = "r8";}
+    if(label9.value != ""){pq9.textContent = label9.value;}else{pq9.textContent = "r9";}
 }
 
 //Resets the objects to the original states
 function unrender(){
-    document.getElementById("ang").style.display = "block";
+    const labels = document.querySelectorAll('.ang_label');
+    labels.forEach(ang_label => {
+        ang_label.style.visibility = 'visible';
+    });
+
     triangle.setAttribute("viewBox", "-8 -6.9282032302755105 416 360.26656797432656");
     svgLine.setAttribute("points", "0 0, 400 0, 200 346.4101615137755");
     svgLine1.setAttribute("points", "200 0, 100 173.205081, 300 173.205081");
@@ -562,8 +1114,10 @@ function unrender(){
 
 //Some formulae to render the lengths, points and place the labels
 function render(){
-    validate();
-    document.getElementById("ang").style.display = "none";
+    const labels = document.querySelectorAll('.ang_label');
+    labels.forEach(ang_label => {
+        ang_label.style.visibility = 'hidden';
+    });
     r2 = label2.value
     r4 = label4.value
     r5 = label5.value
@@ -707,6 +1261,16 @@ label7.addEventListener("input", handlers[6][0]);
 label8.addEventListener("input", handlers[7][0]);
 label9.addEventListener("input", handlers[8][0]);
 
+label1.addEventListener("focusout", () => {refresh();});
+label2.addEventListener("focusout", () => {refresh();});
+label3.addEventListener("focusout", () => {refresh();});
+label4.addEventListener("focusout", () => {refresh();});
+label5.addEventListener("focusout", () => {refresh();});
+label6.addEventListener("focusout", () => {refresh();});
+label7.addEventListener("focusout", () => {refresh();});
+label8.addEventListener("focusout", () => {refresh();});
+label9.addEventListener("focusout", () => {refresh();});
+
 //Implementing erase button
 clear.addEventListener("click", () => {erase();});
 
@@ -733,4 +1297,38 @@ function erase(){
     angle10.value=""
     angle11.value=""
     angle12.value=""
+    dihedral1.value=""
+    dihedral2.value=""
+    dihedral3.value=""
+    dihedral4.value=""
+    dihedral5.value=""
+    dihedral6.value=""
+
+    label1.disabled = false;
+    label2.disabled = false;
+    label3.disabled = false;
+    label4.disabled = false;
+    label5.disabled = false;
+    label6.disabled = false;
+    label7.disabled = false;
+    label8.disabled = false;
+    label9.disabled = false;
+    angle1.disabled = false;
+    angle2.disabled = false;
+    angle3.disabled = false;
+    angle4.disabled = false;
+    angle5.disabled = false;
+    angle6.disabled = false;
+    angle7.disabled = false;
+    angle8.disabled = false;
+    angle9.disabled = false;
+    angle10.disabled = false;
+    angle11.disabled = false;
+    angle12.disabled = false;
+    dihedral1.disabled = false;
+    dihedral2.disabled = false;
+    dihedral3.disabled = false;
+    dihedral4.disabled = false;
+    dihedral5.disabled = false;
+    dihedral6.disabled = false;
 }
