@@ -214,220 +214,220 @@ function validate(){
         //Complete using lengths
         //Triangle 1
         if(((flags & 0b111000000000000000000000000) === 0b111000000000000000000000000) && ((flags & 0b000000000111000000000000000) != 0b000000000111000000000000000)){
-            angle1.value = 180/Math.PI*Math.acos((r2_2+r3_2-r1_2)/(2*r2*r3))
-            angle2.value = 180/Math.PI*Math.acos((r1_2+r3_2-r2_2)/(2*r1*r3))
-            angle3.value = 180/Math.PI*Math.acos((r1_2+r2_2-r3_2)/(2*r1*r2))
+            angle1.value = (180/Math.PI*Math.acos((r2_2+r3_2-r1_2)/(2*r2*r3)))
+            angle2.value = (180/Math.PI*Math.acos((r1_2+r3_2-r2_2)/(2*r1*r3)))
+            angle3.value = (180/Math.PI*Math.acos((r1_2+r2_2-r3_2)/(2*r1*r2)))
             lock1();
             changed = true
         }else if(((flags & 0b110000000001000000000000000) === 0b110000000001000000000000000) && ((flags & 0b001000000000000000000000000) !== 0b001000000000000000000000000)){
-            label3.value = Math.sqrt(r1_2+r2_2-2*r1*r2*Math.cos(a3))
+            label3.value = (Math.sqrt(r1_2+r2_2-2*r1*r2*Math.cos(a3)))
             lock1();
             changed = true
         }else if(((flags & 0b101000000010000000000000000) === 0b101000000010000000000000000) && ((flags & 0b010000000000000000000000000) !== 0b010000000000000000000000000)){
-            label2.value = Math.sqrt(r1_2+r3_2-2*r1*r3*Math.cos(a2))
+            label2.value = (Math.sqrt(r1_2+r3_2-2*r1*r3*Math.cos(a2)))
             lock1();
             changed = true
         }else if(((flags & 0b011000000100000000000000000) === 0b011000000100000000000000000) && ((flags & 0b100000000000000000000000000) !== 0b100000000000000000000000000)){
-            label1.value = Math.sqrt(r2_2+r3_2-2*r2*r3*Math.cos(a1))
+            label1.value = (Math.sqrt(r2_2+r3_2-2*r2*r3*Math.cos(a1)))
             lock1();
             changed = true
         }else if(((flags & 0b100000000111000000000000000) === 0b100000000111000000000000000) && ((flags & 0b011000000000000000000000000) !== 0b011000000000000000000000000)){
-            label2.value = r1*Math.sin(a2)/Math.sin(a1)
-            label3.value = r1*Math.sin(a3)/Math.sin(a1)
+            label2.value = (r1*Math.sin(a2)/Math.sin(a1))
+            label3.value = (r1*Math.sin(a3)/Math.sin(a1))
             lock1();
             changed = true
         }else if(((flags & 0b010000000111000000000000000) === 0b010000000111000000000000000) && ((flags & 0b101000000000000000000000000) !== 0b101000000000000000000000000)){
-            label1.value = r2*Math.sin(a1)/Math.sin(a2)
-            label3.value = r2*Math.sin(a3)/Math.sin(a2)
+            label1.value = (r2*Math.sin(a1)/Math.sin(a2))
+            label3.value = (r2*Math.sin(a3)/Math.sin(a2))
             lock1();
             changed = true
         }else if(((flags & 0b001000000111000000000000000) === 0b001000000111000000000000000) && ((flags & 0b110000000000000000000000000) !== 0b110000000000000000000000000)){
-            label1.value = r3*Math.sin(a1)/Math.sin(a3)
-            label2.value = r3*Math.sin(a2)/Math.sin(a3)
+            label1.value = (r3*Math.sin(a1)/Math.sin(a3))
+            label2.value = (r3*Math.sin(a2)/Math.sin(a3))
             lock1();
             changed = true
         }
         //Triangle 2
         else if(((flags & 0b001110000000000000000000000) === 0b001110000000000000000000000) && ((flags & 0b000000000000111000000000000) != 0b000000000000111000000000000)){
-            angle5.value = 180/Math.PI*Math.acos((r4_2+r5_2-r3_2)/(2*r4*r5))
-            angle6.value = 180/Math.PI*Math.acos((r3_2+r5_2-r4_2)/(2*r3*r5))
-            angle4.value = 180/Math.PI*Math.acos((r3_2+r4_2-r5_2)/(2*r3*r4))
+            angle5.value = (180/Math.PI*Math.acos((r4_2+r5_2-r3_2)/(2*r4*r5)))
+            angle6.value = (180/Math.PI*Math.acos((r3_2+r5_2-r4_2)/(2*r3*r5)))
+            angle4.value = (180/Math.PI*Math.acos((r3_2+r4_2-r5_2)/(2*r3*r4)))
             lock2();
             changed = true
         }else if(((flags & 0b001100000000100000000000000) === 0b001100000000100000000000000) && ((flags & 0b000010000000000000000000000) !== 0b000010000000000000000000000)){
-            label5.value = Math.sqrt(r3_2+r4_2-2*r3*r4*Math.cos(a4))
+            label5.value = (Math.sqrt(r3_2+r4_2-2*r3*r4*Math.cos(a4)))
             lock2();
             changed = true
         }else if(((flags & 0b001010000000001000000000000) === 0b001010000000001000000000000) && ((flags & 0b000100000000000000000000000) !== 0b000100000000000000000000000)){
-            label4.value = Math.sqrt(r3_2+r5_2-2*r3*r5*Math.cos(a6))
+            label4.value = (Math.sqrt(r3_2+r5_2-2*r3*r5*Math.cos(a6)))
             lock2();
             changed = true
         }else if(((flags & 0b000110000000010000000000000) === 0b000110000000010000000000000) && ((flags & 0b001000000000000000000000000) !== 0b001000000000000000000000000)){
-            label3.value = Math.sqrt(r4_2+r5_2-2*r4*r5*Math.cos(a5))
+            label3.value = (Math.sqrt(r4_2+r5_2-2*r4*r5*Math.cos(a5)))
             lock2();
             changed = true
         }
         else if(((flags & 0b001000000000111000000000000) === 0b001000000000111000000000000) && ((flags & 0b000110000000000000000000000) !== 0b000110000000000000000000000)){
-            label4.value = r3*Math.sin(a6)/Math.sin(a5)
-            label5.value = r3*Math.sin(a4)/Math.sin(a5)
+            label4.value = (r3*Math.sin(a6)/Math.sin(a5))
+            label5.value = (r3*Math.sin(a4)/Math.sin(a5))
             lock2();
             changed = true
         }else if(((flags & 0b000100000000111000000000000) === 0b000100000000111000000000000) && ((flags & 0b001010000000000000000000000) !== 0b001010000000000000000000000)){
-            label3.value = r4*Math.sin(a5)/Math.sin(a6)
-            label5.value = r4*Math.sin(a4)/Math.sin(a6)
+            label3.value = (r4*Math.sin(a5)/Math.sin(a6))
+            label5.value = (r4*Math.sin(a4)/Math.sin(a6))
             lock2();
             changed = true
         }else if(((flags & 0b000010000000111000000000000) === 0b000010000000111000000000000) && ((flags & 0b001100000000000000000000000) !== 0b001100000000000000000000000)){
-            label3.value = r5*Math.sin(a5)/Math.sin(a4)
-            label4.value = r5*Math.sin(a6)/Math.sin(a4)
+            label3.value = (r5*Math.sin(a5)/Math.sin(a4))
+            label4.value = (r5*Math.sin(a6)/Math.sin(a4))
             lock2();
             changed = true
         }
         //Triangle 3
         else if(((flags & 0b010001100000000000000000000) === 0b010001100000000000000000000) && ((flags & 0b000000000000000111000000000) != 0b000000000000000111000000000)){
-            angle9.value = 180/Math.PI*Math.acos((r6_2+r7_2-r2_2)/(2*r6*r7))
-            angle8.value = 180/Math.PI*Math.acos((r2_2+r7_2-r6_2)/(2*r2*r7))
-            angle7.value = 180/Math.PI*Math.acos((r2_2+r6_2-r7_2)/(2*r2*r6))
+            angle9.value = (180/Math.PI*Math.acos((r6_2+r7_2-r2_2)/(2*r6*r7)))
+            angle8.value = (180/Math.PI*Math.acos((r2_2+r7_2-r6_2)/(2*r2*r7)))
+            angle7.value = (180/Math.PI*Math.acos((r2_2+r6_2-r7_2)/(2*r2*r6)))
             lock3();
             changed = true
         }else if(((flags & 0b010001000000000100000000000) === 0b010001000000000100000000000) && ((flags & 0b000000100000000000000000000) !== 0b000000100000000000000000000)){
-            label7.value = Math.sqrt(r2_2+r6_2-2*r2*r6*Math.cos(a7))
+            label7.value = (Math.sqrt(r2_2+r6_2-2*r2*r6*Math.cos(a7)))
             lock3();
             changed = true
         }else if(((flags & 0b010000100000000010000000000) === 0b010000100000000010000000000) && ((flags & 0b000001000000000000000000000) !== 0b000001000000000000000000000)){
-            label6.value = Math.sqrt(r2_2+r7_2-2*r2*r7*Math.cos(a8))
+            label6.value = (Math.sqrt(r2_2+r7_2-2*r2*r7*Math.cos(a8)))
             lock3();
             changed = true
         }else if(((flags & 0b000001100000000100000000000) === 0b000001100000000100000000000) && ((flags & 0b010000000000000000000000000) !== 0b010000000000000000000000000)){
-            label2.value = Math.sqrt(r6_2+r7_2-2*r6*r7*Math.cos(a9))
+            label2.value = (Math.sqrt(r6_2+r7_2-2*r6*r7*Math.cos(a9)))
             lock3();
             changed = true
         }
         else if(((flags & 0b010000000000000111000000000) === 0b010000000000000111000000000) && ((flags & 0b000001100000000000000000000) !== 0b000001100000000000000000000)){
-            label6.value = r2*Math.sin(a8)/Math.sin(a9)
-            label7.value = r2*Math.sin(a7)/Math.sin(a9)
+            label6.value = (r2*Math.sin(a8)/Math.sin(a9))
+            label7.value = (r2*Math.sin(a7)/Math.sin(a9))
             lock3();
             changed = true
         }else if(((flags & 0b000001000000000111000000000) === 0b000001000000000111000000000) && ((flags & 0b010000100000000000000000000) !== 0b010000100000000000000000000)){
-            label2.value = r6*Math.sin(a9)/Math.sin(a8)
-            label7.value = r6*Math.sin(a7)/Math.sin(a8)
+            label2.value = (r6*Math.sin(a9)/Math.sin(a8))
+            label7.value = (r6*Math.sin(a7)/Math.sin(a8))
             lock3();
             changed = true
         }else if(((flags & 0b000000100000000111000000000) === 0b000000100000000111000000000) && ((flags & 0b010001000000000000000000000) !== 0b010001000000000000000000000)){
-            label2.value = r7*Math.sin(a9)/Math.sin(a7)
-            label6.value = r7*Math.sin(a8)/Math.sin(a7)
+            label2.value = (r7*Math.sin(a9)/Math.sin(a7))
+            label6.value = (r7*Math.sin(a8)/Math.sin(a7))
             lock3();
             changed = true
         }
         //Triangle 4
         else if(((flags & 0b100000011000000000000000000) === 0b100000011000000000000000000) && ((flags & 0b000000000000000000111000000) != 0b000000000000000000111000000)){
-            angle11.value = 180/Math.PI*Math.acos((r8_2+r9_2-r1_2)/(2*r8*r9))
-            angle12.value = 180/Math.PI*Math.acos((r1_2+r9_2-r8_2)/(2*r1*r9))
-            angle10.value = 180/Math.PI*Math.acos((r1_2+r8_2-r9_2)/(2*r1*r8))
+            angle11.value = (180/Math.PI*Math.acos((r8_2+r9_2-r1_2)/(2*r8*r9)))
+            angle12.value = (180/Math.PI*Math.acos((r1_2+r9_2-r8_2)/(2*r1*r9)))
+            angle10.value = (180/Math.PI*Math.acos((r1_2+r8_2-r9_2)/(2*r1*r8)))
             lock4();
             changed = true
         }else if(((flags & 0b100000010000000000100000000) === 0b100000010000000000100000000) && ((flags & 0b000000001000000000000000000) !== 0b000000001000000000000000000)){
-            label9.value = Math.sqrt(r1_2+r8_2-2*r1*r8*Math.cos(a10))
+            label9.value = (Math.sqrt(r1_2+r8_2-2*r1*r8*Math.cos(a10)))
             lock4();
             changed = true
         }else if(((flags & 0b100000001000000000001000000) === 0b100000001000000000001000000) && ((flags & 0b000000010000000000000000000) !== 0b000000010000000000000000000)){
-            label8.value = Math.sqrt(r1_2+r9_2-2*r1*r9*Math.cos(a12))
+            label8.value = (Math.sqrt(r1_2+r9_2-2*r1*r9*Math.cos(a12)))
             lock4();
             changed = true
         }else if(((flags & 0b000000011000000000010000000) === 0b000000011000000000010000000) && ((flags & 0b100000000000000000000000000) !== 0b100000000000000000000000000)){
-            label1.value = Math.sqrt(r8_2+r9_2-2*r8*r9*Math.cos(a11))
+            label1.value = (Math.sqrt(r8_2+r9_2-2*r8*r9*Math.cos(a11)))
             lock4();
             changed = true
         }
         else if(((flags & 0b100000000000000000111000000) === 0b100000000000000000111000000) && ((flags & 0b000000011000000000000000000) !== 0b000000011000000000000000000)){
-            label8.value = r1*Math.sin(a12)/Math.sin(a11)
-            label9.value = r1*Math.sin(a10)/Math.sin(a11)
+            label8.value = (r1*Math.sin(a12)/Math.sin(a11))
+            label9.value = (r1*Math.sin(a10)/Math.sin(a11))
             lock4();
             changed = true
         }else if(((flags & 0b000000010000000000111000000) === 0b000000010000000000111000000) && ((flags & 0b100000001000000000000000000) !== 0b100000001000000000000000000)){
-            label1.value = r8*Math.sin(a11)/Math.sin(a12)
-            label9.value = r8*Math.sin(a10)/Math.sin(a12)
+            label1.value = (r8*Math.sin(a11)/Math.sin(a12))
+            label9.value = (r8*Math.sin(a10)/Math.sin(a12))
             lock4();
             changed = true
         }else if(((flags & 0b000000001000000000111000000) === 0b000000001000000000111000000) && ((flags & 0b100000010000000000000000000) !== 0b100000010000000000000000000)){
-            label1.value = r9*Math.sin(a11)/Math.sin(a10)
-            label8.value = r9*Math.sin(a12)/Math.sin(a10)
+            label1.value = (r9*Math.sin(a11)/Math.sin(a10))
+            label8.value = (r9*Math.sin(a12)/Math.sin(a10))
             lock4();
             changed = true
         }
         //Only angles
         //Triangle 1
         else if(((flags & 0b000000000011000000000000000) === 0b000000000011000000000000000) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
-            angle1.value = 180-angle2.value-angle3.value
+            angle1.value = (180-angle2.value-angle3.value)
             angle1.disabled = true;
             angle2.disabled = true;
             angle3.disabled = true;
             changed = true
         }else if(((flags & 0b000000000101000000000000000) === 0b000000000101000000000000000) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
-            angle2.value = 180-angle1.value-angle3.value
+            angle2.value = (180-angle1.value-angle3.value)
             angle1.disabled = true;
             angle2.disabled = true;
             angle3.disabled = true;
             changed = true
         }else if(((flags & 0b000000000110000000000000000) === 0b000000000110000000000000000) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
-            angle3.value = 180-angle2.value-angle1.value
+            angle3.value = (180-angle2.value-angle1.value)
             angle1.disabled = true;
             angle2.disabled = true;
             angle3.disabled = true;
             changed = true
         }//Triangle 2
         else if(((flags & 0b000000000000011000000000000) === 0b000000000000011000000000000) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
-            angle4.value = 180-angle5.value-angle6.value
+            angle4.value = (180-angle5.value-angle6.value)
             angle4.disabled = true;
             angle5.disabled = true;
             angle6.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000101000000000000) === 0b000000000000101000000000000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
-            angle5.value = 180-angle4.value-angle6.value
+            angle5.value = (180-angle4.value-angle6.value)
             angle4.disabled = true;
             angle5.disabled = true;
             angle6.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000110000000000000) === 0b000000000000110000000000000) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
-            angle6.value = 180-angle4.value-angle5.value
+            angle6.value = (180-angle4.value-angle5.value)
             angle4.disabled = true;
             angle5.disabled = true;
             angle6.disabled = true;
             changed = true
         }//Triangle 3
         else if(((flags & 0b000000000000000011000000000) === 0b000000000000000011000000000) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
-            angle7.value = 180-angle8.value-angle9.value
+            angle7.value = (180-angle8.value-angle9.value)
             angle7.disabled = true;
             angle8.disabled = true;
             angle9.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000000101000000000) === 0b000000000000000101000000000) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
-            angle8.value = 180-angle7.value-angle9.value
+            angle8.value = (180-angle7.value-angle9.value)
             angle7.disabled = true;
             angle8.disabled = true;
             angle9.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000000110000000000) === 0b000000000000000110000000000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
-            angle9.value = 180-angle7.value-angle8.value
+            angle9.value = (180-angle7.value-angle8.value)
             angle7.disabled = true;
             angle8.disabled = true;
             angle9.disabled = true;
             changed = true
         }//Triangle 4
         else if(((flags & 0b000000000000000000011000000) === 0b000000000000000000011000000) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
-            angle10.value = 180-angle11.value-angle12.value
+            angle10.value = (180-angle11.value-angle12.value)
             angle10.disabled = true;
             angle11.disabled = true;
             angle12.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000000000101000000) === 0b000000000000000000101000000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
-            angle11.value = 180-angle10.value-angle12.value
+            angle11.value = (180-angle10.value-angle12.value)
             angle10.disabled = true;
             angle11.disabled = true;
             angle12.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000000000110000000) === 0b000000000000000000110000000) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
-            angle12.value = 180-angle10.value-angle11.value
+            angle12.value = (180-angle10.value-angle11.value)
             angle10.disabled = true;
             angle11.disabled = true;
             angle12.disabled = true;
@@ -435,8 +435,8 @@ function validate(){
         }
         //Dihedral 1 with angles 1,4,7
         else if(((flags & 0b000000000100100100000000000) === 0b000000000100100100000000000) && ((flags & 0b000000000000000000000100000) !== 0b000000000000000000000100000)){
-            val = (Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral1.value = 180*Math.acos(val)/Math.PI
             dihedral1.disabled = true;
             angle1.disabled = true;
@@ -467,8 +467,8 @@ function validate(){
         }
         //Dihedral 1 with angles 5,9,11
         else if(((flags & 0b000000000000010001010000000) === 0b000000000000010001010000000) && ((flags & 0b000000000000000000000100000) !== 0b000000000000000000000100000)){
-            val = (Math.cos(a11)-Math.cos(a5)*Math.cos(a9))/(Math.sin(a5)*Math.sin(a9))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a11)-Math.cos(a5)*Math.cos(a9))/(Math.sin(a5)*Math.sin(a9))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral1.value = 180*Math.acos(val)/Math.PI
             dihedral1.disabled = true;
             angle5.disabled = true;
@@ -499,9 +499,9 @@ function validate(){
         }
         //Dihedral 2 with angles 2,6,10
         else if(((flags & 0b000000000010001000100000000) === 0b000000000010001000100000000) && ((flags & 0b000000000000000000000010000) !== 0b000000000000000000000010000)){
-            val = (Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
-            dihedral2.value = 180*Math.acos(val)/Math.PI
+            let val = (Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
+            dihedral2.value = 180*Math.acos(cal)/Math.PI
             dihedral2.disabled = true;
             angle2.disabled = true;
             angle6.disabled = true;
@@ -531,8 +531,8 @@ function validate(){
         }
         //Dihedral 2 with angles 5,9,11
         else if(((flags & 0b000000000000010001010000000) === 0b000000000000010001010000000) && ((flags & 0b000000000000000000000010000) !== 0b000000000000000000000010000)){
-            val = (Math.cos(a9)-Math.cos(a5)*Math.cos(a11))/(Math.sin(a5)*Math.sin(a11))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a9)-Math.cos(a5)*Math.cos(a11))/(Math.sin(a5)*Math.sin(a11))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral2.value = 180*Math.acos(val)/Math.PI
             dihedral2.disabled = true;
             angle5.disabled = true;
@@ -563,8 +563,8 @@ function validate(){
         }
         //Dihedral 3 with angles 3,8,12
         else if(((flags & 0b000000000001000010001000000) === 0b000000000001000010001000000) && ((flags & 0b000000000000000000000001000) !== 0b000000000000000000000001000)){
-            val = (Math.cos(a3)-Math.cos(a8)*Math.cos(a12))/(Math.sin(a8)*Math.sin(a12))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a3)-Math.cos(a8)*Math.cos(a12))/(Math.sin(a8)*Math.sin(a12))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral3.value = 180*Math.acos(val)/Math.PI
             dihedral3.disabled = true;
             angle3.disabled = true;
@@ -595,8 +595,8 @@ function validate(){
         }
         //Dihedral 3 with angles 5,9,11
         else if(((flags & 0b000000000000010001010000000) === 0b000000000000010001010000000) && ((flags & 0b000000000000000000000001000) !== 0b000000000000000000000001000)){
-            val = (Math.cos(a5)-Math.cos(a9)*Math.cos(a11))/(Math.sin(a9)*Math.sin(a11))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a5)-Math.cos(a9)*Math.cos(a11))/(Math.sin(a9)*Math.sin(a11))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral3.value = 180*Math.acos(val)/Math.PI
             dihedral3.disabled = true;
             angle5.disabled = true;
@@ -627,8 +627,8 @@ function validate(){
         }
         //Dihedral 4 with angles 3,8,12
         else if(((flags & 0b000000000001000010001000000) === 0b000000000001000010001000000) && ((flags & 0b000000000000000000000000100) !== 0b000000000000000000000000100)){
-            val = (Math.cos(a8)-Math.cos(a3)*Math.cos(a12))/(Math.sin(a3)*Math.sin(a12))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a8)-Math.cos(a3)*Math.cos(a12))/(Math.sin(a3)*Math.sin(a12))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral4.value = 180*Math.acos(val)/Math.PI
             dihedral4.disabled = true;
             angle3.disabled = true;
@@ -659,8 +659,8 @@ function validate(){
         }
         //Dihedral 4 with angles 2,6,10
         else if(((flags & 0b000000000010001000100000000) === 0b000000000010001000100000000) && ((flags & 0b000000000000000000000000100) !== 0b000000000000000000000000100)){
-            val = (Math.cos(a6)-Math.cos(a2)*Math.cos(a10))/(Math.sin(a2)*Math.sin(a10))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral4.value = 180*Math.acos(val)/Math.PI
             dihedral4.disabled = true;
             angle2.disabled = true;
@@ -691,8 +691,8 @@ function validate(){
         }
         //Dihedral 5 with angles 3,8,12
         else if(((flags & 0b000000000001000010001000000) === 0b000000000001000010001000000) && ((flags & 0b000000000000000000000000010) !== 0b000000000000000000000000010)){
-            val = (Math.cos(a12)-Math.cos(a3)*Math.cos(a8))/(Math.sin(a3)*Math.sin(a8))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a8)-Math.cos(a3)*Math.cos(a12))/(Math.sin(a3)*Math.sin(a12))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral5.value = 180*Math.acos(val)/Math.PI
             dihedral5.disabled = true;
             angle3.disabled = true;
@@ -723,8 +723,8 @@ function validate(){
         }
         //Dihedral 5 with angles 1,4,7
         else if(((flags & 0b000000000100100100000000000) === 0b000000000100100100000000000) && ((flags & 0b000000000000000000000000010) !== 0b000000000000000000000000010)){
-            val = (Math.cos(a4)-Math.cos(a1)*Math.cos(a7))/(Math.sin(a1)*Math.sin(a7))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral5.value = 180*Math.acos(val)/Math.PI
             dihedral5.disabled = true;
             angle1.disabled = true;
@@ -755,8 +755,8 @@ function validate(){
         }
         //Dihedral 6 with angles 1,4,7
         else if(((flags & 0b000000000100100100000000000) === 0b000000000100100100000000000) && ((flags & 0b000000000000000000000000001) !== 0b000000000000000000000000001)){
-            val = (Math.cos(a7)-Math.cos(a1)*Math.cos(a4))/(Math.sin(a1)*Math.sin(a4))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a1)-Math.cos(a4)*Math.cos(a7))/(Math.sin(a4)*Math.sin(a7))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral6.value = 180*Math.acos(val)/Math.PI
             dihedral6.disabled = true;
             angle1.disabled = true;
@@ -787,8 +787,8 @@ function validate(){
         }
         //Dihedral 6 with angles 2,6,10
         else if(((flags & 0b000000000010001000100000000) === 0b000000000010001000100000000) && ((flags & 0b000000000000000000000000001) !== 0b000000000000000000000000001)){
-            val = (Math.cos(a10)-Math.cos(a2)*Math.cos(a6))/(Math.sin(a2)*Math.sin(a6))
-            if (val > 1 || val < -1){val = Math.round(val*1000000000)/1000000000}
+            let val = (Math.cos(a2)-Math.cos(a6)*Math.cos(a10))/(Math.sin(a6)*Math.sin(a10))
+            if (val > 1 || val < -1){val = Math.round(val*1000000000000)/1000000000000}
             dihedral6.value = 180*Math.acos(val)/Math.PI
             dihedral6.disabled = true;
             angle2.disabled = true;
@@ -796,21 +796,21 @@ function validate(){
             angle10.disabled = true;
             changed = true
         }else if(((flags & 0b000000000010001000000000001) === 0b000000000010001000000000001) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
-            angle10.value = 180*Math.acos(Math.cos(d6)*Math.sin(a2)*Math.sin(a6)+Math.cos(a2)*Math.cos(a6))/Math.PI
+            angle10.value = 180*Math.acos(Math.cos(d4)*Math.sin(a2)*Math.sin(a6)+Math.cos(a2)*Math.cos(a6))/Math.PI
             dihedral6.disabled = true;
             angle2.disabled = true;
             angle6.disabled = true;
             angle10.disabled = true;
             changed = true
         }else if(((flags & 0b000000000010000000100000001) === 0b000000000010000000100000001) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
-            angle6.value = inverse_dihedral(Math.cos(d6)*Math.sin(a2),Math.cos(a2),Math.cos(a10))
+            angle6.value = inverse_dihedral(Math.cos(d4)*Math.sin(a2),Math.cos(a2),Math.cos(a10))
             dihedral6.disabled = true;
             angle2.disabled = true;
             angle6.disabled = true;
             angle10.disabled = true;
             changed = true
         }else if(((flags & 0b000000000000001000100000001) === 0b000000000000001000100000001) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
-            angle2.value = inverse_dihedral(Math.cos(d6)*Math.sin(a6),Math.cos(a6),Math.cos(a10))
+            angle2.value = inverse_dihedral(Math.cos(d4)*Math.sin(a6),Math.cos(a6),Math.cos(a10))
             dihedral6.disabled = true;
             angle2.disabled = true;
             angle6.disabled = true;
@@ -855,7 +855,6 @@ function validate(){
     }else{
         unrender();
     }
-    
     let check_len = true
     if(label1.value <=0 && label1.value != ""){check_len = false;}
     if(label2.value <=0 && label2.value != ""){check_len = false;}
@@ -889,15 +888,13 @@ function validate(){
         erase();
         location.reload();
     }
-    
 }
 
 function inverse_dihedral(a, b, c){
     let ans = +Math.acos(c/(Math.sqrt(Math.pow(a,2)+Math.pow(b,2))))+Math.atan(a/b)
-    if (ans < 0){
-        alert("as")
+    /*if (ans < 0){
         ans = ans + 2*Math.PI
-    }
+    }*/
     return ans*180/Math.PI
 }
 
@@ -1224,36 +1221,6 @@ function render(){
     pq9.setAttribute("font-size", font*0.8);
     pq9.setAttribute("x", p5_x/2+p4_x/2-font);
     pq9.setAttribute("y", p5_y/2+p4_y/2);
-
-    label1.value = Math.round(label1.value*1000)/1000;
-    label2.value = Math.round(label2.value*1000)/1000;
-    label3.value = Math.round(label3.value*1000)/1000;
-    label4.value = Math.round(label4.value*1000)/1000;
-    label5.value = Math.round(label5.value*1000)/1000;
-    label6.value = Math.round(label6.value*1000)/1000;
-    label7.value = Math.round(label7.value*1000)/1000;
-    label8.value = Math.round(label8.value*1000)/1000;
-    label9.value = Math.round(label9.value*1000)/1000;
-
-    angle1.value = Math.round(angle1.value*100)/100;
-    angle2.value = Math.round(angle2.value*100)/100;
-    angle3.value = Math.round(angle3.value*100)/100;
-    angle4.value = Math.round(angle4.value*100)/100;
-    angle5.value = Math.round(angle5.value*100)/100;
-    angle6.value = Math.round(angle6.value*100)/100;
-    angle7.value = Math.round(angle7.value*100)/100;
-    angle8.value = Math.round(angle8.value*100)/100;
-    angle9.value = Math.round(angle9.value*100)/100;
-    angle10.value = Math.round(angle10.value*100)/100;
-    angle11.value = Math.round(angle11.value*100)/100;
-    angle12.value = Math.round(angle12.value*100)/100;
-    
-    dihedral1.value = Math.round(dihedral1.value*100)/100;
-    dihedral2.value = Math.round(dihedral2.value*100)/100;
-    dihedral3.value = Math.round(dihedral3.value*100)/100;
-    dihedral4.value = Math.round(dihedral4.value*100)/100;
-    dihedral5.value = Math.round(dihedral5.value*100)/100;
-    dihedral6.value = Math.round(dihedral6.value*100)/100;
 }
 
 //Assigns the corresponding listeners corresponding to the radio button selected.
