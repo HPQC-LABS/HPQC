@@ -246,6 +246,30 @@ function validate(){
             label2.value = r3*Math.sin(a2)/Math.sin(a3)
             lock1();
             changed = true
+        }else if(((flags & 0b110000000100000000000000000) === 0b110000000100000000000000000) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
+            angle2.value = 180/Math.PI*Math.asin(Math.sin(a1)*r2/r1)
+            lock1();
+            changed = true
+        }else if(((flags & 0b110000000010000000000000000) === 0b110000000010000000000000000) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
+            angle1.value = 180/Math.PI*Math.asin(Math.sin(a2)*r1/r2)
+            lock1();
+            changed = true
+        }else if(((flags & 0b101000000100000000000000000) === 0b101000000100000000000000000) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
+            angle3.value = 180/Math.PI*Math.asin(Math.sin(a1)*r3/r1)
+            lock1();
+            changed = true
+        }else if(((flags & 0b101000000001000000000000000) === 0b101000000001000000000000000) && ((flags & 0b000000000100000000000000000) !== 0b000000000100000000000000000)){
+            angle1.value = 180/Math.PI*Math.asin(Math.sin(a3)*r1/r3)
+            lock1();
+            changed = true
+        }else if(((flags & 0b011000000001000000000000000) === 0b011000000001000000000000000) && ((flags & 0b000000000010000000000000000) !== 0b000000000010000000000000000)){
+            angle2.value = 180/Math.PI*Math.asin(Math.sin(a3)*r2/r3)
+            lock1();
+            changed = true
+        }else if(((flags & 0b011000000010000000000000000) === 0b011000000010000000000000000) && ((flags & 0b000000000001000000000000000) !== 0b000000000001000000000000000)){
+            angle3.value = 180/Math.PI*Math.asin(Math.sin(a2)*r3/r2)
+            lock1();
+            changed = true
         }
         //Triangle 2
         else if(((flags & 0b001110000000000000000000000) === 0b001110000000000000000000000) && ((flags & 0b000000000000111000000000000) != 0b000000000000111000000000000)){
@@ -282,6 +306,30 @@ function validate(){
             label4.value = r5*Math.sin(a6)/Math.sin(a4)
             lock2();
             changed = true
+        }else if(((flags & 0b001100000000010000000000000) === 0b001100000000010000000000000) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
+            angle6.value = 180/Math.PI*Math.asin(Math.sin(a5)*r4/r3)
+            lock2();
+            changed = true
+        }else if(((flags & 0b001100000000001000000000000) === 0b001100000000001000000000000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
+            angle5.value = 180/Math.PI*Math.asin(Math.sin(a6)*r3/r4)
+            lock2();
+            changed = true
+        }else if(((flags & 0b001010000000100000000000000) === 0b001010000000100000000000000) && ((flags & 0b000000000000010000000000000) !== 0b000000000000010000000000000)){
+            angle5.value = 180/Math.PI*Math.asin(Math.sin(a4)*r3/r5)
+            lock2();
+            changed = true
+        }else if(((flags & 0b001010000000010000000000000) === 0b001010000000010000000000000) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
+            angle4.value = 180/Math.PI*Math.asin(Math.sin(a5)*r5/r3)
+            lock2();
+            changed = true
+        }else if(((flags & 0b000110000000100000000000000) === 0b000110000000100000000000000) && ((flags & 0b000000000000001000000000000) !== 0b000000000000001000000000000)){
+            angle6.value = 180/Math.PI*Math.asin(Math.sin(a4)*r4/r5)
+            lock2();
+            changed = true
+        }else if(((flags & 0b000110000000001000000000000) === 0b000110000000001000000000000) && ((flags & 0b000000000000100000000000000) !== 0b000000000000100000000000000)){
+            angle4.value = 180/Math.PI*Math.asin(Math.sin(a6)*r5/r4)
+            lock2();
+            changed = true
         }
         //Triangle 3
         else if(((flags & 0b010001100000000000000000000) === 0b010001100000000000000000000) && ((flags & 0b000000000000000111000000000) != 0b000000000000000111000000000)){
@@ -298,7 +346,7 @@ function validate(){
             label6.value = Math.sqrt(r2_2+r7_2-2*r2*r7*Math.cos(a8))
             lock3();
             changed = true
-        }else if(((flags & 0b000001100000000100000000000) === 0b000001100000000100000000000) && ((flags & 0b010000000000000000000000000) !== 0b010000000000000000000000000)){
+        }else if(((flags & 0b000001100000000001000000000) === 0b000001100000000001000000000) && ((flags & 0b010000000000000000000000000) !== 0b010000000000000000000000000)){
             label2.value = Math.sqrt(r6_2+r7_2-2*r6*r7*Math.cos(a9))
             lock3();
             changed = true
@@ -316,6 +364,30 @@ function validate(){
         }else if(((flags & 0b000000100000000111000000000) === 0b000000100000000111000000000) && ((flags & 0b010001000000000000000000000) !== 0b010001000000000000000000000)){
             label2.value = r7*Math.sin(a9)/Math.sin(a7)
             label6.value = r7*Math.sin(a8)/Math.sin(a7)
+            lock3();
+            changed = true
+        }else if(((flags & 0b010001000000000010000000000) === 0b010001000000000010000000000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
+            angle9.value = 180/Math.PI*Math.asin(Math.sin(a8)*r2/r6)
+            lock3();
+            changed = true
+        }else if(((flags & 0b010001000000000001000000000) === 0b010001000000000001000000000) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
+            angle8.value = 180/Math.PI*Math.asin(Math.sin(a9)*r6/r2)
+            lock3();
+            changed = true
+        }else if(((flags & 0b010000100000000100000000000) === 0b010000100000000100000000000) && ((flags & 0b000000000000000001000000000) !== 0b000000000000000001000000000)){
+            angle9.value = 180/Math.PI*Math.asin(Math.sin(a7)*r2/r7)
+            lock3();
+            changed = true
+        }else if(((flags & 0b010000100000000001000000000) === 0b010000100000000001000000000) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
+            angle7.value = 180/Math.PI*Math.asin(Math.sin(a9)*r7/r2)
+            lock3();
+            changed = true
+        }else if(((flags & 0b000001100000000100000000000) === 0b000001100000000100000000000) && ((flags & 0b000000000000000010000000000) !== 0b000000000000000010000000000)){
+            angle8.value = 180/Math.PI*Math.asin(Math.sin(a7)*r6/r7)
+            lock3();
+            changed = true
+        }else if(((flags & 0b000001100000000010000000000) === 0b000001100000000010000000000) && ((flags & 0b000000000000000100000000000) !== 0b000000000000000100000000000)){
+            angle7.value = 180/Math.PI*Math.asin(Math.sin(a8)*r7/r6)
             lock3();
             changed = true
         }
@@ -352,6 +424,30 @@ function validate(){
         }else if(((flags & 0b000000001000000000111000000) === 0b000000001000000000111000000) && ((flags & 0b100000010000000000000000000) !== 0b100000010000000000000000000)){
             label1.value = r9*Math.sin(a11)/Math.sin(a10)
             label8.value = r9*Math.sin(a12)/Math.sin(a10)
+            lock4();
+            changed = true
+        }else if(((flags & 0b100000010000000000010000000) === 0b100000010000000000010000000) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
+            angle12.value = 180/Math.PI*Math.asin(Math.sin(a11)*r8/r1)
+            lock4();
+            changed = true
+        }else if(((flags & 0b100000010000000000001000000) === 0b100000010000000000001000000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
+            angle11.value = 180/Math.PI*Math.asin(Math.sin(a12)*r1/r8)
+            lock4();
+            changed = true
+        }else if(((flags & 0b100000001000000000100000000) === 0b100000001000000000100000000) && ((flags & 0b000000000000000000010000000) !== 0b000000000000000000010000000)){
+            angle11.value = 180/Math.PI*Math.asin(Math.sin(a10)*r1/r9)
+            lock4();
+            changed = true
+        }else if(((flags & 0b100000001000000000010000000) === 0b100000001000000000010000000) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
+            angle10.value = 180/Math.PI*Math.asin(Math.sin(a11)*r9/r1)
+            lock4();
+            changed = true
+        }else if(((flags & 0b000000011000000000100000000) === 0b000000011000000000100000000) && ((flags & 0b000000000000000000001000000) !== 0b000000000000000000001000000)){
+            angle12.value = 180/Math.PI*Math.asin(Math.sin(a10)*r8/r9)
+            lock4();
+            changed = true
+        }else if(((flags & 0b000000011000000000001000000) === 0b000000011000000000001000000) && ((flags & 0b000000000000000000100000000) !== 0b000000000000000000100000000)){
+            angle10.value = 180/Math.PI*Math.asin(Math.sin(a12)*r9/r8)
             lock4();
             changed = true
         }
@@ -871,6 +967,7 @@ function validate(){
         erase();
         location.reload();
     }
+    
     let check_angle = true
     if((angle1.value <=0 || angle1.value >=180) && angle1.value != ""){check_angle= false;}
     if((angle2.value <=0 || angle2.value >=180) && angle2.value != ""){check_angle= false;}
@@ -1225,15 +1322,15 @@ function render(){
     pq9.setAttribute("x", p5_x/2+p4_x/2-font);
     pq9.setAttribute("y", p5_y/2+p4_y/2);
 
-    label1.value = Math.round(label1.value*1000)/1000;
-    label2.value = Math.round(label2.value*1000)/1000;
-    label3.value = Math.round(label3.value*1000)/1000;
-    label4.value = Math.round(label4.value*1000)/1000;
-    label5.value = Math.round(label5.value*1000)/1000;
-    label6.value = Math.round(label6.value*1000)/1000;
-    label7.value = Math.round(label7.value*1000)/1000;
-    label8.value = Math.round(label8.value*1000)/1000;
-    label9.value = Math.round(label9.value*1000)/1000;
+    label1.value = Math.round(label1.value*10000)/10000;
+    label2.value = Math.round(label2.value*10000)/10000;
+    label3.value = Math.round(label3.value*10000)/10000;
+    label4.value = Math.round(label4.value*10000)/10000;
+    label5.value = Math.round(label5.value*10000)/10000;
+    label6.value = Math.round(label6.value*10000)/10000;
+    label7.value = Math.round(label7.value*10000)/10000;
+    label8.value = Math.round(label8.value*10000)/10000;
+    label9.value = Math.round(label9.value*10000)/10000;
 
     angle1.value = Math.round(angle1.value*100)/100;
     angle2.value = Math.round(angle2.value*100)/100;
