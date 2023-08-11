@@ -1,0 +1,8 @@
+#triangle polygon{
+    fill: transparent;
+    stroke: black;
+    stroke-width: 1%;
+}
+table, th, td {
+    border:1px solid black;
+}
