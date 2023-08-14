@@ -6,6 +6,18 @@
   <title>Tetrahedron Calculator</title>
   <link rel="stylesheet" href="tetrahedron.css">
 </head>
+
+<script>
+    window.MathJax = {
+      tex: {
+        // inlineMath: [['$', '$'], ['\\(', '\\)']],
+        packages: {'[+]': ['mhchem']}
+      },
+      loader: {load: ['[tex]/mhchem']},
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <body>
   <div style="text-align: center;">
     <table style="display: inline-block;">
@@ -41,42 +53,42 @@
         <th colspan="6">Lengths</th>
       </tr>
       <tr>
-        <td colspan="2">r1:  <input id="label1" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">r2:  <input id="label2" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">r3:  <input id="label3" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_1\):  <input id="label1" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_2\):  <input id="label2" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_3\):  <input id="label3" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
-        <td colspan="2">r4: <input id="label4" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">r5: <input id="label5" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">r6: <input id="label6" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_4\): <input id="label4" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_5\): <input id="label5" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_6\): <input id="label6" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
-        <td colspan="2">r7:  <input id="label7" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">r8:  <input id="label8" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">r9:  <input id="label9" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_7\):  <input id="label7" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_8\):  <input id="label8" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(r_9\):  <input id="label9" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
         <th colspan="6">Angles</th>
       </tr>
       <tr>
-        <td colspan="2">θ1: <input id="angle1" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ2: <input id="angle2" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ3: <input id="angle3" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_1\): <input id="angle1" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_2\): <input id="angle2" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_3\): <input id="angle3" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
-        <td colspan="2">θ4:  <input id="angle4" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ5:  <input id="angle5" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ6:  <input id="angle6" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_4\):  <input id="angle4" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_5\):  <input id="angle5" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_6\):  <input id="angle6" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
-        <td colspan="2">θ7:  <input id="angle7" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ8:  <input id="angle8" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ9:  <input id="angle9" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_7\):  <input id="angle7" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_8\):  <input id="angle8" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_9\):  <input id="angle9" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
-        <td colspan="2">θ10: <input id="angle10" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ11: <input id="angle11" type="number" onfocusout="validate()"/></td>
-        <td colspan="2">θ12: <input id="angle12" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_{10}\): <input id="angle10" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_{11}\): <input id="angle11" type="number" onfocusout="validate()"/></td>
+        <td colspan="2">\(\theta_{12}\): <input id="angle12" type="number" onfocusout="validate()"/></td>
       </tr>
       <tr>
         <th colspan="6">Dihedrals</th>
