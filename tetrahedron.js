@@ -1226,7 +1226,7 @@ function refresh(){
     let lock = false
     if(label1.value != ""){pq1.innerHTML = label1.value; lock = true;}else{pq1.innerHTML = '<tspan dy="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">1</tspan>';}
     if(label2.value != ""){pq2.innerHTML = label2.value; lock = true;}else{pq2.innerHTML = '<tspan dy="-10" dx="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">2</tspan>';}
-    if(label3.value != ""){pq3.innerHTML = label3.value; lock = true;}else{pq3.innerHTML = '<tspan class = "len_label">r</tspan><tspan dy="5" class = "len_label1">3</tspan>';}
+    if(label3.value != ""){pq3.innerHTML = label3.value; lock = true;}else{pq3.innerHTML = '<tspan dy="-10" dx="10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">3</tspan>';}
     if(label4.value != ""){pq4.innerHTML = label4.value; lock = true;}else{pq4.innerHTML = '<tspan dy="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">4</tspan>';}
     if(label5.value != ""){pq5.innerHTML = label5.value; lock = true;}else{pq5.innerHTML = '<tspan dy="-10" dx="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">5</tspan>';}
     if(label6.value != ""){pq6.innerHTML = label6.value; lock = true;}else{pq6.innerHTML = '<tspan dy="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">6</tspan>';}
