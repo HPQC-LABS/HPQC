@@ -224,12 +224,38 @@
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr;
+/* Creating a 6-column grid with equal fractional widths */
+
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto;
     grid-gap: 10px;
     padding: 10px;
 
 }
+
+/* Targeting all items within the .band container */
+.band > div {
+
+/* Spanning each item across 2 grid columns */
+  grid-column: span 2;
+}
+
+/* Dealing with  3n + 2 case where n is the number of rows */
+
+.item-17:last-child:nth-child(3n - 1) {
+  grid-column-end: -2;
+}
+
+.item-16:nth-last-child(2):nth-child(3n + 1) {
+  grid-column-end: 4;
+}
+
+/* Dealing with 3n + 1th item where n is the number of rows */
+
+.item-46:last-child:nth-child(3n - 2) {
+  grid-column-end: 5;
+}
+
 
 /*formatting for each individual entry*/
 .card 
@@ -245,6 +271,7 @@
     top: 0;
     transition: all .1s ease-in;
 }
+
 
 /*Drop shadow and animation on hover*/
 .card:hover 
