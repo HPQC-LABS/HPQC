@@ -166,6 +166,7 @@ function setFlags(){
     if(dihedral5.value != ""){flags |= 0b000000000000000000000000010}
     if(dihedral6.value != ""){flags |= 0b000000000000000000000000001}
 }
+var fail = false;
 
 function lock1(){
     label1.disabled = true;
@@ -174,6 +175,27 @@ function lock1(){
     angle1.disabled = true;
     angle2.disabled = true;
     angle3.disabled = true;
+    let check_len = true
+    if(label1.value <=0 || label1.value == ""){check_len = false;}
+    if(label2.value <=0 || label2.value == ""){check_len = false;}
+    if(label3.value <=0 || label3.value == ""){check_len = false;}
+    if(!check_len){
+        alert("Lengths can't be negative")
+        erase();
+        fail = true
+        location.reload();
+    }
+
+    let check_angle = true
+    if(angle1.value <=0 || angle1.value >=180 || angle1.value == ""){check_angle= false;}
+    if(angle2.value <=0 || angle2.value >=180 || angle2.value == ""){check_angle= false;}
+    if(angle3.value <=0 || angle3.value >=180 || angle3.value == ""){check_angle= false;}
+    if(!check_angle){
+        alert("Angles not in range")
+        erase();
+        fail = true
+        location.reload();
+    }
 }
 
 function lock2(){
@@ -183,6 +205,27 @@ function lock2(){
     angle4.disabled = true;
     angle5.disabled = true;
     angle6.disabled = true;
+    let check_len = true
+    if(label3.value <=0 || label3.value == ""){check_len = false;}
+    if(label4.value <=0 || label4.value == ""){check_len = false;}
+    if(label5.value <=0 || label5.value == ""){check_len = false;}
+    if(!check_len){
+        alert("Lengths can't be negative")
+        erase();
+        fail = true
+        location.reload();
+    }
+
+    let check_angle = true
+    if(angle4.value <=0 || angle4.value >=180 || angle4.value == ""){check_angle= false;}
+    if(angle5.value <=0 || angle5.value >=180 || angle5.value == ""){check_angle= false;}
+    if(angle6.value <=0 || angle6.value >=180 || angle6.value == ""){check_angle= false;}
+    if(!check_angle){
+        alert("Angles not in range")
+        erase();
+        fail = true
+        location.reload();
+    }
 }
 
 function lock3(){
@@ -192,6 +235,27 @@ function lock3(){
     angle7.disabled = true;
     angle8.disabled = true;
     angle9.disabled = true;
+    let check_len = true
+    if(label2.value <=0 || label2.value == ""){check_len = false;}
+    if(label6.value <=0 || label6.value == ""){check_len = false;}
+    if(label7.value <=0 || label7.value == ""){check_len = false;}
+    if(!check_len){
+        alert("Lengths can't be negative")
+        erase();
+        fail = true
+        location.reload();
+    }
+
+    let check_angle = true
+    if(angle7.value <=0 || angle7.value >=180 || angle7.value == ""){check_angle= false;}
+    if(angle8.value <=0 || angle8.value >=180 || angle8.value == ""){check_angle= false;}
+    if(angle9.value <=0 || angle9.value >=180 || angle9.value == ""){check_angle= false;}
+    if(!check_angle){
+        alert("Angles not in range")
+        erase();
+        fail = true
+        location.reload();
+    }
 }
 
 function lock4(){
@@ -201,13 +265,35 @@ function lock4(){
     angle10.disabled = true;
     angle11.disabled = true;
     angle12.disabled = true;
+    let check_len = true
+    if(label1.value <=0 || label1.value == ""){check_len = false;}
+    if(label8.value <=0 || label8.value == ""){check_len = false;}
+    if(label9.value <=0 || label9.value == ""){check_len = false;}
+    if(!check_len){
+        alert("Lengths can't be negative")
+        erase();
+        fail = true
+        location.reload();
+    }
+
+    let check_angle = true
+    if(angle10.value <=0 || angle10.value >=180 || angle10.value == ""){check_angle= false;}
+    if(angle11.value <=0 || angle11.value >=180 || angle11.value == ""){check_angle= false;}
+    if(angle12.value <=0 || angle12.value >=180 || angle12.value == ""){check_angle= false;}
+    if(!check_angle){
+        alert("Angles not in range")
+        erase();
+        fail = true
+        location.reload();
+    }
 }
+
 
 function validate(){
     let changed = true;
     let count = 0;
     setFlags();
-    while(changed && count<100){
+    while(changed && count<27 && !fail){
         count += 1;
         update();
         //unlock();
@@ -942,7 +1028,7 @@ function validate(){
     if(angle11.value == ""){done = false;}
     if(angle12.value == ""){done = false;}
     if(done){
-        if(count == 100){
+        if(count == 27){
             alert("Some lengths, angles or dihedrals isNaN")
             location.reload();
         }else{
@@ -951,42 +1037,6 @@ function validate(){
     }else{
         unrender();
     }
-    
-    let check_len = true
-    if(label1.value <=0 && label1.value != ""){check_len = false;}
-    if(label2.value <=0 && label2.value != ""){check_len = false;}
-    if(label3.value <=0 && label3.value != ""){check_len = false;}
-    if(label4.value <=0 && label4.value != ""){check_len = false;}
-    if(label5.value <=0 && label5.value != ""){check_len = false;}
-    if(label6.value <=0 && label6.value != ""){check_len = false;}
-    if(label7.value <=0 && label7.value != ""){check_len = false;}
-    if(label8.value <=0 && label8.value != ""){check_len = false;}
-    if(label9.value <=0 && label9.value != ""){check_len = false;}
-    if(!check_len){
-        alert("Lengths can't be negative")
-        erase();
-        location.reload();
-    }
-    
-    let check_angle = true
-    if((angle1.value <=0 || angle1.value >=180) && angle1.value != ""){check_angle= false;}
-    if((angle2.value <=0 || angle2.value >=180) && angle2.value != ""){check_angle= false;}
-    if((angle3.value <=0 || angle3.value >=180) && angle3.value != ""){check_angle= false;}
-    if((angle4.value <=0 || angle4.value >=180) && angle4.value != ""){check_angle= false;}
-    if((angle5.value <=0 || angle5.value >=180) && angle5.value != ""){check_angle= false;}
-    if((angle6.value <=0 || angle6.value >=180) && angle6.value != ""){check_angle= false;}
-    if((angle7.value <=0 || angle7.value >=180) && angle7.value != ""){check_angle= false;}
-    if((angle8.value <=0 || angle8.value >=180) && angle8.value != ""){check_angle= false;}
-    if((angle9.value <=0 || angle9.value >=180) && angle9.value != ""){check_angle= false;}
-    if((angle10.value <=0 || angle10.value >=180) && angle10.value != ""){check_angle= false;}
-    if((angle11.value <=0 || angle11.value >=180) && angle11.value != ""){check_angle= false;}
-    if((angle12.value <=0 || angle12.value >=180) && angle12.value != ""){check_angle= false;}
-    if(!check_angle){
-        alert("Angles not in range")
-        erase();
-        location.reload();
-    }
-    
 }
 
 function inverse_dihedral(a, b, c){
@@ -1173,15 +1223,22 @@ handlers2[11][7] = () => {angle1.value = "60";angle2.value = "60";angle3.value =
 
 //Tests to see if all fields have been filled. If so then it will render the image else it will unrender.
 function refresh(){
-    if(label1.value != ""){pq1.textContent = label1.value;}else{pq1.textContent = "r1";}
-    if(label2.value != ""){pq2.textContent = label2.value;}else{pq2.textContent = "r2";}
-    if(label3.value != ""){pq3.textContent = label3.value;}else{pq3.textContent = "r3";}
-    if(label4.value != ""){pq4.textContent = label4.value;}else{pq4.textContent = "r4";}
-    if(label5.value != ""){pq5.textContent = label5.value;}else{pq5.textContent = "r5";}
-    if(label6.value != ""){pq6.textContent = label6.value;}else{pq6.textContent = "r6";}
-    if(label7.value != ""){pq7.textContent = label7.value;}else{pq7.textContent = "r7";}
-    if(label8.value != ""){pq8.textContent = label8.value;}else{pq8.textContent = "r8";}
-    if(label9.value != ""){pq9.textContent = label9.value;}else{pq9.textContent = "r9";}
+    let lock = false
+    if(label1.value != ""){pq1.innerHTML = label1.value; lock = true;}else{pq1.innerHTML = '<tspan dy="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">1</tspan>';}
+    if(label2.value != ""){pq2.innerHTML = label2.value; lock = true;}else{pq2.innerHTML = '<tspan dy="-10" dx="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">2</tspan>';}
+    if(label3.value != ""){pq3.innerHTML = label3.value; lock = true;}else{pq3.innerHTML = '<tspan dy="-10" dx="10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">3</tspan>';}
+    if(label4.value != ""){pq4.innerHTML = label4.value; lock = true;}else{pq4.innerHTML = '<tspan dy="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">4</tspan>';}
+    if(label5.value != ""){pq5.innerHTML = label5.value; lock = true;}else{pq5.innerHTML = '<tspan dy="-10" dx="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">5</tspan>';}
+    if(label6.value != ""){pq6.innerHTML = label6.value; lock = true;}else{pq6.innerHTML = '<tspan dy="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">6</tspan>';}
+    if(label7.value != ""){pq7.innerHTML = label7.value; lock = true;}else{pq7.innerHTML = '<tspan dy="-10" dx="10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">7</tspan>';}
+    if(label8.value != ""){pq8.innerHTML = label8.value; lock = true;}else{pq8.innerHTML = '<tspan dy="-10" dx="-10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">8</tspan>';}
+    if(label9.value != ""){pq9.innerHTML = label9.value; lock = true;}else{pq9.innerHTML = '<tspan dy="-10" dx="10" class = "len_label">r</tspan><tspan dy="5" class = "len_label1">9</tspan>';}
+    if (lock){
+        radios.forEach(x => x.disabled = true);
+    }else{
+        radios.forEach(x => x.disabled = false);        
+    }
+
 }
 
 //Resets the objects to the original states
@@ -1486,3 +1543,11 @@ function erase(){
     dihedral5.disabled = false;
     dihedral6.disabled = false;
 }
+
+window.MathJax = {
+    tex: {
+      // inlineMath: [['$', '$'], ['\\(', '\\)']],
+      packages: {'[+]': ['mhchem']}
+    },
+    loader: {load: ['[tex]/mhchem']},
+};
