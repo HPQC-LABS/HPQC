@@ -6,7 +6,7 @@ If anything doesn't seem easy, or seems to look different from what's described 
 1) https://www.img2go.com/crop-image (drag and drop your photo into the box)
 2) Make the cropping window have dimensions: Width=270, Height=285 (you might have to zoom out to see the boxes where you can type custom values).
 3) Drag the cropping window by a corner (rather than a side), to preserve the aspect ratio.
-4) Include the full face and full hair, but ***not much neck or body***. It's like a passport photo, but smiles are allowed! See examples here (good examples are the photos of Greg, Justin, Henri, etc.; notice that there's not much space between the chin and the bottom of the picture, not much space between the head hair and the top of the picture, etc.): https://hpqc.org/people.html
+4) Include the full face and full hair, but ***not much neck or body***. It's like a passport photo, but smiles are allowed! See examples here (good examples are the photos of Greg, Justin, Henri, etc.; notice that there's not much space between the chin and the bottom of the picture, not much space between the head hair and the top of the picture, etc.): https://hpqc.org/people.html. Please make your picture exactly likek Greg's, in terms of the space between the chin and the bottom of the photo!
 5) Click "Apply"
 6) Click "Save As"
 7) Set "Target Format" to "PNG"
